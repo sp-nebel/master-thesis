@@ -23,9 +23,10 @@ gradient_accumulation_steps=4
 lora_config="./config/lora_config.json"
 LR="5e-4"
 OUTDIR="./test_run_outputs"
+nproc_per_node=1 # number of GPUs used in training
 
 
-torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node 1 \
+torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node $nproc_per_node \
     --master_addr $MASTER_ADDR --master_port $MASTER_PORT  \
     ./scripts/run_clm_lora.py \
     --deepspeed ./config/deepspeed_config.json \
