@@ -15,8 +15,8 @@ HOST_NUM=1
 INDEX=0
 
 model_path="meta-llama/Meta-Llama-3-8B-Instruct"
-train_files="./data_example/massive_train_en.json"
-valid_files="./data_example/massive_validation_en.json"
+train_files="./data_example/train_baseline.json" # replace by actual training data
+valid_files="./data_example/train_baseline.json" # replace by actual validation data
 train_bsz=32
 eval_bsz=32
 gradient_accumulation_steps=4
