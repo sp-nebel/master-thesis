@@ -1,4 +1,4 @@
-# Code for [Middle-Layer Representation Alignment for Cross-Lingual Transfer in Fine-Tuned LLMs](addlink)
+# Code for [Middle-Layer Representation Alignment for Cross-Lingual Transfer in Fine-Tuned LLMs](https://arxiv.org/pdf/2502.14830)
 
 ## Requirements
 
