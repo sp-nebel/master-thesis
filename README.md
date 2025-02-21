@@ -218,4 +218,7 @@ The changed/additional parameters are:
 * `--num_train_epochs` is set to doubled to 10 due to alternate training
 
 ## Data
-We are uploading our training data soon.
+The main experiment data in `.jsonl` format can be downloaded [here](https://bwsyncandshare.kit.edu/s/EDo3k3mibyejq6H).
+
+## Inference
+Coming soon :)
