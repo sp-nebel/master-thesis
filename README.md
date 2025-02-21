@@ -221,4 +221,13 @@ The changed/additional parameters are:
 The main experiment data in `.jsonl` format can be downloaded [here](https://bwsyncandshare.kit.edu/s/EDo3k3mibyejq6H).
 
 ## Inference
+```shell
+basemodel="meta-llama/Meta-Llama-3-8B-Instruct"
+path2peftmodel="" # replace by path to finetuned model
+python -m scripts.run_inference_massive --model-name $basemodel --peft-model-id $path2peftmodel --partition "test" 
+```
+(inference scripts for more datasets coming soon)
+
+## Evaluation
 Coming soon :)
+
