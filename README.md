@@ -18,6 +18,8 @@ pip install flash-attn --no-build-isolation
 pip install datasets evalute peft
 # helper packages
 pip install skikit-learn hf_mtask_trainer 
+# for evaluation
+pip install seqeval levenshtein
 ```
 
 The packages in our environment are listed in `environment.yml`.
@@ -220,14 +222,21 @@ The changed/additional parameters are:
 ## Data
 The main experiment data in `.jsonl` format can be downloaded [here](https://bwsyncandshare.kit.edu/s/EDo3k3mibyejq6H).
 
-## Inference
+## Inference and Evaluation
 ```shell
 basemodel="meta-llama/Meta-Llama-3-8B-Instruct"
 path2peftmodel="" # replace by path to finetuned model
-python -m scripts.run_inference_massive --model-name $basemodel --peft-model-id $path2peftmodel --partition "test" 
+lang="en" # replace by other langauge codes (see massive_lang_map in scripts/utils.py)
+
+python -m scripts.run_inference_massive --model-name $basemodel \
+                                        --peft-model-id $path2peftmodel \
+                                        --lang $lang \ 
+                                        --partition "test"
+python -m scripts.eval_massive --pred-slots-file $path2output \
+                               --lang $lang \
+                               --partition "test"
 ```
+
 (inference scripts for more datasets coming soon)
 
-## Evaluation
-Coming soon :)
 
