@@ -42,6 +42,7 @@ pip install skikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 ```
+Note: If flash attention can't be installed, feel free to skip it and train wihtout it by removing [this line](https://github.com/dannigt/mid-align/blob/master/scripts/run_clm_lora.py#L643).
 
 For a complete list of packages in our environment, please see `environment.yml`.
 
