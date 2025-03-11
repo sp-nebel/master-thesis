@@ -8,13 +8,13 @@ export NCCL_NET_GDR_READ=1
 export MASTER_ADDR="${CHIEF_IP:=localhost}"
 export MASTER_PORT="${MASTER_PORT:=29501}"
 
-module load compiler/gnu/12
+module load compiler/gnu/13.3
 module load devel/cuda/12.0
 
 HOST_NUM=1
 INDEX=0
 
-model_path="meta-llama/Meta-Llama-3-8B-Instruct"
+model_path="meta-llama/Llama-3.2-3B-Instruct"
 train_files="./data_example/train_baseline.json" # replace by actual training data
 valid_files="./data_example/train_baseline.json" # replace by actual validation data
 train_bsz=32
