@@ -640,7 +640,6 @@ def main():
                 revision=model_args.model_revision,
                 use_auth_token=True if model_args.use_auth_token else None,
                 torch_dtype=torch_dtype,
-                attn_implementation="flash_attention_2",
             )
             # else:
             #     model = AutoModelForSeq2SeqLM.from_pretrained(
