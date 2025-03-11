@@ -10,8 +10,18 @@
 #SBATCH --output=../danni_job.out
 
 module load devel/miniconda
-module load devel/cuda/12.4
-module load jupyter/ai
 conda activate parrot_test_env
-python3 setup.py
+pip install -e .
+# pytorch
+pip install torch torchvision torchaudio
+# deepspeed
+pip install deepspeed
+# other huggingface packags
+pip install datasets evalute peft
+# helper packages
+pip install skikit-learn hf_mtask_trainer 
+# for evaluation
+pip install seqeval levenshtein
+
+source scripts/train_baseline.sh
 conda deactivate
