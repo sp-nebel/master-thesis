@@ -17,9 +17,9 @@ pip install torch torchvision torchaudio
 # deepspeed
 pip install deepspeed
 # other huggingface packags
-pip install datasets evalute peft
+pip install datasets evaluate peft
 # helper packages
-pip install skikit-learn hf_mtask_trainer 
+pip install scikit-learn hf_mtask_trainer 
 # for evaluation
 pip install seqeval levenshtein
 
