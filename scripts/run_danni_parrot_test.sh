@@ -9,10 +9,6 @@
 #SBATCH --job-name=danni_job
 #SBATCH --output=../danni_job.out
 
-module load devel/cuda
-module load devel/cudnn
-module load devel/miniconda
-conda activate parrot_test_env
 pip install -e .
 # pytorch
 pip install torch torchvision torchaudio
@@ -26,4 +22,3 @@ pip install scikit-learn hf_mtask_trainer
 pip install seqeval levenshtein
 
 source scripts/train_baseline.sh
-conda deactivate
