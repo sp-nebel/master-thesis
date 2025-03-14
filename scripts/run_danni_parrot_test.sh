@@ -9,9 +9,15 @@
 #SBATCH --job-name=danni_job
 #SBATCH --output=../danni_job.out
 
+
+module load compiler/gnu/13.3
+module load devel/cuda/12.0
+
+source .danni_env/bin/activate
+
 pip install -e .
 # pytorch
-pip install torch torchvision torchaudio
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu120
 # deepspeed
 pip install deepspeed
 # other huggingface packags
