@@ -12,6 +12,7 @@
 
 module load compiler/gnu/13.3
 module load devel/cuda/12.0
+module load devel/python/3.12.3_gnu_13.3
 
 source .danni_env/bin/activate
 
@@ -28,3 +29,5 @@ pip install scikit-learn hf_mtask_trainer
 pip install seqeval levenshtein
 
 source scripts/train_baseline.sh
+
+deactivate
