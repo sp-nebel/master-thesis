@@ -32,7 +32,7 @@ def main():
     dataset = load_dataset(DATASET, language, split=split)
     print(f'Number of examples: {len(dataset)}')
 
-    with jsonlines.open(f'{output_file}.jsonl', mode='w') as writer:
+    with jsonlines.open(f'{output_file}.json', mode='w') as writer:
         for example in dataset:
             json_dict = {
                 'text': LABEL.format(label=convert_label(example['label'])),
