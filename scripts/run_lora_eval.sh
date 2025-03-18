@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=danni_job
-#SBATCH --output=../danni_job.out
+#SBATCH --job-name=lora_eval_job
+#SBATCH --output=../lora_eval_job.out
 
 
 module load compiler/gnu/13.3
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline.sh
+source scripts/eval_lora.sh
 
 deactivate
