@@ -25,6 +25,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.danni_env
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -36,3 +37,7 @@ venv.bak/
 ######################
 .DS_Store
 Thumbs.db
+
+# Run artifacts
+./test_run_outputs
+./artifacts
