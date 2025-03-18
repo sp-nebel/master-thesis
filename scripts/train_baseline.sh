@@ -44,7 +44,7 @@ torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node $nproc_per_node 
     --per_device_train_batch_size $train_bsz \
     --per_device_eval_batch_size $eval_bsz \
     --gradient_accumulation_steps $gradient_accumulation_steps \
-    --num_train_epochs 5 \
+    --num_train_epochs 1 \
     --save_strategy "steps" \
     --save_steps 200 \
     --save_total_limit 1 \
