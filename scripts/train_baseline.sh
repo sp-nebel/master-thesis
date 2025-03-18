@@ -15,11 +15,11 @@ HOST_NUM=1
 INDEX=0
 
 model_path="meta-llama/Llama-3.2-3B-Instruct"
-train_files="./data_example/xnli_en_train.json" # replace by actual training data
-valid_files="./data_example/xnli_en_val.json" # replace by actual validation data
-train_bsz=32
-eval_bsz=32
-gradient_accumulation_steps=4
+train_files="./artifacts/xnli_en_train.json" # replace by actual training data
+valid_files="./artifacts/xnli_en_val.json" # replace by actual validation data
+train_bsz=64
+eval_bsz=64
+gradient_accumulation_steps=2
 lora_config="./config/lora_config.json"
 LR="5e-4"
 OUTDIR="./test_run_outputs"

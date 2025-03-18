@@ -16,17 +16,17 @@ module load devel/python/3.12.3_gnu_13.3
 
 source .danni_env/bin/activate
 
-pip install -e .
+#pip install -e .
 # pytorch
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu120
+#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu120
 # deepspeed
-pip install deepspeed
+#pip install deepspeed
 # other huggingface packags
-pip install datasets evaluate peft
+#pip install datasets evaluate peft
 # helper packages
-pip install scikit-learn hf_mtask_trainer 
+#pip install scikit-learn hf_mtask_trainer 
 # for evaluation
-pip install seqeval levenshtein
+#pip install seqeval levenshtein
 
 source scripts/eval_lora.sh
 
