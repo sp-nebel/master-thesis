@@ -1,0 +1,792 @@
+Obtaining file:///pfs/data5/home/kit/stud/usxcp/master-thesis
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: filelock in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (3.18.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (0.29.3)
+Requirement already satisfied: numpy>=1.17 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (2.2.3)
+Requirement already satisfied: packaging>=20.0 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (6.0.2)
+Requirement already satisfied: regex!=2019.12.17 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (2024.11.6)
+Requirement already satisfied: requests in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (2.32.3)
+Collecting tokenizers<0.20,>=0.19 (from transformers==4.44.0.dev0)
+  Using cached tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Requirement already satisfied: safetensors>=0.4.1 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (0.5.3)
+Requirement already satisfied: tqdm>=4.27 in ./.danni_env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (4.67.1)
+Requirement already satisfied: fsspec>=2023.5.0 in ./.danni_env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.44.0.dev0) (2024.12.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.danni_env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.44.0.dev0) (4.12.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (2025.1.31)
+Using cached tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+Building wheels for collected packages: transformers
+  Building editable for transformers (pyproject.toml): started
+  Building editable for transformers (pyproject.toml): finished with status 'done'
+  Created wheel for transformers: filename=transformers-4.44.0.dev0-0.editable-py3-none-any.whl size=4844 sha256=eb4a9fcb1ffe54792f7d2d4a8c03bd9f5b6d52940e5b3d82ac0870b7d8b2bf97
+  Stored in directory: /scratch/slurm_tmpdir/job_25405519/pip-ephem-wheel-cache-i5xuh15y/wheels/09/2f/c5/29c32dfaf34660d66a970ee8583048c8cb5680f60648a1be6f
+Successfully built transformers
+Installing collected packages: tokenizers, transformers
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.21.1
+    Uninstalling tokenizers-0.21.1:
+      Successfully uninstalled tokenizers-0.21.1
+  Attempting uninstall: transformers
+    Found existing installation: transformers 4.49.0
+    Uninstalling transformers-4.49.0:
+      Successfully uninstalled transformers-4.49.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+hf-mtask-trainer 0.0.5 requires transformers>=4.47.0, but you have transformers 4.44.0.dev0 which is incompatible.
+Successfully installed tokenizers-0.19.1 transformers-4.44.0.dev0
+
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+Looking in indexes: https://download.pytorch.org/whl/cu120
+Requirement already satisfied: torch in ./.danni_env/lib/python3.12/site-packages (2.6.0)
+ERROR: Could not find a version that satisfies the requirement torchvision (from versions: none)
+ERROR: No matching distribution found for torchvision
+
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: deepspeed in ./.danni_env/lib/python3.12/site-packages (0.16.4)
+Requirement already satisfied: einops in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (0.8.1)
+Requirement already satisfied: hjson in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (3.1.0)
+Requirement already satisfied: msgpack in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (1.1.0)
+Requirement already satisfied: ninja in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (1.11.1.3)
+Requirement already satisfied: numpy in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (2.2.3)
+Requirement already satisfied: packaging>=20.0 in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (24.2)
+Requirement already satisfied: psutil in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (7.0.0)
+Requirement already satisfied: py-cpuinfo in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (9.0.0)
+Requirement already satisfied: pydantic>=2.0.0 in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (2.10.6)
+Requirement already satisfied: torch in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (2.6.0)
+Requirement already satisfied: tqdm in ./.danni_env/lib/python3.12/site-packages (from deepspeed) (4.67.1)
+Requirement already satisfied: annotated-types>=0.6.0 in ./.danni_env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.7.0)
+Requirement already satisfied: pydantic-core==2.27.2 in ./.danni_env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (2.27.2)
+Requirement already satisfied: typing-extensions>=4.12.2 in ./.danni_env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (4.12.2)
+Requirement already satisfied: filelock in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (3.18.0)
+Requirement already satisfied: networkx in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (3.4.2)
+Requirement already satisfied: jinja2 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (3.1.6)
+Requirement already satisfied: fsspec in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (2024.12.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.3.1.170)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
+Requirement already satisfied: triton==3.2.0 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (3.2.0)
+Requirement already satisfied: setuptools in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (76.0.0)
+Requirement already satisfied: sympy==1.13.1 in ./.danni_env/lib/python3.12/site-packages (from torch->deepspeed) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.danni_env/lib/python3.12/site-packages (from sympy==1.13.1->torch->deepspeed) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.danni_env/lib/python3.12/site-packages (from jinja2->torch->deepspeed) (3.0.2)
+
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: datasets in ./.danni_env/lib/python3.12/site-packages (3.4.0)
+Requirement already satisfied: evaluate in ./.danni_env/lib/python3.12/site-packages (0.4.3)
+Requirement already satisfied: peft in ./.danni_env/lib/python3.12/site-packages (0.14.0)
+Requirement already satisfied: filelock in ./.danni_env/lib/python3.12/site-packages (from datasets) (3.18.0)
+Requirement already satisfied: numpy>=1.17 in ./.danni_env/lib/python3.12/site-packages (from datasets) (2.2.3)
+Requirement already satisfied: pyarrow>=15.0.0 in ./.danni_env/lib/python3.12/site-packages (from datasets) (19.0.1)
+Requirement already satisfied: dill<0.3.9,>=0.3.0 in ./.danni_env/lib/python3.12/site-packages (from datasets) (0.3.8)
+Requirement already satisfied: pandas in ./.danni_env/lib/python3.12/site-packages (from datasets) (2.2.3)
+Requirement already satisfied: requests>=2.32.2 in ./.danni_env/lib/python3.12/site-packages (from datasets) (2.32.3)
+Requirement already satisfied: tqdm>=4.66.3 in ./.danni_env/lib/python3.12/site-packages (from datasets) (4.67.1)
+Requirement already satisfied: xxhash in ./.danni_env/lib/python3.12/site-packages (from datasets) (3.5.0)
+Requirement already satisfied: multiprocess<0.70.17 in ./.danni_env/lib/python3.12/site-packages (from datasets) (0.70.16)
+Requirement already satisfied: fsspec<=2024.12.0,>=2023.1.0 in ./.danni_env/lib/python3.12/site-packages (from fsspec[http]<=2024.12.0,>=2023.1.0->datasets) (2024.12.0)
+Requirement already satisfied: aiohttp in ./.danni_env/lib/python3.12/site-packages (from datasets) (3.11.13)
+Requirement already satisfied: huggingface-hub>=0.24.0 in ./.danni_env/lib/python3.12/site-packages (from datasets) (0.29.3)
+Requirement already satisfied: packaging in ./.danni_env/lib/python3.12/site-packages (from datasets) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in ./.danni_env/lib/python3.12/site-packages (from datasets) (6.0.2)
+Requirement already satisfied: psutil in ./.danni_env/lib/python3.12/site-packages (from peft) (7.0.0)
+Requirement already satisfied: torch>=1.13.0 in ./.danni_env/lib/python3.12/site-packages (from peft) (2.6.0)
+Requirement already satisfied: transformers in ./.danni_env/lib/python3.12/site-packages (from peft) (4.44.0.dev0)
+Requirement already satisfied: accelerate>=0.21.0 in ./.danni_env/lib/python3.12/site-packages (from peft) (1.5.2)
+Requirement already satisfied: safetensors in ./.danni_env/lib/python3.12/site-packages (from peft) (0.5.3)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (2.6.1)
+Requirement already satisfied: aiosignal>=1.1.2 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (1.3.2)
+Requirement already satisfied: attrs>=17.3.0 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (25.3.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (1.5.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (6.1.0)
+Requirement already satisfied: propcache>=0.2.0 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (0.3.0)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.danni_env/lib/python3.12/site-packages (from aiohttp->datasets) (1.18.3)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.danni_env/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets) (4.12.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.danni_env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in ./.danni_env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.danni_env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./.danni_env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2025.1.31)
+Requirement already satisfied: networkx in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.4.2)
+Requirement already satisfied: jinja2 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.1.6)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.3.1.170)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
+Requirement already satisfied: triton==3.2.0 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.2.0)
+Requirement already satisfied: setuptools in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (76.0.0)
+Requirement already satisfied: sympy==1.13.1 in ./.danni_env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.danni_env/lib/python3.12/site-packages (from sympy==1.13.1->torch>=1.13.0->peft) (1.3.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./.danni_env/lib/python3.12/site-packages (from pandas->datasets) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./.danni_env/lib/python3.12/site-packages (from pandas->datasets) (2025.1)
+Requirement already satisfied: tzdata>=2022.7 in ./.danni_env/lib/python3.12/site-packages (from pandas->datasets) (2025.1)
+Requirement already satisfied: regex!=2019.12.17 in ./.danni_env/lib/python3.12/site-packages (from transformers->peft) (2024.11.6)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.danni_env/lib/python3.12/site-packages (from transformers->peft) (0.19.1)
+Requirement already satisfied: six>=1.5 in ./.danni_env/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.17.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.danni_env/lib/python3.12/site-packages (from jinja2->torch>=1.13.0->peft) (3.0.2)
+
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: scikit-learn in ./.danni_env/lib/python3.12/site-packages (1.6.1)
+Requirement already satisfied: hf_mtask_trainer in ./.danni_env/lib/python3.12/site-packages (0.0.5)
+Requirement already satisfied: numpy>=1.19.5 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn) (2.2.3)
+Requirement already satisfied: scipy>=1.6.0 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn) (1.15.2)
+Requirement already satisfied: joblib>=1.2.0 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn) (3.6.0)
+Requirement already satisfied: torch in ./.danni_env/lib/python3.12/site-packages (from hf_mtask_trainer) (2.6.0)
+Collecting transformers>=4.47.0 (from hf_mtask_trainer)
+  Using cached transformers-4.49.0-py3-none-any.whl.metadata (44 kB)
+Requirement already satisfied: accelerate in ./.danni_env/lib/python3.12/site-packages (from hf_mtask_trainer) (1.5.2)
+Requirement already satisfied: filelock in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (3.18.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.26.0 in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.29.3)
+Requirement already satisfied: packaging>=20.0 in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (6.0.2)
+Requirement already satisfied: regex!=2019.12.17 in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2024.11.6)
+Requirement already satisfied: requests in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2.32.3)
+Collecting tokenizers<0.22,>=0.21 (from transformers>=4.47.0->hf_mtask_trainer)
+  Using cached tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Requirement already satisfied: safetensors>=0.4.1 in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.5.3)
+Requirement already satisfied: tqdm>=4.27 in ./.danni_env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (4.67.1)
+Requirement already satisfied: psutil in ./.danni_env/lib/python3.12/site-packages (from accelerate->hf_mtask_trainer) (7.0.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (4.12.2)
+Requirement already satisfied: networkx in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.4.2)
+Requirement already satisfied: jinja2 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.1.6)
+Requirement already satisfied: fsspec in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2024.12.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.3.1.170)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
+Requirement already satisfied: triton==3.2.0 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.2.0)
+Requirement already satisfied: setuptools in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (76.0.0)
+Requirement already satisfied: sympy==1.13.1 in ./.danni_env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.danni_env/lib/python3.12/site-packages (from sympy==1.13.1->torch->hf_mtask_trainer) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.danni_env/lib/python3.12/site-packages (from jinja2->torch->hf_mtask_trainer) (3.0.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./.danni_env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2025.1.31)
+Using cached transformers-4.49.0-py3-none-any.whl (10.0 MB)
+Using cached tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+Installing collected packages: tokenizers, transformers
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.19.1
+    Uninstalling tokenizers-0.19.1:
+      Successfully uninstalled tokenizers-0.19.1
+  Attempting uninstall: transformers
+    Found existing installation: transformers 4.44.0.dev0
+    Uninstalling transformers-4.44.0.dev0:
+      Successfully uninstalled transformers-4.44.0.dev0
+Successfully installed tokenizers-0.21.1 transformers-4.49.0
+
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: seqeval in ./.danni_env/lib/python3.12/site-packages (1.2.2)
+Requirement already satisfied: levenshtein in ./.danni_env/lib/python3.12/site-packages (0.27.1)
+Requirement already satisfied: numpy>=1.14.0 in ./.danni_env/lib/python3.12/site-packages (from seqeval) (2.2.3)
+Requirement already satisfied: scikit-learn>=0.21.3 in ./.danni_env/lib/python3.12/site-packages (from seqeval) (1.6.1)
+Requirement already satisfied: rapidfuzz<4.0.0,>=3.9.0 in ./.danni_env/lib/python3.12/site-packages (from levenshtein) (3.12.2)
+Requirement already satisfied: scipy>=1.6.0 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.15.2)
+Requirement already satisfied: joblib>=1.2.0 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.4.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in ./.danni_env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (3.6.0)
+
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+
+The following have been reloaded with a version change:
+  1) compiler/gnu/13.3 => compiler/gnu/10.2
+
+[2025-03-21 06:48:55,194] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-21 06:49:09,581] [INFO] [comm.py:658:init_distributed] cdb=None
+[2025-03-21 06:49:09,582] [INFO] [comm.py:689:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+03/21/2025 06:49:09 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+03/21/2025 06:49:09 - INFO - __main__ - Training/evaluation parameters LoRATrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=True,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=2,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=3600,
+debug=[],
+deepspeed=./config/deepspeed_config.json,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=True,
+eval_steps=200,
+eval_strategy=IntervalStrategy.STEPS,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0005,
+length_column_name=length,
+load_best_model_at_end=True,
+load_lora_from=None,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./test_run_outputs/runs/Mar21_06-48-52_uc2n482.localdomain,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=IntervalStrategy.STEPS,
+lora_config=./config/lora_config.json,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.INVERSE_SQRT,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=eval_loss,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./test_run_outputs,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=64,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=./test_run_outputs,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=200,
+save_strategy=SaveStrategy.STEPS,
+save_total_limit=1,
+seed=1,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_int8_training=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_lora=True,
+use_mps_device=False,
+warmup_ratio=0.03,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Using custom data configuration default-6fab5b24f01a7569
+03/21/2025 06:49:10 - INFO - datasets.builder - Using custom data configuration default-6fab5b24f01a7569
+Loading Dataset Infos from /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/datasets/packaged_modules/json
+03/21/2025 06:49:10 - INFO - datasets.info - Loading Dataset Infos from /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+03/21/2025 06:49:10 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+03/21/2025 06:49:10 - INFO - datasets.info - Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+Found cached dataset json (/home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
+03/21/2025 06:49:11 - INFO - datasets.builder - Found cached dataset json (/home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
+Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+03/21/2025 06:49:11 - INFO - datasets.info - Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+[INFO|configuration_utils.py:699] 2025-03-21 06:49:14,047 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
+[INFO|configuration_utils.py:771] 2025-03-21 06:49:14,048 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Llama-3.2-3B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 3072,
+  "initializer_range": 0.02,
+  "intermediate_size": 8192,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 32.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.49.0",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2050] 2025-03-21 06:49:14,302 >> loading file tokenizer.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer.json
+[INFO|tokenization_utils_base.py:2050] 2025-03-21 06:49:14,302 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2050] 2025-03-21 06:49:14,302 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2050] 2025-03-21 06:49:14,302 >> loading file special_tokens_map.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2050] 2025-03-21 06:49:14,302 >> loading file tokenizer_config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2050] 2025-03-21 06:49:14,302 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2313] 2025-03-21 06:49:14,691 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+03/21/2025 06:49:14 - INFO - __main__ - Tokenizer is fast: True
+[INFO|modeling_utils.py:3982] 2025-03-21 06:49:14,718 >> loading weights file model.safetensors from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/model.safetensors.index.json
+[INFO|modeling_utils.py:1633] 2025-03-21 06:49:14,768 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1140] 2025-03-21 06:49:14,769 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ]
+}
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.60s/it]
+[INFO|modeling_utils.py:4970] 2025-03-21 06:49:26,856 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4978] 2025-03-21 06:49:26,856 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Llama-3.2-3B-Instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1095] 2025-03-21 06:49:27,011 >> loading configuration file generation_config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/generation_config.json
+[INFO|configuration_utils.py:1140] 2025-03-21 06:49:27,012 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "do_sample": true,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+adding special tokens...
+03/21/2025 06:49:27 - INFO - __main__ - ================ pad, eos, bos, unk, padding ================ 
+03/21/2025 06:49:27 - INFO - __main__ - <|eot_id|>, 128009
+03/21/2025 06:49:27 - INFO - __main__ - <|eot_id|>, 128009
+03/21/2025 06:49:27 - INFO - __main__ - <|begin_of_text|>, 128000
+03/21/2025 06:49:27 - INFO - __main__ - <|reserved_special_token_0|>, 128002
+03/21/2025 06:49:27 - INFO - __main__ - right
+03/21/2025 06:49:27 - INFO - __main__ - lora_r : 8
+03/21/2025 06:49:27 - INFO - __main__ - lora_alpha : 16
+03/21/2025 06:49:27 - INFO - __main__ - lora_dropout : 0.1
+03/21/2025 06:49:27 - INFO - __main__ - lora_target_modules : ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj']
+03/21/2025 06:49:27 - INFO - __main__ - LoRA configs: LoraConfig(task_type='CAUSAL_LM', peft_type=<PeftType.LORA: 'LORA'>, auto_mapping=None, base_model_name_or_path=None, revision=None, inference_mode=False, r=8, target_modules={'o_proj', 'down_proj', 'k_proj', 'gate_proj', 'q_proj', 'v_proj', 'up_proj'}, exclude_modules=None, lora_alpha=16, lora_dropout=0.1, fan_in_fan_out=False, bias='none', use_rslora=False, modules_to_save=None, init_lora_weights=True, layers_to_transform=None, layers_pattern=None, rank_pattern={}, alpha_pattern={}, megatron_config=None, megatron_core='megatron.core', loftq_config={}, eva_config=None, use_dora=False, layer_replication=None, runtime_config=LoraRuntimeConfig(ephemeral_gpu_offload=False), lora_bias=False)
+trainable params: 12,156,928 || all params: 3,224,906,752 || trainable%: 0.3770
+PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(128256, 3072)
+        (layers): ModuleList(
+          (0-27): 28 x LlamaDecoderLayer(
+            (self_attn): LlamaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=1024, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=1024, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+            )
+            (mlp): LlamaMLP(
+              (gate_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=8192, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=8192, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (up_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=8192, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=8192, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (down_proj): lora.Linear(
+                (base_layer): Linear(in_features=8192, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=8192, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (act_fn): SiLU()
+            )
+            (input_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
+            (post_attention_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
+          )
+        )
+        (norm): LlamaRMSNorm((3072,), eps=1e-05)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (lm_head): Linear(in_features=3072, out_features=128256, bias=False)
+    )
+  )
+)
+03/21/2025 06:49:27 - INFO - __main__ - block size: 2048
+Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-3b802881f34dd9be.arrow
+03/21/2025 06:49:32 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-3b802881f34dd9be.arrow
+Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-ea7c9619b38574a8.arrow
+03/21/2025 06:49:32 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-6fab5b24f01a7569/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-ea7c9619b38574a8.arrow
+03/21/2025 06:49:32 - INFO - __main__ - xxx: Showcase the tokenized training samples.
+{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
+{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
+{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
+/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/transformers/utils/import_utils.py:658: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
+  warnings.warn(
+/pfs/data5/home/kit/stud/usxcp/master-thesis/./scripts/run_clm_lora.py:1014: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+03/21/2025 06:49:33 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[INFO|trainer.py:746] 2025-03-21 06:49:33,382 >> Using auto half precision backend
+[WARNING|trainer.py:781] 2025-03-21 06:49:33,383 >> No label_names provided for model class `PeftModelForCausalLM`. Since `PeftModel` hides base models input arguments, if label_names is not given, label_names can't be set automatically within `Trainer`. Note that empty label_names list will be used instead.
+[2025-03-21 06:49:33,601] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.16.4, git-hash=unknown, git-branch=unknown
+[2025-03-21 06:49:33,601] [INFO] [config.py:734:__init__] Config mesh_device None world_size = 1
+uc2n482:586729:586729 [0] NCCL INFO Bootstrap : Using ib0:172.26.23.149<0>
+uc2n482:586729:586729 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+uc2n482:586729:586729 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+uc2n482:586729:586729 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+uc2n482:586729:586729 [0] NCCL INFO cudaDriverVersion 12040
+NCCL version 2.21.5+cuda12.4
+uc2n482:586729:586729 [0] NCCL INFO Comm config Blocking set to 1
+uc2n482:586729:586847 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/IB [RO]; OOB ib0:172.26.23.149<0>
+uc2n482:586729:586847 [0] NCCL INFO Using non-device net plugin version 0
+uc2n482:586729:586847 [0] NCCL INFO Using network IB
+uc2n482:586729:586847 [0] NCCL INFO ncclCommInitRank comm 0x55db7199d8d0 rank 0 nranks 1 cudaDev 0 nvmlDev 0 busId 3a000 commId 0x54ee4a186c36c0f - Init START
+uc2n482:586729:586847 [0] NCCL INFO Setting affinity for GPU 0 to 03ff00,000003ff
+uc2n482:586729:586847 [0] NCCL INFO comm 0x55db7199d8d0 rank 0 nRanks 1 nNodes 1 localRanks 1 localRank 0 MNNVL 0
+uc2n482:586729:586847 [0] NCCL INFO Channel 00/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 01/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 02/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 03/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 04/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 05/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 06/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 07/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 08/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 09/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 10/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 11/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 12/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 13/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 14/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 15/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 16/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 17/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 18/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 19/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 20/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 21/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 22/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 23/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 24/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 25/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 26/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 27/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 28/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 29/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 30/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Channel 31/32 :    0
+uc2n482:586729:586847 [0] NCCL INFO Trees [0] -1/-1/-1->0->-1 [1] -1/-1/-1->0->-1 [2] -1/-1/-1->0->-1 [3] -1/-1/-1->0->-1 [4] -1/-1/-1->0->-1 [5] -1/-1/-1->0->-1 [6] -1/-1/-1->0->-1 [7] -1/-1/-1->0->-1 [8] -1/-1/-1->0->-1 [9] -1/-1/-1->0->-1 [10] -1/-1/-1->0->-1 [11] -1/-1/-1->0->-1 [12] -1/-1/-1->0->-1 [13] -1/-1/-1->0->-1 [14] -1/-1/-1->0->-1 [15] -1/-1/-1->0->-1 [16] -1/-1/-1->0->-1 [17] -1/-1/-1->0->-1 [18] -1/-1/-1->0->-1 [19] -1/-1/-1->0->-1 [20] -1/-1/-1->0->-1 [21] -1/-1/-1->0->-1 [22] -1/-1/-1->0->-1 [23] -1/-1/-1->0->-1 [24] -1/-1/-1->0->-1 [25] -1/-1/-1->0->-1 [26] -1/-1/-1->0->-1 [27] -1/-1/-1->0->-1 [28] -1/-1/-1->0->-1 [29] -1/-1/-1->0->-1 [30] -1/-1/-1->0->-1 [31] -1/-1/-1->0->-1
+uc2n482:586729:586847 [0] NCCL INFO P2P Chunksize set to 131072
+uc2n482:586729:586847 [0] NCCL INFO Connected all rings
+uc2n482:586729:586847 [0] NCCL INFO Connected all trees
+uc2n482:586729:586847 [0] NCCL INFO 32 coll channels, 32 collnet channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
+uc2n482:586729:586847 [0] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+uc2n482:586729:586847 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+uc2n482:586729:586847 [0] NCCL INFO ncclCommInitRank comm 0x55db7199d8d0 rank 0 nranks 1 cudaDev 0 nvmlDev 0 busId 3a000 commId 0x54ee4a186c36c0f - Init COMPLETE
+[2025-03-21 06:49:34,392] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+Using /pfs/data5/home/kit/stud/usxcp/.cache/torch_extensions/py312_cu124 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /pfs/data5/home/kit/stud/usxcp/.cache/torch_extensions/py312_cu124/fused_adam/build.ninja...
+/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+[1/2] /opt/bwhpc/common/devel/cuda/12.0/bin/nvcc --generate-dependencies-with-compile --dependency-output multi_tensor_adam.cuda.o.d -DTORCH_EXTENSION_NAME=fused_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/ops/csrc/includes -I/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/ops/csrc/adam -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/include -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/include/TH -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/include/THC -isystem /opt/bwhpc/common/devel/cuda/12.0/include -isystem /opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/include/python3.12 -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_70,code=compute_70 -gencode=arch=compute_70,code=sm_70 --compiler-options '-fPIC' -O3 -DVERSION_GE_1_1 -DVERSION_GE_1_3 -DVERSION_GE_1_5 -lineinfo --use_fast_math -gencode=arch=compute_70,code=sm_70 -gencode=arch=compute_70,code=compute_70 -std=c++17 -c /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/ops/csrc/adam/multi_tensor_adam.cu -o multi_tensor_adam.cuda.o 
+[2/2] c++ fused_adam_frontend.o multi_tensor_adam.cuda.o -shared -L/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/opt/bwhpc/common/devel/cuda/12.0/lib64 -lcudart -o fused_adam.so
+Loading extension module fused_adam...
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/./scripts/run_clm_lora.py", line 1096, in <module>
+[rank0]:     main()
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/./scripts/run_clm_lora.py", line 1044, in main
+[rank0]:     train_result = trainer.train(resume_from_checkpoint=checkpoint)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/transformers/trainer.py", line 2241, in train
+[rank0]:     return inner_training_loop(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/transformers/trainer.py", line 2368, in _inner_training_loop
+[rank0]:     model, self.optimizer, self.lr_scheduler = self.accelerator.prepare(
+[rank0]:                                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 1392, in prepare
+[rank0]:     result = self._prepare_deepspeed(*args)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 1953, in _prepare_deepspeed
+[rank0]:     engine, optimizer, _, lr_scheduler = ds_initialize(**kwargs)
+[rank0]:                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/__init__.py", line 193, in initialize
+[rank0]:     engine = DeepSpeedEngine(args=args,
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 317, in __init__
+[rank0]:     self._configure_optimizer(optimizer, model_parameters)
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 1359, in _configure_optimizer
+[rank0]:     basic_optimizer = self._configure_basic_optimizer(model_parameters)
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 1436, in _configure_basic_optimizer
+[rank0]:     optimizer = FusedAdam(
+[rank0]:                 ^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/ops/adam/fused_adam.py", line 94, in __init__
+[rank0]:     fused_adam_cuda = FusedAdamBuilder().load()
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/ops/op_builder/builder.py", line 540, in load
+[rank0]:     return self.jit_load(verbose)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/deepspeed/ops/op_builder/builder.py", line 587, in jit_load
+[rank0]:     op_module = load(name=self.name,
+[rank0]:                 ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 1380, in load
+[rank0]:     return _jit_compile(
+[rank0]:            ^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 1823, in _jit_compile
+[rank0]:     return _import_module_from_library(name, build_directory, is_python_module)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2245, in _import_module_from_library
+[rank0]:     module = importlib.util.module_from_spec(spec)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[rank0]:   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[rank0]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[rank0]: ImportError: /pfs/data5/home/kit/stud/usxcp/.cache/torch_extensions/py312_cu124/fused_adam/fused_adam.so: undefined symbol: _ZNSt15__exception_ptr13exception_ptr9_M_addrefEv
+[rank0]:[W321 06:51:00.823653081 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+uc2n482:586729:586850 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+uc2n482:586729:586925 [0] NCCL INFO comm 0x55db7199d8d0 rank 0 nranks 1 cudaDev 0 busId 3a000 - Abort COMPLETE
+E0321 06:51:09.999000 586688 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 586729) of binary: /pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/bin/python3
+Traceback (most recent call last):
+  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.danni_env/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+./scripts/run_clm_lora.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-03-21_06:51:09
+  host      : uc2n482.localdomain
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 586729)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n482
+Job ID: 25405519
+Cluster: uc2
+User/Group: usxcp/stud
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 40
+CPU Utilized: 00:01:32
+CPU Efficiency: 0.58% of 04:23:20 core-walltime
+Job Wall-clock time: 00:06:35
+Memory Utilized: 2.36 GB
+Memory Efficiency: 7.39% of 32.00 GB

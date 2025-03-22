@@ -8,7 +8,7 @@ export NCCL_NET_GDR_READ=1
 export MASTER_ADDR="${CHIEF_IP:=localhost}"
 export MASTER_PORT="${MASTER_PORT:=29501}"
 
-module load compiler/gnu/13.3
+module load compiler/gnu/10.2
 module load devel/cuda/12.0
 
 HOST_NUM=1
