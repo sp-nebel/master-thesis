@@ -11,22 +11,20 @@
 
 
 module load compiler/gnu/13.3
-module load devel/cuda/12.0
-module load devel/python/3.12.3_gnu_13.3
+module load jupyter/ai/2024-11-29
+
+# Check environment variables
+echo "CUDA_HOME: $CUDA_HOME"
+echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+echo "PATH: $PATH"
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
 source .env/bin/activate
 
-pip install -e .
-# pytorch
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu120
-# deepspeed
-pip install deepspeed
-# other huggingface packags
-pip install datasets evaluate peft
-# helper packages
-pip install scikit-learn hf_mtask_trainer 
-# for evaluation
-pip install seqeval levenshtein
+# Run PyTorch check (before torchrun)
+echo "PyTorch check BEFORE torchrun:"
+python -c "import torch; print(f'PyTorch version: {torch.__version__}'); print(f'CUDA available: {torch.cuda.is_available()}'); if torch.cuda.is_available(): print(f'CUDA device count: {torch.cuda.device_count()}'); print(f'CUDA device name: {torch.cuda.get_device_name(0)}'); print(f'CUDA version: {torch.version.cuda}'); print(f'cuDNN version: {torch.backends.cudnn.version()}')"
+
 
 export NCCL_DEBUG=INFO
 #export NCCL_SOCKET_IFNAME=#eno2np1 #eth1
