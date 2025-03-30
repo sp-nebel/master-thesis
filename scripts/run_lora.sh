@@ -19,11 +19,28 @@ echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
 echo "PATH: $PATH"
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-source .env/bin/activate
+echo "PATH before activation: $PATH"
+source .env/bin/activate || { echo "Error activating virtual environment!"; exit 1; }
+echo "PATH after activation: $PATH"
+
+unset PYTHONPATH
+echo "PYTHONPATH: $PYTHONPATH"
+
+pip install -e .
+# pytorch
+pip install torch --index-url https://download.pytorch.org/whl/cu124
+# deepspeed
+pip install deepspeed
+# other huggingface packags
+pip install datasets evaluate peft
+# helper packages
+pip install scikit-learn hf_mtask_trainer 
+# for evaluation
+pip install seqeval levenshtein
 
 # Run PyTorch check (before torchrun)
 echo "PyTorch check BEFORE torchrun:"
-python pytorch_check.py
+python scripts/pytorch_check.py
 
 
 export NCCL_DEBUG=INFO
