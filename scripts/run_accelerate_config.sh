@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --partition=gpu_4
+#SBATCH --partition=dev_gpu_4
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=08:00:00
+#SBATCH --time=00:10:00
 #SBATCH --mem=4gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline_no_deepspeed.sh
+source scripts/accelerate_config.sh
 
 deactivate
