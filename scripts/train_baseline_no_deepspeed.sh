@@ -8,6 +8,8 @@ export NCCL_NET_GDR_READ=1
 export MASTER_ADDR="${CHIEF_IP:=localhost}"
 export MASTER_PORT="${MASTER_PORT:=29501}"
 
+export CUDA_VISIBLE_DEVICES=0
+
 module load compiler/gnu/13.3
 module load devel/cuda/12.0
 
@@ -26,10 +28,7 @@ OUTDIR="./test_run_outputs"
 nproc_per_node=1 # number of GPUs used in training
 
 
-torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node $nproc_per_node \
-    --master_addr $MASTER_ADDR --master_port $MASTER_PORT  \
-    ./scripts/run_clm_lora.py \
-    --deepspeed ./config/deepspeed_config.json \
+python ./scripts/run_clm_lora.py \
     --bf16 True \
     --bf16_full_eval True \
     --model_name_or_path ${model_path} \
@@ -66,4 +65,4 @@ torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node $nproc_per_node 
     --metric_for_best_model "eval_loss" \
     --patience 5 \
     --output_dir $OUTDIR \
-    --disable_tqdm True --overwrite_output_dir 2>&1  | tee -a $OUTDIR/train.log
+    --disable_tqdm True | tee -a $OUTDIR/train.log
