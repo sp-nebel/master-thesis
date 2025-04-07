@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --partition=dev_gpu_4
-#SBATCH --ntasks-per-node=30
+#SBATCH --ntasks-per-node=40
 #SBATCH --time=00:10:00
-#SBATCH --mem=8gb
+#SBATCH --mem=4gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
@@ -13,22 +13,11 @@
 module load compiler/gnu/13.3
 module load jupyter/ai/2024-11-29
 
-# Check environment variables
-echo "CUDA_HOME: $CUDA_HOME"
-echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
-echo "PATH: $PATH"
-echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
-
-echo "PATH before activation: $PATH"
-source .env/bin/activate || { echo "Error activating virtual environment!"; exit 1; }
-echo "PATH after activation: $PATH"
-
-unset PYTHONPATH
-echo "PYTHONPATH: $PYTHONPATH"
+source .env/bin/activate
 
 pip install -e .
 # pytorch
-pip install torch --index-url https://download.pytorch.org/whl/cu124
+pip install torch --index-url https://download.pytorch.org/whl/cu120
 # deepspeed
 pip install deepspeed
 # other huggingface packags

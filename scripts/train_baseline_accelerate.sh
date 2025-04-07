@@ -1,34 +1,35 @@
 #!/bin/bash
+
+# --- Environment Setup (Keep your existing setup) ---
 export NCCL_DEBUG=INFO
 #export NCCL_SOCKET_IFNAME=#eno2np1 #eth1
 export NCCL_IB_GID_INDEX=3
 export NCCL_IB_SL=3
 export NCCL_NET_GDR_READ=1
 
-export MASTER_ADDR="${CHIEF_IP:=localhost}"
-export MASTER_PORT="${MASTER_PORT:=29501}"
-
-module load compiler/gnu/10.2
+# --- Load Modules (Keep your existing setup) ---
+module load compiler/gnu/13.3
 module load devel/cuda/12.0
+# Make sure your Python environment with accelerate, deepspeed, etc. is active
+# source /path/to/your/.env/bin/activate
 
-HOST_NUM=1
-INDEX=0
-
+# --- Script Variables (Keep your existing variables) ---
 model_path="meta-llama/Llama-3.2-3B-Instruct"
 train_files="artifacts/xnli_en_train.json" # replace by actual training data
 valid_files="artifacts/xnli_en_val.json" # replace by actual validation data
-train_bsz=32
-eval_bsz=32
+train_bsz=32 # Note: This is PER DEVICE batch size with accelerate/deepspeed
+eval_bsz=32  # Note: This is PER DEVICE batch size
 gradient_accumulation_steps=1
 lora_config="./config/lora_config.json"
 LR="5e-4"
-OUTDIR="./test_run_outputs"
-nproc_per_node=1 # number of GPUs used in training
+OUTDIR="./test_run_outputs_accelerate_multi_gpu" # Changed output dir name example
+mkdir -p $OUTDIR # Create output dir
 
-
-torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node $nproc_per_node \
-    --master_addr $MASTER_ADDR --master_port $MASTER_PORT  \
+# --- Launch Command using accelerate launch ---
+# Removed torchrun and its specific arguments (--nnodes, --nproc_per_node, etc.)
+accelerate launch \
     ./scripts/run_clm_lora.py \
+    `# Arguments passed to run_clm_lora.py:` \
     --deepspeed ./config/deepspeed_config.json \
     --bf16 True \
     --bf16_full_eval True \
@@ -66,4 +67,9 @@ torchrun --nnodes $HOST_NUM --node_rank $INDEX --nproc_per_node $nproc_per_node 
     --metric_for_best_model "eval_loss" \
     --patience 5 \
     --output_dir $OUTDIR \
-    --disable_tqdm True --overwrite_output_dir 2>&1  | tee -a $OUTDIR/train.log
+    --disable_tqdm True \
+    --overwrite_output_dir \
+    2>&1 | tee -a $OUTDIR/train.log
+
+echo "Training finished. Log saved to $OUTDIR/train.log"
+# deactivate # Optional: Deactivate environment
