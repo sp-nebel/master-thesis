@@ -3,11 +3,11 @@
 #SBATCH --ntasks-per-node=40
 #SBATCH --time=00:10:00
 #SBATCH --mem=4gb
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:4
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=lora_job
-#SBATCH --output=../lora_job.out
+#SBATCH --job-name=accelerate_job
+#SBATCH --output=../accelerate_job.out
 
 
 module load compiler/gnu/13.3
@@ -18,7 +18,7 @@ source .env/bin/activate
 
 pip install -e .
 # pytorch
-pip install torch<2.3.0 --index-url https://download.pytorch.org/whl/cu120
+pip install torch --index-url https://download.pytorch.org/whl/cu120
 # deepspeed
 pip install deepspeed
 # other huggingface packags
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/accelerate_config.sh
+source scripts/train_baseline_accelerate.sh
 
 deactivate
