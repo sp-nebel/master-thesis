@@ -1,24 +1,25 @@
 #!/bin/bash
-#SBATCH --partition=dev_gpu_4
+#SBATCH --partition=gpu_h100 
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=00:10:00
-#SBATCH --mem=4gb
+#SBATCH --time=04:00:00
+#SBATCH --mem=64gb
 #SBATCH --gres=gpu:4
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=accelerate_job
-#SBATCH --output=../accelerate_job.out
+#SBATCH --output=./logs/dev_accelerate_job.out
 
 
-module load compiler/gnu/13.3
-module load devel/cuda/12.0
-module load devel/python/3.12.3_gnu_13.3
+module load compiler/gnu/14.2
+module load devel/cuda/12.8
+module load devel/python/3.12.3-gnu-14.2
+module load mpi/openmpi/5.0-gnu-14.2
 
 source .env/bin/activate
 
 pip install -e .
 # pytorch
-pip install torch --index-url https://download.pytorch.org/whl/cu120
+pip install torch --index-url https://download.pytorch.org/whl/cu128
 # deepspeed
 pip install deepspeed
 # other huggingface packags

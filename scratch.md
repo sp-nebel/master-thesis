@@ -1,0 +1,1 @@
+/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.

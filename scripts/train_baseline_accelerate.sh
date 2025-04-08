@@ -7,12 +7,6 @@ export NCCL_IB_GID_INDEX=3
 export NCCL_IB_SL=3
 export NCCL_NET_GDR_READ=1
 
-# --- Load Modules (Keep your existing setup) ---
-module load compiler/gnu/13.3
-module load devel/cuda/12.0
-# Make sure your Python environment with accelerate, deepspeed, etc. is active
-# source /path/to/your/.env/bin/activate
-
 # --- Script Variables (Keep your existing variables) ---
 model_path="meta-llama/Llama-3.2-3B-Instruct"
 train_files="artifacts/xnli_en_train.json" # replace by actual training data

@@ -1,1038 +1,0 @@
-Obtaining file:///pfs/data5/home/kit/stud/usxcp/master-thesis
-  Installing build dependencies: started
-  Installing build dependencies: finished with status 'done'
-  Checking if build backend supports build_editable: started
-  Checking if build backend supports build_editable: finished with status 'done'
-  Getting requirements to build editable: started
-  Getting requirements to build editable: finished with status 'done'
-  Preparing editable metadata (pyproject.toml): started
-  Preparing editable metadata (pyproject.toml): finished with status 'done'
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (3.18.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.30.1)
-Requirement already satisfied: numpy>=1.17 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2.2.4)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (6.0.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2024.11.6)
-Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2.32.3)
-Collecting tokenizers<0.20,>=0.19 (from transformers==4.47.0)
-  Using cached tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
-Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.5.3)
-Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (4.67.1)
-Requirement already satisfied: fsspec>=2023.5.0 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.47.0) (2024.12.0)
-Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.47.0) (4.13.1)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (2025.1.31)
-Using cached tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
-Building wheels for collected packages: transformers
-  Building editable for transformers (pyproject.toml): started
-  Building editable for transformers (pyproject.toml): finished with status 'done'
-  Created wheel for transformers: filename=transformers-4.47.0-0.editable-py3-none-any.whl size=4775 sha256=f0d2aa8fb2986f0c81d0f07cd0d7b89defdfcd7ea36f13e7fc5ba3777b65a3e9
-  Stored in directory: /scratch/slurm_tmpdir/job_25446067/pip-ephem-wheel-cache-soin08y0/wheels/09/2f/c5/29c32dfaf34660d66a970ee8583048c8cb5680f60648a1be6f
-Successfully built transformers
-Installing collected packages: tokenizers, transformers
-  Attempting uninstall: tokenizers
-    Found existing installation: tokenizers 0.21.1
-    Uninstalling tokenizers-0.21.1:
-      Successfully uninstalled tokenizers-0.21.1
-  Attempting uninstall: transformers
-    Found existing installation: transformers 4.51.0
-    Uninstalling transformers-4.51.0:
-      Successfully uninstalled transformers-4.51.0
-Successfully installed tokenizers-0.19.1 transformers-4.47.0
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Looking in indexes: https://download.pytorch.org/whl/cu120
-Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (2.6.0)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from torch) (3.18.0)
-Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch) (4.13.1)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch) (3.1.6)
-Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch) (2024.12.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch) (3.0.2)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: deepspeed in ./.env/lib/python3.12/site-packages (0.16.5)
-Requirement already satisfied: einops in ./.env/lib/python3.12/site-packages (from deepspeed) (0.8.1)
-Requirement already satisfied: hjson in ./.env/lib/python3.12/site-packages (from deepspeed) (3.1.0)
-Requirement already satisfied: msgpack in ./.env/lib/python3.12/site-packages (from deepspeed) (1.1.0)
-Requirement already satisfied: ninja in ./.env/lib/python3.12/site-packages (from deepspeed) (1.11.1.4)
-Requirement already satisfied: numpy in ./.env/lib/python3.12/site-packages (from deepspeed) (2.2.4)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (24.2)
-Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from deepspeed) (7.0.0)
-Requirement already satisfied: py-cpuinfo in ./.env/lib/python3.12/site-packages (from deepspeed) (9.0.0)
-Requirement already satisfied: pydantic>=2.0.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (2.11.2)
-Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (from deepspeed) (2.6.0)
-Requirement already satisfied: tqdm in ./.env/lib/python3.12/site-packages (from deepspeed) (4.67.1)
-Requirement already satisfied: annotated-types>=0.6.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.7.0)
-Requirement already satisfied: pydantic-core==2.33.1 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (2.33.1)
-Requirement already satisfied: typing-extensions>=4.12.2 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (4.13.1)
-Requirement already satisfied: typing-inspection>=0.4.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.4.0)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.18.0)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.1.6)
-Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (2024.12.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch->deepspeed) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch->deepspeed) (3.0.2)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: datasets in ./.env/lib/python3.12/site-packages (3.5.0)
-Requirement already satisfied: evaluate in ./.env/lib/python3.12/site-packages (0.4.3)
-Requirement already satisfied: peft in ./.env/lib/python3.12/site-packages (0.15.1)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from datasets) (3.18.0)
-Requirement already satisfied: numpy>=1.17 in ./.env/lib/python3.12/site-packages (from datasets) (2.2.4)
-Requirement already satisfied: pyarrow>=15.0.0 in ./.env/lib/python3.12/site-packages (from datasets) (19.0.1)
-Requirement already satisfied: dill<0.3.9,>=0.3.0 in ./.env/lib/python3.12/site-packages (from datasets) (0.3.8)
-Requirement already satisfied: pandas in ./.env/lib/python3.12/site-packages (from datasets) (2.2.3)
-Requirement already satisfied: requests>=2.32.2 in ./.env/lib/python3.12/site-packages (from datasets) (2.32.3)
-Requirement already satisfied: tqdm>=4.66.3 in ./.env/lib/python3.12/site-packages (from datasets) (4.67.1)
-Requirement already satisfied: xxhash in ./.env/lib/python3.12/site-packages (from datasets) (3.5.0)
-Requirement already satisfied: multiprocess<0.70.17 in ./.env/lib/python3.12/site-packages (from datasets) (0.70.16)
-Requirement already satisfied: fsspec<=2024.12.0,>=2023.1.0 in ./.env/lib/python3.12/site-packages (from fsspec[http]<=2024.12.0,>=2023.1.0->datasets) (2024.12.0)
-Requirement already satisfied: aiohttp in ./.env/lib/python3.12/site-packages (from datasets) (3.11.16)
-Requirement already satisfied: huggingface-hub>=0.24.0 in ./.env/lib/python3.12/site-packages (from datasets) (0.30.1)
-Requirement already satisfied: packaging in ./.env/lib/python3.12/site-packages (from datasets) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from datasets) (6.0.2)
-Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from peft) (7.0.0)
-Requirement already satisfied: torch>=1.13.0 in ./.env/lib/python3.12/site-packages (from peft) (2.6.0)
-Requirement already satisfied: transformers in ./.env/lib/python3.12/site-packages (from peft) (4.47.0)
-Requirement already satisfied: accelerate>=0.21.0 in ./.env/lib/python3.12/site-packages (from peft) (1.6.0)
-Requirement already satisfied: safetensors in ./.env/lib/python3.12/site-packages (from peft) (0.5.3)
-Requirement already satisfied: aiohappyeyeballs>=2.3.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (2.6.1)
-Requirement already satisfied: aiosignal>=1.1.2 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.3.2)
-Requirement already satisfied: attrs>=17.3.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (25.3.0)
-Requirement already satisfied: frozenlist>=1.1.1 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.5.0)
-Requirement already satisfied: multidict<7.0,>=4.5 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (6.3.2)
-Requirement already satisfied: propcache>=0.2.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (0.3.1)
-Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.19.0)
-Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets) (4.13.1)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2025.1.31)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.1.6)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch>=1.13.0->peft) (1.3.0)
-Requirement already satisfied: python-dateutil>=2.8.2 in ./.env/lib/python3.12/site-packages (from pandas->datasets) (2.9.0.post0)
-Requirement already satisfied: pytz>=2020.1 in ./.env/lib/python3.12/site-packages (from pandas->datasets) (2025.2)
-Requirement already satisfied: tzdata>=2022.7 in ./.env/lib/python3.12/site-packages (from pandas->datasets) (2025.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers->peft) (2024.11.6)
-Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers->peft) (0.19.1)
-Requirement already satisfied: six>=1.5 in ./.env/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.17.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch>=1.13.0->peft) (3.0.2)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: scikit-learn in ./.env/lib/python3.12/site-packages (1.6.1)
-Requirement already satisfied: hf_mtask_trainer in ./.env/lib/python3.12/site-packages (0.0.5)
-Requirement already satisfied: numpy>=1.19.5 in ./.env/lib/python3.12/site-packages (from scikit-learn) (2.2.4)
-Requirement already satisfied: scipy>=1.6.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (1.15.2)
-Requirement already satisfied: joblib>=1.2.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
-Requirement already satisfied: threadpoolctl>=3.1.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (3.6.0)
-Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (2.6.0)
-Requirement already satisfied: transformers>=4.47.0 in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (4.47.0)
-Requirement already satisfied: accelerate in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (1.6.0)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (3.18.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.30.1)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (6.0.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2024.11.6)
-Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2.32.3)
-Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.19.1)
-Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.5.3)
-Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (4.67.1)
-Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from accelerate->hf_mtask_trainer) (7.0.0)
-Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (4.13.1)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.1.6)
-Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2024.12.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch->hf_mtask_trainer) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch->hf_mtask_trainer) (3.0.2)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2025.1.31)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: seqeval in ./.env/lib/python3.12/site-packages (1.2.2)
-Requirement already satisfied: levenshtein in ./.env/lib/python3.12/site-packages (0.27.1)
-Requirement already satisfied: numpy>=1.14.0 in ./.env/lib/python3.12/site-packages (from seqeval) (2.2.4)
-Requirement already satisfied: scikit-learn>=0.21.3 in ./.env/lib/python3.12/site-packages (from seqeval) (1.6.1)
-Requirement already satisfied: rapidfuzz<4.0.0,>=3.9.0 in ./.env/lib/python3.12/site-packages (from levenshtein) (3.13.0)
-Requirement already satisfied: scipy>=1.6.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.15.2)
-Requirement already satisfied: joblib>=1.2.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.4.2)
-Requirement already satisfied: threadpoolctl>=3.1.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (3.6.0)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-[2025-04-06 23:33:32,522] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-WARNING: Skipping LS_COLORS=rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45: as it contains forbidden characters or missing values.
-WARNING: Skipping __LMOD_REF_COUNT_PATH=/opt/bwhpc/common/devel/cuda/12.0/bin:1;/opt/bwhpc/common/compiler/gnu/13.3.0/bin:1;/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/bin:1;/opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/lib/python3.12/site-packages/bin:1;/opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/bin:1;/opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/python_gnu_packages/bin:1;/software/all/bin:2;/pfs/data5/home/kit/stud/usxcp/.vscode-server/cli/servers/Stable-4437686ffebaf200fa4a6e6e67f735f3edf24ada/server/bin/remote-cli:1;/home/kit/stud/usxcp/.local/bin:1;/home/kit/stud/usxcp/bin:1;/usr/share/Modules/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/home/kit/stud/usxcp/.vscode-server/extensions/ms-python.debugpy-2025.4.1-linux-x64/bundled/scripts/noConfigScripts:1;/home/kit/stud/usxcp/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:1 as it contains forbidden characters or missing values.
-WARNING: Skipping SSH_CONNECTION=2a00:1398:300:100::1243 46998 2a00:1398:4:1805::810d:3814 22 as it contains forbidden characters or missing values.
-WARNING: Skipping MODULES_RUN_QUARANTINE=LD_LIBRARY_PATH LD_PRELOAD as it contains forbidden characters or missing values.
-WARNING: Skipping HISTTIMEFORMAT=%F %T  as it contains forbidden characters or missing values.
-WARNING: Skipping VSCODE_GIT_ASKPASS_EXTRA_ARGS= as it contains forbidden characters or missing values.
-WARNING: Skipping __LMOD_REF_COUNT_LD_LIBRARY_PATH=/opt/bwhpc/common/devel/cuda/12.0/lib64:1;/opt/bwhpc/common/compiler/gnu/13.3.0/lib64:1;/opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/lib64:1 as it contains forbidden characters or missing values.
-WARNING: Skipping which_declare=declare -f as it contains forbidden characters or missing values.
-WARNING: Skipping __LMOD_REF_COUNT_MODULEPATH=/software/bwhpc/common/modulefiles/Compiler/gnu/13.3:1;/opt/bwhpc/kit/modulefiles:1;/opt/bwhpc/common/modulefiles/Core:1 as it contains forbidden characters or missing values.
-WARNING: Skipping SSH_CLIENT=2a00:1398:300:100::1243 46998 22 as it contains forbidden characters or missing values.
-WARNING: Skipping __LMOD_REF_COUNT_MANPATH=/opt/bwhpc/common/devel/cuda/12.0/doc/man:1;/opt/bwhpc/common/compiler/gnu/13.3.0/share/man:1;/opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/share/man:1;/opt/lmod/lmod/share/man:1 as it contains forbidden characters or missing values.
-WARNING: Skipping VIRTUAL_ENV_PROMPT=(.env)  as it contains forbidden characters or missing values.
-WARNING: Skipping LMOD_PACKAGE_PATH=/etc/lmod/?.lua;; as it contains forbidden characters or missing values.
-WARNING: Skipping PS1=(.env)  as it contains forbidden characters or missing values.
-WARNING: Skipping LESSOPEN=||/usr/bin/lesspipe.sh %s as it contains forbidden characters or missing values.
-WARNING: Skipping BASH_FUNC_which%%=() {  ( alias;
- eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
-} as it contains forbidden characters or missing values.
-WARNING: Skipping BASH_FUNC_module%%=() {  eval $(/opt/bwhpc/common/admin/modules/module-wrapper/modulecmd bash $*)
-} as it contains forbidden characters or missing values.
-WARNING: Skipping BASH_FUNC__module_raw%%=() {  unset _mlshdbg;
- if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
- case "$-" in 
- *v*x*)
- set +vx;
- _mlshdbg='vx'
- ;;
- *v*)
- set +v;
- _mlshdbg='v'
- ;;
- *x*)
- set +x;
- _mlshdbg='x'
- ;;
- *)
- _mlshdbg=''
- ;;
- esac;
- fi;
- unset _mlre _mlIFS;
- if [ -n "${IFS+x}" ]; then
- _mlIFS=$IFS;
- fi;
- IFS=' ';
- for _mlv in ${MODULES_RUN_QUARANTINE:-};
- do
- if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
- if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
- _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
- fi;
- _mlrv="MODULES_RUNENV_${_mlv}";
- _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
- fi;
- done;
- if [ -n "${_mlre:-}" ]; then
- eval `eval ${_mlre} /usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash '"$@"'`;
- else
- eval `/usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash "$@"`;
- fi;
- _mlstatus=$?;
- if [ -n "${_mlIFS+x}" ]; then
- IFS=$_mlIFS;
- else
- unset IFS;
- fi;
- unset _mlre _mlv _mlrv _mlIFS;
- if [ -n "${_mlshdbg:-}" ]; then
- set -$_mlshdbg;
- fi;
- unset _mlshdbg;
- return $_mlstatus
-} as it contains forbidden characters or missing values.
-WARNING: Skipping BASH_FUNC_switchml%%=() {  typeset swfound=1;
- if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then
- typeset swname='main';
- if [ -e /usr/share/Modules/libexec/modulecmd.tcl ]; then
- typeset swfound=0;
- unset MODULES_USE_COMPAT_VERSION;
- fi;
- else
- typeset swname='compatibility';
- if [ -e /usr/share/Modules/libexec/modulecmd-compat ]; then
- typeset swfound=0;
- MODULES_USE_COMPAT_VERSION=1;
- export MODULES_USE_COMPAT_VERSION;
- fi;
- fi;
- if [ $swfound -eq 0 ]; then
- echo "Switching to Modules $swname version";
- source /usr/share/Modules/init/bash;
- else
- echo "Cannot switch to Modules $swname version, command not found";
- return 1;
- fi
-} as it contains forbidden characters or missing values.
-WARNING: Skipping BASH_FUNC_scl%%=() {  if [ "$1" = "load" -o "$1" = "unload" ]; then
- eval "module $@";
- else
- /usr/bin/scl "$@";
- fi
-} as it contains forbidden characters or missing values.
-WARNING: Skipping BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
-} as it contains forbidden characters or missing values.
-[2025-04-06 23:33:37,825] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2025-04-06 23:33:40,999] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
-Detected VISIBLE_DEVICES=0,1,2,3 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
-[2025-04-06 23:33:40,999] [INFO] [runner.py:605:main] cmd = /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29501 --no_local_rank --enable_each_rank_log=None ./scripts/run_clm_lora.py --deepspeed ./config/deepspeed_config.json --bf16 True --bf16_full_eval True --model_name_or_path meta-llama/Llama-3.2-3B-Instruct --train_file artifacts/xnli_en_train.json --validation_file artifacts/xnli_en_val.json --use_lora True --lora_config ./config/lora_config.json --torch_dtype bfloat16 --preprocessing_num_workers 16 --dataloader_num_workers 2 --dataloader_pin_memory True --per_device_train_batch_size 32 --per_device_eval_batch_size 32 --gradient_accumulation_steps 1 --num_train_epochs 1 --save_strategy steps --save_steps 200 --save_total_limit 1 --learning_rate 5e-4 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type inverse_sqrt --logging_steps 10 --block_size 2048 --do_train --eval_strategy steps --eval_steps 200 --eval_on_start --streaming --ddp_timeout 3600 --seed 1 --gradient_checkpointing True --load_best_model_at_end True --metric_for_best_model eval_loss --patience 5 --output_dir ./test_run_outputs_accelerate_multi_gpu --disable_tqdm True --overwrite_output_dir
-[2025-04-06 23:33:43,682] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2025-04-06 23:33:46,604] [INFO] [launch.py:139:main] 0 NCCL_IB_GID_INDEX=3
-[2025-04-06 23:33:46,604] [INFO] [launch.py:139:main] 0 NCCL_NET_GDR_READ=1
-[2025-04-06 23:33:46,604] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
-[2025-04-06 23:33:46,604] [INFO] [launch.py:139:main] 0 NCCL_IB_SL=3
-[2025-04-06 23:33:46,604] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
-[2025-04-06 23:33:46,604] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
-[2025-04-06 23:33:46,605] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
-[2025-04-06 23:33:46,605] [INFO] [launch.py:164:main] dist_world_size=1
-[2025-04-06 23:33:46,605] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
-[2025-04-06 23:33:46,605] [INFO] [launch.py:256:main] process 675058 spawned with command: ['/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/bin/python', '-u', './scripts/run_clm_lora.py', '--deepspeed', './config/deepspeed_config.json', '--bf16', 'True', '--bf16_full_eval', 'True', '--model_name_or_path', 'meta-llama/Llama-3.2-3B-Instruct', '--train_file', 'artifacts/xnli_en_train.json', '--validation_file', 'artifacts/xnli_en_val.json', '--use_lora', 'True', '--lora_config', './config/lora_config.json', '--torch_dtype', 'bfloat16', '--preprocessing_num_workers', '16', '--dataloader_num_workers', '2', '--dataloader_pin_memory', 'True', '--per_device_train_batch_size', '32', '--per_device_eval_batch_size', '32', '--gradient_accumulation_steps', '1', '--num_train_epochs', '1', '--save_strategy', 'steps', '--save_steps', '200', '--save_total_limit', '1', '--learning_rate', '5e-4', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'inverse_sqrt', '--logging_steps', '10', '--block_size', '2048', '--do_train', '--eval_strategy', 'steps', '--eval_steps', '200', '--eval_on_start', '--streaming', '--ddp_timeout', '3600', '--seed', '1', '--gradient_checkpointing', 'True', '--load_best_model_at_end', 'True', '--metric_for_best_model', 'eval_loss', '--patience', '5', '--output_dir', './test_run_outputs_accelerate_multi_gpu', '--disable_tqdm', 'True', '--overwrite_output_dir']
-[2025-04-06 23:33:56,723] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2025-04-06 23:33:58,614] [INFO] [comm.py:658:init_distributed] cdb=None
-[2025-04-06 23:33:58,614] [INFO] [comm.py:689:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
-04/06/2025 23:33:59 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
-04/06/2025 23:33:59 - INFO - __main__ - Training/evaluation parameters LoRATrainingArguments(
-_n_gpu=1,
-accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
-adafactor=False,
-adam_beta1=0.9,
-adam_beta2=0.999,
-adam_epsilon=1e-08,
-auto_find_batch_size=False,
-batch_eval_metrics=False,
-bf16=True,
-bf16_full_eval=True,
-data_seed=None,
-dataloader_drop_last=False,
-dataloader_num_workers=2,
-dataloader_persistent_workers=False,
-dataloader_pin_memory=True,
-dataloader_prefetch_factor=None,
-ddp_backend=None,
-ddp_broadcast_buffers=None,
-ddp_bucket_cap_mb=None,
-ddp_find_unused_parameters=None,
-ddp_timeout=3600,
-debug=[],
-deepspeed=./config/deepspeed_config.json,
-disable_tqdm=True,
-dispatch_batches=None,
-do_eval=True,
-do_predict=False,
-do_train=True,
-eval_accumulation_steps=None,
-eval_delay=0,
-eval_do_concat_batches=True,
-eval_on_start=True,
-eval_steps=200,
-eval_strategy=IntervalStrategy.STEPS,
-eval_use_gather_object=False,
-evaluation_strategy=None,
-fp16=False,
-fp16_backend=auto,
-fp16_full_eval=False,
-fp16_opt_level=O1,
-fsdp=[],
-fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
-fsdp_min_num_params=0,
-fsdp_transformer_layer_cls_to_wrap=None,
-full_determinism=False,
-gradient_accumulation_steps=1,
-gradient_checkpointing=True,
-gradient_checkpointing_kwargs=None,
-greater_is_better=False,
-group_by_length=False,
-half_precision_backend=auto,
-hub_always_push=False,
-hub_model_id=None,
-hub_private_repo=False,
-hub_strategy=HubStrategy.EVERY_SAVE,
-hub_token=<HUB_TOKEN>,
-ignore_data_skip=False,
-include_inputs_for_metrics=False,
-include_num_input_tokens_seen=False,
-include_tokens_per_second=False,
-jit_mode_eval=False,
-label_names=None,
-label_smoothing_factor=0.0,
-learning_rate=0.0005,
-length_column_name=length,
-load_best_model_at_end=True,
-load_lora_from=None,
-local_rank=0,
-log_level=passive,
-log_level_replica=warning,
-log_on_each_node=True,
-logging_dir=./test_run_outputs_accelerate_multi_gpu/runs/Apr06_23-33-56_uc2n520.localdomain,
-logging_first_step=False,
-logging_nan_inf_filter=True,
-logging_steps=10,
-logging_strategy=IntervalStrategy.STEPS,
-lora_config=./config/lora_config.json,
-lr_scheduler_kwargs={},
-lr_scheduler_type=SchedulerType.INVERSE_SQRT,
-max_grad_norm=1.0,
-max_steps=-1,
-metric_for_best_model=eval_loss,
-mp_parameters=,
-neftune_noise_alpha=None,
-no_cuda=False,
-num_train_epochs=1.0,
-optim=OptimizerNames.ADAMW_TORCH,
-optim_args=None,
-optim_target_modules=None,
-output_dir=./test_run_outputs_accelerate_multi_gpu,
-overwrite_output_dir=True,
-past_index=-1,
-per_device_eval_batch_size=32,
-per_device_train_batch_size=32,
-prediction_loss_only=False,
-push_to_hub=False,
-push_to_hub_model_id=None,
-push_to_hub_organization=None,
-push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
-ray_scope=last,
-remove_unused_columns=True,
-report_to=[],
-restore_callback_states_from_checkpoint=False,
-resume_from_checkpoint=None,
-run_name=./test_run_outputs_accelerate_multi_gpu,
-save_on_each_node=False,
-save_only_model=False,
-save_safetensors=True,
-save_steps=200,
-save_strategy=IntervalStrategy.STEPS,
-save_total_limit=1,
-seed=1,
-skip_memory_metrics=True,
-split_batches=None,
-tf32=None,
-torch_compile=False,
-torch_compile_backend=None,
-torch_compile_mode=None,
-torch_empty_cache_steps=None,
-torchdynamo=None,
-tpu_metrics_debug=False,
-tpu_num_cores=None,
-use_cpu=False,
-use_int8_training=False,
-use_ipex=False,
-use_legacy_prediction_loop=False,
-use_lora=True,
-use_mps_device=False,
-warmup_ratio=0.03,
-warmup_steps=0,
-weight_decay=0.0,
-)
-Using custom data configuration default-9b02921756584d5a
-04/06/2025 23:33:59 - INFO - datasets.builder - Using custom data configuration default-9b02921756584d5a
-Loading Dataset Infos from /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
-04/06/2025 23:33:59 - INFO - datasets.info - Loading Dataset Infos from /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
-Overwrite dataset info from restored data version if exists.
-04/06/2025 23:33:59 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
-Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-04/06/2025 23:33:59 - INFO - datasets.info - Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-Found cached dataset json (/home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
-04/06/2025 23:34:00 - INFO - datasets.builder - Found cached dataset json (/home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
-Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-04/06/2025 23:34:00 - INFO - datasets.info - Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-[INFO|configuration_utils.py:733] 2025-04-06 23:34:04,489 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:821] 2025-04-06 23:34:04,490 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Llama-3.2-3B-Instruct",
-  "additional_loss_layer": 16,
-  "alignment_matrices_path": null,
-  "apply_inverse": false,
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "contrastive_loss_temperature": 1.0,
-  "contrastive_loss_weight": 1.0,
-  "contrastive_pooling_type": "mean",
-  "distance_function": "cosine",
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 3072,
-  "initializer_range": 0.02,
-  "inject_Ws": false,
-  "intermediate_size": 8192,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 24,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 8,
-  "only_train_contrastive": false,
-  "only_train_language_modeling": false,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 32.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": true,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.44.0.dev0",
-  "unidirectional_contrastive_loss": false,
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2269] 2025-04-06 23:34:04,709 >> loading file tokenizer.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer.json
-[INFO|tokenization_utils_base.py:2269] 2025-04-06 23:34:04,709 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2269] 2025-04-06 23:34:04,709 >> loading file special_tokens_map.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2269] 2025-04-06 23:34:04,709 >> loading file tokenizer_config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2513] 2025-04-06 23:34:05,012 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-04/06/2025 23:34:05 - INFO - __main__ - Tokenizer is fast: True
-[INFO|modeling_utils.py:3667] 2025-04-06 23:34:05,061 >> loading weights file model.safetensors from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/model.safetensors.index.json
-[INFO|modeling_utils.py:1591] 2025-04-06 23:34:05,100 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
-[INFO|configuration_utils.py:1038] 2025-04-06 23:34:05,100 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ]
-}
-
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.83s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.59s/it]
-[INFO|modeling_utils.py:4499] 2025-04-06 23:34:16,553 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
-
-[INFO|modeling_utils.py:4507] 2025-04-06 23:34:16,553 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Llama-3.2-3B-Instruct.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
-[INFO|configuration_utils.py:993] 2025-04-06 23:34:16,694 >> loading configuration file generation_config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/generation_config.json
-[INFO|configuration_utils.py:1038] 2025-04-06 23:34:16,694 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "do_sample": true,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "temperature": 0.6,
-  "top_p": 0.9
-}
-
-adding special tokens...
-04/06/2025 23:34:16 - INFO - __main__ - ================ pad, eos, bos, unk, padding ================ 
-04/06/2025 23:34:16 - INFO - __main__ - <|eot_id|>, 128009
-04/06/2025 23:34:16 - INFO - __main__ - <|eot_id|>, 128009
-04/06/2025 23:34:16 - INFO - __main__ - <|begin_of_text|>, 128000
-04/06/2025 23:34:16 - INFO - __main__ - <|reserved_special_token_0|>, 128002
-04/06/2025 23:34:16 - INFO - __main__ - right
-04/06/2025 23:34:16 - INFO - __main__ - lora_r : 8
-04/06/2025 23:34:16 - INFO - __main__ - lora_alpha : 16
-04/06/2025 23:34:16 - INFO - __main__ - lora_dropout : 0.1
-04/06/2025 23:34:16 - INFO - __main__ - lora_target_modules : ['q_proj', 'v_proj']
-04/06/2025 23:34:16 - INFO - __main__ - LoRA configs: LoraConfig(task_type='CAUSAL_LM', peft_type=<PeftType.LORA: 'LORA'>, auto_mapping=None, base_model_name_or_path=None, revision=None, inference_mode=False, r=8, target_modules={'q_proj', 'v_proj'}, exclude_modules=None, lora_alpha=16, lora_dropout=0.1, fan_in_fan_out=False, bias='none', use_rslora=False, modules_to_save=None, init_lora_weights=True, layers_to_transform=None, layers_pattern=None, rank_pattern={}, alpha_pattern={}, megatron_config=None, megatron_core='megatron.core', trainable_token_indices=None, loftq_config={}, eva_config=None, corda_config=None, use_dora=False, layer_replication=None, runtime_config=LoraRuntimeConfig(ephemeral_gpu_offload=False), lora_bias=False)
-trainable params: 2,293,760 || all params: 3,215,043,584 || trainable%: 0.0713
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): LlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(128256, 3072)
-        (layers): ModuleList(
-          (0-27): 28 x LlamaDecoderLayer(
-            (self_attn): LlamaSdpaAttention(
-              (q_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=3072, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (k_proj): Linear(in_features=3072, out_features=1024, bias=False)
-              (v_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=1024, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (o_proj): Linear(in_features=3072, out_features=3072, bias=False)
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (up_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (down_proj): Linear(in_features=8192, out_features=3072, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-            (post_attention_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-          )
-        )
-        (norm): LlamaRMSNorm((3072,), eps=1e-05)
-        (rotary_emb): LlamaRotaryEmbedding()
-      )
-      (lm_head): Linear(in_features=3072, out_features=128256, bias=False)
-    )
-  )
-)
-04/06/2025 23:34:17 - INFO - __main__ - block size: 2048
-Map:   0%|          | 0/392702 [00:00<?, ? examples/s]Caching processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-db437702cef282fb.arrow
-04/06/2025 23:34:17 - INFO - datasets.arrow_dataset - Caching processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-db437702cef282fb.arrow
-Map:   0%|          | 1000/392702 [00:01<09:16, 703.53 examples/s]Map:   1%|          | 2000/392702 [00:02<06:39, 976.81 examples/s]Map:   1%|          | 3000/392702 [00:02<05:09, 1258.73 examples/s]Map:   1%|          | 4000/392702 [00:03<04:28, 1447.09 examples/s]Map:   1%|▏         | 5000/392702 [00:03<04:04, 1584.47 examples/s]Map:   2%|▏         | 6000/392702 [00:04<03:50, 1674.87 examples/s]Map:   2%|▏         | 7000/392702 [00:04<03:41, 1739.94 examples/s]Map:   2%|▏         | 8000/392702 [00:05<03:35, 1786.97 examples/s]Map:   2%|▏         | 9000/392702 [00:05<03:30, 1819.23 examples/s]Map:   3%|▎         | 10000/392702 [00:06<03:26, 1848.83 examples/s]Map:   3%|▎         | 11000/392702 [00:06<03:25, 1860.86 examples/s]Map:   3%|▎         | 12000/392702 [00:07<03:23, 1872.18 examples/s]Map:   3%|▎         | 13000/392702 [00:07<03:22, 1876.61 examples/s]Map:   4%|▎         | 14000/392702 [00:08<03:40, 1717.93 examples/s]Map:   4%|▍         | 15000/392702 [00:09<03:33, 1765.44 examples/s]Map:   4%|▍         | 16000/392702 [00:09<03:28, 1804.20 examples/s]Map:   4%|▍         | 17000/392702 [00:10<03:24, 1833.59 examples/s]Map:   5%|▍         | 18000/392702 [00:10<03:22, 1854.59 examples/s]Map:   5%|▍         | 19000/392702 [00:11<03:19, 1869.56 examples/s]Map:   5%|▌         | 20000/392702 [00:11<03:18, 1876.57 examples/s]Map:   5%|▌         | 21000/392702 [00:12<03:17, 1878.44 examples/s]Map:   6%|▌         | 22000/392702 [00:12<03:16, 1887.42 examples/s]Map:   6%|▌         | 23000/392702 [00:13<03:16, 1884.86 examples/s]Map:   6%|▌         | 24000/392702 [00:13<03:16, 1879.67 examples/s]Map:   6%|▋         | 25000/392702 [00:14<03:15, 1881.72 examples/s]Map:   7%|▋         | 26000/392702 [00:14<03:14, 1889.55 examples/s]Map:   7%|▋         | 27000/392702 [00:15<03:14, 1883.86 examples/s]Map:   7%|▋         | 28000/392702 [00:16<03:13, 1882.27 examples/s]Map:   7%|▋         | 29000/392702 [00:16<03:12, 1886.65 examples/s]Map:   8%|▊         | 30000/392702 [00:17<03:34, 1694.54 examples/s]Map:   8%|▊         | 31000/392702 [00:17<03:27, 1744.66 examples/s]Map:   8%|▊         | 32000/392702 [00:18<03:21, 1785.84 examples/s]Map:   8%|▊         | 33000/392702 [00:18<03:18, 1816.04 examples/s]Map:   9%|▊         | 34000/392702 [00:19<03:15, 1835.80 examples/s]Map:   9%|▉         | 35000/392702 [00:19<03:13, 1848.21 examples/s]Map:   9%|▉         | 36000/392702 [00:20<03:11, 1863.62 examples/s]Map:   9%|▉         | 37000/392702 [00:21<03:10, 1871.93 examples/s]Map:  10%|▉         | 38000/392702 [00:21<03:09, 1873.24 examples/s]Map:  10%|▉         | 39000/392702 [00:22<03:08, 1878.77 examples/s]Map:  10%|█         | 40000/392702 [00:22<03:07, 1885.49 examples/s]Map:  10%|█         | 41000/392702 [00:23<03:06, 1882.42 examples/s]Map:  11%|█         | 42000/392702 [00:23<03:06, 1880.34 examples/s]Map:  11%|█         | 43000/392702 [00:24<03:06, 1874.48 examples/s]Map:  11%|█         | 44000/392702 [00:24<03:05, 1878.96 examples/s]Map:  11%|█▏        | 45000/392702 [00:25<03:05, 1877.27 examples/s]Map:  12%|█▏        | 46000/392702 [00:25<03:23, 1705.48 examples/s]Map:  12%|█▏        | 47000/392702 [00:26<03:17, 1753.29 examples/s]Map:  12%|█▏        | 48000/392702 [00:27<03:12, 1793.57 examples/s]Map:  12%|█▏        | 49000/392702 [00:27<03:09, 1816.39 examples/s]Map:  13%|█▎        | 50000/392702 [00:28<03:06, 1838.24 examples/s]Map:  13%|█▎        | 51000/392702 [00:28<03:04, 1855.81 examples/s]Map:  13%|█▎        | 52000/392702 [00:29<03:02, 1866.47 examples/s]Map:  13%|█▎        | 53000/392702 [00:29<03:01, 1871.32 examples/s]Map:  14%|█▍        | 54000/392702 [00:30<03:00, 1876.03 examples/s]Map:  14%|█▍        | 55000/392702 [00:30<02:59, 1880.83 examples/s]Map:  14%|█▍        | 56000/392702 [00:31<02:58, 1882.20 examples/s]Map:  15%|█▍        | 57000/392702 [00:31<02:58, 1883.66 examples/s]Map:  15%|█▍        | 58000/392702 [00:32<02:57, 1883.67 examples/s]Map:  15%|█▌        | 59000/392702 [00:32<02:57, 1883.59 examples/s]Map:  15%|█▌        | 60000/392702 [00:33<02:56, 1888.36 examples/s]Map:  16%|█▌        | 61000/392702 [00:33<02:55, 1888.76 examples/s]Map:  16%|█▌        | 62000/392702 [00:34<03:12, 1718.73 examples/s]Map:  16%|█▌        | 63000/392702 [00:35<03:06, 1763.79 examples/s]Map:  16%|█▋        | 64000/392702 [00:35<03:03, 1794.72 examples/s]Map:  17%|█▋        | 65000/392702 [00:36<03:00, 1814.27 examples/s]Map:  17%|█▋        | 66000/392702 [00:36<02:58, 1832.47 examples/s]Map:  17%|█▋        | 67000/392702 [00:37<02:56, 1849.11 examples/s]Map:  17%|█▋        | 68000/392702 [00:37<02:54, 1860.98 examples/s]Map:  18%|█▊        | 69000/392702 [00:38<02:53, 1865.57 examples/s]Map:  18%|█▊        | 70000/392702 [00:38<02:52, 1875.69 examples/s]Map:  18%|█▊        | 71000/392702 [00:39<02:51, 1874.04 examples/s]Map:  18%|█▊        | 72000/392702 [00:39<02:50, 1880.08 examples/s]Map:  19%|█▊        | 73000/392702 [00:40<02:50, 1879.85 examples/s]Map:  19%|█▉        | 74000/392702 [00:41<02:49, 1884.92 examples/s]Map:  19%|█▉        | 75000/392702 [00:41<02:48, 1883.18 examples/s]Map:  19%|█▉        | 76000/392702 [00:42<02:48, 1881.59 examples/s]Map:  20%|█▉        | 77000/392702 [00:42<02:47, 1880.59 examples/s]Map:  20%|█▉        | 78000/392702 [00:43<03:05, 1692.77 examples/s]Map:  20%|██        | 79000/392702 [00:43<02:59, 1746.07 examples/s]Map:  20%|██        | 80000/392702 [00:44<02:54, 1791.01 examples/s]Map:  21%|██        | 81000/392702 [00:44<02:51, 1817.28 examples/s]Map:  21%|██        | 82000/392702 [00:45<02:49, 1835.33 examples/s]Map:  21%|██        | 83000/392702 [00:46<02:47, 1850.39 examples/s]Map:  21%|██▏       | 84000/392702 [00:46<02:45, 1864.46 examples/s]Map:  22%|██▏       | 85000/392702 [00:47<02:44, 1872.81 examples/s]Map:  22%|██▏       | 86000/392702 [00:47<02:43, 1881.33 examples/s]Map:  22%|██▏       | 87000/392702 [00:48<02:42, 1878.18 examples/s]Map:  22%|██▏       | 88000/392702 [00:48<02:42, 1878.89 examples/s]Map:  23%|██▎       | 89000/392702 [00:49<02:42, 1874.40 examples/s]Map:  23%|██▎       | 90000/392702 [00:49<02:40, 1880.56 examples/s]Map:  23%|██▎       | 91000/392702 [00:50<02:40, 1882.31 examples/s]Map:  23%|██▎       | 92000/392702 [00:50<02:39, 1888.36 examples/s]Map:  24%|██▎       | 93000/392702 [00:51<02:53, 1724.60 examples/s]Map:  24%|██▍       | 94000/392702 [00:51<02:48, 1768.35 examples/s]Map:  24%|██▍       | 95000/392702 [00:52<02:45, 1794.97 examples/s]Map:  24%|██▍       | 96000/392702 [00:53<02:42, 1822.44 examples/s]Map:  25%|██▍       | 97000/392702 [00:53<02:40, 1839.38 examples/s]Map:  25%|██▍       | 98000/392702 [00:54<02:38, 1858.07 examples/s]Map:  25%|██▌       | 99000/392702 [00:54<02:37, 1866.88 examples/s]Map:  25%|██▌       | 100000/392702 [00:55<02:36, 1869.74 examples/s]Map:  26%|██▌       | 101000/392702 [00:55<02:35, 1873.61 examples/s]Map:  26%|██▌       | 102000/392702 [00:56<02:34, 1881.18 examples/s]Map:  26%|██▌       | 103000/392702 [00:56<02:33, 1885.37 examples/s]Map:  26%|██▋       | 104000/392702 [00:57<02:33, 1882.57 examples/s]Map:  27%|██▋       | 105000/392702 [00:57<02:32, 1886.09 examples/s]Map:  27%|██▋       | 106000/392702 [00:58<02:31, 1888.35 examples/s]Map:  27%|██▋       | 107000/392702 [00:58<02:32, 1878.45 examples/s]Map:  28%|██▊       | 108000/392702 [00:59<02:31, 1884.02 examples/s]Map:  28%|██▊       | 109000/392702 [01:00<02:47, 1697.16 examples/s]Map:  28%|██▊       | 110000/392702 [01:00<02:41, 1753.56 examples/s]Map:  28%|██▊       | 111000/392702 [01:01<02:37, 1789.93 examples/s]Map:  29%|██▊       | 112000/392702 [01:01<02:34, 1819.29 examples/s]Map:  29%|██▉       | 113000/392702 [01:02<02:32, 1839.18 examples/s]Map:  29%|██▉       | 114000/392702 [01:02<02:30, 1850.30 examples/s]Map:  29%|██▉       | 115000/392702 [01:03<02:29, 1856.29 examples/s]Map:  30%|██▉       | 116000/392702 [01:03<02:28, 1866.26 examples/s]Map:  30%|██▉       | 117000/392702 [01:04<02:27, 1869.91 examples/s]Map:  30%|███       | 118000/392702 [01:04<02:27, 1868.48 examples/s]Map:  30%|███       | 119000/392702 [01:05<02:39, 1716.44 examples/s]Map:  31%|███       | 120000/392702 [01:06<02:35, 1752.61 examples/s]Map:  31%|███       | 121000/392702 [01:06<02:31, 1789.49 examples/s]Map:  31%|███       | 122000/392702 [01:07<02:29, 1811.15 examples/s]Map:  31%|███▏      | 123000/392702 [01:07<02:27, 1828.89 examples/s]Map:  32%|███▏      | 124000/392702 [01:08<03:10, 1413.99 examples/s]Map:  32%|███▏      | 125000/392702 [01:09<02:54, 1530.50 examples/s]Map:  32%|███▏      | 126000/392702 [01:09<02:44, 1623.33 examples/s]Map:  32%|███▏      | 127000/392702 [01:10<02:36, 1693.68 examples/s]Map:  33%|███▎      | 128000/392702 [01:10<02:31, 1748.20 examples/s]Map:  33%|███▎      | 129000/392702 [01:11<02:27, 1782.84 examples/s]Map:  33%|███▎      | 130000/392702 [01:12<02:25, 1809.36 examples/s]Map:  33%|███▎      | 131000/392702 [01:12<02:23, 1826.74 examples/s]Map:  34%|███▎      | 132000/392702 [01:13<02:20, 1849.34 examples/s]Map:  34%|███▍      | 133000/392702 [01:13<02:19, 1856.27 examples/s]Map:  34%|███▍      | 134000/392702 [01:14<02:18, 1863.39 examples/s]Map:  34%|███▍      | 135000/392702 [01:14<02:17, 1875.08 examples/s]Map:  35%|███▍      | 136000/392702 [01:15<02:20, 1831.11 examples/s]Map:  35%|███▍      | 137000/392702 [01:15<02:18, 1844.42 examples/s]Map:  35%|███▌      | 138000/392702 [01:16<02:18, 1836.75 examples/s]Map:  35%|███▌      | 139000/392702 [01:16<02:20, 1811.45 examples/s]Map:  36%|███▌      | 140000/392702 [01:17<02:35, 1621.40 examples/s]Map:  36%|███▌      | 141000/392702 [01:18<02:31, 1666.53 examples/s]Map:  36%|███▌      | 142000/392702 [01:18<02:27, 1702.77 examples/s]Map:  36%|███▋      | 143000/392702 [01:19<02:24, 1728.31 examples/s]Map:  37%|███▋      | 144000/392702 [01:19<02:22, 1740.39 examples/s]Map:  37%|███▋      | 145000/392702 [01:20<02:20, 1762.22 examples/s]Map:  37%|███▋      | 146000/392702 [01:21<02:18, 1784.54 examples/s]Map:  37%|███▋      | 147000/392702 [01:21<02:18, 1780.27 examples/s]Map:  38%|███▊      | 148000/392702 [01:22<02:18, 1770.75 examples/s]Map:  38%|███▊      | 149000/392702 [01:22<02:16, 1788.00 examples/s]Map:  38%|███▊      | 150000/392702 [01:23<02:14, 1804.83 examples/s]Map:  38%|███▊      | 151000/392702 [01:23<02:13, 1807.46 examples/s]Map:  39%|███▊      | 152000/392702 [01:24<02:14, 1792.98 examples/s]Map:  39%|███▉      | 153000/392702 [01:24<02:12, 1804.81 examples/s]Map:  39%|███▉      | 154000/392702 [01:25<02:11, 1808.93 examples/s]Map:  39%|███▉      | 155000/392702 [01:26<02:13, 1779.35 examples/s]Map:  40%|███▉      | 156000/392702 [01:26<02:23, 1648.15 examples/s]Map:  40%|███▉      | 157000/392702 [01:27<02:19, 1693.96 examples/s]Map:  40%|████      | 158000/392702 [01:27<02:15, 1731.64 examples/s]Map:  40%|████      | 159000/392702 [01:28<02:14, 1739.39 examples/s]Map:  41%|████      | 160000/392702 [01:28<02:11, 1766.55 examples/s]Map:  41%|████      | 161000/392702 [01:29<02:09, 1782.81 examples/s]Map:  41%|████▏     | 162000/392702 [01:30<02:08, 1792.52 examples/s]Map:  42%|████▏     | 163000/392702 [01:30<02:09, 1773.89 examples/s]Map:  42%|████▏     | 164000/392702 [01:31<02:09, 1759.68 examples/s]Map:  42%|████▏     | 165000/392702 [01:31<02:09, 1756.15 examples/s]Map:  42%|████▏     | 166000/392702 [01:32<02:08, 1766.20 examples/s]Map:  43%|████▎     | 167000/392702 [01:32<02:09, 1747.88 examples/s]Map:  43%|████▎     | 168000/392702 [01:33<02:08, 1749.73 examples/s]Map:  43%|████▎     | 169000/392702 [01:34<02:06, 1764.43 examples/s]Map:  43%|████▎     | 170000/392702 [01:34<02:06, 1755.65 examples/s]Map:  44%|████▎     | 171000/392702 [01:35<02:06, 1758.96 examples/s]Map:  44%|████▍     | 172000/392702 [01:35<02:17, 1607.05 examples/s]Map:  44%|████▍     | 173000/392702 [01:36<02:12, 1663.19 examples/s]Map:  44%|████▍     | 174000/392702 [01:37<02:11, 1668.72 examples/s]Map:  45%|████▍     | 175000/392702 [01:37<02:09, 1682.79 examples/s]Map:  45%|████▍     | 176000/392702 [01:38<02:07, 1694.98 examples/s]Map:  45%|████▌     | 177000/392702 [01:38<02:08, 1682.80 examples/s]Map:  45%|████▌     | 178000/392702 [01:39<02:04, 1718.49 examples/s]Map:  46%|████▌     | 179000/392702 [01:39<02:02, 1738.63 examples/s]Map:  46%|████▌     | 180000/392702 [01:40<02:00, 1768.08 examples/s]Map:  46%|████▌     | 181000/392702 [01:41<01:58, 1784.22 examples/s]Map:  46%|████▋     | 182000/392702 [01:41<01:58, 1779.85 examples/s]Map:  47%|████▋     | 183000/392702 [01:42<02:02, 1717.92 examples/s]Map:  47%|████▋     | 184000/392702 [01:42<01:59, 1749.10 examples/s]Map:  47%|████▋     | 185000/392702 [01:43<01:57, 1763.30 examples/s]Map:  47%|████▋     | 186000/392702 [01:43<01:55, 1787.50 examples/s]Map:  48%|████▊     | 187000/392702 [01:44<02:07, 1618.39 examples/s]Map:  48%|████▊     | 188000/392702 [01:45<02:01, 1679.33 examples/s]Map:  48%|████▊     | 189000/392702 [01:45<02:01, 1682.24 examples/s]Map:  48%|████▊     | 190000/392702 [01:46<01:58, 1712.13 examples/s]Map:  49%|████▊     | 191000/392702 [01:46<01:54, 1762.79 examples/s]Map:  49%|████▉     | 192000/392702 [01:47<01:53, 1775.00 examples/s]Map:  49%|████▉     | 193000/392702 [01:47<01:51, 1786.14 examples/s]Map:  49%|████▉     | 194000/392702 [01:48<01:50, 1799.73 examples/s]Map:  50%|████▉     | 195000/392702 [01:49<01:49, 1810.37 examples/s]Map:  50%|████▉     | 196000/392702 [01:49<01:48, 1814.15 examples/s]Map:  50%|█████     | 197000/392702 [01:50<01:46, 1832.50 examples/s]Map:  50%|█████     | 198000/392702 [01:50<01:46, 1820.73 examples/s]Map:  51%|█████     | 199000/392702 [01:51<01:45, 1836.32 examples/s]Map:  51%|█████     | 200000/392702 [01:51<01:44, 1848.78 examples/s]Map:  51%|█████     | 201000/392702 [01:52<01:43, 1844.92 examples/s]Map:  51%|█████▏    | 202000/392702 [01:52<01:43, 1844.52 examples/s]Map:  52%|█████▏    | 203000/392702 [01:53<01:51, 1699.77 examples/s]Map:  52%|█████▏    | 204000/392702 [01:54<01:48, 1733.55 examples/s]Map:  52%|█████▏    | 205000/392702 [01:54<01:45, 1773.83 examples/s]Map:  52%|█████▏    | 206000/392702 [01:55<01:43, 1805.82 examples/s]Map:  53%|█████▎    | 207000/392702 [01:55<01:42, 1815.82 examples/s]Map:  53%|█████▎    | 208000/392702 [01:56<01:40, 1837.60 examples/s]Map:  53%|█████▎    | 209000/392702 [01:56<01:39, 1849.16 examples/s]Map:  53%|█████▎    | 210000/392702 [01:57<01:39, 1843.97 examples/s]Map:  54%|█████▎    | 211000/392702 [01:57<01:38, 1839.21 examples/s]Map:  54%|█████▍    | 212000/392702 [01:58<01:38, 1832.45 examples/s]Map:  54%|█████▍    | 213000/392702 [01:58<01:38, 1830.22 examples/s]Map:  54%|█████▍    | 214000/392702 [01:59<01:37, 1827.38 examples/s]Map:  55%|█████▍    | 215000/392702 [02:00<01:39, 1790.01 examples/s]Map:  55%|█████▌    | 216000/392702 [02:00<01:38, 1796.44 examples/s]Map:  55%|█████▌    | 217000/392702 [02:01<01:37, 1805.93 examples/s]Map:  56%|█████▌    | 218000/392702 [02:01<01:45, 1654.09 examples/s]Map:  56%|█████▌    | 219000/392702 [02:02<01:42, 1694.56 examples/s]Map:  56%|█████▌    | 220000/392702 [02:03<01:40, 1714.67 examples/s]Map:  56%|█████▋    | 221000/392702 [02:03<01:38, 1743.01 examples/s]Map:  57%|█████▋    | 222000/392702 [02:04<01:36, 1763.08 examples/s]Map:  57%|█████▋    | 223000/392702 [02:04<01:35, 1776.92 examples/s]Map:  57%|█████▋    | 224000/392702 [02:05<01:34, 1779.94 examples/s]Map:  57%|█████▋    | 225000/392702 [02:05<01:33, 1789.52 examples/s]Map:  58%|█████▊    | 226000/392702 [02:06<01:32, 1802.28 examples/s]Map:  58%|█████▊    | 227000/392702 [02:06<01:32, 1797.88 examples/s]Map:  58%|█████▊    | 228000/392702 [02:07<01:31, 1805.41 examples/s]Map:  58%|█████▊    | 229000/392702 [02:08<01:30, 1814.69 examples/s]Map:  59%|█████▊    | 230000/392702 [02:08<01:31, 1775.58 examples/s]Map:  59%|█████▉    | 231000/392702 [02:09<01:31, 1766.48 examples/s]Map:  59%|█████▉    | 232000/392702 [02:09<01:33, 1726.74 examples/s]Map:  59%|█████▉    | 233000/392702 [02:10<01:30, 1765.46 examples/s]Map:  60%|█████▉    | 234000/392702 [02:11<01:38, 1610.40 examples/s]Map:  60%|█████▉    | 235000/392702 [02:11<01:35, 1646.53 examples/s]Map:  60%|██████    | 236000/392702 [02:12<01:31, 1713.88 examples/s]Map:  60%|██████    | 237000/392702 [02:12<01:29, 1745.08 examples/s]Map:  61%|██████    | 238000/392702 [02:13<01:29, 1736.77 examples/s]Map:  61%|██████    | 239000/392702 [02:13<01:28, 1735.77 examples/s]Map:  61%|██████    | 240000/392702 [02:14<01:26, 1771.61 examples/s]Map:  61%|██████▏   | 241000/392702 [02:14<01:24, 1800.66 examples/s]Map:  62%|██████▏   | 242000/392702 [02:15<01:22, 1818.70 examples/s]Map:  62%|██████▏   | 243000/392702 [02:16<01:23, 1786.27 examples/s]Map:  62%|██████▏   | 244000/392702 [02:16<01:22, 1802.88 examples/s]Map:  62%|██████▏   | 245000/392702 [02:17<01:21, 1805.62 examples/s]Map:  63%|██████▎   | 246000/392702 [02:17<01:21, 1804.20 examples/s]Map:  63%|██████▎   | 247000/392702 [02:18<01:20, 1803.65 examples/s]Map:  63%|██████▎   | 248000/392702 [02:18<01:19, 1825.10 examples/s]Map:  63%|██████▎   | 249000/392702 [02:19<01:21, 1770.71 examples/s]Map:  64%|██████▎   | 250000/392702 [02:20<01:27, 1627.11 examples/s]Map:  64%|██████▍   | 251000/392702 [02:20<01:23, 1692.06 examples/s]Map:  64%|██████▍   | 252000/392702 [02:21<01:21, 1726.82 examples/s]Map:  64%|██████▍   | 253000/392702 [02:21<01:19, 1750.87 examples/s]Map:  65%|██████▍   | 254000/392702 [02:22<01:17, 1785.33 examples/s]Map:  65%|██████▍   | 255000/392702 [02:22<01:16, 1810.10 examples/s]Map:  65%|██████▌   | 256000/392702 [02:23<01:16, 1794.10 examples/s]Map:  65%|██████▌   | 257000/392702 [02:23<01:15, 1806.22 examples/s]Map:  66%|██████▌   | 258000/392702 [02:24<01:13, 1829.66 examples/s]Map:  66%|██████▌   | 259000/392702 [02:25<01:13, 1812.82 examples/s]Map:  66%|██████▌   | 260000/392702 [02:25<01:13, 1804.33 examples/s]Map:  66%|██████▋   | 261000/392702 [02:26<01:12, 1808.52 examples/s]Map:  67%|██████▋   | 262000/392702 [02:26<01:12, 1807.92 examples/s]Map:  67%|██████▋   | 263000/392702 [02:27<01:11, 1813.44 examples/s]Map:  67%|██████▋   | 264000/392702 [02:27<01:10, 1813.01 examples/s]Map:  67%|██████▋   | 265000/392702 [02:28<01:10, 1804.47 examples/s]Map:  68%|██████▊   | 266000/392702 [02:29<01:16, 1658.38 examples/s]Map:  68%|██████▊   | 267000/392702 [02:29<01:14, 1698.53 examples/s]Map:  68%|██████▊   | 268000/392702 [02:30<01:11, 1734.34 examples/s]Map:  68%|██████▊   | 269000/392702 [02:30<01:10, 1765.24 examples/s]Map:  69%|██████▉   | 270000/392702 [02:31<01:09, 1765.31 examples/s]Map:  69%|██████▉   | 271000/392702 [02:31<01:08, 1782.13 examples/s]Map:  69%|██████▉   | 272000/392702 [02:32<01:07, 1799.37 examples/s]Map:  70%|██████▉   | 273000/392702 [02:32<01:06, 1802.03 examples/s]Map:  70%|██████▉   | 274000/392702 [02:33<01:05, 1812.68 examples/s]Map:  70%|███████   | 275000/392702 [02:34<01:05, 1785.62 examples/s]Map:  70%|███████   | 276000/392702 [02:34<01:06, 1757.06 examples/s]Map:  71%|███████   | 277000/392702 [02:35<01:05, 1771.06 examples/s]Map:  71%|███████   | 278000/392702 [02:35<01:04, 1783.59 examples/s]Map:  71%|███████   | 279000/392702 [02:36<01:03, 1791.25 examples/s]Map:  71%|███████▏  | 280000/392702 [02:36<01:02, 1804.09 examples/s]Map:  72%|███████▏  | 281000/392702 [02:37<01:07, 1650.64 examples/s]Map:  72%|███████▏  | 282000/392702 [02:38<01:05, 1698.74 examples/s]Map:  72%|███████▏  | 283000/392702 [02:38<01:03, 1729.15 examples/s]Map:  72%|███████▏  | 284000/392702 [02:39<01:03, 1719.04 examples/s]Map:  73%|███████▎  | 285000/392702 [02:39<01:01, 1743.86 examples/s]Map:  73%|███████▎  | 286000/392702 [02:40<01:00, 1767.12 examples/s]Map:  73%|███████▎  | 287000/392702 [02:40<00:59, 1786.74 examples/s]Map:  73%|███████▎  | 288000/392702 [02:41<00:58, 1796.65 examples/s]Map:  74%|███████▎  | 289000/392702 [02:42<00:58, 1780.14 examples/s]Map:  74%|███████▍  | 290000/392702 [02:42<00:58, 1766.56 examples/s]Map:  74%|███████▍  | 291000/392702 [02:43<00:56, 1789.30 examples/s]Map:  74%|███████▍  | 292000/392702 [02:43<00:56, 1795.98 examples/s]Map:  75%|███████▍  | 293000/392702 [02:44<00:55, 1802.37 examples/s]Map:  75%|███████▍  | 294000/392702 [02:44<00:54, 1812.99 examples/s]Map:  75%|███████▌  | 295000/392702 [02:45<00:54, 1802.51 examples/s]Map:  75%|███████▌  | 296000/392702 [02:45<00:53, 1807.11 examples/s]Map:  76%|███████▌  | 297000/392702 [02:46<00:58, 1645.48 examples/s]Map:  76%|███████▌  | 298000/392702 [02:47<00:55, 1694.84 examples/s]Map:  76%|███████▌  | 299000/392702 [02:47<00:54, 1727.83 examples/s]Map:  76%|███████▋  | 300000/392702 [02:48<00:52, 1758.65 examples/s]Map:  77%|███████▋  | 301000/392702 [02:48<00:51, 1765.44 examples/s]Map:  77%|███████▋  | 302000/392702 [02:49<00:51, 1770.55 examples/s]Map:  77%|███████▋  | 303000/392702 [02:50<00:50, 1781.39 examples/s]Map:  77%|███████▋  | 304000/392702 [02:50<00:50, 1753.82 examples/s]Map:  78%|███████▊  | 305000/392702 [02:51<00:49, 1766.36 examples/s]Map:  78%|███████▊  | 306000/392702 [02:51<00:48, 1782.02 examples/s]Map:  78%|███████▊  | 307000/392702 [02:52<00:48, 1760.01 examples/s]Map:  78%|███████▊  | 308000/392702 [02:52<00:47, 1778.41 examples/s]Map:  79%|███████▊  | 309000/392702 [02:53<00:47, 1762.32 examples/s]Map:  79%|███████▉  | 310000/392702 [02:54<00:47, 1759.03 examples/s]Map:  79%|███████▉  | 311000/392702 [02:54<00:47, 1714.59 examples/s]Map:  79%|███████▉  | 312000/392702 [02:55<00:50, 1606.96 examples/s]Map:  80%|███████▉  | 313000/392702 [02:55<00:47, 1671.03 examples/s]Map:  80%|███████▉  | 314000/392702 [02:56<00:46, 1691.91 examples/s]Map:  80%|████████  | 315000/392702 [02:57<00:46, 1683.28 examples/s]Map:  80%|████████  | 316000/392702 [02:57<00:44, 1727.71 examples/s]Map:  81%|████████  | 317000/392702 [02:58<00:43, 1750.95 examples/s]Map:  81%|████████  | 318000/392702 [02:58<00:42, 1757.45 examples/s]Map:  81%|████████  | 319000/392702 [02:59<00:41, 1760.98 examples/s]Map:  81%|████████▏ | 320000/392702 [02:59<00:41, 1747.19 examples/s]Map:  82%|████████▏ | 321000/392702 [03:00<00:41, 1729.99 examples/s]Map:  82%|████████▏ | 322000/392702 [03:01<00:40, 1734.23 examples/s]Map:  82%|████████▏ | 323000/392702 [03:01<00:39, 1756.47 examples/s]Map:  83%|████████▎ | 324000/392702 [03:02<00:39, 1731.52 examples/s]Map:  83%|████████▎ | 325000/392702 [03:02<00:40, 1682.95 examples/s]Map:  83%|████████▎ | 326000/392702 [03:03<00:39, 1689.80 examples/s]Map:  83%|████████▎ | 327000/392702 [03:03<00:39, 1684.15 examples/s]Map:  84%|████████▎ | 328000/392702 [03:04<00:41, 1571.41 examples/s]Map:  84%|████████▍ | 329000/392702 [03:05<00:39, 1595.76 examples/s]Map:  84%|████████▍ | 330000/392702 [03:05<00:38, 1635.39 examples/s]Map:  84%|████████▍ | 331000/392702 [03:06<00:37, 1642.29 examples/s]Map:  85%|████████▍ | 332000/392702 [03:07<00:35, 1706.87 examples/s]Map:  85%|████████▍ | 333000/392702 [03:07<00:35, 1697.71 examples/s]Map:  85%|████████▌ | 334000/392702 [03:08<00:34, 1687.04 examples/s]Map:  85%|████████▌ | 335000/392702 [03:08<00:34, 1667.72 examples/s]Map:  86%|████████▌ | 336000/392702 [03:09<00:33, 1694.68 examples/s]Map:  86%|████████▌ | 337000/392702 [03:10<00:33, 1684.43 examples/s]Map:  86%|████████▌ | 338000/392702 [03:10<00:32, 1701.35 examples/s]Map:  86%|████████▋ | 339000/392702 [03:11<00:31, 1693.35 examples/s]Map:  87%|████████▋ | 340000/392702 [03:11<00:31, 1688.54 examples/s]Map:  87%|████████▋ | 341000/392702 [03:12<00:30, 1706.80 examples/s]Map:  87%|████████▋ | 342000/392702 [03:12<00:29, 1742.65 examples/s]Map:  87%|████████▋ | 343000/392702 [03:13<00:28, 1763.40 examples/s]Map:  88%|████████▊ | 344000/392702 [03:14<00:29, 1639.70 examples/s]Map:  88%|████████▊ | 345000/392702 [03:14<00:28, 1681.47 examples/s]Map:  88%|████████▊ | 346000/392702 [03:15<00:27, 1724.74 examples/s]Map:  88%|████████▊ | 347000/392702 [03:15<00:26, 1744.22 examples/s]Map:  89%|████████▊ | 348000/392702 [03:16<00:25, 1767.87 examples/s]Map:  89%|████████▉ | 349000/392702 [03:16<00:24, 1757.00 examples/s]Map:  89%|████████▉ | 350000/392702 [03:17<00:24, 1774.41 examples/s]Map:  89%|████████▉ | 351000/392702 [03:18<00:23, 1786.33 examples/s]Map:  90%|████████▉ | 352000/392702 [03:18<00:22, 1799.77 examples/s]Map:  90%|████████▉ | 353000/392702 [03:19<00:22, 1779.99 examples/s]Map:  90%|█████████ | 354000/392702 [03:19<00:21, 1793.00 examples/s]Map:  90%|█████████ | 355000/392702 [03:20<00:20, 1796.41 examples/s]Map:  91%|█████████ | 356000/392702 [03:20<00:20, 1800.60 examples/s]Map:  91%|█████████ | 357000/392702 [03:21<00:19, 1797.22 examples/s]Map:  91%|█████████ | 358000/392702 [03:21<00:19, 1811.82 examples/s]Map:  91%|█████████▏| 359000/392702 [03:22<00:18, 1812.82 examples/s]Map:  92%|█████████▏| 360000/392702 [03:23<00:19, 1671.48 examples/s]Map:  92%|█████████▏| 361000/392702 [03:23<00:18, 1709.64 examples/s]Map:  92%|█████████▏| 362000/392702 [03:24<00:17, 1719.31 examples/s]Map:  92%|█████████▏| 363000/392702 [03:24<00:17, 1742.57 examples/s]Map:  93%|█████████▎| 364000/392702 [03:25<00:16, 1770.51 examples/s]Map:  93%|█████████▎| 365000/392702 [03:25<00:15, 1777.77 examples/s]Map:  93%|█████████▎| 366000/392702 [03:26<00:14, 1785.20 examples/s]Map:  93%|█████████▎| 367000/392702 [03:27<00:15, 1712.95 examples/s]Map:  94%|█████████▎| 368000/392702 [03:27<00:14, 1727.80 examples/s]Map:  94%|█████████▍| 369000/392702 [03:28<00:13, 1755.12 examples/s]Map:  94%|█████████▍| 370000/392702 [03:28<00:12, 1775.64 examples/s]Map:  94%|█████████▍| 371000/392702 [03:29<00:12, 1787.59 examples/s]Map:  95%|█████████▍| 372000/392702 [03:29<00:11, 1775.99 examples/s]Map:  95%|█████████▍| 373000/392702 [03:30<00:11, 1789.96 examples/s]Map:  95%|█████████▌| 374000/392702 [03:31<00:10, 1800.69 examples/s]Map:  95%|█████████▌| 375000/392702 [03:31<00:10, 1623.86 examples/s]Map:  96%|█████████▌| 376000/392702 [03:32<00:09, 1676.54 examples/s]Map:  96%|█████████▌| 377000/392702 [03:32<00:09, 1717.53 examples/s]Map:  96%|█████████▋| 378000/392702 [03:33<00:08, 1703.93 examples/s]Map:  97%|█████████▋| 379000/392702 [03:34<00:07, 1740.91 examples/s]Map:  97%|█████████▋| 380000/392702 [03:34<00:07, 1757.15 examples/s]Map:  97%|█████████▋| 381000/392702 [03:35<00:06, 1776.93 examples/s]Map:  97%|█████████▋| 382000/392702 [03:35<00:05, 1807.54 examples/s]Map:  98%|█████████▊| 383000/392702 [03:36<00:05, 1831.40 examples/s]Map:  98%|█████████▊| 384000/392702 [03:36<00:04, 1839.75 examples/s]Map:  98%|█████████▊| 385000/392702 [03:37<00:04, 1851.70 examples/s]Map:  98%|█████████▊| 386000/392702 [03:37<00:03, 1858.44 examples/s]Map:  99%|█████████▊| 387000/392702 [03:38<00:03, 1863.83 examples/s]Map:  99%|█████████▉| 388000/392702 [03:38<00:02, 1872.20 examples/s]Map:  99%|█████████▉| 389000/392702 [03:39<00:01, 1867.86 examples/s]Map:  99%|█████████▉| 390000/392702 [03:39<00:01, 1871.88 examples/s]Map: 100%|█████████▉| 391000/392702 [03:40<00:01, 1698.85 examples/s]Map: 100%|█████████▉| 392000/392702 [03:41<00:00, 1751.07 examples/s]Map: 100%|██████████| 392702/392702 [03:41<00:00, 1752.08 examples/s]Map: 100%|██████████| 392702/392702 [03:41<00:00, 1771.45 examples/s]
-Map:   0%|          | 0/2490 [00:00<?, ? examples/s]Caching processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-2ca3ff0543bbb37c.arrow
-04/06/2025 23:37:59 - INFO - datasets.arrow_dataset - Caching processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-2ca3ff0543bbb37c.arrow
-Map:  40%|████      | 1000/2490 [00:00<00:00, 1583.91 examples/s]Map:  80%|████████  | 2000/2490 [00:01<00:00, 1511.84 examples/s]Map: 100%|██████████| 2490/2490 [00:01<00:00, 1619.77 examples/s]Map: 100%|██████████| 2490/2490 [00:01<00:00, 1584.96 examples/s]
-04/06/2025 23:38:00 - INFO - __main__ - xxx: Showcase the tokenized training samples.
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
-  warnings.warn(
-04/06/2025 23:38:01 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-[INFO|trainer.py:658] 2025-04-06 23:38:01,482 >> Using auto half precision backend
-[2025-04-06 23:38:01,698] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed info: version=0.16.5, git-hash=unknown, git-branch=unknown
-[2025-04-06 23:38:01,698] [INFO] [config.py:734:__init__] Config mesh_device None world_size = 1
-uc2n520:675058:675058 [0] NCCL INFO Bootstrap : Using ib0:172.26.23.213<0>
-uc2n520:675058:675058 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
-uc2n520:675058:675058 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
-uc2n520:675058:675058 [0] NCCL INFO NET/Plugin: Using internal network plugin.
-uc2n520:675058:675058 [0] NCCL INFO cudaDriverVersion 12040
-NCCL version 2.21.5+cuda12.4
-uc2n520:675058:675058 [0] NCCL INFO Comm config Blocking set to 1
-uc2n520:675058:675262 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/IB [RO]; OOB ib0:172.26.23.213<0>
-uc2n520:675058:675262 [0] NCCL INFO Using non-device net plugin version 0
-uc2n520:675058:675262 [0] NCCL INFO Using network IB
-uc2n520:675058:675262 [0] NCCL INFO ncclCommInitRank comm 0x55cfd75d9b80 rank 0 nranks 1 cudaDev 0 nvmlDev 0 busId 3a000 commId 0xe57354a7ad6477b1 - Init START
-uc2n520:675058:675262 [0] NCCL INFO Setting affinity for GPU 0 to 03ff00,000003ff
-uc2n520:675058:675262 [0] NCCL INFO comm 0x55cfd75d9b80 rank 0 nRanks 1 nNodes 1 localRanks 1 localRank 0 MNNVL 0
-uc2n520:675058:675262 [0] NCCL INFO Channel 00/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 01/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 02/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 03/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 04/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 05/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 06/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 07/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 08/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 09/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 10/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 11/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 12/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 13/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 14/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 15/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 16/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 17/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 18/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 19/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 20/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 21/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 22/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 23/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 24/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 25/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 26/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 27/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 28/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 29/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 30/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Channel 31/32 :    0
-uc2n520:675058:675262 [0] NCCL INFO Trees [0] -1/-1/-1->0->-1 [1] -1/-1/-1->0->-1 [2] -1/-1/-1->0->-1 [3] -1/-1/-1->0->-1 [4] -1/-1/-1->0->-1 [5] -1/-1/-1->0->-1 [6] -1/-1/-1->0->-1 [7] -1/-1/-1->0->-1 [8] -1/-1/-1->0->-1 [9] -1/-1/-1->0->-1 [10] -1/-1/-1->0->-1 [11] -1/-1/-1->0->-1 [12] -1/-1/-1->0->-1 [13] -1/-1/-1->0->-1 [14] -1/-1/-1->0->-1 [15] -1/-1/-1->0->-1 [16] -1/-1/-1->0->-1 [17] -1/-1/-1->0->-1 [18] -1/-1/-1->0->-1 [19] -1/-1/-1->0->-1 [20] -1/-1/-1->0->-1 [21] -1/-1/-1->0->-1 [22] -1/-1/-1->0->-1 [23] -1/-1/-1->0->-1 [24] -1/-1/-1->0->-1 [25] -1/-1/-1->0->-1 [26] -1/-1/-1->0->-1 [27] -1/-1/-1->0->-1 [28] -1/-1/-1->0->-1 [29] -1/-1/-1->0->-1 [30] -1/-1/-1->0->-1 [31] -1/-1/-1->0->-1
-uc2n520:675058:675262 [0] NCCL INFO P2P Chunksize set to 131072
-uc2n520:675058:675262 [0] NCCL INFO Connected all rings
-uc2n520:675058:675262 [0] NCCL INFO Connected all trees
-uc2n520:675058:675262 [0] NCCL INFO 32 coll channels, 32 collnet channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-uc2n520:675058:675262 [0] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
-uc2n520:675058:675262 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
-uc2n520:675058:675262 [0] NCCL INFO ncclCommInitRank comm 0x55cfd75d9b80 rank 0 nranks 1 cudaDev 0 nvmlDev 0 busId 3a000 commId 0xe57354a7ad6477b1 - Init COMPLETE
-[2025-04-06 23:38:02,724] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
-Installed CUDA version 12.0 does not match the version torch was compiled with 12.4 but since the APIs are compatible, accepting this combination
-Using /pfs/data5/home/kit/stud/usxcp/.cache/torch_extensions/py312_cu124 as PyTorch extensions root...
-Emitting ninja build file /pfs/data5/home/kit/stud/usxcp/.cache/torch_extensions/py312_cu124/cpu_adam/build.ninja...
-Building extension module cpu_adam...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-[1/3] c++ -MMD -MF cpu_adam.o.d -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/deepspeed/ops/csrc/includes -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include/TH -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include/THC -isystem /opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/include/python3.12 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -L/opt/bwhpc/common/devel/cuda/12.0/lib64 -lcudart -lcublas -g -march=native -fopenmp -D__AVX512__ -D__ENABLE_CUDA__ -c /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/deepspeed/ops/csrc/adam/cpu_adam.cpp -o cpu_adam.o 
-[2/3] c++ -MMD -MF cpu_adam_impl.o.d -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/deepspeed/ops/csrc/includes -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include/TH -isystem /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/include/THC -isystem /opt/bwhpc/common/devel/python/3.12.3_gnu_13.3/include/python3.12 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -L/opt/bwhpc/common/devel/cuda/12.0/lib64 -lcudart -lcublas -g -march=native -fopenmp -D__AVX512__ -D__ENABLE_CUDA__ -c /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/deepspeed/ops/csrc/adam/cpu_adam_impl.cpp -o cpu_adam_impl.o 
-[3/3] c++ cpu_adam.o cpu_adam_impl.o -shared -lcurand -L/opt/bwhpc/common/devel/cuda/12.0/lib64 -L/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/lib -lc10 -ltorch_cpu -ltorch -ltorch_python -o cpu_adam.so
-Loading extension module cpu_adam...
-Time to load cpu_adam op: 48.98206663131714 seconds
-Adam Optimizer #0 is created with AVX512 arithmetic capability.
-Config: alpha=0.000500, betas=(0.900000, 0.999000), weight_decay=0.000000, adam_w=1
-[2025-04-06 23:38:52,890] [INFO] [logging.py:107:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adam as basic optimizer
-[2025-04-06 23:38:52,900] [INFO] [logging.py:107:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
-[2025-04-06 23:38:52,916] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
-[2025-04-06 23:38:52,917] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
-[2025-04-06 23:38:52,919] [INFO] [logging.py:107:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
-[2025-04-06 23:38:52,920] [INFO] [stage_1_and_2.py:149:__init__] Reduce bucket size 200000000
-[2025-04-06 23:38:52,920] [INFO] [stage_1_and_2.py:150:__init__] Allgather bucket size 200000000
-[2025-04-06 23:38:52,921] [INFO] [stage_1_and_2.py:151:__init__] CPU Offload: True
-[2025-04-06 23:38:52,921] [INFO] [stage_1_and_2.py:152:__init__] Round robin gradient partitioning: False
-[2025-04-06 23:38:54,301] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
-[2025-04-06 23:38:54,302] [INFO] [utils.py:782:see_memory_usage] MA 5.99 GB         Max_MA 5.99 GB         CA 6.04 GB         Max_CA 6 GB 
-[2025-04-06 23:38:54,302] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 22.01 GB, percent = 5.8%
-[2025-04-06 23:38:54,469] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
-[2025-04-06 23:38:54,469] [INFO] [utils.py:782:see_memory_usage] MA 5.99 GB         Max_MA 5.99 GB         CA 6.04 GB         Max_CA 6 GB 
-[2025-04-06 23:38:54,470] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 22.03 GB, percent = 5.8%
-[2025-04-06 23:38:54,470] [INFO] [stage_1_and_2.py:556:__init__] optimizer state initialized
-[2025-04-06 23:38:54,626] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
-[2025-04-06 23:38:54,626] [INFO] [utils.py:782:see_memory_usage] MA 5.99 GB         Max_MA 5.99 GB         CA 6.04 GB         Max_CA 6 GB 
-[2025-04-06 23:38:54,627] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 22.03 GB, percent = 5.8%
-[2025-04-06 23:38:54,631] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer
-[2025-04-06 23:38:54,632] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed using client callable to create LR scheduler
-[2025-04-06 23:38:54,632] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed LR Scheduler = <torch.optim.lr_scheduler.LambdaLR object at 0x14a05874d6d0>
-[2025-04-06 23:38:54,632] [INFO] [logging.py:107:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[[0.9, 0.999]]
-[2025-04-06 23:38:54,634] [INFO] [config.py:1000:print] DeepSpeedEngine configuration:
-[2025-04-06 23:38:54,635] [INFO] [config.py:1004:print]   activation_checkpointing_config  {
-    "partition_activations": false, 
-    "contiguous_memory_optimization": false, 
-    "cpu_checkpointing": false, 
-    "number_checkpoints": null, 
-    "synchronize_checkpoint_boundary": false, 
-    "profile": false
-}
-[2025-04-06 23:38:54,635] [INFO] [config.py:1004:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'intra_op_parallelism': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
-[2025-04-06 23:38:54,635] [INFO] [config.py:1004:print]   amp_enabled .................. False
-[2025-04-06 23:38:54,635] [INFO] [config.py:1004:print]   amp_params ................... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   autotuning_config ............ {
-    "enabled": false, 
-    "start_step": null, 
-    "end_step": null, 
-    "metric_path": null, 
-    "arg_mappings": null, 
-    "metric": "throughput", 
-    "model_info": null, 
-    "results_dir": "autotuning_results", 
-    "exps_dir": "autotuning_exps", 
-    "overwrite": true, 
-    "fast": true, 
-    "start_profile_step": 3, 
-    "end_profile_step": 5, 
-    "tuner_type": "gridsearch", 
-    "tuner_early_stopping": 5, 
-    "tuner_num_trials": 50, 
-    "model_info_path": null, 
-    "mp_size": 1, 
-    "max_train_batch_size": null, 
-    "min_train_batch_size": 1, 
-    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
-    "min_train_micro_batch_size_per_gpu": 1, 
-    "num_tuning_micro_batch_sizes": 3
-}
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   bfloat16_enabled ............. True
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   bfloat16_immediate_grad_update  True
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   checkpoint_parallel_write_pipeline  False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   checkpoint_tag_validation_enabled  True
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   checkpoint_tag_validation_fail  False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x14a0510593a0>
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   communication_data_type ...... None
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   curriculum_enabled_legacy .... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   curriculum_params_legacy ..... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'pin_memory': False, 'curriculum_learning': {'enabled': False}, 'dynamic_batching': {'enabled': False, 'lr_scaling_method': 'linear', 'min_batch_size': 1, 'max_batch_size': None, 'sequence_picking_order': 'dataloader', 'verbose': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   data_efficiency_enabled ...... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   dataloader_drop_last ......... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   disable_allgather ............ False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   dump_state ................... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   dynamic_loss_scale_args ...... None
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_enabled ........... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_gas_boundary_resolution  1
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_layer_name ........ bert.encoder.layer
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_layer_num ......... 0
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_max_iter .......... 100
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_stability ......... 1e-06
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_tol ............... 0.01
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   eigenvalue_verbose ........... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   elasticity_enabled ........... False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   flops_profiler_config ........ {
-    "enabled": false, 
-    "recompute_fwd_factor": 0.0, 
-    "profile_step": 1, 
-    "module_depth": -1, 
-    "top_modules": 1, 
-    "detailed": true, 
-    "output_file": null
-}
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   fp16_auto_cast ............... None
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   fp16_enabled ................. False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   fp16_master_weights_and_gradients  False
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   global_rank .................. 0
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   grad_accum_dtype ............. None
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   gradient_accumulation_steps .. 1
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   gradient_clipping ............ 1.0
-[2025-04-06 23:38:54,636] [INFO] [config.py:1004:print]   gradient_predivide_factor .... 1.0
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   graph_harvesting ............. False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   initial_dynamic_scale ........ 1
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   load_universal_checkpoint .... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   loss_scale ................... 1.0
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   memory_breakdown ............. False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   mics_hierarchial_params_gather  False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   mics_shard_size .............. -1
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   nebula_config ................ {
-    "enabled": false, 
-    "persistent_storage_path": null, 
-    "persistent_time_interval": 100, 
-    "num_of_version_in_retention": 2, 
-    "enable_nebula_load": true, 
-    "load_path": null
-}
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   optimizer_legacy_fusion ...... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   optimizer_name ............... adam
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   optimizer_params ............. {'lr': 0.0005, 'betas': [0.9, 0.999], 'eps': 1e-08, 'weight_decay': 0.0}
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   pld_enabled .................. False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   pld_params ................... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   prescale_gradients ........... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   scheduler_name ............... None
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   scheduler_params ............. None
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   seq_parallel_communication_data_type  torch.float32
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   sparse_attention ............. None
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   sparse_gradients_enabled ..... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   steps_per_print .............. inf
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   tensor_parallel_config ....... dtype=torch.float16 autotp_size=0 tensor_parallel=TPConfig(tp_size=1, tp_grain_size=1, mpu=None, tp_group=None) injection_policy_tuple=None keep_module_on_host=False replace_with_kernel_inject=False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   timers_config ................ enabled=True synchronized=True
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   train_batch_size ............. 32
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   train_micro_batch_size_per_gpu  32
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   use_data_before_expert_parallel_  False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   use_node_local_storage ....... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   wall_clock_breakdown ......... False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   weight_quantization_config ... None
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   world_size ................... 1
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   zero_allow_untested_optimizer  False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=200000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=200000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=False module_granularity_threshold=0 use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False zeropp_loco_param=None mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True log_trace_cache_warnings=False
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   zero_enabled ................. True
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   zero_force_ds_cpu_optimizer .. True
-[2025-04-06 23:38:54,637] [INFO] [config.py:1004:print]   zero_optimization_stage ...... 2
-[2025-04-06 23:38:54,637] [INFO] [config.py:990:print_user_config]   json = {
-    "optimizer": {
-        "type": "Adam", 
-        "params": {
-            "lr": 0.0005, 
-            "betas": [0.9, 0.999], 
-            "eps": 1e-08, 
-            "weight_decay": 0.0
-        }
-    }, 
-    "bf16": {
-        "enabled": true
-    }, 
-    "fp16": {
-        "enabled": false, 
-        "loss_scale": 0, 
-        "loss_scale_window": 1000, 
-        "initial_scale_power": 16, 
-        "hysteresis": 2, 
-        "min_loss_scale": 1
-    }, 
-    "zero_optimization": {
-        "stage": 2, 
-        "offload_optimizer": {
-            "device": "cpu", 
-            "pin_memory": true
-        }, 
-        "allgather_partitions": true, 
-        "allgather_bucket_size": 2.000000e+08, 
-        "overlap_comm": true, 
-        "reduce_scatter": true, 
-        "reduce_bucket_size": 2.000000e+08, 
-        "contiguous_gradients": true
-    }, 
-    "gradient_accumulation_steps": 1, 
-    "gradient_clipping": 1.0, 
-    "steps_per_print": inf, 
-    "train_batch_size": 32, 
-    "train_micro_batch_size_per_gpu": 32, 
-    "wall_clock_breakdown": false
-}
-[INFO|trainer.py:2145] 2025-04-06 23:38:54,640 >> ***** Running training *****
-[INFO|trainer.py:2146] 2025-04-06 23:38:54,640 >>   Num examples = 392,702
-[INFO|trainer.py:2147] 2025-04-06 23:38:54,640 >>   Num Epochs = 1
-[INFO|trainer.py:2148] 2025-04-06 23:38:54,640 >>   Instantaneous batch size per device = 32
-[INFO|trainer.py:2151] 2025-04-06 23:38:54,640 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
-[INFO|trainer.py:2152] 2025-04-06 23:38:54,640 >>   Gradient Accumulation steps = 1
-[INFO|trainer.py:2153] 2025-04-06 23:38:54,640 >>   Total optimization steps = 12,272
-[INFO|trainer.py:2154] 2025-04-06 23:38:54,642 >>   Number of trainable parameters = 2,293,760
-[INFO|trainer.py:3831] 2025-04-06 23:38:54,717 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:3833] 2025-04-06 23:38:54,717 >>   Num examples = 2490
-[INFO|trainer.py:3836] 2025-04-06 23:38:54,717 >>   Batch size = 32
-[rank0]: Traceback (most recent call last):
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/./scripts/run_clm_lora.py", line 1096, in <module>
-[rank0]:     main()
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/./scripts/run_clm_lora.py", line 1044, in main
-[rank0]:     train_result = trainer.train(resume_from_checkpoint=checkpoint)
-[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 1949, in train
-[rank0]:     return inner_training_loop(
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 2216, in _inner_training_loop
-[rank0]:     self._evaluate(trial, ignore_keys_for_eval, skip_scheduler=True)
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 2773, in _evaluate
-[rank0]:     metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
-[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 3678, in evaluate
-[rank0]:     output = eval_loop(
-[rank0]:              ^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 3869, in evaluation_loop
-[rank0]:     losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
-[rank0]:                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 4087, in prediction_step
-[rank0]:     loss, outputs = self.compute_loss(model, inputs, return_outputs=True)
-[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/trainer.py", line 3375, in compute_loss
-[rank0]:     outputs = model(**inputs, output_hidden_states=True)    # TODO(DL): added here to output hidden states
-[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1845, in _call_impl
-[rank0]:     return inner()
-[rank0]:            ^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1793, in inner
-[rank0]:     result = forward_call(*args, **kwargs)
-[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/peft/peft_model.py", line 1756, in forward
-[rank0]:     return self.base_model(
-[rank0]:            ^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
-[rank0]:     return forward_call(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/peft/tuners/tuners_utils.py", line 193, in forward
-[rank0]:     return self.model.forward(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/models/llama/modeling_llama.py", line 1340, in forward
-[rank0]:     outputs = self.model(
-[rank0]:               ^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
-[rank0]:     return forward_call(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/pfs/data5/home/kit/stud/usxcp/master-thesis/src/transformers/models/llama/modeling_llama.py", line 1157, in forward
-[rank0]:     all_hidden_states_parallel_0 += (hidden_states_parallel[0],)
-[rank0]:                                      ^^^^^^^^^^^^^^^^^^^^^^
-[rank0]: UnboundLocalError: cannot access local variable 'hidden_states_parallel' where it is not associated with a value
-[rank0]:[W406 23:38:57.463200532 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
-[2025-04-06 23:39:01,670] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 675058
-[2025-04-06 23:39:01,716] [ERROR] [launch.py:325:sigkill_handler] ['/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/bin/python', '-u', './scripts/run_clm_lora.py', '--deepspeed', './config/deepspeed_config.json', '--bf16', 'True', '--bf16_full_eval', 'True', '--model_name_or_path', 'meta-llama/Llama-3.2-3B-Instruct', '--train_file', 'artifacts/xnli_en_train.json', '--validation_file', 'artifacts/xnli_en_val.json', '--use_lora', 'True', '--lora_config', './config/lora_config.json', '--torch_dtype', 'bfloat16', '--preprocessing_num_workers', '16', '--dataloader_num_workers', '2', '--dataloader_pin_memory', 'True', '--per_device_train_batch_size', '32', '--per_device_eval_batch_size', '32', '--gradient_accumulation_steps', '1', '--num_train_epochs', '1', '--save_strategy', 'steps', '--save_steps', '200', '--save_total_limit', '1', '--learning_rate', '5e-4', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'inverse_sqrt', '--logging_steps', '10', '--block_size', '2048', '--do_train', '--eval_strategy', 'steps', '--eval_steps', '200', '--eval_on_start', '--streaming', '--ddp_timeout', '3600', '--seed', '1', '--gradient_checkpointing', 'True', '--load_best_model_at_end', 'True', '--metric_for_best_model', 'eval_loss', '--patience', '5', '--output_dir', './test_run_outputs_accelerate_multi_gpu', '--disable_tqdm', 'True', '--overwrite_output_dir'] exits with return code = 1
-Traceback (most recent call last):
-  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/bin/accelerate", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
-    args.func(args)
-  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1196, in launch_command
-    deepspeed_launcher(args)
-  File "/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/commands/launch.py", line 866, in deepspeed_launcher
-    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
-subprocess.CalledProcessError: Command '['deepspeed', '--hostfile', '', '--no_local_rank', '--launcher', 'pdsh', '--num_gpus', '1', '--master_port', '29501', './scripts/run_clm_lora.py', '--deepspeed', './config/deepspeed_config.json', '--bf16', 'True', '--bf16_full_eval', 'True', '--model_name_or_path', 'meta-llama/Llama-3.2-3B-Instruct', '--train_file', 'artifacts/xnli_en_train.json', '--validation_file', 'artifacts/xnli_en_val.json', '--use_lora', 'True', '--lora_config', './config/lora_config.json', '--torch_dtype', 'bfloat16', '--preprocessing_num_workers', '16', '--dataloader_num_workers', '2', '--dataloader_pin_memory', 'True', '--per_device_train_batch_size', '32', '--per_device_eval_batch_size', '32', '--gradient_accumulation_steps', '1', '--num_train_epochs', '1', '--save_strategy', 'steps', '--save_steps', '200', '--save_total_limit', '1', '--learning_rate', '5e-4', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'inverse_sqrt', '--logging_steps', '10', '--block_size', '2048', '--do_train', '--eval_strategy', 'steps', '--eval_steps', '200', '--eval_on_start', '--streaming', '--ddp_timeout', '3600', '--seed', '1', '--gradient_checkpointing', 'True', '--load_best_model_at_end', 'True', '--metric_for_best_model', 'eval_loss', '--patience', '5', '--output_dir', './test_run_outputs_accelerate_multi_gpu', '--disable_tqdm', 'True', '--overwrite_output_dir']' returned non-zero exit status 1.
-Training finished. Log saved to ./test_run_outputs_accelerate_multi_gpu/train.log
-
-============================= JOB FEEDBACK =============================
-
-NodeName=uc2n520
-Job ID: 25446067
-Cluster: uc2
-User/Group: usxcp/stud
-State: COMPLETED (exit code 0)
-Nodes: 1
-Cores per node: 40
-CPU Utilized: 00:05:48
-CPU Efficiency: 2.09% of 04:38:00 core-walltime
-Job Wall-clock time: 00:06:57
-Memory Utilized: 4.24 GB
-Memory Efficiency: 106.07% of 4.00 GB
