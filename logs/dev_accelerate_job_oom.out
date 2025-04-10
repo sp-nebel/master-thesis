@@ -1,872 +1,0 @@
-Obtaining file:///pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis
-  Installing build dependencies: started
-  Installing build dependencies: finished with status 'done'
-  Checking if build backend supports build_editable: started
-  Checking if build backend supports build_editable: finished with status 'done'
-  Getting requirements to build editable: started
-  Getting requirements to build editable: finished with status 'done'
-  Preparing editable metadata (pyproject.toml): started
-  Preparing editable metadata (pyproject.toml): finished with status 'done'
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (3.18.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.30.1)
-Requirement already satisfied: numpy>=1.17 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2.2.4)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (6.0.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2024.11.6)
-Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2.32.3)
-Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.19.1)
-Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.5.3)
-Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (4.67.1)
-Requirement already satisfied: fsspec>=2023.5.0 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.47.0) (2024.12.0)
-Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.47.0) (4.13.1)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (2025.1.31)
-Building wheels for collected packages: transformers
-  Building editable for transformers (pyproject.toml): started
-  Building editable for transformers (pyproject.toml): finished with status 'done'
-  Created wheel for transformers: filename=transformers-4.47.0-0.editable-py3-none-any.whl size=4778 sha256=0652ca0231d7f51cd2d18113e521799c130784bb67980d2aa9d36f557df342ec
-  Stored in directory: /scratch/slurm_tmpdir/job_2380/pip-ephem-wheel-cache-nyj55qsz/wheels/ee/bf/dc/6be6e7328682f7a5b12fc84f97e7a227c132b8da4f915209aa
-Successfully built transformers
-Installing collected packages: transformers
-  Attempting uninstall: transformers
-    Found existing installation: transformers 4.47.0
-    Uninstalling transformers-4.47.0:
-      Successfully uninstalled transformers-4.47.0
-Successfully installed transformers-4.47.0
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Looking in indexes: https://download.pytorch.org/whl/cu128
-Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (2.6.0)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from torch) (3.18.0)
-Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch) (4.13.1)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch) (3.1.6)
-Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch) (2024.12.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch) (3.0.2)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: deepspeed in ./.env/lib/python3.12/site-packages (0.16.5)
-Requirement already satisfied: einops in ./.env/lib/python3.12/site-packages (from deepspeed) (0.8.1)
-Requirement already satisfied: hjson in ./.env/lib/python3.12/site-packages (from deepspeed) (3.1.0)
-Requirement already satisfied: msgpack in ./.env/lib/python3.12/site-packages (from deepspeed) (1.1.0)
-Requirement already satisfied: ninja in ./.env/lib/python3.12/site-packages (from deepspeed) (1.11.1.4)
-Requirement already satisfied: numpy in ./.env/lib/python3.12/site-packages (from deepspeed) (2.2.4)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (24.2)
-Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from deepspeed) (7.0.0)
-Requirement already satisfied: py-cpuinfo in ./.env/lib/python3.12/site-packages (from deepspeed) (9.0.0)
-Requirement already satisfied: pydantic>=2.0.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (2.11.2)
-Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (from deepspeed) (2.6.0)
-Requirement already satisfied: tqdm in ./.env/lib/python3.12/site-packages (from deepspeed) (4.67.1)
-Requirement already satisfied: annotated-types>=0.6.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.7.0)
-Requirement already satisfied: pydantic-core==2.33.1 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (2.33.1)
-Requirement already satisfied: typing-extensions>=4.12.2 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (4.13.1)
-Requirement already satisfied: typing-inspection>=0.4.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.4.0)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.18.0)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.1.6)
-Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (2024.12.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch->deepspeed) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch->deepspeed) (3.0.2)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: datasets in ./.env/lib/python3.12/site-packages (3.5.0)
-Requirement already satisfied: evaluate in ./.env/lib/python3.12/site-packages (0.4.3)
-Requirement already satisfied: peft in ./.env/lib/python3.12/site-packages (0.15.1)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from datasets) (3.18.0)
-Requirement already satisfied: numpy>=1.17 in ./.env/lib/python3.12/site-packages (from datasets) (2.2.4)
-Requirement already satisfied: pyarrow>=15.0.0 in ./.env/lib/python3.12/site-packages (from datasets) (19.0.1)
-Requirement already satisfied: dill<0.3.9,>=0.3.0 in ./.env/lib/python3.12/site-packages (from datasets) (0.3.8)
-Requirement already satisfied: pandas in ./.env/lib/python3.12/site-packages (from datasets) (2.2.3)
-Requirement already satisfied: requests>=2.32.2 in ./.env/lib/python3.12/site-packages (from datasets) (2.32.3)
-Requirement already satisfied: tqdm>=4.66.3 in ./.env/lib/python3.12/site-packages (from datasets) (4.67.1)
-Requirement already satisfied: xxhash in ./.env/lib/python3.12/site-packages (from datasets) (3.5.0)
-Requirement already satisfied: multiprocess<0.70.17 in ./.env/lib/python3.12/site-packages (from datasets) (0.70.16)
-Requirement already satisfied: fsspec<=2024.12.0,>=2023.1.0 in ./.env/lib/python3.12/site-packages (from fsspec[http]<=2024.12.0,>=2023.1.0->datasets) (2024.12.0)
-Requirement already satisfied: aiohttp in ./.env/lib/python3.12/site-packages (from datasets) (3.11.16)
-Requirement already satisfied: huggingface-hub>=0.24.0 in ./.env/lib/python3.12/site-packages (from datasets) (0.30.1)
-Requirement already satisfied: packaging in ./.env/lib/python3.12/site-packages (from datasets) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from datasets) (6.0.2)
-Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from peft) (7.0.0)
-Requirement already satisfied: torch>=1.13.0 in ./.env/lib/python3.12/site-packages (from peft) (2.6.0)
-Requirement already satisfied: transformers in ./.env/lib/python3.12/site-packages (from peft) (4.47.0)
-Requirement already satisfied: accelerate>=0.21.0 in ./.env/lib/python3.12/site-packages (from peft) (1.6.0)
-Requirement already satisfied: safetensors in ./.env/lib/python3.12/site-packages (from peft) (0.5.3)
-Requirement already satisfied: aiohappyeyeballs>=2.3.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (2.6.1)
-Requirement already satisfied: aiosignal>=1.1.2 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.3.2)
-Requirement already satisfied: attrs>=17.3.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (25.3.0)
-Requirement already satisfied: frozenlist>=1.1.1 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.5.0)
-Requirement already satisfied: multidict<7.0,>=4.5 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (6.3.2)
-Requirement already satisfied: propcache>=0.2.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (0.3.1)
-Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.19.0)
-Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets) (4.13.1)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2025.1.31)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.1.6)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch>=1.13.0->peft) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch>=1.13.0->peft) (1.3.0)
-Requirement already satisfied: python-dateutil>=2.8.2 in ./.env/lib/python3.12/site-packages (from pandas->datasets) (2.9.0.post0)
-Requirement already satisfied: pytz>=2020.1 in ./.env/lib/python3.12/site-packages (from pandas->datasets) (2025.2)
-Requirement already satisfied: tzdata>=2022.7 in ./.env/lib/python3.12/site-packages (from pandas->datasets) (2025.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers->peft) (2024.11.6)
-Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers->peft) (0.19.1)
-Requirement already satisfied: six>=1.5 in ./.env/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.17.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch>=1.13.0->peft) (3.0.2)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: scikit-learn in ./.env/lib/python3.12/site-packages (1.6.1)
-Requirement already satisfied: hf_mtask_trainer in ./.env/lib/python3.12/site-packages (0.0.5)
-Requirement already satisfied: numpy>=1.19.5 in ./.env/lib/python3.12/site-packages (from scikit-learn) (2.2.4)
-Requirement already satisfied: scipy>=1.6.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (1.15.2)
-Requirement already satisfied: joblib>=1.2.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
-Requirement already satisfied: threadpoolctl>=3.1.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (3.6.0)
-Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (2.6.0)
-Requirement already satisfied: transformers>=4.47.0 in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (4.47.0)
-Requirement already satisfied: accelerate in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (1.6.0)
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (3.18.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.30.1)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (6.0.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2024.11.6)
-Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2.32.3)
-Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.19.1)
-Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.5.3)
-Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (4.67.1)
-Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from accelerate->hf_mtask_trainer) (7.0.0)
-Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (4.13.1)
-Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.4.2)
-Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.1.6)
-Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2024.12.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (9.1.0.70)
-Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.5.8)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (11.2.1.3)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (10.3.5.147)
-Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (11.6.1.9)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.3.1.170)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (0.6.2)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2.21.5)
-Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.2.0)
-Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (78.1.0)
-Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (1.13.1)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch->hf_mtask_trainer) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch->hf_mtask_trainer) (3.0.2)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2025.1.31)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-Requirement already satisfied: seqeval in ./.env/lib/python3.12/site-packages (1.2.2)
-Requirement already satisfied: levenshtein in ./.env/lib/python3.12/site-packages (0.27.1)
-Requirement already satisfied: numpy>=1.14.0 in ./.env/lib/python3.12/site-packages (from seqeval) (2.2.4)
-Requirement already satisfied: scikit-learn>=0.21.3 in ./.env/lib/python3.12/site-packages (from seqeval) (1.6.1)
-Requirement already satisfied: rapidfuzz<4.0.0,>=3.9.0 in ./.env/lib/python3.12/site-packages (from levenshtein) (3.13.0)
-Requirement already satisfied: scipy>=1.6.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.15.2)
-Requirement already satisfied: joblib>=1.2.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.4.2)
-Requirement already satisfied: threadpoolctl>=3.1.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (3.6.0)
-
-[notice] A new release of pip is available: 24.0 -> 25.0.1
-[notice] To update, run: pip install --upgrade pip
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
-  return torch._C._cuda_getDeviceCount() > 0
-[2025-04-07 18:09:56,536] [WARNING] [real_accelerator.py:194:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
-[2025-04-07 18:09:56,538] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cpu (auto detect)
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
-  return torch._C._cuda_getDeviceCount() > 0
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
-  return torch._C._cuda_getDeviceCount() > 0
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
-  return torch._C._cuda_getDeviceCount() > 0
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
-  return torch._C._cuda_getDeviceCount() > 0
-[2025-04-07 18:10:04,693] [WARNING] [real_accelerator.py:194:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
-[2025-04-07 18:10:04,695] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cpu (auto detect)
-[2025-04-07 18:10:04,700] [WARNING] [real_accelerator.py:194:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
-[2025-04-07 18:10:04,702] [WARNING] [real_accelerator.py:194:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
-[2025-04-07 18:10:04,703] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cpu (auto detect)
-[2025-04-07 18:10:04,703] [WARNING] [real_accelerator.py:194:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
-[2025-04-07 18:10:04,704] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cpu (auto detect)
-[2025-04-07 18:10:04,705] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cpu (auto detect)
-[2025-04-07 18:10:06,760] [INFO] [comm.py:658:init_distributed] cdb=None
-[2025-04-07 18:10:06,760] [INFO] [comm.py:689:init_distributed] Initializing TorchBackend in DeepSpeed with backend gloo
-[2025-04-07 18:10:06,801] [INFO] [comm.py:658:init_distributed] cdb=None
-[2025-04-07 18:10:06,822] [INFO] [comm.py:658:init_distributed] cdb=None
-[2025-04-07 18:10:06,860] [INFO] [comm.py:658:init_distributed] cdb=None
-No CUDA runtime is found, using CUDA_HOME='/opt/bwhpc/common/devel/cuda/12.8'
-Using /pfs/data6/home/ka/ka_stud/ka_usxcp/.cache/torch_extensions/py312_cu124 as PyTorch extensions root...
-Emitting ninja build file /pfs/data6/home/ka/ka_stud/ka_usxcp/.cache/torch_extensions/py312_cu124/deepspeed_shm_comm/build.ninja...
-Building extension module deepspeed_shm_comm...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-ninja: no work to do.
-Loading extension module deepspeed_shm_comm...
-Time to load deepspeed_shm_comm op: 0.016728639602661133 seconds
-DeepSpeed deepspeed.ops.comm.deepspeed_shm_comm_op built successfully
-No CUDA runtime is found, using CUDA_HOME='/opt/bwhpc/common/devel/cuda/12.8'
-Using /pfs/data6/home/ka/ka_stud/ka_usxcp/.cache/torch_extensions/py312_cu124 as PyTorch extensions root...
-No CUDA runtime is found, using CUDA_HOME='/opt/bwhpc/common/devel/cuda/12.8'
-Using /pfs/data6/home/ka/ka_stud/ka_usxcp/.cache/torch_extensions/py312_cu124 as PyTorch extensions root...
-No CUDA runtime is found, using CUDA_HOME='/opt/bwhpc/common/devel/cuda/12.8'
-Emitting ninja build file /pfs/data6/home/ka/ka_stud/ka_usxcp/.cache/torch_extensions/py312_cu124/deepspeed_shm_comm/build.ninja...
-Using /pfs/data6/home/ka/ka_stud/ka_usxcp/.cache/torch_extensions/py312_cu124 as PyTorch extensions root...
-Building extension module deepspeed_shm_comm...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-ninja: no work to do.
-Loading extension module deepspeed_shm_comm...
-Time to load deepspeed_shm_comm op: 0.016003131866455078 seconds
-DeepSpeed deepspeed.ops.comm.deepspeed_shm_comm_op built successfully
-Loading extension module deepspeed_shm_comm...
-Time to load deepspeed_shm_comm op: 0.1028594970703125 seconds
-DeepSpeed deepspeed.ops.comm.deepspeed_shm_comm_op built successfully
-Loading extension module deepspeed_shm_comm...
-Time to load deepspeed_shm_comm op: 0.10260200500488281 seconds
-DeepSpeed deepspeed.ops.comm.deepspeed_shm_comm_op built successfully
-04/07/2025 18:10:07 - WARNING - __main__ - Process rank: 0, device: cpu:0, n_gpu: 1distributed training: True, 16-bits training: False
-04/07/2025 18:10:07 - WARNING - __main__ - Process rank: 2, device: cpu:0, n_gpu: 1distributed training: True, 16-bits training: False
-04/07/2025 18:10:07 - INFO - __main__ - Training/evaluation parameters LoRATrainingArguments(
-_n_gpu=1,
-accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
-adafactor=False,
-adam_beta1=0.9,
-adam_beta2=0.999,
-adam_epsilon=1e-08,
-auto_find_batch_size=False,
-batch_eval_metrics=False,
-bf16=True,
-bf16_full_eval=True,
-data_seed=None,
-dataloader_drop_last=False,
-dataloader_num_workers=2,
-dataloader_persistent_workers=False,
-dataloader_pin_memory=True,
-dataloader_prefetch_factor=None,
-ddp_backend=None,
-ddp_broadcast_buffers=None,
-ddp_bucket_cap_mb=None,
-ddp_find_unused_parameters=None,
-ddp_timeout=3600,
-debug=[],
-deepspeed=./config/deepspeed_config.json,
-disable_tqdm=True,
-dispatch_batches=None,
-do_eval=True,
-do_predict=False,
-do_train=True,
-eval_accumulation_steps=None,
-eval_delay=0,
-eval_do_concat_batches=True,
-eval_on_start=True,
-eval_steps=200,
-eval_strategy=IntervalStrategy.STEPS,
-eval_use_gather_object=False,
-evaluation_strategy=None,
-fp16=False,
-fp16_backend=auto,
-fp16_full_eval=False,
-fp16_opt_level=O1,
-fsdp=[],
-fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
-fsdp_min_num_params=0,
-fsdp_transformer_layer_cls_to_wrap=None,
-full_determinism=False,
-gradient_accumulation_steps=1,
-gradient_checkpointing=True,
-gradient_checkpointing_kwargs=None,
-greater_is_better=False,
-group_by_length=False,
-half_precision_backend=auto,
-hub_always_push=False,
-hub_model_id=None,
-hub_private_repo=False,
-hub_strategy=HubStrategy.EVERY_SAVE,
-hub_token=<HUB_TOKEN>,
-ignore_data_skip=False,
-include_inputs_for_metrics=False,
-include_num_input_tokens_seen=False,
-include_tokens_per_second=False,
-jit_mode_eval=False,
-label_names=None,
-label_smoothing_factor=0.0,
-learning_rate=0.0005,
-length_column_name=length,
-load_best_model_at_end=True,
-load_lora_from=None,
-local_rank=0,
-log_level=passive,
-log_level_replica=warning,
-log_on_each_node=True,
-logging_dir=./test_run_outputs_accelerate_multi_gpu/runs/Apr07_18-10-03_uc3n082.localdomain,
-logging_first_step=False,
-logging_nan_inf_filter=True,
-logging_steps=10,
-logging_strategy=IntervalStrategy.STEPS,
-lora_config=./config/lora_config.json,
-lr_scheduler_kwargs={},
-lr_scheduler_type=SchedulerType.INVERSE_SQRT,
-max_grad_norm=1.0,
-max_steps=-1,
-metric_for_best_model=eval_loss,
-mp_parameters=,
-neftune_noise_alpha=None,
-no_cuda=False,
-num_train_epochs=1.0,
-optim=OptimizerNames.ADAMW_TORCH,
-optim_args=None,
-optim_target_modules=None,
-output_dir=./test_run_outputs_accelerate_multi_gpu,
-overwrite_output_dir=True,
-past_index=-1,
-per_device_eval_batch_size=32,
-per_device_train_batch_size=32,
-prediction_loss_only=False,
-push_to_hub=False,
-push_to_hub_model_id=None,
-push_to_hub_organization=None,
-push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
-ray_scope=last,
-remove_unused_columns=True,
-report_to=[],
-restore_callback_states_from_checkpoint=False,
-resume_from_checkpoint=None,
-run_name=./test_run_outputs_accelerate_multi_gpu,
-save_on_each_node=False,
-save_only_model=False,
-save_safetensors=True,
-save_steps=200,
-save_strategy=IntervalStrategy.STEPS,
-save_total_limit=1,
-seed=1,
-skip_memory_metrics=True,
-split_batches=None,
-tf32=None,
-torch_compile=False,
-torch_compile_backend=None,
-torch_compile_mode=None,
-torch_empty_cache_steps=None,
-torchdynamo=None,
-tpu_metrics_debug=False,
-tpu_num_cores=None,
-use_cpu=False,
-use_int8_training=False,
-use_ipex=False,
-use_legacy_prediction_loop=False,
-use_lora=True,
-use_mps_device=False,
-warmup_ratio=0.03,
-warmup_steps=0,
-weight_decay=0.0,
-)
-04/07/2025 18:10:07 - WARNING - __main__ - Process rank: 1, device: cpu:0, n_gpu: 1distributed training: True, 16-bits training: False
-04/07/2025 18:10:07 - WARNING - __main__ - Process rank: 3, device: cpu:0, n_gpu: 1distributed training: True, 16-bits training: False
-Using custom data configuration default-851ce74e92ca2b7e
-04/07/2025 18:10:07 - INFO - datasets.builder - Using custom data configuration default-851ce74e92ca2b7e
-Loading Dataset Infos from /pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
-04/07/2025 18:10:07 - INFO - datasets.info - Loading Dataset Infos from /pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
-Overwrite dataset info from restored data version if exists.
-04/07/2025 18:10:07 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
-Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-04/07/2025 18:10:07 - INFO - datasets.info - Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-Found cached dataset json (/home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
-04/07/2025 18:10:07 - INFO - datasets.builder - Found cached dataset json (/home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
-Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-04/07/2025 18:10:07 - INFO - datasets.info - Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-[INFO|configuration_utils.py:733] 2025-04-07 18:10:07,900 >> loading configuration file config.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:821] 2025-04-07 18:10:07,901 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Llama-3.2-3B-Instruct",
-  "additional_loss_layer": 16,
-  "alignment_matrices_path": null,
-  "apply_inverse": false,
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "contrastive_loss_temperature": 1.0,
-  "contrastive_loss_weight": 1.0,
-  "contrastive_pooling_type": "mean",
-  "distance_function": "cosine",
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 3072,
-  "initializer_range": 0.02,
-  "inject_Ws": false,
-  "intermediate_size": 8192,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 24,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 8,
-  "only_train_contrastive": false,
-  "only_train_language_modeling": false,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 32.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": true,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.44.0.dev0",
-  "unidirectional_contrastive_loss": false,
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s][INFO|tokenization_utils_base.py:2269] 2025-04-07 18:10:10,615 >> loading file tokenizer.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer.json
-[INFO|tokenization_utils_base.py:2269] 2025-04-07 18:10:10,615 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2269] 2025-04-07 18:10:10,615 >> loading file special_tokens_map.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2269] 2025-04-07 18:10:10,615 >> loading file tokenizer_config.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer_config.json
-Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s][INFO|tokenization_utils_base.py:2513] 2025-04-07 18:10:10,793 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-04/07/2025 18:10:10 - INFO - __main__ - Tokenizer is fast: True
-[INFO|modeling_utils.py:3667] 2025-04-07 18:10:10,798 >> loading weights file model.safetensors from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/model.safetensors.index.json
-Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [00:43<00:43, 43.42s/it]Downloading shards:  50%|█████     | 1/2 [00:43<00:43, 43.43s/it]Downloading shards:  50%|█████     | 1/2 [00:42<00:42, 42.94s/it]Downloading shards:  50%|█████     | 1/2 [00:42<00:42, 42.88s/it]Downloading shards: 100%|██████████| 2/2 [00:56<00:00, 25.43s/it]Downloading shards: 100%|██████████| 2/2 [00:56<00:00, 28.13s/it]
-Downloading shards: 100%|██████████| 2/2 [00:55<00:00, 25.24s/it]Downloading shards: 100%|██████████| 2/2 [00:55<00:00, 27.89s/it]
-Downloading shards: 100%|██████████| 2/2 [00:56<00:00, 25.44s/it]Downloading shards: 100%|██████████| 2/2 [00:56<00:00, 28.14s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards: 100%|██████████| 2/2 [00:55<00:00, 25.21s/it]Downloading shards: 100%|██████████| 2/2 [00:55<00:00, 27.86s/it]
-[INFO|modeling_utils.py:1591] 2025-04-07 18:11:06,527 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
-[INFO|configuration_utils.py:1038] 2025-04-07 18:11:06,528 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ]
-}
-
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.20it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.19it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.26it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.79it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.47it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.23it/s]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.48it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.25it/s]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.41it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.19it/s]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.55it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.42it/s]
-[INFO|modeling_utils.py:4499] 2025-04-07 18:11:06,881 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
-
-[INFO|modeling_utils.py:4507] 2025-04-07 18:11:06,881 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Llama-3.2-3B-Instruct.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
-adding special tokens...
-[INFO|configuration_utils.py:993] 2025-04-07 18:11:07,210 >> loading configuration file generation_config.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/generation_config.json
-[INFO|configuration_utils.py:1038] 2025-04-07 18:11:07,210 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "do_sample": true,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "temperature": 0.6,
-  "top_p": 0.9
-}
-
-adding special tokens...
-04/07/2025 18:11:07 - INFO - __main__ - ================ pad, eos, bos, unk, padding ================ 
-04/07/2025 18:11:07 - INFO - __main__ - <|eot_id|>, 128009
-04/07/2025 18:11:07 - INFO - __main__ - <|eot_id|>, 128009
-04/07/2025 18:11:07 - INFO - __main__ - <|begin_of_text|>, 128000
-04/07/2025 18:11:07 - INFO - __main__ - <|reserved_special_token_0|>, 128002
-04/07/2025 18:11:07 - INFO - __main__ - right
-adding special tokens...
-04/07/2025 18:11:07 - INFO - __main__ - lora_r : 8
-04/07/2025 18:11:07 - INFO - __main__ - lora_alpha : 16
-04/07/2025 18:11:07 - INFO - __main__ - lora_dropout : 0.1
-04/07/2025 18:11:07 - INFO - __main__ - lora_target_modules : ['q_proj', 'v_proj']
-04/07/2025 18:11:07 - INFO - __main__ - LoRA configs: LoraConfig(task_type='CAUSAL_LM', peft_type=<PeftType.LORA: 'LORA'>, auto_mapping=None, base_model_name_or_path=None, revision=None, inference_mode=False, r=8, target_modules={'q_proj', 'v_proj'}, exclude_modules=None, lora_alpha=16, lora_dropout=0.1, fan_in_fan_out=False, bias='none', use_rslora=False, modules_to_save=None, init_lora_weights=True, layers_to_transform=None, layers_pattern=None, rank_pattern={}, alpha_pattern={}, megatron_config=None, megatron_core='megatron.core', trainable_token_indices=None, loftq_config={}, eva_config=None, corda_config=None, use_dora=False, layer_replication=None, runtime_config=LoraRuntimeConfig(ephemeral_gpu_offload=False), lora_bias=False)
-adding special tokens...
-trainable params: 2,293,760 || all params: 3,215,043,584 || trainable%: 0.0713
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): LlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(128256, 3072)
-        (layers): ModuleList(
-          (0-27): 28 x LlamaDecoderLayer(
-            (self_attn): LlamaSdpaAttention(
-              (q_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=3072, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (k_proj): Linear(in_features=3072, out_features=1024, bias=False)
-              (v_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=1024, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (o_proj): Linear(in_features=3072, out_features=3072, bias=False)
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (up_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (down_proj): Linear(in_features=8192, out_features=3072, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-            (post_attention_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-          )
-        )
-        (norm): LlamaRMSNorm((3072,), eps=1e-05)
-        (rotary_emb): LlamaRotaryEmbedding()
-      )
-      (lm_head): Linear(in_features=3072, out_features=128256, bias=False)
-    )
-  )
-)
-trainable params: 2,293,760 || all params: 3,215,043,584 || trainable%: 0.0713
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): LlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(128256, 3072)
-        (layers): ModuleList(
-          (0-27): 28 x LlamaDecoderLayer(
-            (self_attn): LlamaSdpaAttention(
-              (q_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=3072, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (k_proj): Linear(in_features=3072, out_features=1024, bias=False)
-              (v_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=1024, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (o_proj): Linear(in_features=3072, out_features=3072, bias=False)
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (up_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (down_proj): Linear(in_features=8192, out_features=3072, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-            (post_attention_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-          )
-        )
-        (norm): LlamaRMSNorm((3072,), eps=1e-05)
-        (rotary_emb): LlamaRotaryEmbedding()
-      )
-      (lm_head): Linear(in_features=3072, out_features=128256, bias=False)
-    )
-  )
-)
-04/07/2025 18:11:07 - INFO - __main__ - block size: 2048
-trainable params: 2,293,760 || all params: 3,215,043,584 || trainable%: 0.0713
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): LlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(128256, 3072)
-        (layers): ModuleList(
-          (0-27): 28 x LlamaDecoderLayer(
-            (self_attn): LlamaSdpaAttention(
-              (q_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=3072, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (k_proj): Linear(in_features=3072, out_features=1024, bias=False)
-              (v_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=1024, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (o_proj): Linear(in_features=3072, out_features=3072, bias=False)
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (up_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (down_proj): Linear(in_features=8192, out_features=3072, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-            (post_attention_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-          )
-        )
-        (norm): LlamaRMSNorm((3072,), eps=1e-05)
-        (rotary_emb): LlamaRotaryEmbedding()
-      )
-      (lm_head): Linear(in_features=3072, out_features=128256, bias=False)
-    )
-  )
-)
-trainable params: 2,293,760 || all params: 3,215,043,584 || trainable%: 0.0713
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): LlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(128256, 3072)
-        (layers): ModuleList(
-          (0-27): 28 x LlamaDecoderLayer(
-            (self_attn): LlamaSdpaAttention(
-              (q_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=3072, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (k_proj): Linear(in_features=3072, out_features=1024, bias=False)
-              (v_proj): lora.Linear(
-                (base_layer): Linear(in_features=3072, out_features=1024, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=3072, out_features=8, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=8, out_features=1024, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-                (lora_magnitude_vector): ModuleDict()
-              )
-              (o_proj): Linear(in_features=3072, out_features=3072, bias=False)
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (up_proj): Linear(in_features=3072, out_features=8192, bias=False)
-              (down_proj): Linear(in_features=8192, out_features=3072, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-            (post_attention_layernorm): LlamaRMSNorm((3072,), eps=1e-05)
-          )
-        )
-        (norm): LlamaRMSNorm((3072,), eps=1e-05)
-        (rotary_emb): LlamaRotaryEmbedding()
-      )
-      (lm_head): Linear(in_features=3072, out_features=128256, bias=False)
-    )
-  )
-)
-Map:   0%|          | 0/392702 [00:00<?, ? examples/s]Caching processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-9faf32f636901887.arrow
-04/07/2025 18:11:07 - INFO - datasets.arrow_dataset - Caching processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-9faf32f636901887.arrow
-Map:   0%|          | 1000/392702 [00:00<02:27, 2647.54 examples/s]Map:   1%|          | 2000/392702 [00:00<02:24, 2696.35 examples/s]Map:   1%|          | 3000/392702 [00:01<02:23, 2713.49 examples/s]Map:   1%|          | 4000/392702 [00:01<02:22, 2722.48 examples/s]Map:   1%|▏         | 5000/392702 [00:01<02:22, 2722.94 examples/s]Map:   2%|▏         | 6000/392702 [00:02<02:21, 2726.21 examples/s]Map:   2%|▏         | 7000/392702 [00:02<02:21, 2720.54 examples/s]Map:   2%|▏         | 8000/392702 [00:02<02:21, 2720.37 examples/s]Map:   2%|▏         | 9000/392702 [00:03<02:21, 2716.25 examples/s]Map:   3%|▎         | 10000/392702 [00:03<02:20, 2721.48 examples/s]Map:   3%|▎         | 11000/392702 [00:04<02:20, 2716.69 examples/s]Map:   3%|▎         | 12000/392702 [00:04<02:20, 2713.61 examples/s]Map:   3%|▎         | 13000/392702 [00:04<02:20, 2705.77 examples/s]Map:   4%|▎         | 14000/392702 [00:05<02:36, 2422.48 examples/s]Map:   4%|▍         | 15000/392702 [00:05<02:31, 2498.18 examples/s]Map:   4%|▍         | 16000/392702 [00:06<02:27, 2557.56 examples/s]Map:   4%|▍         | 17000/392702 [00:06<02:24, 2600.15 examples/s]Map:   5%|▍         | 18000/392702 [00:06<02:22, 2620.34 examples/s]Map:   5%|▍         | 19000/392702 [00:07<02:21, 2645.39 examples/s]Map:   5%|▌         | 20000/392702 [00:07<02:20, 2650.99 examples/s]Map:   5%|▌         | 21000/392702 [00:07<02:19, 2663.14 examples/s]Map:   6%|▌         | 22000/392702 [00:08<02:18, 2676.48 examples/s]Map:   6%|▌         | 23000/392702 [00:08<02:18, 2670.56 examples/s]Map:   6%|▌         | 24000/392702 [00:09<02:17, 2676.46 examples/s]Map:   6%|▋         | 25000/392702 [00:09<02:17, 2680.56 examples/s]Map:   7%|▋         | 26000/392702 [00:09<02:16, 2687.88 examples/s]Map:   7%|▋         | 27000/392702 [00:10<02:16, 2676.30 examples/s]Map:   7%|▋         | 28000/392702 [00:10<02:15, 2681.75 examples/s]Map:   7%|▋         | 29000/392702 [00:10<02:15, 2681.81 examples/s]Map:   8%|▊         | 30000/392702 [00:11<02:34, 2354.94 examples/s]Map:   8%|▊         | 31000/392702 [00:11<02:28, 2438.76 examples/s]Map:   8%|▊         | 32000/392702 [00:12<02:23, 2507.35 examples/s]Map:   8%|▊         | 33000/392702 [00:12<02:20, 2557.66 examples/s]Map:   9%|▊         | 34000/392702 [00:12<02:18, 2585.85 examples/s]Map:   9%|▉         | 35000/392702 [00:13<02:17, 2610.44 examples/s]Map:   9%|▉         | 36000/392702 [00:13<02:15, 2634.41 examples/s]Map:   9%|▉         | 37000/392702 [00:14<02:14, 2647.82 examples/s]Map:  10%|▉         | 38000/392702 [00:14<02:13, 2660.72 examples/s]Map:  10%|▉         | 39000/392702 [00:14<02:12, 2670.96 examples/s]Map:  10%|█         | 40000/392702 [00:15<02:11, 2673.66 examples/s]Map:  10%|█         | 41000/392702 [00:15<02:11, 2669.84 examples/s]Map:  11%|█         | 42000/392702 [00:15<02:11, 2661.80 examples/s]Map:  11%|█         | 43000/392702 [00:16<02:11, 2666.14 examples/s]Map:  11%|█         | 44000/392702 [00:16<02:10, 2668.76 examples/s]Map:  11%|█▏        | 45000/392702 [00:17<02:10, 2656.73 examples/s]Map:  12%|█▏        | 46000/392702 [00:17<02:28, 2340.01 examples/s]Map:  12%|█▏        | 47000/392702 [00:17<02:22, 2429.62 examples/s]Map:  12%|█▏        | 48000/392702 [00:18<02:17, 2503.20 examples/s]Map:  12%|█▏        | 49000/392702 [00:18<02:15, 2545.24 examples/s]Map:  13%|█▎        | 50000/392702 [00:19<02:12, 2584.15 examples/s]Map:  13%|█▎        | 51000/392702 [00:19<02:10, 2612.08 examples/s]Map:  13%|█▎        | 52000/392702 [00:19<02:09, 2629.32 examples/s]Map:  13%|█▎        | 53000/392702 [00:20<02:08, 2635.33 examples/s]Map:  14%|█▍        | 54000/392702 [00:20<02:07, 2647.65 examples/s]Map:  14%|█▍        | 55000/392702 [00:20<02:07, 2651.83 examples/s]Map:  14%|█▍        | 56000/392702 [00:21<02:06, 2657.93 examples/s]Map:  15%|█▍        | 57000/392702 [00:21<02:06, 2660.21 examples/s]Map:  15%|█▍        | 58000/392702 [00:22<02:05, 2659.78 examples/s]Map:  15%|█▌        | 59000/392702 [00:22<02:05, 2667.64 examples/s]Map:  15%|█▌        | 60000/392702 [00:22<02:04, 2673.34 examples/s]Map:  16%|█▌        | 61000/392702 [00:23<02:04, 2669.53 examples/s]Map:  16%|█▌        | 62000/392702 [00:23<02:17, 2399.18 examples/s]Map:  16%|█▌        | 63000/392702 [00:24<02:13, 2470.42 examples/s]Map:  16%|█▋        | 64000/392702 [00:24<02:10, 2522.93 examples/s]Map:  17%|█▋        | 65000/392702 [00:24<02:07, 2564.61 examples/s]Map:  17%|█▋        | 66000/392702 [00:25<02:06, 2591.55 examples/s]Map:  17%|█▋        | 67000/392702 [00:25<02:04, 2607.67 examples/s]Map:  17%|█▋        | 68000/392702 [00:25<02:03, 2628.49 examples/s]Map:  18%|█▊        | 69000/392702 [00:26<02:02, 2637.40 examples/s]Map:  18%|█▊        | 70000/392702 [00:26<02:01, 2649.76 examples/s]Map:  18%|█▊        | 71000/392702 [00:27<02:01, 2650.55 examples/s]Map:  18%|█▊        | 72000/392702 [00:27<02:00, 2660.74 examples/s]Map:  19%|█▊        | 73000/392702 [00:27<02:00, 2658.19 examples/s]Map:  19%|█▉        | 74000/392702 [00:28<02:00, 2655.39 examples/s]Map:  19%|█▉        | 75000/392702 [00:28<01:59, 2654.72 examples/s]Map:  19%|█▉        | 76000/392702 [00:28<01:59, 2658.23 examples/s]Map:  20%|█▉        | 77000/392702 [00:29<01:58, 2653.73 examples/s]Map:  20%|█▉        | 78000/392702 [00:29<02:15, 2329.78 examples/s]Map:  20%|██        | 79000/392702 [00:30<02:09, 2420.43 examples/s]Map:  20%|██        | 80000/392702 [00:30<02:05, 2497.55 examples/s]Map:  21%|██        | 81000/392702 [00:31<02:02, 2542.59 examples/s]Map:  21%|██        | 82000/392702 [00:31<02:00, 2578.61 examples/s]Map:  21%|██        | 83000/392702 [00:31<01:58, 2603.28 examples/s]Map:  21%|██▏       | 84000/392702 [00:32<01:57, 2625.67 examples/s]Map:  22%|██▏       | 85000/392702 [00:32<01:56, 2635.98 examples/s]Map:  22%|██▏       | 86000/392702 [00:32<01:55, 2645.46 examples/s]Map:  22%|██▏       | 87000/392702 [00:33<01:55, 2648.23 examples/s]Map:  22%|██▏       | 88000/392702 [00:33<01:54, 2651.96 examples/s]Map:  23%|██▎       | 89000/392702 [00:34<01:54, 2645.25 examples/s]Map:  23%|██▎       | 90000/392702 [00:34<01:54, 2653.96 examples/s]Map:  23%|██▎       | 91000/392702 [00:34<01:53, 2651.32 examples/s]Map:  23%|██▎       | 92000/392702 [00:35<01:52, 2664.90 examples/s]Map:  24%|██▎       | 93000/392702 [00:35<02:05, 2391.66 examples/s]Map:  24%|██▍       | 94000/392702 [00:36<02:00, 2475.62 examples/s]Map:  24%|██▍       | 95000/392702 [00:36<01:58, 2515.37 examples/s]Map:  24%|██▍       | 96000/392702 [00:36<01:55, 2557.95 examples/s]Map:  25%|██▍       | 97000/392702 [00:37<01:54, 2587.31 examples/s]Map:  25%|██▍       | 98000/392702 [00:37<01:52, 2617.99 examples/s]Map:  25%|██▌       | 99000/392702 [00:37<01:51, 2633.53 examples/s]Map:  25%|██▌       | 100000/392702 [00:38<01:50, 2640.20 examples/s]Map:  26%|██▌       | 101000/392702 [00:38<01:50, 2648.40 examples/s]Map:  26%|██▌       | 102000/392702 [00:39<01:49, 2660.75 examples/s]Map:  26%|██▌       | 103000/392702 [00:39<01:49, 2653.00 examples/s]Map:  26%|██▋       | 104000/392702 [00:39<01:48, 2650.94 examples/s]Map:  27%|██▋       | 105000/392702 [00:40<01:48, 2657.00 examples/s]Map:  27%|██▋       | 106000/392702 [00:40<01:47, 2660.43 examples/s]Map:  27%|██▋       | 107000/392702 [00:40<01:48, 2638.63 examples/s]Map:  28%|██▊       | 108000/392702 [00:41<01:47, 2652.45 examples/s]Map:  28%|██▊       | 109000/392702 [00:41<02:01, 2341.97 examples/s]Map:  28%|██▊       | 110000/392702 [00:42<01:56, 2433.08 examples/s]Map:  28%|██▊       | 111000/392702 [00:42<01:53, 2491.17 examples/s]Map:  29%|██▊       | 112000/392702 [00:42<01:50, 2543.76 examples/s]Map:  29%|██▉       | 113000/392702 [00:43<01:48, 2578.75 examples/s]Map:  29%|██▉       | 114000/392702 [00:43<01:47, 2603.10 examples/s]Map:  29%|██▉       | 115000/392702 [00:44<01:46, 2612.83 examples/s]Map:  30%|██▉       | 116000/392702 [00:44<01:45, 2616.65 examples/s]Map:  30%|██▉       | 117000/392702 [00:44<01:45, 2616.39 examples/s]Map:  30%|███       | 118000/392702 [00:45<01:44, 2626.73 examples/s]Map:  30%|███       | 119000/392702 [00:45<01:44, 2626.19 examples/s]Map:  31%|███       | 120000/392702 [00:46<01:43, 2644.69 examples/s]Map:  31%|███       | 121000/392702 [00:46<01:42, 2648.84 examples/s]Map:  31%|███       | 122000/392702 [00:46<01:41, 2654.24 examples/s]Map:  31%|███▏      | 123000/392702 [00:47<01:41, 2644.72 examples/s]Map:  32%|███▏      | 124000/392702 [00:47<01:53, 2372.24 examples/s]Map:  32%|███▏      | 125000/392702 [00:48<01:49, 2454.45 examples/s]Map:  32%|███▏      | 126000/392702 [00:48<01:46, 2510.31 examples/s]Map:  32%|███▏      | 127000/392702 [00:48<01:44, 2546.91 examples/s]Map:  33%|███▎      | 128000/392702 [00:49<01:42, 2579.67 examples/s]Map:  33%|███▎      | 129000/392702 [00:49<01:41, 2588.57 examples/s]Map:  33%|███▎      | 130000/392702 [00:49<01:40, 2609.05 examples/s]Map:  33%|███▎      | 131000/392702 [00:50<01:39, 2618.72 examples/s]Map:  34%|███▎      | 132000/392702 [00:50<01:38, 2642.42 examples/s]Map:  34%|███▍      | 133000/392702 [00:51<01:38, 2644.46 examples/s]Map:  34%|███▍      | 134000/392702 [00:51<01:37, 2655.49 examples/s]Map:  34%|███▍      | 135000/392702 [00:51<01:36, 2665.06 examples/s]Map:  35%|███▍      | 136000/392702 [00:52<01:36, 2663.88 examples/s]Map:  35%|███▍      | 137000/392702 [00:52<01:36, 2662.38 examples/s]Map:  35%|███▌      | 138000/392702 [00:52<01:35, 2661.04 examples/s]Map:  35%|███▌      | 139000/392702 [00:53<01:35, 2658.05 examples/s]Map:  36%|███▌      | 140000/392702 [00:53<01:45, 2384.31 examples/s]Map:  36%|███▌      | 141000/392702 [00:54<01:42, 2457.10 examples/s]Map:  36%|███▌      | 142000/392702 [00:54<01:39, 2521.02 examples/s]Map:  36%|███▋      | 143000/392702 [00:54<01:37, 2559.90 examples/s]Map:  37%|███▋      | 144000/392702 [00:55<01:35, 2594.81 examples/s]Map:  37%|███▋      | 145000/392702 [00:55<01:34, 2616.91 examples/s]Map:  37%|███▋      | 146000/392702 [00:56<01:33, 2639.43 examples/s]Map:  37%|███▋      | 147000/392702 [00:56<01:32, 2644.35 examples/s]Map:  38%|███▊      | 148000/392702 [00:56<01:32, 2646.01 examples/s]Map:  38%|███▊      | 149000/392702 [00:57<01:32, 2639.83 examples/s]Map:  38%|███▊      | 150000/392702 [00:57<01:31, 2652.34 examples/s]Map:  38%|███▊      | 151000/392702 [00:57<01:31, 2648.17 examples/s]Map:  39%|███▊      | 152000/392702 [00:58<01:30, 2647.29 examples/s]Map:  39%|███▉      | 153000/392702 [00:58<01:30, 2645.76 examples/s]Map:  39%|███▉      | 154000/392702 [00:59<01:30, 2643.67 examples/s]Map:  39%|███▉      | 155000/392702 [00:59<01:30, 2637.17 examples/s]Map:  40%|███▉      | 156000/392702 [01:00<01:41, 2321.70 examples/s]Map:  40%|███▉      | 157000/392702 [01:00<01:37, 2413.54 examples/s]Map:  40%|████      | 158000/392702 [01:00<01:34, 2486.22 examples/s]Map:  40%|████      | 159000/392702 [01:01<01:32, 2538.18 examples/s]Map:  41%|████      | 160000/392702 [01:01<01:30, 2568.60 examples/s]Map:  41%|████      | 161000/392702 [01:01<01:29, 2593.77 examples/s]Map:  41%|████▏     | 162000/392702 [01:02<01:28, 2609.55 examples/s]Map:  42%|████▏     | 163000/392702 [01:02<01:27, 2620.73 examples/s]Map:  42%|████▏     | 164000/392702 [01:03<01:26, 2638.02 examples/s]Map:  42%|████▏     | 165000/392702 [01:03<01:26, 2634.68 examples/s]Map:  42%|████▏     | 166000/392702 [01:03<01:25, 2648.35 examples/s]Map:  43%|████▎     | 167000/392702 [01:04<01:25, 2647.85 examples/s]Map:  43%|████▎     | 168000/392702 [01:04<01:24, 2665.84 examples/s]Map:  43%|████▎     | 169000/392702 [01:04<01:24, 2654.63 examples/s]Map:  43%|████▎     | 170000/392702 [01:05<01:23, 2659.52 examples/s]Map:  44%|████▎     | 171000/392702 [01:05<01:23, 2658.45 examples/s]Map:  44%|████▍     | 172000/392702 [01:06<01:32, 2387.92 examples/s]Map:  44%|████▍     | 173000/392702 [01:06<01:29, 2465.02 examples/s]Map:  44%|████▍     | 174000/392702 [01:06<01:26, 2522.77 examples/s]Map:  45%|████▍     | 175000/392702 [01:07<01:25, 2554.48 examples/s]Map:  45%|████▍     | 176000/392702 [01:07<01:23, 2585.72 examples/s]Map:  45%|████▌     | 177000/392702 [01:08<01:22, 2601.79 examples/s]Map:  45%|████▌     | 178000/392702 [01:08<01:21, 2619.97 examples/s]Map:  46%|████▌     | 179000/392702 [01:08<01:21, 2618.36 examples/s]Map:  46%|████▌     | 180000/392702 [01:09<01:20, 2637.78 examples/s]Map:  46%|████▌     | 181000/392702 [01:09<01:20, 2637.33 examples/s]Map:  46%|████▋     | 182000/392702 [01:09<01:19, 2645.62 examples/s]Map:  47%|████▋     | 183000/392702 [01:10<01:19, 2647.38 examples/s]Map:  47%|████▋     | 184000/392702 [01:10<01:18, 2655.99 examples/s]Map:  47%|████▋     | 185000/392702 [01:11<01:17, 2664.83 examples/s]Map:  47%|████▋     | 186000/392702 [01:11<01:17, 2672.20 examples/s]Map:  48%|████▊     | 187000/392702 [01:11<01:26, 2385.58 examples/s]Map:  48%|████▊     | 188000/392702 [01:12<01:22, 2467.55 examples/s]Map:  48%|████▊     | 189000/392702 [01:12<01:21, 2514.31 examples/s]Map:  48%|████▊     | 190000/392702 [01:13<01:19, 2559.04 examples/s]Map:  49%|████▊     | 191000/392702 [01:13<01:17, 2591.80 examples/s]Map:  49%|████▉     | 192000/392702 [01:13<01:16, 2607.31 examples/s]Map:  49%|████▉     | 193000/392702 [01:14<01:16, 2621.97 examples/s]Map:  49%|████▉     | 194000/392702 [01:14<01:15, 2637.41 examples/s]Map:  50%|████▉     | 195000/392702 [01:14<01:14, 2639.63 examples/s]Map:  50%|████▉     | 196000/392702 [01:15<01:14, 2645.19 examples/s]Map:  50%|█████     | 197000/392702 [01:15<01:13, 2645.56 examples/s]Map:  50%|█████     | 198000/392702 [01:16<01:13, 2651.91 examples/s]Map:  51%|█████     | 199000/392702 [01:16<01:13, 2648.37 examples/s]Map:  51%|█████     | 200000/392702 [01:16<01:12, 2644.72 examples/s]Map:  51%|█████     | 201000/392702 [01:17<01:12, 2638.45 examples/s]Map:  51%|█████▏    | 202000/392702 [01:17<01:12, 2644.16 examples/s]Map:  52%|█████▏    | 203000/392702 [01:18<01:19, 2380.53 examples/s]Map:  52%|█████▏    | 204000/392702 [01:18<01:16, 2460.34 examples/s]Map:  52%|█████▏    | 205000/392702 [01:18<01:14, 2515.62 examples/s]Map:  52%|█████▏    | 206000/392702 [01:19<01:12, 2563.00 examples/s]Map:  53%|█████▎    | 207000/392702 [01:19<01:11, 2588.93 examples/s]Map:  53%|█████▎    | 208000/392702 [01:20<01:10, 2609.51 examples/s]Map:  53%|█████▎    | 209000/392702 [01:20<01:10, 2612.83 examples/s]Map:  53%|█████▎    | 210000/392702 [01:20<01:09, 2625.12 examples/s]Map:  54%|█████▎    | 211000/392702 [01:21<01:08, 2636.62 examples/s]Map:  54%|█████▍    | 212000/392702 [01:21<01:08, 2651.44 examples/s]Map:  54%|█████▍    | 213000/392702 [01:21<01:07, 2651.74 examples/s]Map:  54%|█████▍    | 214000/392702 [01:22<01:07, 2655.35 examples/s]Map:  55%|█████▍    | 215000/392702 [01:22<01:07, 2650.20 examples/s]Map:  55%|█████▌    | 216000/392702 [01:23<01:06, 2643.79 examples/s]Map:  55%|█████▌    | 217000/392702 [01:23<01:06, 2643.47 examples/s]Map:  56%|█████▌    | 218000/392702 [01:23<01:15, 2326.47 examples/s]Map:  56%|█████▌    | 219000/392702 [01:24<01:11, 2416.30 examples/s]Map:  56%|█████▌    | 220000/392702 [01:24<01:09, 2484.62 examples/s]Map:  56%|█████▋    | 221000/392702 [01:25<01:07, 2528.05 examples/s]Map:  57%|█████▋    | 222000/392702 [01:25<01:06, 2568.37 examples/s]Map:  57%|█████▋    | 223000/392702 [01:25<01:05, 2584.67 examples/s]Map:  57%|█████▋    | 224000/392702 [01:26<01:04, 2609.23 examples/s]Map:  57%|█████▋    | 225000/392702 [01:26<01:03, 2620.93 examples/s]Map:  58%|█████▊    | 226000/392702 [01:26<01:03, 2639.42 examples/s]Map:  58%|█████▊    | 227000/392702 [01:27<01:02, 2640.68 examples/s]Map:  58%|█████▊    | 228000/392702 [01:27<01:02, 2648.26 examples/s]Map:  58%|█████▊    | 229000/392702 [01:28<01:01, 2652.67 examples/s]Map:  59%|█████▊    | 230000/392702 [01:28<01:01, 2651.65 examples/s]Map:  59%|█████▉    | 231000/392702 [01:28<01:00, 2653.66 examples/s]Map:  59%|█████▉    | 232000/392702 [01:29<01:00, 2657.05 examples/s]Map:  59%|█████▉    | 233000/392702 [01:29<01:00, 2653.52 examples/s]Map:  60%|█████▉    | 234000/392702 [01:30<01:06, 2382.61 examples/s]Map:  60%|█████▉    | 235000/392702 [01:30<01:04, 2453.21 examples/s]Map:  60%|██████    | 236000/392702 [01:30<01:02, 2520.89 examples/s]Map:  60%|██████    | 237000/392702 [01:31<01:00, 2553.23 examples/s]Map:  61%|██████    | 238000/392702 [01:31<00:59, 2584.84 examples/s]Map:  61%|██████    | 239000/392702 [01:32<00:58, 2608.25 examples/s]Map:  61%|██████    | 240000/392702 [01:32<00:58, 2624.47 examples/s]Map:  61%|██████▏   | 241000/392702 [01:32<00:57, 2634.19 examples/s]Map:  62%|██████▏   | 242000/392702 [01:33<00:57, 2638.94 examples/s]Map:  62%|██████▏   | 243000/392702 [01:33<00:56, 2636.21 examples/s]Map:  62%|██████▏   | 244000/392702 [01:33<00:56, 2640.62 examples/s]Map:  62%|██████▏   | 245000/392702 [01:34<00:55, 2638.42 examples/s]Map:  63%|██████▎   | 246000/392702 [01:34<00:55, 2646.66 examples/s]Map:  63%|██████▎   | 247000/392702 [01:35<00:55, 2648.41 examples/s]Map:  63%|██████▎   | 248000/392702 [01:35<00:54, 2650.08 examples/s]Map:  63%|██████▎   | 249000/392702 [01:35<00:54, 2645.87 examples/s]Map:  64%|██████▎   | 250000/392702 [01:36<01:00, 2375.40 examples/s]Map:  64%|██████▍   | 251000/392702 [01:36<00:57, 2452.58 examples/s]Map:  64%|██████▍   | 252000/392702 [01:37<00:56, 2509.60 examples/s]Map:  64%|██████▍   | 253000/392702 [01:37<00:54, 2556.83 examples/s]Map:  65%|██████▍   | 254000/392702 [01:37<00:53, 2586.87 examples/s]Map:  65%|██████▍   | 255000/392702 [01:38<00:52, 2611.57 examples/s]Map:  65%|██████▌   | 256000/392702 [01:38<00:52, 2628.27 examples/s]Map:  65%|██████▌   | 257000/392702 [01:38<00:51, 2627.90 examples/s]Map:  66%|██████▌   | 258000/392702 [01:39<00:50, 2648.13 examples/s]Map:  66%|██████▌   | 259000/392702 [01:39<00:50, 2642.97 examples/s]Map:  66%|██████▌   | 260000/392702 [01:40<00:50, 2642.82 examples/s]Map:  66%|██████▋   | 261000/392702 [01:40<00:49, 2639.61 examples/s]Map:  67%|██████▋   | 262000/392702 [01:40<00:49, 2644.07 examples/s]Map:  67%|██████▋   | 263000/392702 [01:41<00:49, 2636.92 examples/s]Map:  67%|██████▋   | 264000/392702 [01:41<00:48, 2645.97 examples/s]Map:  67%|██████▋   | 265000/392702 [01:41<00:48, 2653.23 examples/s]Map:  68%|██████▊   | 266000/392702 [01:42<00:53, 2386.93 examples/s]Map:  68%|██████▊   | 267000/392702 [01:42<00:51, 2455.50 examples/s]Map:  68%|██████▊   | 268000/392702 [01:43<00:49, 2515.40 examples/s]Map:  68%|██████▊   | 269000/392702 [01:43<00:48, 2542.24 examples/s]Map:  69%|██████▉   | 270000/392702 [01:44<00:47, 2577.10 examples/s]Map:  69%|██████▉   | 271000/392702 [01:44<00:46, 2599.74 examples/s]Map:  69%|██████▉   | 272000/392702 [01:44<00:45, 2629.35 examples/s]Map:  70%|██████▉   | 273000/392702 [01:45<00:45, 2636.03 examples/s]Map:  70%|██████▉   | 274000/392702 [01:45<00:44, 2659.14 examples/s]Map:  70%|███████   | 275000/392702 [01:45<00:44, 2659.91 examples/s]Map:  70%|███████   | 276000/392702 [01:46<00:43, 2662.33 examples/s]Map:  71%|███████   | 277000/392702 [01:46<00:43, 2657.69 examples/s]Map:  71%|███████   | 278000/392702 [01:47<00:43, 2658.54 examples/s]Map:  71%|███████   | 279000/392702 [01:47<00:42, 2657.33 examples/s]Map:  71%|███████▏  | 280000/392702 [01:47<00:42, 2670.28 examples/s]Map:  72%|███████▏  | 281000/392702 [01:48<00:46, 2384.03 examples/s]Map:  72%|███████▏  | 282000/392702 [01:48<00:44, 2465.31 examples/s]Map:  72%|███████▏  | 283000/392702 [01:49<00:43, 2511.28 examples/s]Map:  72%|███████▏  | 284000/392702 [01:49<00:42, 2559.62 examples/s]Map:  73%|███████▎  | 285000/392702 [01:49<00:41, 2582.34 examples/s]Map:  73%|███████▎  | 286000/392702 [01:50<00:40, 2610.27 examples/s]Map:  73%|███████▎  | 287000/392702 [01:50<00:40, 2614.27 examples/s]Map:  73%|███████▎  | 288000/392702 [01:50<00:39, 2634.34 examples/s]Map:  74%|███████▎  | 289000/392702 [01:51<00:39, 2639.09 examples/s]Map:  74%|███████▍  | 290000/392702 [01:51<00:38, 2640.67 examples/s]Map:  74%|███████▍  | 291000/392702 [01:52<00:38, 2647.03 examples/s]Map:  74%|███████▍  | 292000/392702 [01:52<00:38, 2647.37 examples/s]Map:  75%|███████▍  | 293000/392702 [01:52<00:37, 2654.68 examples/s]Map:  75%|███████▍  | 294000/392702 [01:53<00:37, 2661.11 examples/s]Map:  75%|███████▌  | 295000/392702 [01:53<00:36, 2653.86 examples/s]Map:  75%|███████▌  | 296000/392702 [01:53<00:36, 2647.85 examples/s]Map:  76%|███████▌  | 297000/392702 [01:54<00:41, 2330.62 examples/s]Map:  76%|███████▌  | 298000/392702 [01:54<00:39, 2421.50 examples/s]Map:  76%|███████▌  | 299000/392702 [01:55<00:37, 2485.10 examples/s]Map:  76%|███████▋  | 300000/392702 [01:55<00:36, 2542.64 examples/s]Map:  77%|███████▋  | 301000/392702 [01:55<00:35, 2574.14 examples/s]Map:  77%|███████▋  | 302000/392702 [01:56<00:34, 2594.55 examples/s]Map:  77%|███████▋  | 303000/392702 [01:56<00:34, 2609.90 examples/s]Map:  77%|███████▋  | 304000/392702 [01:57<00:33, 2617.64 examples/s]Map:  78%|███████▊  | 305000/392702 [01:57<00:33, 2624.67 examples/s]Map:  78%|███████▊  | 306000/392702 [01:57<00:32, 2629.13 examples/s]Map:  78%|███████▊  | 307000/392702 [01:58<00:32, 2625.30 examples/s]Map:  78%|███████▊  | 308000/392702 [01:58<00:32, 2637.03 examples/s]Map:  79%|███████▊  | 309000/392702 [01:59<00:31, 2639.92 examples/s]Map:  79%|███████▉  | 310000/392702 [01:59<00:31, 2649.19 examples/s]Map:  79%|███████▉  | 311000/392702 [01:59<00:30, 2649.87 examples/s]Map:  79%|███████▉  | 312000/392702 [02:00<00:33, 2374.24 examples/s]Map:  80%|███████▉  | 313000/392702 [02:00<00:32, 2454.10 examples/s]Map:  80%|███████▉  | 314000/392702 [02:01<00:31, 2515.28 examples/s]Map:  80%|████████  | 315000/392702 [02:01<00:30, 2549.06 examples/s]Map:  80%|████████  | 316000/392702 [02:01<00:29, 2583.68 examples/s]Map:  81%|████████  | 317000/392702 [02:02<00:29, 2605.43 examples/s]Map:  81%|████████  | 318000/392702 [02:02<00:28, 2620.60 examples/s]Map:  81%|████████  | 319000/392702 [02:02<00:28, 2628.79 examples/s]Map:  81%|████████▏ | 320000/392702 [02:03<00:27, 2633.22 examples/s]Map:  82%|████████▏ | 321000/392702 [02:03<00:27, 2631.26 examples/s]Map:  82%|████████▏ | 322000/392702 [02:04<00:26, 2636.48 examples/s]Map:  82%|████████▏ | 323000/392702 [02:04<00:26, 2639.81 examples/s]Map:  83%|████████▎ | 324000/392702 [02:04<00:25, 2646.72 examples/s]Map:  83%|████████▎ | 325000/392702 [02:05<00:25, 2644.09 examples/s]Map:  83%|████████▎ | 326000/392702 [02:05<00:25, 2652.32 examples/s]Map:  83%|████████▎ | 327000/392702 [02:05<00:24, 2645.25 examples/s]Map:  84%|████████▎ | 328000/392702 [02:06<00:27, 2384.22 examples/s]Map:  84%|████████▍ | 329000/392702 [02:06<00:25, 2455.30 examples/s]Map:  84%|████████▍ | 330000/392702 [02:07<00:24, 2524.90 examples/s]Map:  84%|████████▍ | 331000/392702 [02:07<00:24, 2554.40 examples/s]Map:  85%|████████▍ | 332000/392702 [02:07<00:23, 2585.47 examples/s]Map:  85%|████████▍ | 333000/392702 [02:08<00:22, 2602.80 examples/s]Map:  85%|████████▌ | 334000/392702 [02:08<00:22, 2609.22 examples/s]Map:  85%|████████▌ | 335000/392702 [02:09<00:22, 2621.85 examples/s]Map:  86%|████████▌ | 336000/392702 [02:09<00:21, 2630.85 examples/s]Map:  86%|████████▌ | 337000/392702 [02:09<00:21, 2634.76 examples/s]Map:  86%|████████▌ | 338000/392702 [02:10<00:20, 2649.96 examples/s]Map:  86%|████████▋ | 339000/392702 [02:10<00:20, 2638.28 examples/s]Map:  87%|████████▋ | 340000/392702 [02:10<00:19, 2645.22 examples/s]Map:  87%|████████▋ | 341000/392702 [02:11<00:19, 2640.45 examples/s]Map:  87%|████████▋ | 342000/392702 [02:11<00:19, 2655.24 examples/s]Map:  87%|████████▋ | 343000/392702 [02:12<00:18, 2650.96 examples/s]Map:  88%|████████▊ | 344000/392702 [02:12<00:20, 2386.71 examples/s]Map:  88%|████████▊ | 345000/392702 [02:13<00:19, 2455.25 examples/s]Map:  88%|████████▊ | 346000/392702 [02:13<00:18, 2519.80 examples/s]Map:  88%|████████▊ | 347000/392702 [02:13<00:17, 2562.87 examples/s]Map:  89%|████████▊ | 348000/392702 [02:14<00:17, 2593.17 examples/s]Map:  89%|████████▉ | 349000/392702 [02:14<00:16, 2602.03 examples/s]Map:  89%|████████▉ | 350000/392702 [02:14<00:16, 2613.70 examples/s]Map:  89%|████████▉ | 351000/392702 [02:15<00:15, 2620.45 examples/s]Map:  90%|████████▉ | 352000/392702 [02:15<00:15, 2633.20 examples/s]Map:  90%|████████▉ | 353000/392702 [02:16<00:15, 2640.12 examples/s]Map:  90%|█████████ | 354000/392702 [02:16<00:14, 2649.64 examples/s]Map:  90%|█████████ | 355000/392702 [02:16<00:14, 2643.91 examples/s]Map:  91%|█████████ | 356000/392702 [02:17<00:13, 2633.52 examples/s]Map:  91%|█████████ | 357000/392702 [02:17<00:13, 2641.57 examples/s]Map:  91%|█████████ | 358000/392702 [02:17<00:13, 2652.92 examples/s]Map:  91%|█████████▏| 359000/392702 [02:18<00:12, 2653.56 examples/s]Map:  92%|█████████▏| 360000/392702 [02:18<00:13, 2391.08 examples/s]Map:  92%|█████████▏| 361000/392702 [02:19<00:12, 2465.53 examples/s]Map:  92%|█████████▏| 362000/392702 [02:19<00:12, 2527.46 examples/s]Map:  92%|█████████▏| 363000/392702 [02:19<00:11, 2554.83 examples/s]Map:  93%|█████████▎| 364000/392702 [02:20<00:11, 2590.57 examples/s]Map:  93%|█████████▎| 365000/392702 [02:20<00:10, 2601.14 examples/s]Map:  93%|█████████▎| 366000/392702 [02:21<00:10, 2621.68 examples/s]Map:  93%|█████████▎| 367000/392702 [02:21<00:09, 2622.43 examples/s]Map:  94%|█████████▎| 368000/392702 [02:21<00:09, 2638.69 examples/s]Map:  94%|█████████▍| 369000/392702 [02:22<00:08, 2643.18 examples/s]Map:  94%|█████████▍| 370000/392702 [02:22<00:08, 2647.30 examples/s]Map:  94%|█████████▍| 371000/392702 [02:22<00:08, 2652.25 examples/s]Map:  95%|█████████▍| 372000/392702 [02:23<00:07, 2648.34 examples/s]Map:  95%|█████████▍| 373000/392702 [02:23<00:07, 2648.30 examples/s]Map:  95%|█████████▌| 374000/392702 [02:24<00:07, 2652.07 examples/s]Map:  95%|█████████▌| 375000/392702 [02:24<00:07, 2374.40 examples/s]Map:  96%|█████████▌| 376000/392702 [02:24<00:06, 2455.97 examples/s]Map:  96%|█████████▌| 377000/392702 [02:25<00:06, 2516.53 examples/s]Map:  96%|█████████▋| 378000/392702 [02:25<00:05, 2553.49 examples/s]Map:  97%|█████████▋| 379000/392702 [02:26<00:05, 2583.48 examples/s]Map:  97%|█████████▋| 380000/392702 [02:26<00:04, 2601.81 examples/s]Map:  97%|█████████▋| 381000/392702 [02:26<00:04, 2620.57 examples/s]Map:  97%|█████████▋| 382000/392702 [02:27<00:04, 2634.37 examples/s]Map:  98%|█████████▊| 383000/392702 [02:27<00:03, 2643.66 examples/s]Map:  98%|█████████▊| 384000/392702 [02:27<00:03, 2646.36 examples/s]Map:  98%|█████████▊| 385000/392702 [02:28<00:02, 2648.36 examples/s]Map:  98%|█████████▊| 386000/392702 [02:28<00:02, 2648.30 examples/s]Map:  99%|█████████▊| 387000/392702 [02:29<00:02, 2647.12 examples/s]Map:  99%|█████████▉| 388000/392702 [02:29<00:01, 2652.29 examples/s]Map:  99%|█████████▉| 389000/392702 [02:29<00:01, 2641.64 examples/s]Map:  99%|█████████▉| 390000/392702 [02:30<00:01, 2648.46 examples/s]Map: 100%|█████████▉| 391000/392702 [02:30<00:00, 2368.29 examples/s]Map: 100%|█████████▉| 392000/392702 [02:31<00:00, 2452.80 examples/s]Map: 100%|██████████| 392702/392702 [02:31<00:00, 2498.69 examples/s]Map: 100%|██████████| 392702/392702 [02:31<00:00, 2593.39 examples/s]
-Map:   0%|          | 0/2490 [00:00<?, ? examples/s]Caching processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-c9a7d983984e77ce.arrow
-04/07/2025 18:13:39 - INFO - datasets.arrow_dataset - Caching processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-c9a7d983984e77ce.arrow
-Map:  40%|████      | 1000/2490 [00:00<00:00, 2860.42 examples/s]Map:  80%|████████  | 2000/2490 [00:00<00:00, 2784.69 examples/s]Map: 100%|██████████| 2490/2490 [00:00<00:00, 2780.90 examples/s]Map: 100%|██████████| 2490/2490 [00:00<00:00, 2770.42 examples/s]
-04/07/2025 18:13:39 - INFO - __main__ - xxx: Showcase the tokenized training samples.
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-Map:   0%|          | 0/2490 [00:00<?, ? examples/s]Map:   0%|          | 0/2490 [00:00<?, ? examples/s]Map:   0%|          | 0/2490 [00:00<?, ? examples/s]Map:  40%|████      | 1000/2490 [00:00<00:00, 2893.56 examples/s]Map:  40%|████      | 1000/2490 [00:00<00:00, 2876.54 examples/s]Map:  40%|████      | 1000/2490 [00:00<00:00, 2895.66 examples/s]Downloading builder script:   0%|          | 0.00/4.20k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 4.20k/4.20k [00:00<00:00, 33.1MB/s]
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
-  warnings.warn(
-[INFO|trainer.py:658] 2025-04-07 18:13:40,497 >> Using auto half precision backend
-Map:  80%|████████  | 2000/2490 [00:00<00:00, 2838.52 examples/s]Map:  80%|████████  | 2000/2490 [00:00<00:00, 2831.90 examples/s]Map:  80%|████████  | 2000/2490 [00:00<00:00, 2817.42 examples/s][2025-04-07 18:13:40,641] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed info: version=0.16.5, git-hash=unknown, git-branch=unknown
-[2025-04-07 18:13:40,641] [INFO] [config.py:734:__init__] Config mesh_device None world_size = 4
-Map: 100%|██████████| 2490/2490 [00:00<00:00, 2813.56 examples/s]Map: 100%|██████████| 2490/2490 [00:00<00:00, 2820.08 examples/s]Map: 100%|██████████| 2490/2490 [00:00<00:00, 2812.54 examples/s]Map: 100%|██████████| 2490/2490 [00:00<00:00, 2797.83 examples/s]
-Map: 100%|██████████| 2490/2490 [00:00<00:00, 2804.74 examples/s]
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-Map: 100%|██████████| 2490/2490 [00:00<00:00, 2798.49 examples/s]
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-{'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
-  warnings.warn(
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
-  warnings.warn(
-/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
-  warnings.warn(
-W0407 18:14:06.277000 896819 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 896847 closing signal SIGTERM
-W0407 18:14:06.310000 896819 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 896848 closing signal SIGTERM
-W0407 18:14:06.311000 896819 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 896850 closing signal SIGTERM
-E0407 18:14:07.293000 896819 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: -9) local_rank: 2 (pid: 896849) of binary: /pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/bin/python
-Traceback (most recent call last):
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/bin/accelerate", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
-    args.func(args)
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1196, in launch_command
-    deepspeed_launcher(args)
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
-    distrib_run.run(args)
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/distributed/run.py", line 909, in run
-    elastic_launch(
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-=======================================================
-./scripts/run_clm_lora.py FAILED
--------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
--------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2025-04-07_18:14:06
-  host      : uc3n082.localdomain
-  rank      : 2 (local_rank: 2)
-  exitcode  : -9 (pid: 896849)
-  error_file: <N/A>
-  traceback : Signal 9 (SIGKILL) received by PID 896849
-=======================================================
-Training finished. Log saved to ./test_run_outputs_accelerate_multi_gpu/train.log
-slurmstepd: error: Detected 1 oom_kill event in StepId=2380.batch. Some of the step tasks have been OOM Killed.
-
-============================= JOB FEEDBACK =============================
-
-NodeName=uc3n082
-Job ID: 2380
-Cluster: uc3
-User/Group: ka_usxcp/ka_stud
-State: OUT_OF_MEMORY (exit code 0)
-Nodes: 1
-Cores per node: 192
-CPU Utilized: 00:04:28
-CPU Efficiency: 0.45% of 16:32:00 core-walltime
-Job Wall-clock time: 00:05:10
-Memory Utilized: 15.90 GB
-Memory Efficiency: 99.38% of 16.00 GB (16.00 GB/node)

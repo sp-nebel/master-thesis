@@ -1,4 +1,4 @@
-Obtaining file:///pfs/data5/home/kit/stud/usxcp/master-thesis
+Obtaining file:///pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis
   Installing build dependencies: started
   Installing build dependencies: finished with status 'done'
   Checking if build backend supports build_editable: started
@@ -7,49 +7,62 @@ Obtaining file:///pfs/data5/home/kit/stud/usxcp/master-thesis
   Getting requirements to build editable: finished with status 'done'
   Preparing editable metadata (pyproject.toml): started
   Preparing editable metadata (pyproject.toml): finished with status 'done'
-Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (3.18.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (0.29.3)
-Requirement already satisfied: numpy>=1.17 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (2.2.4)
-Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (24.2)
-Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (6.0.2)
-Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (2024.11.6)
-Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (2.32.3)
-Collecting tokenizers<0.20,>=0.19 (from transformers==4.44.0.dev0)
-  Using cached tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
-Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (0.5.3)
-Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers==4.44.0.dev0) (4.67.1)
-Requirement already satisfied: fsspec>=2023.5.0 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.44.0.dev0) (2024.12.0)
-Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.44.0.dev0) (4.13.0)
-Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (3.4.1)
-Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (2.3.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.44.0.dev0) (2025.1.31)
-Using cached tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (3.18.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.30.1)
+Requirement already satisfied: numpy>=1.17 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2.2.4)
+Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (6.0.2)
+Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2024.11.6)
+Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (2.32.3)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.19.1)
+Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (0.5.3)
+Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers==4.47.0) (4.67.1)
+Requirement already satisfied: fsspec>=2023.5.0 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.47.0) (2024.12.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.47.0) (4.13.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers==4.47.0) (2025.1.31)
 Building wheels for collected packages: transformers
   Building editable for transformers (pyproject.toml): started
   Building editable for transformers (pyproject.toml): finished with status 'done'
-  Created wheel for transformers: filename=transformers-4.44.0.dev0-0.editable-py3-none-any.whl size=4844 sha256=d51f644f772fde76ceb6c5b3d75ffec2abd98df380726112cce813a5a77df7b6
-  Stored in directory: /scratch/slurm_tmpdir/job_25430584/pip-ephem-wheel-cache-rjnnkqmc/wheels/09/2f/c5/29c32dfaf34660d66a970ee8583048c8cb5680f60648a1be6f
+  Created wheel for transformers: filename=transformers-4.47.0-0.editable-py3-none-any.whl size=4778 sha256=75cfecf86daf8f92e5d6a30223e632f6614f355656bb6ad1feafe4f5a9fc53f2
+  Stored in directory: /scratch/slurm_tmpdir/job_9285/pip-ephem-wheel-cache-0blqetce/wheels/ee/bf/dc/6be6e7328682f7a5b12fc84f97e7a227c132b8da4f915209aa
 Successfully built transformers
-Installing collected packages: tokenizers, transformers
-  Attempting uninstall: tokenizers
-    Found existing installation: tokenizers 0.21.1
-    Uninstalling tokenizers-0.21.1:
-      Successfully uninstalled tokenizers-0.21.1
+Installing collected packages: transformers
   Attempting uninstall: transformers
-    Found existing installation: transformers 4.50.3
-    Uninstalling transformers-4.50.3:
-      Successfully uninstalled transformers-4.50.3
-ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
-hf-mtask-trainer 0.0.5 requires transformers>=4.47.0, but you have transformers 4.44.0.dev0 which is incompatible.
-Successfully installed tokenizers-0.19.1 transformers-4.44.0.dev0
+    Found existing installation: transformers 4.47.0
+    Uninstalling transformers-4.47.0:
+      Successfully uninstalled transformers-4.47.0
+Successfully installed transformers-4.47.0
 
 [notice] A new release of pip is available: 24.0 -> 25.0.1
 [notice] To update, run: pip install --upgrade pip
-Looking in indexes: https://download.pytorch.org/whl/cu120
+Looking in indexes: https://download.pytorch.org/whl/cu128
 Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (2.6.0)
-ERROR: Could not find a version that satisfies the requirement torchvision (from versions: none)
-ERROR: No matching distribution found for torchvision
+Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from torch) (3.18.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch) (4.13.1)
+Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch) (3.4.2)
+Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch) (2024.12.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./.env/lib/python3.12/site-packages (from torch) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./.env/lib/python3.12/site-packages (from torch) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./.env/lib/python3.12/site-packages (from torch) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./.env/lib/python3.12/site-packages (from torch) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./.env/lib/python3.12/site-packages (from torch) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./.env/lib/python3.12/site-packages (from torch) (12.3.1.170)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./.env/lib/python3.12/site-packages (from torch) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./.env/lib/python3.12/site-packages (from torch) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./.env/lib/python3.12/site-packages (from torch) (12.4.127)
+Requirement already satisfied: triton==3.2.0 in ./.env/lib/python3.12/site-packages (from torch) (3.2.0)
+Requirement already satisfied: setuptools in ./.env/lib/python3.12/site-packages (from torch) (78.1.0)
+Requirement already satisfied: sympy==1.13.1 in ./.env/lib/python3.12/site-packages (from torch) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.env/lib/python3.12/site-packages (from sympy==1.13.1->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.env/lib/python3.12/site-packages (from jinja2->torch) (3.0.2)
 
 [notice] A new release of pip is available: 24.0 -> 25.0.1
 [notice] To update, run: pip install --upgrade pip
@@ -62,12 +75,12 @@ Requirement already satisfied: numpy in ./.env/lib/python3.12/site-packages (fro
 Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (24.2)
 Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from deepspeed) (7.0.0)
 Requirement already satisfied: py-cpuinfo in ./.env/lib/python3.12/site-packages (from deepspeed) (9.0.0)
-Requirement already satisfied: pydantic>=2.0.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (2.11.1)
+Requirement already satisfied: pydantic>=2.0.0 in ./.env/lib/python3.12/site-packages (from deepspeed) (2.11.2)
 Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (from deepspeed) (2.6.0)
 Requirement already satisfied: tqdm in ./.env/lib/python3.12/site-packages (from deepspeed) (4.67.1)
 Requirement already satisfied: annotated-types>=0.6.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.7.0)
-Requirement already satisfied: pydantic-core==2.33.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (2.33.0)
-Requirement already satisfied: typing-extensions>=4.12.2 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (4.13.0)
+Requirement already satisfied: pydantic-core==2.33.1 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (2.33.1)
+Requirement already satisfied: typing-extensions>=4.12.2 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (4.13.1)
 Requirement already satisfied: typing-inspection>=0.4.0 in ./.env/lib/python3.12/site-packages (from pydantic>=2.0.0->deepspeed) (0.4.0)
 Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.18.0)
 Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch->deepspeed) (3.4.2)
@@ -107,23 +120,23 @@ Requirement already satisfied: tqdm>=4.66.3 in ./.env/lib/python3.12/site-packag
 Requirement already satisfied: xxhash in ./.env/lib/python3.12/site-packages (from datasets) (3.5.0)
 Requirement already satisfied: multiprocess<0.70.17 in ./.env/lib/python3.12/site-packages (from datasets) (0.70.16)
 Requirement already satisfied: fsspec<=2024.12.0,>=2023.1.0 in ./.env/lib/python3.12/site-packages (from fsspec[http]<=2024.12.0,>=2023.1.0->datasets) (2024.12.0)
-Requirement already satisfied: aiohttp in ./.env/lib/python3.12/site-packages (from datasets) (3.11.14)
-Requirement already satisfied: huggingface-hub>=0.24.0 in ./.env/lib/python3.12/site-packages (from datasets) (0.29.3)
+Requirement already satisfied: aiohttp in ./.env/lib/python3.12/site-packages (from datasets) (3.11.16)
+Requirement already satisfied: huggingface-hub>=0.24.0 in ./.env/lib/python3.12/site-packages (from datasets) (0.30.1)
 Requirement already satisfied: packaging in ./.env/lib/python3.12/site-packages (from datasets) (24.2)
 Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from datasets) (6.0.2)
 Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from peft) (7.0.0)
 Requirement already satisfied: torch>=1.13.0 in ./.env/lib/python3.12/site-packages (from peft) (2.6.0)
-Requirement already satisfied: transformers in ./.env/lib/python3.12/site-packages (from peft) (4.44.0.dev0)
-Requirement already satisfied: accelerate>=0.21.0 in ./.env/lib/python3.12/site-packages (from peft) (1.5.2)
+Requirement already satisfied: transformers in ./.env/lib/python3.12/site-packages (from peft) (4.47.0)
+Requirement already satisfied: accelerate>=0.21.0 in ./.env/lib/python3.12/site-packages (from peft) (1.6.0)
 Requirement already satisfied: safetensors in ./.env/lib/python3.12/site-packages (from peft) (0.5.3)
 Requirement already satisfied: aiohappyeyeballs>=2.3.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (2.6.1)
 Requirement already satisfied: aiosignal>=1.1.2 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.3.2)
 Requirement already satisfied: attrs>=17.3.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (25.3.0)
 Requirement already satisfied: frozenlist>=1.1.1 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.5.0)
-Requirement already satisfied: multidict<7.0,>=4.5 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (6.2.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (6.3.2)
 Requirement already satisfied: propcache>=0.2.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (0.3.1)
-Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.18.3)
-Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets) (4.13.0)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.env/lib/python3.12/site-packages (from aiohttp->datasets) (1.19.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in ./.env/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets) (4.13.1)
 Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.4.1)
 Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (3.10)
 Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests>=2.32.2->datasets) (2.3.0)
@@ -164,21 +177,19 @@ Requirement already satisfied: scipy>=1.6.0 in ./.env/lib/python3.12/site-packag
 Requirement already satisfied: joblib>=1.2.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
 Requirement already satisfied: threadpoolctl>=3.1.0 in ./.env/lib/python3.12/site-packages (from scikit-learn) (3.6.0)
 Requirement already satisfied: torch in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (2.6.0)
-Collecting transformers>=4.47.0 (from hf_mtask_trainer)
-  Using cached transformers-4.50.3-py3-none-any.whl.metadata (39 kB)
-Requirement already satisfied: accelerate in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (1.5.2)
+Requirement already satisfied: transformers>=4.47.0 in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (4.47.0)
+Requirement already satisfied: accelerate in ./.env/lib/python3.12/site-packages (from hf_mtask_trainer) (1.6.0)
 Requirement already satisfied: filelock in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (3.18.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.26.0 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.29.3)
+Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.30.1)
 Requirement already satisfied: packaging>=20.0 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (24.2)
 Requirement already satisfied: pyyaml>=5.1 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (6.0.2)
 Requirement already satisfied: regex!=2019.12.17 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2024.11.6)
 Requirement already satisfied: requests in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (2.32.3)
-Collecting tokenizers<0.22,>=0.21 (from transformers>=4.47.0->hf_mtask_trainer)
-  Using cached tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
-Requirement already satisfied: safetensors>=0.4.3 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.5.3)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.19.1)
+Requirement already satisfied: safetensors>=0.4.1 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (0.5.3)
 Requirement already satisfied: tqdm>=4.27 in ./.env/lib/python3.12/site-packages (from transformers>=4.47.0->hf_mtask_trainer) (4.67.1)
 Requirement already satisfied: psutil in ./.env/lib/python3.12/site-packages (from accelerate->hf_mtask_trainer) (7.0.0)
-Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (4.13.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (4.13.1)
 Requirement already satisfied: networkx in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.4.2)
 Requirement already satisfied: jinja2 in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (3.1.6)
 Requirement already satisfied: fsspec in ./.env/lib/python3.12/site-packages (from torch->hf_mtask_trainer) (2024.12.0)
@@ -204,18 +215,6 @@ Requirement already satisfied: charset-normalizer<4,>=2 in ./.env/lib/python3.12
 Requirement already satisfied: idna<4,>=2.5 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (3.10)
 Requirement already satisfied: urllib3<3,>=1.21.1 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2.3.0)
 Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.12/site-packages (from requests->transformers>=4.47.0->hf_mtask_trainer) (2025.1.31)
-Using cached transformers-4.50.3-py3-none-any.whl (10.2 MB)
-Using cached tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-Installing collected packages: tokenizers, transformers
-  Attempting uninstall: tokenizers
-    Found existing installation: tokenizers 0.19.1
-    Uninstalling tokenizers-0.19.1:
-      Successfully uninstalled tokenizers-0.19.1
-  Attempting uninstall: transformers
-    Found existing installation: transformers 4.44.0.dev0
-    Uninstalling transformers-4.44.0.dev0:
-      Successfully uninstalled transformers-4.44.0.dev0
-Successfully installed tokenizers-0.21.1 transformers-4.50.3
 
 [notice] A new release of pip is available: 24.0 -> 25.0.1
 [notice] To update, run: pip install --upgrade pip
@@ -223,15 +222,15 @@ Requirement already satisfied: seqeval in ./.env/lib/python3.12/site-packages (1
 Requirement already satisfied: levenshtein in ./.env/lib/python3.12/site-packages (0.27.1)
 Requirement already satisfied: numpy>=1.14.0 in ./.env/lib/python3.12/site-packages (from seqeval) (2.2.4)
 Requirement already satisfied: scikit-learn>=0.21.3 in ./.env/lib/python3.12/site-packages (from seqeval) (1.6.1)
-Requirement already satisfied: rapidfuzz<4.0.0,>=3.9.0 in ./.env/lib/python3.12/site-packages (from levenshtein) (3.12.2)
+Requirement already satisfied: rapidfuzz<4.0.0,>=3.9.0 in ./.env/lib/python3.12/site-packages (from levenshtein) (3.13.0)
 Requirement already satisfied: scipy>=1.6.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.15.2)
 Requirement already satisfied: joblib>=1.2.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (1.4.2)
 Requirement already satisfied: threadpoolctl>=3.1.0 in ./.env/lib/python3.12/site-packages (from scikit-learn>=0.21.3->seqeval) (3.6.0)
 
 [notice] A new release of pip is available: 24.0 -> 25.0.1
 [notice] To update, run: pip install --upgrade pip
-04/01/2025 02:11:41 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
-04/01/2025 02:11:41 - INFO - __main__ - Training/evaluation parameters LoRATrainingArguments(
+04/10/2025 18:18:40 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+04/10/2025 18:18:40 - INFO - __main__ - Training/evaluation parameters LoRATrainingArguments(
 _n_gpu=1,
 accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
 adafactor=False,
@@ -239,7 +238,6 @@ adam_beta1=0.9,
 adam_beta2=0.999,
 adam_epsilon=1e-08,
 auto_find_batch_size=False,
-average_tokens_across_devices=False,
 batch_eval_metrics=False,
 bf16=True,
 bf16_full_eval=True,
@@ -286,11 +284,10 @@ group_by_length=False,
 half_precision_backend=auto,
 hub_always_push=False,
 hub_model_id=None,
-hub_private_repo=None,
+hub_private_repo=False,
 hub_strategy=HubStrategy.EVERY_SAVE,
 hub_token=<HUB_TOKEN>,
 ignore_data_skip=False,
-include_for_metrics=[],
 include_inputs_for_metrics=False,
 include_num_input_tokens_seen=False,
 include_tokens_per_second=False,
@@ -305,7 +302,7 @@ local_rank=0,
 log_level=passive,
 log_level_replica=warning,
 log_on_each_node=True,
-logging_dir=./test_run_outputs/runs/Apr01_02-11-39_uc2n513.localdomain,
+logging_dir=./test_run_outputs/runs/Apr10_18-18-40_uc3n082.localdomain,
 logging_first_step=False,
 logging_nan_inf_filter=True,
 logging_steps=10,
@@ -343,7 +340,7 @@ save_on_each_node=False,
 save_only_model=False,
 save_safetensors=True,
 save_steps=200,
-save_strategy=SaveStrategy.STEPS,
+save_strategy=IntervalStrategy.STEPS,
 save_total_limit=1,
 seed=1,
 skip_memory_metrics=True,
@@ -352,42 +349,48 @@ tf32=None,
 torch_compile=False,
 torch_compile_backend=None,
 torch_compile_mode=None,
-torch_empty_cache_steps=None,
+torch_empty_cache_steps=200,
 torchdynamo=None,
-tp_size=0,
 tpu_metrics_debug=False,
 tpu_num_cores=None,
 use_cpu=False,
 use_int8_training=False,
 use_ipex=False,
 use_legacy_prediction_loop=False,
-use_liger_kernel=False,
 use_lora=True,
 use_mps_device=False,
 warmup_ratio=0.03,
 warmup_steps=0,
 weight_decay=0.0,
 )
-Using custom data configuration default-9b02921756584d5a
-04/01/2025 02:11:42 - INFO - datasets.builder - Using custom data configuration default-9b02921756584d5a
-Loading Dataset Infos from /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
-04/01/2025 02:11:42 - INFO - datasets.info - Loading Dataset Infos from /pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
+Using custom data configuration default-851ce74e92ca2b7e
+Loading Dataset Infos from /pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
+04/10/2025 18:18:40 - INFO - datasets.builder - Using custom data configuration default-851ce74e92ca2b7e
+04/10/2025 18:18:40 - INFO - datasets.info - Loading Dataset Infos from /pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/datasets/packaged_modules/json
 Overwrite dataset info from restored data version if exists.
-04/01/2025 02:11:42 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
-Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-04/01/2025 02:11:42 - INFO - datasets.info - Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-Found cached dataset json (/home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
-04/01/2025 02:11:43 - INFO - datasets.builder - Found cached dataset json (/home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
-Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-04/01/2025 02:11:43 - INFO - datasets.info - Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
-[INFO|configuration_utils.py:699] 2025-04-01 02:11:47,170 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:771] 2025-04-01 02:11:47,171 >> Model config LlamaConfig {
+04/10/2025 18:18:40 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+04/10/2025 18:18:40 - INFO - datasets.info - Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+Found cached dataset json (/home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
+Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+04/10/2025 18:18:40 - INFO - datasets.builder - Found cached dataset json (/home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092)
+04/10/2025 18:18:40 - INFO - datasets.info - Loading Dataset info from /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092
+[INFO|configuration_utils.py:733] 2025-04-10 18:18:41,065 >> loading configuration file config.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
+[INFO|configuration_utils.py:821] 2025-04-10 18:18:41,066 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Llama-3.2-3B-Instruct",
+  "additional_loss_layer": 16,
+  "alignment_matrices_path": null,
+  "apply_inverse": false,
   "architectures": [
     "LlamaForCausalLM"
   ],
   "attention_bias": false,
   "attention_dropout": 0.0,
   "bos_token_id": 128000,
+  "contrastive_loss_temperature": 1.0,
+  "contrastive_loss_weight": 1.0,
+  "contrastive_pooling_type": "mean",
+  "distance_function": "cosine",
   "eos_token_id": [
     128001,
     128008,
@@ -397,6 +400,7 @@ Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/
   "hidden_act": "silu",
   "hidden_size": 3072,
   "initializer_range": 0.02,
+  "inject_Ws": false,
   "intermediate_size": 8192,
   "max_position_embeddings": 131072,
   "mlp_bias": false,
@@ -404,6 +408,8 @@ Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/
   "num_attention_heads": 24,
   "num_hidden_layers": 28,
   "num_key_value_heads": 8,
+  "only_train_contrastive": false,
+  "only_train_language_modeling": false,
   "pretraining_tp": 1,
   "rms_norm_eps": 1e-05,
   "rope_scaling": {
@@ -416,22 +422,21 @@ Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/
   "rope_theta": 500000.0,
   "tie_word_embeddings": true,
   "torch_dtype": "bfloat16",
-  "transformers_version": "4.50.3",
+  "transformers_version": "4.44.0.dev0",
+  "unidirectional_contrastive_loss": false,
   "use_cache": true,
   "vocab_size": 128256
 }
 
-[INFO|tokenization_utils_base.py:2060] 2025-04-01 02:11:47,410 >> loading file tokenizer.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer.json
-[INFO|tokenization_utils_base.py:2060] 2025-04-01 02:11:47,410 >> loading file tokenizer.model from cache at None
-[INFO|tokenization_utils_base.py:2060] 2025-04-01 02:11:47,410 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2060] 2025-04-01 02:11:47,410 >> loading file special_tokens_map.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2060] 2025-04-01 02:11:47,410 >> loading file tokenizer_config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2060] 2025-04-01 02:11:47,410 >> loading file chat_template.jinja from cache at None
-[INFO|tokenization_utils_base.py:2323] 2025-04-01 02:11:47,812 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-04/01/2025 02:11:47 - INFO - __main__ - Tokenizer is fast: True
-[INFO|modeling_utils.py:1154] 2025-04-01 02:11:47,840 >> loading weights file model.safetensors from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/model.safetensors.index.json
-[INFO|modeling_utils.py:2170] 2025-04-01 02:11:47,891 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
-[INFO|configuration_utils.py:1139] 2025-04-01 02:11:47,892 >> Generate config GenerationConfig {
+[INFO|tokenization_utils_base.py:2269] 2025-04-10 18:18:41,191 >> loading file tokenizer.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer.json
+[INFO|tokenization_utils_base.py:2269] 2025-04-10 18:18:41,191 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2269] 2025-04-10 18:18:41,191 >> loading file special_tokens_map.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2269] 2025-04-10 18:18:41,191 >> loading file tokenizer_config.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2513] 2025-04-10 18:18:41,396 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+04/10/2025 18:18:41 - INFO - __main__ - Tokenizer is fast: True
+[INFO|modeling_utils.py:3667] 2025-04-10 18:18:41,405 >> loading weights file model.safetensors from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/model.safetensors.index.json
+[INFO|modeling_utils.py:1591] 2025-04-10 18:18:41,409 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1038] 2025-04-10 18:18:41,410 >> Generate config GenerationConfig {
   "bos_token_id": 128000,
   "eos_token_id": [
     128001,
@@ -440,13 +445,13 @@ Loading Dataset info from /home/kit/stud/usxcp/.cache/huggingface/datasets/json/
   ]
 }
 
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.62s/it]
-[INFO|modeling_utils.py:4987] 2025-04-01 02:11:55,961 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.13s/it]
+[INFO|modeling_utils.py:4499] 2025-04-10 18:18:46,042 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
 
-[INFO|modeling_utils.py:4995] 2025-04-01 02:11:55,961 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Llama-3.2-3B-Instruct.
+[INFO|modeling_utils.py:4507] 2025-04-10 18:18:46,042 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Llama-3.2-3B-Instruct.
 If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
-[INFO|configuration_utils.py:1094] 2025-04-01 02:11:56,231 >> loading configuration file generation_config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/generation_config.json
-[INFO|configuration_utils.py:1139] 2025-04-01 02:11:56,231 >> Generate config GenerationConfig {
+[INFO|configuration_utils.py:993] 2025-04-10 18:18:46,172 >> loading configuration file generation_config.json from cache at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/generation_config.json
+[INFO|configuration_utils.py:1038] 2025-04-10 18:18:46,173 >> Generate config GenerationConfig {
   "bos_token_id": 128000,
   "do_sample": true,
   "eos_token_id": [
@@ -459,17 +464,17 @@ If your task is similar to the task the model of the checkpoint was trained on, 
 }
 
 adding special tokens...
-04/01/2025 02:11:56 - INFO - __main__ - ================ pad, eos, bos, unk, padding ================ 
-04/01/2025 02:11:56 - INFO - __main__ - <|eot_id|>, 128009
-04/01/2025 02:11:56 - INFO - __main__ - <|eot_id|>, 128009
-04/01/2025 02:11:56 - INFO - __main__ - <|begin_of_text|>, 128000
-04/01/2025 02:11:56 - INFO - __main__ - <|reserved_special_token_0|>, 128002
-04/01/2025 02:11:56 - INFO - __main__ - right
-04/01/2025 02:11:56 - INFO - __main__ - lora_r : 8
-04/01/2025 02:11:56 - INFO - __main__ - lora_alpha : 16
-04/01/2025 02:11:56 - INFO - __main__ - lora_dropout : 0.1
-04/01/2025 02:11:56 - INFO - __main__ - lora_target_modules : ['q_proj', 'v_proj']
-04/01/2025 02:11:56 - INFO - __main__ - LoRA configs: LoraConfig(task_type='CAUSAL_LM', peft_type=<PeftType.LORA: 'LORA'>, auto_mapping=None, base_model_name_or_path=None, revision=None, inference_mode=False, r=8, target_modules={'q_proj', 'v_proj'}, exclude_modules=None, lora_alpha=16, lora_dropout=0.1, fan_in_fan_out=False, bias='none', use_rslora=False, modules_to_save=None, init_lora_weights=True, layers_to_transform=None, layers_pattern=None, rank_pattern={}, alpha_pattern={}, megatron_config=None, megatron_core='megatron.core', trainable_token_indices=None, loftq_config={}, eva_config=None, corda_config=None, use_dora=False, layer_replication=None, runtime_config=LoraRuntimeConfig(ephemeral_gpu_offload=False), lora_bias=False)
+04/10/2025 18:18:46 - INFO - __main__ - ================ pad, eos, bos, unk, padding ================ 
+04/10/2025 18:18:46 - INFO - __main__ - <|eot_id|>, 128009
+04/10/2025 18:18:46 - INFO - __main__ - <|eot_id|>, 128009
+04/10/2025 18:18:46 - INFO - __main__ - <|begin_of_text|>, 128000
+04/10/2025 18:18:46 - INFO - __main__ - <|reserved_special_token_0|>, 128002
+04/10/2025 18:18:46 - INFO - __main__ - right
+04/10/2025 18:18:46 - INFO - __main__ - lora_r : 8
+04/10/2025 18:18:46 - INFO - __main__ - lora_alpha : 16
+04/10/2025 18:18:46 - INFO - __main__ - lora_dropout : 0.1
+04/10/2025 18:18:46 - INFO - __main__ - lora_target_modules : ['q_proj', 'v_proj']
+04/10/2025 18:18:46 - INFO - __main__ - LoRA configs: LoraConfig(task_type='CAUSAL_LM', peft_type=<PeftType.LORA: 'LORA'>, auto_mapping=None, base_model_name_or_path=None, revision=None, inference_mode=False, r=8, target_modules={'v_proj', 'q_proj'}, exclude_modules=None, lora_alpha=16, lora_dropout=0.1, fan_in_fan_out=False, bias='none', use_rslora=False, modules_to_save=None, init_lora_weights=True, layers_to_transform=None, layers_pattern=None, rank_pattern={}, alpha_pattern={}, megatron_config=None, megatron_core='megatron.core', trainable_token_indices=None, loftq_config={}, eva_config=None, corda_config=None, use_dora=False, layer_replication=None, runtime_config=LoraRuntimeConfig(ephemeral_gpu_offload=False), lora_bias=False)
 trainable params: 2,293,760 || all params: 3,215,043,584 || trainable%: 0.0713
 PeftModelForCausalLM(
   (base_model): LoraModel(
@@ -478,7 +483,7 @@ PeftModelForCausalLM(
         (embed_tokens): Embedding(128256, 3072)
         (layers): ModuleList(
           (0-27): 28 x LlamaDecoderLayer(
-            (self_attn): LlamaAttention(
+            (self_attn): LlamaSdpaAttention(
               (q_proj): lora.Linear(
                 (base_layer): Linear(in_features=3072, out_features=3072, bias=False)
                 (lora_dropout): ModuleDict(
@@ -511,6 +516,7 @@ PeftModelForCausalLM(
                 (lora_magnitude_vector): ModuleDict()
               )
               (o_proj): Linear(in_features=3072, out_features=3072, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
             )
             (mlp): LlamaMLP(
               (gate_proj): Linear(in_features=3072, out_features=8192, bias=False)
@@ -529,269 +535,109 @@ PeftModelForCausalLM(
     )
   )
 )
-04/01/2025 02:11:57 - INFO - __main__ - block size: 2048
-Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-0448c09074bd9873.arrow
-04/01/2025 02:12:02 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-0448c09074bd9873.arrow
-Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-2cc54f129784cdda.arrow
-04/01/2025 02:12:02 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/kit/stud/usxcp/.cache/huggingface/datasets/json/default-9b02921756584d5a/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-2cc54f129784cdda.arrow
-04/01/2025 02:12:02 - INFO - __main__ - xxx: Showcase the tokenized training samples.
-/pfs/data5/home/kit/stud/usxcp/master-thesis/.env/lib/python3.12/site-packages/transformers/utils/import_utils.py:681: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
+04/10/2025 18:18:46 - INFO - __main__ - block size: 2048
+Loading cached processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-9faf32f636901887.arrow
+04/10/2025 18:18:46 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-9faf32f636901887.arrow
+Loading cached processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-91e4f075ad38c423.arrow
+04/10/2025 18:18:46 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/ka/ka_stud/ka_usxcp/.cache/huggingface/datasets/json/default-851ce74e92ca2b7e/0.0.0/f4e89e8750d5d5ffbef2c078bf0ddfedef29dc2faff52a6255cf513c05eb1092/cache-91e4f075ad38c423.arrow
+04/10/2025 18:18:46 - INFO - __main__ - xxx: Showcase the tokenized training samples.
+/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/utils/import_utils.py:560: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
   warnings.warn(
-/pfs/data5/home/kit/stud/usxcp/master-thesis/./scripts/run_clm_lora.py:1014: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
+[INFO|trainer.py:658] 2025-04-10 18:18:47,210 >> Using auto half precision backend
 {'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
 {'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
 {'input_ids': [128000, 39314, 374, 459, 7754, 430, 16964, 264, 3465, 13, 9842, 264, 2077, 430, 36001, 45695, 279, 1715, 382, 14711, 30151, 512, 35, 25296, 1268, 279, 2768, 41302, 323, 31178, 527, 5552, 13, 1442, 279, 31178, 11263, 505, 279, 41302, 11, 3373, 330, 306, 607, 479, 3343, 1442, 814, 43561, 1855, 1023, 11, 3373, 330, 8386, 329, 2538, 3343, 1442, 279, 12518, 656, 539, 87092, 6463, 43561, 1855, 1023, 11, 3373, 330, 60668, 3343, 12029, 1082, 25, 35455, 1870, 12932, 1940, 41133, 706, 1403, 6913, 15696, 482, 2027, 323, 54242, 662, 39515, 78, 13491, 25, 5761, 323, 54242, 527, 1148, 1304, 12932, 1940, 41133, 990, 6905, 14711, 6075, 25, 60668, 524, 82, 29], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 60668, 524, 82, 29]}
-04/01/2025 02:12:04 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-[2025-04-01 02:12:05,150] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[INFO|trainer.py:748] 2025-04-01 02:12:25,961 >> Using auto half precision backend
-[WARNING|trainer.py:783] 2025-04-01 02:12:25,963 >> No label_names provided for model class `PeftModelForCausalLM`. Since `PeftModel` hides base models input arguments, if label_names is not given, label_names can't be set automatically within `Trainer`. Note that empty label_names list will be used instead.
-[INFO|trainer.py:2409] 2025-04-01 02:12:26,263 >> ***** Running training *****
-[INFO|trainer.py:2410] 2025-04-01 02:12:26,263 >>   Num examples = 392,702
-[INFO|trainer.py:2411] 2025-04-01 02:12:26,263 >>   Num Epochs = 1
-[INFO|trainer.py:2412] 2025-04-01 02:12:26,263 >>   Instantaneous batch size per device = 32
-[INFO|trainer.py:2415] 2025-04-01 02:12:26,263 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
-[INFO|trainer.py:2416] 2025-04-01 02:12:26,263 >>   Gradient Accumulation steps = 1
-[INFO|trainer.py:2417] 2025-04-01 02:12:26,264 >>   Total optimization steps = 12,272
-[INFO|trainer.py:2418] 2025-04-01 02:12:26,265 >>   Number of trainable parameters = 2,293,760
-[INFO|trainer.py:4289] 2025-04-01 02:12:26,270 >> 
+[2025-04-10 18:18:49,537] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[INFO|trainer.py:2145] 2025-04-10 18:18:52,390 >> ***** Running training *****
+[INFO|trainer.py:2146] 2025-04-10 18:18:52,390 >>   Num examples = 392,702
+[INFO|trainer.py:2147] 2025-04-10 18:18:52,390 >>   Num Epochs = 1
+[INFO|trainer.py:2148] 2025-04-10 18:18:52,390 >>   Instantaneous batch size per device = 32
+[INFO|trainer.py:2151] 2025-04-10 18:18:52,390 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
+[INFO|trainer.py:2152] 2025-04-10 18:18:52,390 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2153] 2025-04-10 18:18:52,390 >>   Total optimization steps = 12,272
+[INFO|trainer.py:2154] 2025-04-10 18:18:52,391 >>   Number of trainable parameters = 2,293,760
+[INFO|trainer.py:3831] 2025-04-10 18:18:52,395 >> 
 ***** Running Evaluation *****
-[INFO|trainer.py:4291] 2025-04-01 02:12:26,270 >>   Num examples = 2490
-[INFO|trainer.py:4294] 2025-04-01 02:12:26,270 >>   Batch size = 32
-{'eval_loss': 4.186352729797363, 'eval_accuracy': 0.13471370511988073, 'eval_runtime': 246.5197, 'eval_samples_per_second': 10.101, 'eval_steps_per_second': 0.316, 'epoch': 0}
-[INFO|trainer.py:4289] 2025-04-01 02:54:35,435 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4291] 2025-04-01 02:54:35,435 >>   Num examples = 2490
-[INFO|trainer.py:4294] 2025-04-01 02:54:35,435 >>   Batch size = 32
-{'loss': 4.0647, 'grad_norm': 5.389856338500977, 'learning_rate': 1.3550135501355015e-05, 'epoch': 0.0008148631029986962}
-{'loss': 3.8912, 'grad_norm': 6.763717174530029, 'learning_rate': 2.710027100271003e-05, 'epoch': 0.0016297262059973925}
-{'loss': 3.0678, 'grad_norm': 8.02120590209961, 'learning_rate': 4.065040650406504e-05, 'epoch': 0.0024445893089960887}
-{'loss': 1.3653, 'grad_norm': 5.949923515319824, 'learning_rate': 5.420054200542006e-05, 'epoch': 0.003259452411994785}
-{'loss': 0.2504, 'grad_norm': 2.5450379848480225, 'learning_rate': 6.775067750677507e-05, 'epoch': 0.004074315514993481}
-{'loss': 0.1995, 'grad_norm': 0.742180347442627, 'learning_rate': 8.130081300813008e-05, 'epoch': 0.0048891786179921775}
-{'loss': 0.1584, 'grad_norm': 1.350429654121399, 'learning_rate': 9.48509485094851e-05, 'epoch': 0.005704041720990874}
-{'loss': 0.1592, 'grad_norm': 1.454032063484192, 'learning_rate': 0.00010840108401084012, 'epoch': 0.00651890482398957}
-{'loss': 0.1529, 'grad_norm': 1.0629127025604248, 'learning_rate': 0.00012195121951219512, 'epoch': 0.007333767926988266}
-{'loss': 0.1301, 'grad_norm': 0.8609673976898193, 'learning_rate': 0.00013550135501355014, 'epoch': 0.008148631029986962}
-{'loss': 0.114, 'grad_norm': 1.556668758392334, 'learning_rate': 0.00014905149051490515, 'epoch': 0.008963494132985658}
-{'loss': 0.1125, 'grad_norm': 1.2302221059799194, 'learning_rate': 0.00016260162601626016, 'epoch': 0.009778357235984355}
-{'loss': 0.111, 'grad_norm': 2.2803103923797607, 'learning_rate': 0.00017615176151761518, 'epoch': 0.01059322033898305}
-{'loss': 0.1038, 'grad_norm': 1.3490334749221802, 'learning_rate': 0.0001897018970189702, 'epoch': 0.011408083441981747}
-{'loss': 0.118, 'grad_norm': 3.215754985809326, 'learning_rate': 0.0002032520325203252, 'epoch': 0.012222946544980443}
-{'loss': 0.0987, 'grad_norm': 1.081421136856079, 'learning_rate': 0.00021680216802168024, 'epoch': 0.01303780964797914}
-{'loss': 0.0868, 'grad_norm': 1.396818995475769, 'learning_rate': 0.00023035230352303523, 'epoch': 0.013852672750977835}
-{'loss': 0.106, 'grad_norm': 1.2706393003463745, 'learning_rate': 0.00024390243902439024, 'epoch': 0.014667535853976532}
-{'loss': 0.1034, 'grad_norm': 0.7688307166099548, 'learning_rate': 0.00025745257452574526, 'epoch': 0.015482398956975228}
-{'loss': 0.0885, 'grad_norm': 1.6220232248306274, 'learning_rate': 0.00027100271002710027, 'epoch': 0.016297262059973925}
-[INFO|trainer.py:3966] 2025-04-01 02:58:31,876 >> Saving model checkpoint to ./test_run_outputs/checkpoint-200
-[INFO|configuration_utils.py:699] 2025-04-01 02:58:32,213 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:771] 2025-04-01 02:58:32,214 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 3072,
-  "initializer_range": 0.02,
-  "intermediate_size": 8192,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 24,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 32.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": true,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.50.3",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2510] 2025-04-01 02:58:32,524 >> tokenizer config file saved in ./test_run_outputs/checkpoint-200/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2519] 2025-04-01 02:58:32,577 >> Special tokens file saved in ./test_run_outputs/checkpoint-200/special_tokens_map.json
-[INFO|configuration_utils.py:699] 2025-04-01 02:58:34,198 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:771] 2025-04-01 02:58:34,199 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 3072,
-  "initializer_range": 0.02,
-  "intermediate_size": 8192,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 24,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 32.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": true,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.50.3",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|trainer.py:4289] 2025-04-01 03:36:22,737 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4291] 2025-04-01 03:36:22,771 >>   Num examples = 2490
-[INFO|trainer.py:4294] 2025-04-01 03:36:22,771 >>   Batch size = 32
-{'eval_loss': 0.08240684866905212, 'eval_accuracy': 0.1517206550753914, 'eval_runtime': 236.443, 'eval_samples_per_second': 10.531, 'eval_steps_per_second': 0.33, 'epoch': 0.016297262059973925}
-{'loss': 0.0867, 'grad_norm': 0.5298959016799927, 'learning_rate': 0.0002845528455284553, 'epoch': 0.01711212516297262}
-{'loss': 0.0956, 'grad_norm': 1.114726185798645, 'learning_rate': 0.0002981029810298103, 'epoch': 0.017926988265971316}
-{'loss': 0.0802, 'grad_norm': 0.967175304889679, 'learning_rate': 0.0003116531165311653, 'epoch': 0.018741851368970015}
-{'loss': 0.0889, 'grad_norm': 1.1665077209472656, 'learning_rate': 0.0003252032520325203, 'epoch': 0.01955671447196871}
-{'loss': 0.0979, 'grad_norm': 0.7977179288864136, 'learning_rate': 0.00033875338753387534, 'epoch': 0.020371577574967405}
-{'loss': 0.0737, 'grad_norm': 0.9196486473083496, 'learning_rate': 0.00035230352303523035, 'epoch': 0.0211864406779661}
-{'loss': 0.0913, 'grad_norm': 1.2566769123077393, 'learning_rate': 0.00036585365853658537, 'epoch': 0.0220013037809648}
-{'loss': 0.0879, 'grad_norm': 0.5524405241012573, 'learning_rate': 0.0003794037940379404, 'epoch': 0.022816166883963495}
-{'loss': 0.0787, 'grad_norm': 0.952322244644165, 'learning_rate': 0.0003929539295392954, 'epoch': 0.02363102998696219}
-{'loss': 0.0833, 'grad_norm': 0.9898714423179626, 'learning_rate': 0.0004065040650406504, 'epoch': 0.024445893089960886}
-{'loss': 0.104, 'grad_norm': 0.7195279598236084, 'learning_rate': 0.0004200542005420054, 'epoch': 0.02526075619295958}
-{'loss': 0.0727, 'grad_norm': 0.7874817252159119, 'learning_rate': 0.0004336043360433605, 'epoch': 0.02607561929595828}
-{'loss': 0.0611, 'grad_norm': 0.43868112564086914, 'learning_rate': 0.00044715447154471545, 'epoch': 0.026890482398956975}
-{'loss': 0.0818, 'grad_norm': 0.8522961139678955, 'learning_rate': 0.00046070460704607046, 'epoch': 0.02770534550195567}
-{'loss': 0.0814, 'grad_norm': 0.8759884238243103, 'learning_rate': 0.00047425474254742553, 'epoch': 0.028520208604954366}
-{'loss': 0.0788, 'grad_norm': 0.35125330090522766, 'learning_rate': 0.0004878048780487805, 'epoch': 0.029335071707953065}
-{'loss': 0.079, 'grad_norm': 0.6411235332489014, 'learning_rate': 0.0004993238671687188, 'epoch': 0.03014993481095176}
-{'loss': 0.0737, 'grad_norm': 0.35540589690208435, 'learning_rate': 0.0004927100139988397, 'epoch': 0.030964797913950456}
-{'loss': 0.0746, 'grad_norm': 0.48716992139816284, 'learning_rate': 0.00048635219906818713, 'epoch': 0.03177966101694915}
-{'loss': 0.077, 'grad_norm': 0.4820263385772705, 'learning_rate': 0.00048023431780746373, 'epoch': 0.03259452411994785}
-[INFO|trainer.py:3966] 2025-04-01 03:40:20,740 >> Saving model checkpoint to ./test_run_outputs/checkpoint-400
-[INFO|configuration_utils.py:699] 2025-04-01 03:40:21,312 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:771] 2025-04-01 03:40:21,312 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 3072,
-  "initializer_range": 0.02,
-  "intermediate_size": 8192,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 24,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 32.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": true,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.50.3",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2510] 2025-04-01 03:40:21,390 >> tokenizer config file saved in ./test_run_outputs/checkpoint-400/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2519] 2025-04-01 03:40:21,391 >> Special tokens file saved in ./test_run_outputs/checkpoint-400/special_tokens_map.json
-[INFO|trainer.py:4065] 2025-04-01 03:40:21,666 >> Deleting older checkpoint [test_run_outputs/checkpoint-5] due to args.save_total_limit
-[INFO|configuration_utils.py:699] 2025-04-01 03:40:21,991 >> loading configuration file config.json from cache at /home/kit/stud/usxcp/.cache/huggingface/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/config.json
-[INFO|configuration_utils.py:771] 2025-04-01 03:40:21,991 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 3072,
-  "initializer_range": 0.02,
-  "intermediate_size": 8192,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 24,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 32.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": true,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.50.3",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-slurmstepd: error: *** JOB 25430584 ON uc2n513 CANCELLED AT 2025-04-01T04:07:16 DUE TO TIME LIMIT ***
+[INFO|trainer.py:3833] 2025-04-10 18:18:52,395 >>   Num examples = 2490
+[INFO|trainer.py:3836] 2025-04-10 18:18:52,395 >>   Batch size = 32
+Traceback (most recent call last):
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/./scripts/run_clm_lora.py", line 1096, in <module>
+    main()
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/./scripts/run_clm_lora.py", line 1044, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 1949, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 2216, in _inner_training_loop
+    self._evaluate(trial, ignore_keys_for_eval, skip_scheduler=True)
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 2773, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 3678, in evaluate
+    output = eval_loop(
+             ^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 3869, in evaluation_loop
+    losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 4087, in prediction_step
+    loss, outputs = self.compute_loss(model, inputs, return_outputs=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/trainer.py", line 3375, in compute_loss
+    outputs = model(**inputs, output_hidden_states=True)    # TODO(DL): added here to output hidden states
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/utils/operations.py", line 814, in forward
+    return model_forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/accelerate/utils/operations.py", line 802, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/peft/peft_model.py", line 1756, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/peft/tuners/tuners_utils.py", line 193, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/models/llama/modeling_llama.py", line 1340, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/.env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ka/ka_stud/ka_usxcp/master-thesis/src/transformers/models/llama/modeling_llama.py", line 1157, in forward
+    all_hidden_states_parallel_0 += (hidden_states_parallel[0],)
+                                     ^^^^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'hidden_states_parallel' where it is not associated with a value
 
 ============================= JOB FEEDBACK =============================
 
-NodeName=uc2n513
-Job ID: 25430584
-Cluster: uc2
-User/Group: usxcp/stud
-State: TIMEOUT (exit code 0)
+NodeName=uc3n082
+Job ID: 9285
+Cluster: uc3
+User/Group: ka_usxcp/ka_stud
+State: COMPLETED (exit code 0)
 Nodes: 1
-Cores per node: 40
-CPU Utilized: 00:00:46
-CPU Efficiency: 0.02% of 3-08:07:20 core-walltime
-Job Wall-clock time: 02:00:11
-Memory Utilized: 2.41 GB
-Memory Efficiency: 60.19% of 4.00 GB
+Cores per node: 80
+CPU Utilized: 00:00:37
+CPU Efficiency: 0.51% of 02:01:20 core-walltime
+Job Wall-clock time: 00:01:31
+Memory Utilized: 1.92 GB
+Memory Efficiency: 12.02% of 16.00 GB (16.00 GB/node)

@@ -636,7 +636,6 @@ def main():
                 from_tf=bool(".ckpt" in model_args.model_name_or_path),
                 config=config,
                 cache_dir=model_args.cache_dir,
-                device_map="auto",  # added
                 revision=model_args.model_revision,
                 use_auth_token=True if model_args.use_auth_token else None,
                 torch_dtype=torch_dtype,
