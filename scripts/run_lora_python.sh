@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline_no_deepspeed.sh
+source scripts/train_baseline_python.sh
 
 deactivate
