@@ -14,19 +14,6 @@ def main(args):
     print(f"Using device: {args.device}")
     print(f"Using dtype: {args.torch_dtype}")
 
-    # --- Quantization Config (Optional) ---
-    quantization_config = None
-    if args.load_in_8bit:
-        quantization_config = BitsAndBytesConfig(load_in_8bit=True)
-        print("Loading model with 8-bit quantization.")
-    elif args.load_in_4bit:
-        quantization_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=getattr(torch, args.torch_dtype), # e.g., torch.bfloat16
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-        )
-        print("Loading model with 4-bit quantization.")
 
     # --- Determine torch dtype ---
     dtype = getattr(torch, args.torch_dtype) if args.torch_dtype else None
@@ -52,11 +39,9 @@ def main(args):
     # --- Load Base Model ---
     model = AutoModelForCausalLM.from_pretrained(
         args.base_model_name_or_path,
-        device_map=args.device if not quantization_config else "auto", # device_map='auto' works well with quantization
-        torch_dtype=dtype if not quantization_config else None, # dtype is handled by quantization_config if used
-        quantization_config=quantization_config,
-        trust_remote_code=True # Add if needed
-        # attn_implementation="flash_attention_2" # Optional: if available and desired
+        device_map=args.device if args.device else "auto",
+        torch_dtype=args.torch_dtype if args.torch_dtype else None,
+        trust_remote_code=True
     )
 
     # --- Load PEFT Adapter ---
@@ -78,24 +63,29 @@ def main(args):
 
     # --- Load Dataset ---
     print(f"Loading dataset from: {args.test_file}")
-    # Assuming the json file was created by dataset_converter.py
-    # which might not have a standard split name like 'test'
-    # The 'load_dataset' function with 'json' type typically loads all data under a 'train' split.
-    try:
-        dataset = load_dataset("json", data_files=args.test_file, split="train")
-    except Exception as e:
-        print(f"Could not load dataset with split='train'. Error: {e}")
-        print("Attempting to load without specifying split.")
-        dataset = load_dataset("json", data_files=args.test_file)
-        # If the dataset has multiple keys, you might need to specify which one, e.g., dataset['your_key_name']
-        if isinstance(dataset, dict) and len(dataset.keys()) == 1:
-             dataset = dataset[list(dataset.keys())[0]] # Get the first split available
+    # Load the dataset. It will likely return a DatasetDict.
+    # Remove the try-except block as it might obscure the structure.
+    # Handle potential loading errors more directly if needed.
+    dataset_dict = load_dataset("json", data_files=args.test_file)
 
+    # Check if loading resulted in a dictionary of splits
+    if not isinstance(dataset_dict, dict) or not dataset_dict:
+        raise TypeError(f"Expected load_dataset to return a DatasetDict, but got {type(dataset_dict)}")
 
-    print(f"Dataset loaded with {len(dataset)} examples.")
+    # Assume the first split is the one we want (usually 'train' by default)
+    split_name = list(dataset_dict.keys())[0]
+    dataset = dataset_dict[split_name]
+    print(f"Using dataset split: '{split_name}'")
 
-    # Prepare prompts from the 'prefix' column created by dataset_converter.py
-    prompts = [example['prefix'] for example in dataset]
+    print(f"Dataset loaded with {len(dataset)} examples.") # len() should now report row count
+
+    # Prepare prompts from the 'prefix' column
+    if 'prefix' in dataset.column_names:
+        prompts = dataset['prefix'] # Access the 'prefix' column directly from the Dataset object
+        print(f"Extracted {len(prompts)} prompts using direct column access.")
+    else:
+        print(f"Error: 'prefix' column not found. Available columns: {dataset.column_names}") # Debugging info
+        raise KeyError("Dataset does not contain the expected 'prefix' column.")
 
     print("\n--- Example Prompt ---")
     print(prompts[0])
@@ -180,7 +170,7 @@ if __name__ == "__main__":
     # Inference Arguments
     parser.add_argument("--batch_size", type=int, default=8, help="Batch size for inference.")
     parser.add_argument("--max_new_tokens", type=int, default=50, help="Maximum number of new tokens to generate.")
-    parser.add_argument("--max_input_length", type=int, default=1900, help="Maximum input length for tokenizer (to prevent OOM with long prompts). Default: None (uses model default).") # Adjusted default based on block_size=2048
+    parser.add_argument("--max_input_length", type=int, default=None, help="Maximum input length for tokenizer (to prevent OOM with long prompts). Default: None (uses model default).") # Adjusted default based on block_size=2048
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu", help="Device to run inference on (e.g., 'cuda', 'cuda:0', 'cpu').")
     parser.add_argument("--torch_dtype", type=str, default="bfloat16" if torch.cuda.is_bf16_supported() else "float16", help="PyTorch dtype for loading the model (e.g., 'float16', 'bfloat16', 'float32').")
 

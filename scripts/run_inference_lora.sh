@@ -28,6 +28,13 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/eval_baseline_python.sh
+python scripts/lora_inference.py \
+    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
+    --test_file artifacts/xnli_en_test.json \
+    --peft_model_path test_run_outputs/checkpoint-5000 \
+    --output_file test_inferences/predictions.jsonl \
+    --batch_size 16 \
+    --max_new_tokens 4 \
+    --do_sample
 
 deactivate
