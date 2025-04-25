@@ -1,0 +1,2187 @@
+Comparing 'text' from artifacts/xnli_en_test.json with 'prediction' from test_inferences/predictions.jsonl
+
+--- Comparison Results ---
+Line 3: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 52: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 82: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 93: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 95: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 97: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 103: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 123: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 129: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 131: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 145: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 149: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 156: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 170: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 178: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 212: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 230: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 245: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 252: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 254: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 264: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 270: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 303: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 319: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 328: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 337: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 338: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 431: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 432: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 450: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 470: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 490: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 510: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 518: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 523: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 527: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 538: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 546: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 547: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 563: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 566: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 571: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 575: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 580: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 585: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 588: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 604: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 606: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 613: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 619: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 630: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 632: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 639: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 649: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 651: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 653: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 655: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 693: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 703: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 706: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 722: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 730: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 738: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 751: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 760: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 772: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 781: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 790: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 809: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 817: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 823: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 834: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 845: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 850: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 857: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 866: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 885: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 900: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 940: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 941: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 943: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 954: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 957: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 970: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 978: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 983: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 987: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 989: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 995: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1002: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1007: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1018: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1021: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1022: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1031: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1056: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1064: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1078: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1080: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1083: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1089: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1093: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1096: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1102: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1117: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1119: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1129: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1130: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1150: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1159: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1166: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1174: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1180: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1186: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1187: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1189: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1192: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1196: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1201: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1216: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1219: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1221: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1236: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1238: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1245: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1249: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1257: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1260: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1274: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1279: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1283: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1292: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1305: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1309: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1317: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1328: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1336: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1337: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1340: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1342: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1345: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1359: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1365: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1370: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1371: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1377: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1387: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1391: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1393: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1397: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1407: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1423: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1435: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1447: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1448: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1457: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1466: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1474: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1475: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1481: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1485: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1490: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1512: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1542: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1546: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1555: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1592: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1594: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1598: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1602: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1619: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1634: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1639: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1640: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1641: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1662: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1668: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1728: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1740: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1747: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1761: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1762: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1770: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1778: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1795: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1801: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1809: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1812: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1814: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1829: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1834: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1835: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1859: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1860: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1869: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1870: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1871: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1872: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1873: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1887: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1889: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1897: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1913: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1916: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1920: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1936: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1941: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1953: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1965: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1972: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1978: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1980: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 1988: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 1989: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 1990: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2002: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2004: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2017: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2025: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2033: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2035: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2047: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2065: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2071: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2079: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2087: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2098: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2100: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2101: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2107: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2111: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2121: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2132: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2146: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2168: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2172: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2176: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2184: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2208: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2211: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2216: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2229: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2254: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2271: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2273: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2276: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2279: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2288: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2291: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2293: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2294: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2318: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2325: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2331: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2334: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2335: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2341: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2344: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2353: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2355: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2359: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2366: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2403: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2408: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2416: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2425: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2478: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2484: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2487: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2499: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2509: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2516: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2532: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2537: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2541: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2545: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2561: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2564: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2588: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2596: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2601: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2613: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2630: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2638: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2639: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2640: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2641: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2648: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2663: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2680: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2690: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2703: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2742: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2770: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2775: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2792: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2817: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2833: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2879: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2880: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2898: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2903: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2904: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2929: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2940: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2944: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 2946: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2963: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 2975: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 2999: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3016: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3020: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3021: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3034: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3035: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3041: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3052: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3089: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3099: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3103: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3104: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3107: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3119: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3120: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3130: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3135: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3141: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3144: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3154: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3157: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3184: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3187: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3203: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3210: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3232: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3238: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3247: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3253: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3259: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3296: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3297: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3300: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3302: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3307: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3326: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3344: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3353: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3366: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3371: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3377: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3378: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3379: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3387: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3396: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3399: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3421: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3433: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3478: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3480: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3509: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3518: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3519: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3531: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3534: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3553: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3568: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3573: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3578: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3581: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3583: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3588: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3602: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3606: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3608: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3620: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3632: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3635: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3650: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3665: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3668: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3675: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 3682: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3694: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3701: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3705: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3707: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3710: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3713: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3714: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3715: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3729: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3732: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3738: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3752: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3770: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3785: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3802: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3810: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3830: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3838: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 3848: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3849: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3876: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3884: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3912: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3925: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3939: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3941: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3961: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3990: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 3991: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4037: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4055: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4088: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4089: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4093: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4098: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4100: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4104: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4107: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4113: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4116: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4122: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4125: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4131: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4133: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4146: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4149: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4189: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4200: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4205: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4216: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4237: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4262: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4265: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4268: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4269: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4274: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4277: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4278: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4285: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4303: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4307: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4313: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4315: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4325: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4362: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4367: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4377: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4407: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4408: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4414: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4416: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4438: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4439: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4445: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4458: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4460: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4469: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4476: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4487: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4489: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4491: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4510: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4516: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4522: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4524: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4536: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4546: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4551: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4552: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4560: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4563: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4564: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4579: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4581: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4583: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4590: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4605: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4608: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4611: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4612: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4613: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4620: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4626: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4631: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4638: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4640: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4641: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4647: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4652: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4665: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4685: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4692: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4695: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4698: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4715: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4719: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4735: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4742: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4743: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4744: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4749: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4753: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4761: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4763: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4773: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4774: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4778: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4783: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4788: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4797: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4812: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4820: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4821: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4831: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4836: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4842: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4851: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4861: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4864: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4867: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4873: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4875: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4891: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4893: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4899: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4903: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4915: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4919: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4922: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4935: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4937: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4943: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4945: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4950: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 4967: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4968: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4976: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4977: MISMATCH
+  File 1 (text): 'entailment</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4985: MISMATCH
+  File 1 (text): 'contradiction</s>'
+  File 2 (prediction): 'neutral</s>'
+--------------------
+Line 4987: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'contradiction</s>'
+--------------------
+Line 4996: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+Line 5002: MISMATCH
+  File 1 (text): 'neutral</s>'
+  File 2 (prediction): 'entailment</s>'
+--------------------
+
+--- Summary ---
+Total lines compared: 5010
+Matches: 4466
+Mismatches: 544
+Match Percentage: 89.14%
+---------------
+
