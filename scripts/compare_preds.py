@@ -1,92 +1,93 @@
+import argparse
+import json
 import sys
+import os
 
-def labels_same(line1, line2):
-    """Checks if two lines contain the same NLI label."""
-    line1_lower = line1.lower()
-    line2_lower = line2.lower()
-    # Check for each label explicitly
-    if "entailment" in line1_lower and "entailment" in line2_lower:
-        return True
-    elif "contradiction" in line1_lower and "contradiction" in line2_lower:
-        return True
-    elif "neutral" in line1_lower and "neutral" in line2_lower:
-        return True
-    else:
-        return False
 
-def read_two_files(filepath1, filepath2):
-    """
-    Reads two files line by line simultaneously, compares labels,
-    and returns the total lines read and the count of matching labels.
-
-    Args:
-        filepath1 (str): Path to the first file.
-        filepath2 (str): Path to the second file.
-
-    Returns:
-        tuple: (total_lines_read, correct_labels_count) or None if an error occurs.
-    """
+def read_jsonl(filepath, key):
+    """Reads a JSON Lines file and extracts values for a specific key."""
+    values = []
     try:
-        # Use 'with' to ensure files are closed automatically, even if errors occur
-        # Open both files at the same time
-        with open(filepath1, 'r', encoding='utf-8') as file1, \
-             open(filepath2, 'r', encoding='utf-8') as file2:
-            # print(f"\n--- Comparing '{filepath1}' and '{filepath2}' ---") # Optional: Keep if you want this message
-
-            line_num = 0
-            correct_labels = 0
-            # Use zip to iterate through both files line by line in parallel
-            # zip stops when the shorter file is exhausted
-            for line1, line2 in zip(file1, file2):
-                line_num += 1
-                if labels_same(line1, line2):
-                    correct_labels += 1
-
-            # print("\n--- Finished comparing common lines ---") # Optional: Keep if you want this message
-            if line_num == 0:
-                print(f"Warning: No common lines found or files '{filepath1}'/'{filepath2}' are empty.", file=sys.stderr)
-                # Decide how to handle empty files: return 0,0 or raise error? Returning 0,0 for now.
-                return 0, 0
-            return line_num, correct_labels
-            # Note: If files have different lengths, lines only present
-            # in the longer file after the shorter one ends are not read by zip.
-
+        with open(filepath, 'r') as f:
+            for i, line in enumerate(f):
+                try:
+                    data = json.loads(line.strip())
+                    if key in data:
+                        values.append(data[key])
+                    else:
+                        print(f"Warning: Key '{key}' not found in line {i+1} of {filepath}", file=sys.stderr)
+                        values.append(None) # Append None or handle as needed
+                except json.JSONDecodeError:
+                    print(f"Error: Could not decode JSON on line {i+1} in {filepath}", file=sys.stderr)
+                    values.append(None) # Append None or handle as needed
     except FileNotFoundError:
-        print(f"Error: One or both files not found. Please check paths:", file=sys.stderr)
-        print(f"  '{filepath1}'", file=sys.stderr)
-        print(f"  '{filepath2}'", file=sys.stderr)
-        sys.exit(1) # Exit with an error code
-    except PermissionError:
-        print(f"Error: Permission denied to read one or both files.", file=sys.stderr)
-        sys.exit(1) # Exit with an error code
+        print(f"Error: File not found at {filepath}", file=sys.stderr)
+        sys.exit(1)
     except Exception as e:
-        print(f"An unexpected error occurred: {e}", file=sys.stderr)
-        sys.exit(1) # Exit with an error code
+        print(f"An unexpected error occurred while reading {filepath}: {e}", file=sys.stderr)
+        sys.exit(1)
+    return values
 
-# --- Main part of the script ---
-if __name__ == "__main__":
-    # Check if the correct number of arguments is provided
-    # sys.argv[0] is the script name, sys.argv[1] is the first arg, etc.
-    if len(sys.argv) != 3:
-        # Print usage instructions to standard error
-        print(f"Usage: python {sys.argv[0]} <filepath1> <filepath2>", file=sys.stderr)
-        sys.exit(1) # Exit with an error code indicating improper usage
+def main(args):
+    """Compares 'text' from file1 and 'prediction' from file2."""
+    print(f"Comparing '{args.key1}' from {args.file1} with '{args.key2}' from {args.file2}")
 
-    # Get file paths from command-line arguments
-    file_path_1 = sys.argv[1]
-    file_path_2 = sys.argv[2]
+    texts = read_jsonl(args.file1, args.key1)
+    predictions = read_jsonl(args.file2, args.key2)
 
-    # Call the function to read and compare the files
-    result = read_two_files(file_path_1, file_path_2)
+    if len(texts) != len(predictions):
+        print(f"Error: Files have different number of lines ({len(texts)} vs {len(predictions)})", file=sys.stderr)
+        sys.exit(1)
 
-    # The function exits on error, so if we reach here, result should be valid
-    if result:
-        line_num, correct_labels = result
-        print(f"Compared files: '{file_path_1}' and '{file_path_2}'")
-        print(f"Total common lines processed: {line_num}")
-        print(f"Matching labels found: {correct_labels}")
-        if line_num > 0:
-             print(f"Agreement: {correct_labels / line_num:.2%}")
+    if not texts:
+        print("Files are empty or no data could be extracted.")
+        sys.exit(0)
+
+    matches = 0
+    mismatches = 0
+
+    print("\n--- Comparison Results ---")
+    for i, (text, pred) in enumerate(zip(texts, predictions)):
+        if text is None or pred is None:
+            print(f"Line {i+1}: Skipping due to previous read error.")
+            continue # Skip comparison if data wasn't read correctly
+
+        # Optional: Normalize strings (e.g., lowercasing, stripping whitespace)
+        text_norm = str(text).strip().lower()
+        pred_norm = str(pred).strip().lower()
+
+        if text_norm == pred_norm:
+            matches += 1
         else:
-             print("Agreement: N/A (no lines processed)")
-        print("\nScript finished successfully.")
+            mismatches += 1
+            if args.show_mismatches:
+                print(f"Line {i+1}: MISMATCH")
+                print(f"  File 1 ({args.key1}): '{text}'")
+                print(f"  File 2 ({args.key2}): '{pred}'")
+                print("-" * 20)
+
+    print("\n--- Summary ---")
+    total_lines = len(texts)
+    print(f"Total lines compared: {total_lines}")
+    print(f"Matches: {matches}")
+    print(f"Mismatches: {mismatches}")
+    if total_lines > 0:
+        match_percentage = (matches / total_lines) * 100
+        print(f"Match Percentage: {match_percentage:.2f}%")
+    print("---------------\n")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Compare specific keys from two JSON Lines files.")
+    parser.add_argument("file1", help="Path to the first JSON Lines file.")
+    parser.add_argument("file2", help="Path to the second JSON Lines file.")
+    parser.add_argument("--key1", default="text", help="Key to extract from the first file (default: 'text').")
+    parser.add_argument("--key2", default="prediction", help="Key to extract from the second file (default: 'prediction').")
+    parser.add_argument("--show-mismatches", action="store_true", help="Print details of mismatched lines.")
+
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
+    args = parser.parse_args()
+    main(args)

@@ -1,7 +1,7 @@
 import argparse
 import torch
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 from peft import PeftModel
 from torch.utils.data import DataLoader
 from tqdm import tqdm
@@ -109,6 +109,7 @@ def main(args):
         generation_kwargs["top_k"] = args.top_k
         generation_kwargs["top_p"] = args.top_p
 
+    generation_config = GenerationConfig(stop_strings="</s>", **generation_kwargs)
     print(f"Generation arguments: {generation_kwargs}")
 
     # --- Inference Loop ---
@@ -131,24 +132,25 @@ def main(args):
             outputs = model.generate(
                 input_ids=tokenized_inputs.input_ids,
                 attention_mask=tokenized_inputs.attention_mask,
-                **generation_kwargs
+                tokenizer=tokenizer,
+                generation_config=generation_config
             )
 
-        # Decode only the newly generated tokens
-        batch_predictions = []
-        for i, output_sequence in enumerate(outputs):
-            prompt_len = prompt_lengths[i]
-            # Ensure slicing doesn't go out of bounds if no new tokens were generated
-            generated_tokens = output_sequence[prompt_len:] if prompt_len < len(output_sequence) else []
-            prediction = tokenizer.decode(generated_tokens, skip_special_tokens=True)
-            batch_predictions.append(prediction.strip())
+        # Decode only the newly generated tokens for the entire batch
+        # batch_decode returns a list of strings
+        decoded_batch_predictions = tokenizer.batch_decode(
+            outputs[:, tokenized_inputs.input_ids.shape[1]:],
+            skip_special_tokens=True # Add this to remove tokens like </s> from the output
+        )
 
-        all_predictions.extend(batch_predictions)
+        # Extend the main list with the list of decoded strings from the batch
+        all_predictions.extend(decoded_batch_predictions)
 
     # --- Save Results ---
     print(f"Saving {len(all_predictions)} predictions to {args.output_file}")
     os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
     with jsonlines.open(args.output_file, mode='w') as writer:
+        # Now 'pred' will be a complete prediction string for each input prompt
         for pred in all_predictions:
             writer.write({"prediction": pred})
 

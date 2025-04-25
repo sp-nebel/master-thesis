@@ -34,7 +34,7 @@ python scripts/lora_inference.py \
     --peft_model_path test_run_outputs/checkpoint-5000 \
     --output_file test_inferences/predictions.jsonl \
     --batch_size 16 \
-    --max_new_tokens 4 \
+    --max_new_tokens 6 \
     --do_sample
 
 deactivate

@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:4
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=accelerate_job
-#SBATCH --output=./logs/dev_accelerate_job.out
+#SBATCH --job-name=1B_job
+#SBATCH --output=./logs/1B_job.out
 
 
 module load compiler/gnu/14.2
