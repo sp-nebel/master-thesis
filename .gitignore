@@ -39,7 +39,9 @@ venv.bak/
 Thumbs.db
 
 # Run artifacts
+run_outputs*
 test_run_outputs*
 artifacts
+logs
 
 scratch*

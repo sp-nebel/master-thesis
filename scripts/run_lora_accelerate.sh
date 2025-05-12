@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --partition=gpu_h100 
+#SBATCH --partition=dev_gpu_h100 
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=01:00:00
-#SBATCH --mem=64gb
-#SBATCH --gres=gpu:4
+#SBATCH --time=00:30:00
+#SBATCH --mem=16gb
+#SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=1B_job
-#SBATCH --output=./logs/1B_job.out
+#SBATCH --job-name=dev_1B_job
+#SBATCH --output=./logs/dev_1B_job.out
 
 
 module load compiler/gnu/14.2
