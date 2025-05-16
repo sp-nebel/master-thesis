@@ -14,7 +14,7 @@ def get_rdm(activations_tensor):
 
     # Ensure tensor is on CPU and converted to numpy if it's not already
     if isinstance(activations_tensor, torch.Tensor):
-        activations_np = activations_tensor.cpu().numpy()
+        activations_np = activations_tensor.to(torch.float32).cpu().numpy()
     else:
         activations_np = activations_tensor
 

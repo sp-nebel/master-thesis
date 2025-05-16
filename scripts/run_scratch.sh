@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --partition=dev_gpu_h100
+#SBATCH --partition=dev_gpu_h100 
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=00:20:00
+#SBATCH --time=00:10:00
 #SBATCH --mem=16gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=hidden_job
-#SBATCH --output=./logs/hidden_states_job.out
+#SBATCH --job-name=scratch_job
+#SBATCH --output=./logs/scratch_job.out
 
 
 module load compiler/gnu/14.2
@@ -24,18 +24,10 @@ pip install deepspeed
 # other huggingface packags
 pip install datasets evaluate peft
 # helper packages
-pip install scikit-learn hf_mtask_trainer
+pip install scikit-learn hf_mtask_trainer 
 # for evaluation
 pip install seqeval levenshtein
 
-python scripts/inference_hidden_states.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-    --test_file artifacts/xnli_en_test.json \
-    --peft_model_path run_outputs/lora_3B \
-    --output_file test_inferences/hs_outputs \
-    --hidden_states_dir run_outputs/hs_in_tokens_3B/ \
-    --batch_size 16 \
-    --max_new_tokens 6 \
-    --do_sample
+python scripts/scratch.py
 
 deactivate

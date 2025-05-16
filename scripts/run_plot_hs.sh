@@ -28,8 +28,8 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-pip isntall matplotlib seaborn
+pip install matplotlib seaborn
 
-python scripts/plot_hidden_states
+python scripts/plot_hidden_states.py
 
 deactivate

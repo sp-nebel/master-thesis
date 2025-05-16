@@ -148,79 +148,56 @@ def main(args):
                 return_dict_in_generate=True
             )
 
-        # --- Process Hidden States (All Layers) ---
-        # outputs.hidden_states is a tuple (one element per generated token)
-        # Each element is another tuple (one element per layer, including embeddings)
-        # Each element of the inner tuple is a tensor: (batch_size, sequence_length_at_this_step, hidden_size)
-
-        num_generated_steps = len(outputs.hidden_states)
+        # --- Process Hidden States for INPUT TOKENS (All Layers) ---
         batch_size = tokenized_inputs.input_ids.shape[0]
-        # Get num_layers and hidden_size from the first step, first layer's state
-        # Note: outputs.hidden_states[0] contains states from the input processing step
-        # We are interested in the states *during* generation, starting from index 1 if available,
-        # but the structure holds. The tuple length gives layer count.
-        if num_generated_steps > 0 and len(outputs.hidden_states[0]) > 0:
-             num_layers = len(outputs.hidden_states[0]) # Includes embedding layer usually
-             hidden_size = outputs.hidden_states[0][0].shape[-1]
-        else:
-             # Handle case with no generation or unexpected output structure
-             print("Warning: Could not determine layer count or hidden size from outputs. Skipping batch.")
-             continue
 
+        if not outputs.hidden_states or not outputs.hidden_states[0]:
+            print(f"Warning: No hidden states found for input tokens in batch. Skipping batch starting with index {batch_indices[0].item()}.")
+            continue
 
-        # List to hold the sequence of hidden states (all layers) for each item in the batch
-        # batch_hidden_state_sequences[i] will be a list of tensors, each tensor shape: (num_layers, hidden_size)
-        batch_hidden_state_sequences = [[] for _ in range(batch_size)]
+        # outputs.hidden_states[0] is a tuple of tensors from the input prompt processing.
+        # Each tensor in this tuple corresponds to a layer and has shape:
+        # (batch_size, input_sequence_length, hidden_size)
+        prompt_hidden_states_per_layer = outputs.hidden_states[0]
 
-        # Iterate through each generation step
-        for step in range(num_generated_steps):
-            # Get the tuple of hidden states for all layers at this step
-            all_layer_states_at_step = outputs.hidden_states[step] # Tuple of tensors [(batch, seq, hidden), ...]
+        num_layers = len(prompt_hidden_states_per_layer)
+        if num_layers == 0:
+            print(f"Warning: No layers found in prompt hidden states for batch starting with index {batch_indices[0].item()}. Skipping batch.")
+            continue
+        
+        hidden_size = prompt_hidden_states_per_layer[0].shape[-1]
+        input_sequence_length = prompt_hidden_states_per_layer[0].shape[1] # Actual sequence length after tokenization
 
-            # List to store the last token's state across all layers for this step
-            # Shape will be (batch_size, num_layers, hidden_size)
-            last_token_all_layers = []
-            for layer_state in all_layer_states_at_step:
-                # layer_state shape: (batch_size, sequence_length_at_this_step, hidden_size)
-                # Get the state for the last token in the sequence at this step for this layer
-                # Shape: (batch_size, hidden_size)
-                last_token_state = layer_state[:, -1, :]
-                last_token_all_layers.append(last_token_state)
+        # Stack the tuple of layer-wise hidden states along a new dimension (dim=1)
+        # This creates a single tensor: (batch_size, num_layers, input_sequence_length, hidden_size)
+        all_layers_prompt_hs = torch.stack(prompt_hidden_states_per_layer, dim=1)
 
-            # Stack the layer states for the last token: Result shape (num_layers, batch_size, hidden_size)
-            stacked_last_token_states = torch.stack(last_token_all_layers, dim=0)
-
-            # Permute to get (batch_size, num_layers, hidden_size) and move to CPU
-            last_token_states_per_item = stacked_last_token_states.permute(1, 0, 2).cpu()
-
-            # Append the states for this step to each item in the batch
-            for i in range(batch_size):
-                batch_hidden_state_sequences[i].append(last_token_states_per_item[i]) # Append tensor (num_layers, hidden_size)
+        # Permute to get (batch_size, input_sequence_length, num_layers, hidden_size)
+        # This makes it easier to slice per batch item and matches the desired save format (seq_len, num_layers, hidden_size)
+        all_layers_prompt_hs_permuted = all_layers_prompt_hs.permute(0, 2, 1, 3).cpu()
 
         # --- Save Hidden States and Collect Metadata ---
         for i in range(batch_size):
-            if not batch_hidden_state_sequences[i]: # Handle cases where no tokens were generated
-                print(f"Warning: No hidden states generated for item index {batch_indices[i].item()}. Skipping save.")
-                continue
+            original_index = batch_indices[i].item()
 
-            original_index = batch_indices[i].item() # Get the original index
-            # Stack the list of tensors (each shape: num_layers, hidden_size) along a new dimension (dim=0)
-            # Final shape: (num_generated_tokens, num_layers, hidden_size)
-            hidden_state_sequence_all_layers = torch.stack(batch_hidden_state_sequences[i], dim=0)
+            # Get the hidden states for the i-th item in the batch
+            # Shape: (input_sequence_length, num_layers, hidden_size)
+            input_token_hidden_states = all_layers_prompt_hs_permuted[i]
 
             # Define path and save the tensor
-            tensor_filename = f"hidden_states_all_layers_{original_index}.pt"
+            # Changed filename to reflect input tokens
+            tensor_filename = f"hidden_states_input_tokens_all_layers_{original_index}.pt"
             tensor_path = os.path.join(args.hidden_states_dir, tensor_filename)
-            torch.save(hidden_state_sequence_all_layers, tensor_path)
+            torch.save(input_token_hidden_states, tensor_path)
 
             # Add metadata to the list
             all_results_metadata.append({
                 "id": original_index,
                 "prompt": batch_prompts[i], # Optionally store the prompt
                 "hidden_state_path": tensor_path,
-                "num_generated_tokens": hidden_state_sequence_all_layers.shape[0],
-                "num_layers": hidden_state_sequence_all_layers.shape[1],
-                "hidden_size": hidden_state_sequence_all_layers.shape[2]
+                "num_input_tokens": input_token_hidden_states.shape[0], # Changed metadata key
+                "num_layers": input_token_hidden_states.shape[1],
+                "hidden_size": input_token_hidden_states.shape[2]
             })
 
 

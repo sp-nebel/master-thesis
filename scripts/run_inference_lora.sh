@@ -29,10 +29,9 @@ pip install scikit-learn hf_mtask_trainer
 pip install seqeval levenshtein
 
 python scripts/lora_inference.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
-    --test_file artifacts/xnli_en_test.json \
-    --peft_model_path run_outputs/lora_1B_3400 \
-    --output_file run_outputs/test_inferences/1B_predictions.jsonl \
+    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
+    --test_file artifacts/xnli_en_test_multi_shot.json \
+    --output_file run_outputs/test_inferences/3B_ootb_predictions.jsonl \
     --batch_size 16 \
     --max_new_tokens 6 \
     --do_sample
