@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --partition=dev_gpu_h100 
+#SBATCH --partition=dev_gpu_h100
 #SBATCH --ntasks-per-node=40
 #SBATCH --time=00:15:00
 #SBATCH --mem=16gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=dev_1B_job
-#SBATCH --output=./logs/dev_1B_job.out
+#SBATCH --job-name=tie_checker
+#SBATCH --output=./logs/tie_checker_job.out
 
 
 module load compiler/gnu/14.2
@@ -24,10 +24,10 @@ pip install deepspeed
 # other huggingface packags
 pip install datasets evaluate peft
 # helper packages
-pip install scikit-learn hf_mtask_trainer 
+pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline_accelerate.sh
+python scripts/tie_checker.py
 
 deactivate

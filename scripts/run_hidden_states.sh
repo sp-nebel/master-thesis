@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --partition=dev_gpu_h100
+#SBATCH --partition=gpu_h100
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=00:20:00
+#SBATCH --time=00:15:00
 #SBATCH --mem=16gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
@@ -30,9 +30,9 @@ pip install seqeval levenshtein
 
 python scripts/inference_hidden_states.py \
     --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-    --test_file artifacts/xnli_en_test.json \
+    --test_file artifacts/xnli_en_test_10_ex.json \
     --peft_model_path run_outputs/lora_3B \
-    --output_file test_inferences/hs_outputs \
+    --output_file run_outputs/hs_outputs \
     --hidden_states_dir run_outputs/hs_in_tokens_3B/ \
     --batch_size 16 \
     --max_new_tokens 6 \

@@ -34,6 +34,7 @@ import evaluate
 import torch
 from datasets import load_dataset
 
+from scripts.utils import tie_lora_weights
 import transformers
 from transformers import (
     CONFIG_MAPPING,
@@ -726,6 +727,8 @@ def main():
             peft_model_id = training_args.load_lora_from
             # config = PeftConfig.from_pretrained(peft_model_id)
             model = PeftModel.from_pretrained(model, peft_model_id, is_trainable=True)
+        print(dir(model.base_model.model))
+        tie_lora_weights(model, lora_config)
         model.print_trainable_parameters()  # Be more transparent about the % of trainable params.
         print(model)
     else:

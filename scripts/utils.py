@@ -1,5 +1,6 @@
 import json
 import re
+import torch
 
 from transformers import AutoTokenizer
 
@@ -135,3 +136,43 @@ def parse_3standard_ner_from_json(input_string):
         if parsed_res:
             parsed_output.append(parsed_res)
     return "; ".join(parsed_output)
+
+def tie_lora_weights(model, lora_config):
+    
+    llama_layers = model.base_model.model.model.layers
+
+    for target_name_in_lora_config in lora_config.target_modules:
+        
+        ref_lora_A_weight = None
+        ref_lora_B_weight = None
+
+        first_llama_layer = llama_layers[0]
+        for submodule_path, submodule_obj in first_llama_layer.named_modules():
+            if (submodule_path.split('.')[-1] != target_name_in_lora_config or
+                    not (hasattr(submodule_obj, 'lora_A') and
+                         hasattr(submodule_obj, 'lora_B') and
+                         isinstance(submodule_obj.lora_A, torch.nn.ModuleDict) and
+                         'default' in submodule_obj.lora_A and
+                         isinstance(submodule_obj.lora_B, torch.nn.ModuleDict) and
+                         'default' in submodule_obj.lora_B)):
+                continue
+                
+            ref_lora_A_weight = submodule_obj.lora_A['default'].weight
+            ref_lora_B_weight = submodule_obj.lora_B['default'].weight
+            break 
+
+        for current_llama_layer in llama_layers:
+            for submodule_path, submodule_obj in current_llama_layer.named_modules():
+                if (submodule_path.split('.')[-1] != target_name_in_lora_config or
+                    not (hasattr(submodule_obj, 'lora_A') and
+                         hasattr(submodule_obj, 'lora_B') and
+                         isinstance(submodule_obj.lora_A, torch.nn.ModuleDict) and
+                         'default' in submodule_obj.lora_A and
+                         isinstance(submodule_obj.lora_B, torch.nn.ModuleDict) and
+                         'default' in submodule_obj.lora_B)):
+                    continue
+                       
+                submodule_obj.lora_A['default'].weight = ref_lora_A_weight
+                submodule_obj.lora_B['default'].weight = ref_lora_B_weight
+                # logger.debug(f"    Tied LoRA weights for '{target_name_in_lora_config}' in layer {i} to layer 0's weights.")
+                break

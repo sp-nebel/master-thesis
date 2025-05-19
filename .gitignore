@@ -43,5 +43,5 @@ run_outputs*
 test_run_outputs*
 artifacts
 logs
-
+train_lora_1B/
 scratch*
