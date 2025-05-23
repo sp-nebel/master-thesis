@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=gpu_h100
+#SBATCH --partition=dev_gpu_h100
 #SBATCH --ntasks-per-node=40
 #SBATCH --time=00:15:00
 #SBATCH --mem=16gb
@@ -29,11 +29,11 @@ pip install scikit-learn hf_mtask_trainer
 pip install seqeval levenshtein
 
 python scripts/inference_hidden_states.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
+    --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
     --test_file artifacts/xnli_en_test_10_ex.json \
-    --peft_model_path run_outputs/lora_3B \
+    --peft_model_path run_outputs/lora_1B_3400 \
     --output_file run_outputs/hs_outputs \
-    --hidden_states_dir run_outputs/hs_in_tokens_3B/ \
+    --hidden_states_dir run_outputs/hs_in_tokens_1B/ \
     --batch_size 16 \
     --max_new_tokens 6 \
     --do_sample

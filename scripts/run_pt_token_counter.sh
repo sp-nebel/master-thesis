@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=scratch_job
-#SBATCH --output=./logs/scratch_job.out
+#SBATCH --job-name=pt_counter_job
+#SBATCH --output=./logs/pt_token_counter_job.out
 
 
 module load compiler/gnu/14.2
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-python scripts/scratch.py
+python scripts/pt_token_counter.py --input_dir run_outputs/hs_in_tokens_3B/
 
 deactivate

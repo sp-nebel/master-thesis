@@ -78,8 +78,8 @@ def verify_tied_lora_weights_from_disk(
     for target_name in lora_target_modules:
         logger.info(f"  Checking target module: {target_name}")
 
-        ref_lora_A_weight_id = None
-        ref_lora_B_weight_id = None
+        ref_lora_A_weight_data = None
+        ref_lora_B_weight_data = None
         found_in_first_layer = False
 
         # Get reference ID from the first layer
@@ -92,9 +92,8 @@ def verify_tied_lora_weights_from_disk(
                    isinstance(submodule_obj.lora_A, torch.nn.ModuleDict) and 'default' in submodule_obj.lora_A and \
                    isinstance(submodule_obj.lora_B, torch.nn.ModuleDict) and 'default' in submodule_obj.lora_B:
                     
-                    ref_lora_A_weight_id = id(submodule_obj.lora_A['default'].weight.data)
-                    ref_lora_B_weight_id = id(submodule_obj.lora_B['default'].weight.data)
-                    logger.info(f"    Layer 0 ({submodule_name}): LoRA A ID: {ref_lora_A_weight_id}, LoRA B ID: {ref_lora_B_weight_id}")
+                    ref_lora_A_weight_data = submodule_obj.lora_A['default'].weight.data
+                    ref_lora_B_weight_data = submodule_obj.lora_B['default'].weight.data
                     found_in_first_layer = True
                     break # Found the target module in the first layer
         
@@ -111,13 +110,12 @@ def verify_tied_lora_weights_from_disk(
                    isinstance(submodule_obj.lora_A, torch.nn.ModuleDict) and 'default' in submodule_obj.lora_A and \
                    isinstance(submodule_obj.lora_B, torch.nn.ModuleDict) and 'default' in submodule_obj.lora_B:
                     
-                    current_lora_A_id = id(submodule_obj.lora_A['default'].weight.data)
-                    current_lora_B_id = id(submodule_obj.lora_B['default'].weight.data)
+                    current_lora_A_data = submodule_obj.lora_A['default'].weight.data
+                    current_lora_B_data = submodule_obj.lora_B['default'].weight.data
                     
-                    a_match = "MATCHES" if current_lora_A_id == ref_lora_A_weight_id else "MISMATCH!"
-                    b_match = "MATCHES" if current_lora_B_id == ref_lora_B_weight_id else "MISMATCH!"
+                    a_match = "MATCHES" if torch.equal(ref_lora_A_weight_data, current_lora_A_data) else "MISMATCH!"
+                    b_match = "MATCHES" if torch.equal(ref_lora_B_weight_data, current_lora_B_data) else "MISMATCH!"
 
-                    logger.info(f"    Layer {i} ({submodule_name}): LoRA A ID: {current_lora_A_id} ({a_match}), LoRA B ID: {current_lora_B_id} ({b_match})")
                     if a_match == "MISMATCH!" or b_match == "MISMATCH!":
                         logger.error(f"      Tieing FAILED for '{target_name}' in layer {i} compared to layer 0.")
                         all_checks_passed = False

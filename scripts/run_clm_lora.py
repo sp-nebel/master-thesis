@@ -728,7 +728,9 @@ def main():
             # config = PeftConfig.from_pretrained(peft_model_id)
             model = PeftModel.from_pretrained(model, peft_model_id, is_trainable=True)
         print(dir(model.base_model.model))
+        model.print_trainable_parameters()  # Be more transparent about the % of trainable 
         tie_lora_weights(model, lora_config)
+        print("Tied LoRA weights")
         model.print_trainable_parameters()  # Be more transparent about the % of trainable params.
         print(model)
     else:

@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=3B_tied
-#SBATCH --output=./logs/3B_tied.out
+#SBATCH --job-name=1B_tied
+#SBATCH --output=./logs/1B_tied.out
 
 
 module load compiler/gnu/14.2
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline_accelerate.sh
+source scripts/train_baseline_accelerate_1B.sh
 
 deactivate

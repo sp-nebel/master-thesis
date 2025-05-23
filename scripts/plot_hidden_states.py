@@ -62,8 +62,8 @@ def compare_activations_rsa(hs_file_1B, hs_file_3B, token_indices, layer_idx_1B,
 # These paths and indices are placeholders
 # Assume you have metadata to know total layers for each model
 # And you've identified corresponding .pt files for the SAME input prompt
-HS_FILE_1B_PROMPT1 = "run_outputs/hidden_states_1B/hidden_states_all_layers_0.pt" # Example
-HS_FILE_3B_PROMPT1 = "run_outputs/hidden_states_3B/hidden_states_all_layers_0.pt" # Example
+HS_FILE_1B_PROMPT1 = "run_outputs/hs_in_tokens_1B/hidden_states_input_tokens_all_layers_0.pt" # Example
+HS_FILE_3B_PROMPT1 = "run_outputs/hs_in_tokens_3B/hidden_states_input_tokens_all_layers_0.pt" # Example
 
 # --- Determine total layers (you'd get this from model config or hs shape) ---
 temp_hs_1b = torch.load(HS_FILE_1B_PROMPT1, map_location='cpu')
