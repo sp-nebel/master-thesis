@@ -1,13 +1,12 @@
 #!/bin/bash
-#SBATCH --partition=gpu_h100 
+#SBATCH --partition=dev_cpu
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=01:00:00
-#SBATCH --mem=64gb
-#SBATCH --gres=gpu:4
+#SBATCH --time=00:10:00
+#SBATCH --mem=16gb
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=main_run
-#SBATCH --output=./logs/main_run.out
+#SBATCH --job-name=vis_job
+#SBATCH --output=./logs/vsi_pca_job.out
 
 
 module load compiler/gnu/14.2
@@ -24,10 +23,12 @@ pip install deepspeed
 # other huggingface packags
 pip install datasets evaluate peft
 # helper packages
-pip install scikit-learn hf_mtask_trainer 
+pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source $1
+pip install matplotlib seaborn
+
+python scripts/vis_pca.py
 
 deactivate

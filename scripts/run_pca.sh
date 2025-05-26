@@ -1,13 +1,12 @@
 #!/bin/bash
-#SBATCH --partition=dev_gpu_h100
+#SBATCH --partition=dev_cpu
 #SBATCH --ntasks-per-node=40
 #SBATCH --time=00:15:00
 #SBATCH --mem=16gb
-#SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=hidden_job
-#SBATCH --output=./logs/hidden_states_job.out
+#SBATCH --job-name=pca_job
+#SBATCH --output=./logs/pca_states_job.out
 
 
 module load compiler/gnu/14.2
@@ -28,13 +27,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-python scripts/inference_hidden_states.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
-    --test_file artifacts/xnli_en_test_10_ex.json \
-    --output_file run_outputs/hs_outputs \
-    --hidden_states_dir run_outputs/1B_base_hs \
-    --batch_size 16 \
-    --max_new_tokens 6 \
-    --do_sample
+python scripts/pca_hs.py
 
 deactivate
