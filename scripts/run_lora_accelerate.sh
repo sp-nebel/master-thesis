@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --partition=gpu_h100 
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=01:15:00
-#SBATCH --mem=8gb
-#SBATCH --gres=gpu:1
+#SBATCH --time=02:15:00
+#SBATCH --mem=32gb
+#SBATCH --gres=gpu:2
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=3B_tied
