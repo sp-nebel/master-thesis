@@ -6,14 +6,14 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=proc_job
-#SBATCH --output=./logs/proc_job.out
+#SBATCH --output=$HOME/master-thesis/logs/proc_job.out
 
 
 module load compiler/gnu/14.2
 module load devel/cuda/12.8
 module load devel/python/3.12.3-gnu-14.2
 
-source .env/bin/activate
+source $HOME/master-thesis/.env/bin/activate
 
 pip install -e .
 # pytorch
@@ -29,6 +29,6 @@ pip install seqeval levenshtein
 
 pip install matplotlib seaborn
 
-python scripts/proc_ana.py
+python $HOME/master-thesis/scripts/proc_ana.py
 
 deactivate

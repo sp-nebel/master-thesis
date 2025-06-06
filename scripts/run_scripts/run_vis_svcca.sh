@@ -5,15 +5,15 @@
 #SBATCH --mem=16gb
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=vis_job
-#SBATCH --output=./logs/vsi_pca_job.out
+#SBATCH --job-name=svcca_job
+#SBATCH --output=$HOME/master-thesis/logs/vis_svcca_job.out
 
 
 module load compiler/gnu/14.2
 module load devel/cuda/12.8
 module load devel/python/3.12.3-gnu-14.2
 
-source .env/bin/activate
+source $HOME/master-thesis/.env/bin/activate
 
 pip install -e .
 # pytorch
@@ -27,8 +27,8 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-pip install matplotlib seaborn
+pip install matplotlib seaborn scipy
 
-python scripts/vis_pca.py
+python $HOME/master-thesis/scripts/vis_svcca.py
 
 deactivate

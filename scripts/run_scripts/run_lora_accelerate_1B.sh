@@ -7,14 +7,14 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=1B_tied
-#SBATCH --output=./logs/1B_tied.out
+#SBATCH --output=$HOME/master-thesis/logs/1B_tied.out
 
 
 module load compiler/gnu/14.2
 module load devel/cuda/12.8
 module load devel/python/3.12.3-gnu-14.2
 
-source .env/bin/activate
+source $HOME/master-thesis/.env/bin/activate
 
 pip install -e .
 # pytorch
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline_accelerate_1B.sh
+source $HOME/master-thesis/scripts/train_baseline_accelerate_1B.sh
 
 deactivate

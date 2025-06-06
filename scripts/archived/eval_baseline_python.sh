@@ -1,18 +1,18 @@
 #!/bin/bash
 
 model_path="meta-llama/Llama-3.2-3B-Instruct" # replace by actual model path
-adapter_path="test_run_outputs/checkpoint-5000" # replace by actual adapter path
-train_files="artifacts/xnli_en_train.json" # replace by actual training data
-valid_files="artifacts/xnli_en_val.json" # replace by actual validation data
+adapter_path="$HOME/master-thesis/test_run_outputs/checkpoint-5000" # replace by actual adapter path
+train_files="$HOME/master-thesis/artifacts/xnli_en_train.json" # replace by actual training data
+valid_files="$HOME/master-thesis/artifacts/xnli_en_val.json" # replace by actual validation data
 eval_bsz=32
 gradient_accumulation_steps=1
-lora_config="./config/lora_config.json"
+lora_config="$HOME/master-thesis/config/lora_config.json"
 LR="5e-4"
-OUTDIR="./test_run_outputs"
+OUTDIR="$HOME/master-thesis/test_run_outputs"
 nproc_per_node=1 # number of GPUs used in training
 
 
-python ./scripts/run_clm_lora.py \
+python $HOME/master-thesis/scripts/run_clm_lora.py \
     --bf16_full_eval True \
     --model_name_or_path ${model_path} \
     --load_lora_from $adapter_path \

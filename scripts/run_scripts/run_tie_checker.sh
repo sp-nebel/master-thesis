@@ -6,15 +6,15 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=hidden_job
-#SBATCH --output=./logs/hidden_states_job.out
+#SBATCH --job-name=tie_checker
+#SBATCH --output=$HOME/master-thesis/logs/tie_checker_job.out
 
 
 module load compiler/gnu/14.2
 module load devel/cuda/12.8
 module load devel/python/3.12.3-gnu-14.2
 
-source .env/bin/activate
+source $HOME/master-thesis/.env/bin/activate
 
 pip install -e .
 # pytorch
@@ -28,14 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-python scripts/inference_hidden_states.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-    --peft_model_path run_outputs/3B_tied_lora \
-    --test_file artifacts/xnli_en_test_10_ex.json \
-    --output_file run_outputs/3B_tied_hs_outputs \
-    --hidden_states_dir run_outputs/3B_tied_hs \
-    --batch_size 16 \
-    --max_new_tokens 6 \
-    --do_sample
+python $HOME/master-thesis/scripts/tie_checker.py
 
 deactivate

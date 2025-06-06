@@ -2,20 +2,20 @@
 
 
 # --- Script Variables (Keep your existing variables) ---
-model_path="meta-llama/Llama-3.2-3B-Instruct"
-train_files="artifacts/xnli_en_train.json" # replace by actual training data
-valid_files="artifacts/xnli_en_val.json" # replace by actual validation data
+model_path="meta-llama/Llama-3.2-1B-Instruct"
+train_files="$HOME/master-thesis/artifacts/xnli_en_train.json" # replace by actual training data
+valid_files="$HOME/master-thesis/artifacts/xnli_en_val.json" # replace by actual validation data
 train_bsz=32 # Note: This is PER DEVICE batch size with accelerate/deepspeed
 eval_bsz=16  # Note: This is PER DEVICE batch size
 gradient_accumulation_steps=1
-lora_config="./config/lora_config.json"
+lora_config="$HOME/master-thesis/config/lora_config.json"
 LR="5e-4"
-OUTDIR="./run_outputs/3B_tied_lora" # Changed output dir name example
+OUTDIR="$HOME/master-thesis/run_outputs/models/1B_untied_lora" # Changed output dir name example
 mkdir -p $OUTDIR # Create output dir
 
 accelerate launch \
-    ./scripts/run_clm_lora.py \
-    --deepspeed ./config/deepspeed_config.json \
+    $HOME/master-thesis/scripts/run_clm_lora.py \
+    --deepspeed $HOME/master-thesis/config/deepspeed_config.json \
     --bf16 True \
     --bf16_full_eval True \
     --model_name_or_path ${model_path} \

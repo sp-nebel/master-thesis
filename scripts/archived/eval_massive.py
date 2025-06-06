@@ -8,7 +8,7 @@ import json
 import Levenshtein
 import re
 import numpy as np
-from .utils import massive_lang_map
+from ..utils import massive_lang_map
 
 np.set_printoptions(legacy='1.25')
 

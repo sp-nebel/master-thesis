@@ -23,11 +23,24 @@ def svcca(X, Y, threshold=0.99):
     U_y, s_y, Vt_y = svd(Y_centered.T, full_matrices=False)
     
     # Keep components that explain threshold variance
-    cumsum_x = np.cumsum(s_x**2) / np.sum(s_x**2)
-    cumsum_y = np.cumsum(s_y**2) / np.sum(s_y**2)
+    sum_sq_sx = np.sum(s_x**2)
+    sum_sq_sy = np.sum(s_y**2)
+
+    if sum_sq_sx < 1e-9: # Check for near-zero total variance for X
+        print(f"    WARNING: X_centered has near-zero total variance ({sum_sq_sx}). Setting cutoff_x to 1.")
+        cutoff_x = 1
+    else:
+        cumsum_x = np.cumsum(s_x**2) / sum_sq_sx
+        cutoff_x = np.argmax(cumsum_x >= threshold) + 1
     
-    cutoff_x = np.argmax(cumsum_x >= threshold) + 1
-    cutoff_y = np.argmax(cumsum_y >= threshold) + 1
+    if sum_sq_sy < 1e-9: # Check for near-zero total variance for Y
+        print(f"    WARNING: Y_centered has near-zero total variance ({sum_sq_sy}). Setting cutoff_y to 1.")
+        cutoff_y = 1
+    else:
+        cumsum_y = np.cumsum(s_y**2) / sum_sq_sy
+        cutoff_y = np.argmax(cumsum_y >= threshold) + 1
+    
+    print(f"    Cutoff X: {cutoff_x} (out of {len(s_x)} singular values), Cutoff Y: {cutoff_y} (out of {len(s_y)} singular values)") # Log cutoffs
     
     # Reduce dimensions
     X_reduced = X_centered @ U_x[:, :cutoff_x]
@@ -35,35 +48,50 @@ def svcca(X, Y, threshold=0.99):
     
     # Canonical Correlation Analysis
     # Center again after reduction
-    X_reduced = X_reduced - np.mean(X_reduced, axis=0)
-    Y_reduced = Y_reduced - np.mean(Y_reduced, axis=0)
+    X_reduced_centered = X_reduced - np.mean(X_reduced, axis=0)
+    Y_reduced_centered = Y_reduced - np.mean(Y_reduced, axis=0)
     
     # Compute cross-correlation matrix
-    Sigma_XX = X_reduced.T @ X_reduced / (X_reduced.shape[0] - 1)
-    Sigma_YY = Y_reduced.T @ Y_reduced / (Y_reduced.shape[0] - 1)
-    Sigma_XY = X_reduced.T @ Y_reduced / (X_reduced.shape[0] - 1)
+    Sigma_XX = X_reduced_centered.T @ X_reduced_centered / (X_reduced_centered.shape[0] - 1)
+    Sigma_YY = Y_reduced_centered.T @ Y_reduced_centered / (Y_reduced_centered.shape[0] - 1)
+    Sigma_XY = X_reduced_centered.T @ Y_reduced_centered / (X_reduced_centered.shape[0] - 1)
     
     # Solve generalized eigenvalue problem
+    canonical_corrs = [0.0] # Default in case of issues
     try:
         # Regularization for numerical stability
         reg = 1e-6
-        Sigma_XX += reg * np.eye(Sigma_XX.shape[0])
-        Sigma_YY += reg * np.eye(Sigma_YY.shape[0])
+        Sigma_XX_reg = Sigma_XX + reg * np.eye(Sigma_XX.shape[0])
+        Sigma_YY_reg = Sigma_YY + reg * np.eye(Sigma_YY.shape[0])
         
-        inv_sqrt_XX = np.linalg.inv(scipy.linalg.sqrtm(Sigma_XX))
-        inv_sqrt_YY = np.linalg.inv(scipy.linalg.sqrtm(Sigma_YY))
+        inv_sqrt_XX = np.linalg.inv(scipy.linalg.sqrtm(Sigma_XX_reg))
+        inv_sqrt_YY = np.linalg.inv(scipy.linalg.sqrtm(Sigma_YY_reg))
         
         T = inv_sqrt_XX @ Sigma_XY @ inv_sqrt_YY
-        U_cca, s_cca, Vt_cca = svd(T)
+        _U_cca, s_cca, _Vt_cca = svd(T)
         
         # Canonical correlations are the singular values
-        canonical_corrs = s_cca
-        
-    except:
-        # Fallback: use correlation between first principal components
-        canonical_corrs = [pearsonr(X_reduced[:, 0], Y_reduced[:, 0])[0]]
+        if len(s_cca) > 0:
+            canonical_corrs = s_cca
+        else:
+            print("    WARNING: s_cca (canonical correlations) is empty.")
+            canonical_corrs = [0.0] # Should not happen if cutoffs > 0 and CCA is valid
+            
+    except Exception as e_cca:
+        print(f"    WARNING: CCA computation failed: {e_cca}. Using fallback (absolute Pearson correlation of first PCs).") # Log fallback
+        if X_reduced.shape[1] > 0 and Y_reduced.shape[1] > 0:
+            # pearsonr returns (correlation, p-value)
+            corr_val, _ = pearsonr(X_reduced[:, 0].flatten(), Y_reduced[:, 0].flatten())
+            canonical_corrs = [np.abs(corr_val)] # SVCCA is mean of non-negative canonical correlations
+        else:
+            print("    ERROR: Reduced dimensions are zero for fallback, cannot compute Pearson correlation.")
+            canonical_corrs = [0.0]
     
-    return np.mean(canonical_corrs), canonical_corrs
+    # Ensure correlations are within [0, 1] and calculate mean
+    # Singular values (s_cca) should be non-negative. Pearson fallback is made non-negative with abs().
+    # Clipping might be needed for numerical stability if values slightly exceed 1.0.
+    final_similarity = np.mean(np.clip(canonical_corrs, 0, 1))
+    return final_similarity, canonical_corrs
 
 def load_all_hidden_states(file_path):
     """Load all hidden states from .pt file containing multiple layers"""
@@ -164,7 +192,6 @@ def compute_svcca_between_models(model1_file, model2_file):
             hidden1 = hidden1[:min_samples]
             hidden2 = hidden2[:min_samples]
             
-            # Compute SVCCA
             try:
                 similarity, _ = svcca(hidden1, hidden2)
                 similarities.append(similarity)
@@ -236,8 +263,8 @@ def plot_diagonal_similarities(similarities, layer_pairs):
 
 def main():
     # Define paths to your .pt files
-    model1_file = "run_outputs/1B_base_hs/hidden_states_input_tokens_all_layers_0.pt"  # Update this
-    model2_file = "run_outputs/3B_base_hs/hidden_states_input_tokens_all_layers_0.pt"  # Update this
+    model1_file = "run_outputs/hidden_states/1B_tied_hs/hidden_states_input_tokens_all_layers_0.pt"  # Update this
+    model2_file = "run_outputs/hidden_states/3B_tied_hs/hidden_states_input_tokens_all_layers_0.pt"  # Update this
     
     # Check if files exist
     if not os.path.exists(model1_file):
@@ -265,13 +292,13 @@ def main():
     # Heatmap
     fig1 = plot_svcca_heatmap(similarities, layer_pairs)
     if fig1:
-        fig1.savefig("plots/svcca_heatmap.png", dpi=300, bbox_inches='tight')
+        fig1.savefig("plots/base_svcca_heatmap.png", dpi=300, bbox_inches='tight')
         print("Saved heatmap to plots/svcca_heatmap.png")
     
     # Diagonal plot
     fig2 = plot_diagonal_similarities(similarities, layer_pairs)
     if fig2:
-        fig2.savefig("plots/svcca_diagonal.png", dpi=300, bbox_inches='tight')
+        fig2.savefig("plots/base_svcca_diagonal.png", dpi=300, bbox_inches='tight')
         print("Saved diagonal plot to plots/svcca_diagonal.png")
     
     # Print summary statistics
@@ -281,8 +308,6 @@ def main():
     print(f"Min: {np.min(similarities):.3f}")
     print(f"Max: {np.max(similarities):.3f}")
     
-    # Show plots
-    plt.savefig("plots/svcca_summary.png", dpi=300, bbox_inches='tight')
 
 if __name__ == "__main__":
     main()

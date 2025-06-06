@@ -8,8 +8,8 @@ from tqdm import tqdm
 import argparse
 import json
 
-from .utils import convert_row_massive_slot_filling as convert_row_func
-from .utils import massive_lang_map
+from ..utils import convert_row_massive_slot_filling as convert_row_func
+from ..utils import massive_lang_map
 
 
 def main(args):

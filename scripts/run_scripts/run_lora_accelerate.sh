@@ -1,20 +1,20 @@
 #!/bin/bash
-#SBATCH --partition=gpu_h100
+#SBATCH --partition=dev_gpu_h100 
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=02:00:00
+#SBATCH --time=00:20:00
 #SBATCH --mem=16gb
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:2
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=lora_train
-#SBATCH --output=../lora_train.out
+#SBATCH --job-name=1B_untied
+#SBATCH --output=$HOME/master-thesis/logs/1B_untied.out
 
 
 module load compiler/gnu/14.2
 module load devel/cuda/12.8
 module load devel/python/3.12.3-gnu-14.2
 
-source .env/bin/activate
+source $HOME/master-thesis/.env/bin/activate
 
 pip install -e .
 # pytorch
@@ -28,6 +28,6 @@ pip install scikit-learn hf_mtask_trainer
 # for evaluation
 pip install seqeval levenshtein
 
-source scripts/train_baseline_python.sh
+source $HOME/master-thesis/scripts/train_baseline_accelerate.sh
 
 deactivate
