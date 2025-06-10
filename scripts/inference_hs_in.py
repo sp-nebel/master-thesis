@@ -162,40 +162,7 @@ def main(args):
         # Each tensor in this tuple corresponds to a layer and has shape:
         # (batch_size, input_sequence_length, hidden_size)
         prompt_hidden_states_per_layer = outputs.hidden_states[0]
-        # --- Save Embedding Layer Hidden States for INPUT TOKENS ---
-        # This list will store the paths to the saved embedding hidden states for the current batch.
-        # It will be used later when constructing the metadata for each item.
-        batch_embedding_hs_paths = [None] * batch_size
 
-        # Check if prompt_hidden_states_per_layer is not None and contains at least one layer's states (embedding layer)
-        if prompt_hidden_states_per_layer and len(prompt_hidden_states_per_layer) > 0:
-            # The first element (index 0) of prompt_hidden_states_per_layer is the output of the embedding layer.
-            # Its shape is (batch_size, input_sequence_length, hidden_size).
-            embedding_layer_hs_batch = prompt_hidden_states_per_layer[0].cpu()
-
-            for i in range(batch_size):
-                # Retrieve the original index of the prompt in the dataset for consistent file naming.
-                original_item_index = batch_indices[i].item()
-                
-                # Get the embedding hidden states for the i-th item in the current batch.
-                # Shape: (input_sequence_length, hidden_size)
-                embedding_hs_for_item = embedding_layer_hs_batch[i]
-
-                # Define the filename and full path for saving the tensor.
-                embedding_tensor_filename = f"hidden_states_embedding_layer_input_tokens_{original_item_index}.pt"
-                embedding_tensor_path = os.path.join(args.hidden_states_dir, embedding_tensor_filename)
-                
-                # Save the tensor.
-                torch.save(embedding_hs_for_item, embedding_tensor_path)
-                
-                # Store the path in the list, corresponding to the item's position in the batch.
-                # This path will be added to the metadata dictionary in the subsequent loop.
-                batch_embedding_hs_paths[i] = embedding_tensor_path
-        else:
-            # This case handles scenarios where hidden states might be missing for the embedding layer,
-            # though the outer check for outputs.hidden_states should catch most general issues.
-            # batch_embedding_hs_paths will remain a list of Nones if this branch is taken.
-            print(f"Warning: Embedding layer hidden states not available or no layers found in prompt_hidden_states_per_layer for batch starting with index {batch_indices[0].item()}. Embedding states will not be saved for this batch.")
 
         num_layers = len(prompt_hidden_states_per_layer)
         if num_layers == 0:

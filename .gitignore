@@ -45,3 +45,4 @@ artifacts
 logs
 train_lora_1B/
 scratch*
+plots

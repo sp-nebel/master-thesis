@@ -30,9 +30,9 @@ pip install seqeval levenshtein
 
 python $HOME/master-thesis/scripts/lora_inference.py \
     --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
-    --peft_model_path $HOME/master-thesis/run_outputs/models/1B_tied_lora \
+    --peft_model_path $HOME/master-thesis/run_outputs/models/1B_untied_lora \
     --test_file $HOME/master-thesis/artifacts/xnli_en_test_multi_shot.json \
-    --output_file $HOME/master-thesis/run_outputs/test_inferences/1B_tied_predictions.jsonl \
+    --output_file $HOME/master-thesis/run_outputs/test_inferences/1B_untied_predictions.jsonl \
     --batch_size 16 \
     --max_new_tokens 6 \
     --do_sample
