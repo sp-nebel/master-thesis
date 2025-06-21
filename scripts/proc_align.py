@@ -49,7 +49,7 @@ def main(args):
 
     output_filename = os.path.join(output_dir, "procrustes_rotation_matrix.pt")
     torch.save(torch.from_numpy(matrix), output_filename)
-    print(f"Saved rotation matrix to {output_filename}")
+    print(f"Saved transformation matrix to {output_filename}")
 
 
 if __name__ == "__main__":

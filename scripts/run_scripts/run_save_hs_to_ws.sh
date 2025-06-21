@@ -2,6 +2,7 @@
 #SBATCH --partition=dev_gpu_h100
 #SBATCH --ntasks-per-node=40
 #SBATCH --time=00:15:00
+#SBATCH --mem=16gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
@@ -30,24 +31,24 @@ pip install seqeval levenshtein
 
 python $HOME/master-thesis/scripts/collect_last_hidden_states.py \
         --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
-        --test_file $HOME/master-thesis/artifacts/xnli_en_test_128k.json \
+        --test_file $HOME/master-thesis/artifacts/xnli_en_test_10.json \
         --output_file $TMPDIR/1B_hidden_states.pt \
         --trust_remote_code \
         --torch_dtype bfloat16 \
         --batch_size 16 \
         --max_input_length 512
 
-rsync -av --mkpath $TMPDIR/1B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_128k.pt
+rsync -avhP $TMPDIR/1B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_test_10.pt
 
 python $HOME/master-thesis/scripts/collect_last_hidden_states.py \
         --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-        --test_file $HOME/master-thesis/artifacts/xnli_en_test_128k.json \
+        --test_file $HOME/master-thesis/artifacts/xnli_en_test_10.json \
         --output_file $TMPDIR/3B_hidden_states.pt \
         --trust_remote_code \
         --torch_dtype bfloat16 \
         --batch_size 16 \
         --max_input_length 512
 
-rsync -av --mkpath $TMPDIR/3B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_128k.pt
+rsync -avhP $TMPDIR/3B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_test_10.pt
 
 deactivate

@@ -127,15 +127,15 @@ def main(args):
     print("\nFinished inference.")
 
     if all_relevant_last_layer_hidden_states_list:
-        # The output is now a list of tensors, each with potentially different sequence lengths.
-        # If you need to concatenate them, you'd have to pad them again to a common length.
-        # For this example, we'll save the list directly.
+        print("Concatenating all hidden state tensors...")
+        final_tensor = torch.cat(all_relevant_last_layer_hidden_states_list, dim=0)
+
         output_dir = os.path.dirname(args.output_file)
         if output_dir and not os.path.exists(output_dir):
             print(f"Creating output directory: {output_dir}")
             os.makedirs(output_dir)
-        print(f"Saving list of {len(all_relevant_last_layer_hidden_states_list)} relevant hidden states tensors to: {args.output_file}")
-        torch.save(all_relevant_last_layer_hidden_states_list, args.output_file)
+        print(f"Saving concatenated tensor with shape {final_tensor.shape} to: {args.output_file}")
+        torch.save(final_tensor, args.output_file)
         print("Done.")
     else:
         print("No hidden states were collected. Please check your data and model.")
