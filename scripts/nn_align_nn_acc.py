@@ -17,7 +17,6 @@ def compute_mapping_accuracy(x_pred_np, x_true_np, bsz=512):
     n_vectors = len(x_pred_np)
     acc = 0.0
 
-    pr
     x_pred_np /= np.linalg.norm(x_pred_np, axis=1)[:, np.newaxis] + 1e-8
     x_true_np /= np.linalg.norm(x_true_np, axis=1)[:, np.newaxis] + 1e-8
 

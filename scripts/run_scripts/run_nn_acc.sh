@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --partition=dev_gpu_h100
+#SBATCH --partition=gpu_h100
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=00:15:00
-#SBATCH --mem=48gb
+#SBATCH --time=01:30:00
+#SBATCH --mem=32gb
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL

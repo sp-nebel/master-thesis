@@ -38,7 +38,7 @@ def main(args):
     result = procrustes.orthogonal(list1.numpy(), list2.numpy())
 
     matrix = result.get('t')
-    print(matrix.shape)
+    print("Matrix shape: ",matrix.shape)
 
     print("Transformation Matrix:\n", matrix)
 
