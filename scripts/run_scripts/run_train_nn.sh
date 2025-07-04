@@ -33,7 +33,7 @@ rsync -avhP $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_128k.pt $TM
 rsync -avhP $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_128k.pt $TMPDIR/3B_hidden_states.pt 
 
 
-python $HOME/master-thesis/scripts/mapping_nn.py \
+python $HOME/master-thesis/scripts/train_nn.py \
         --input_data_path "$TMPDIR/1B_hidden_states.pt" \
         --target_data_path "$TMPDIR/3B_hidden_states.pt" \
         --output_path "$HOME/master-thesis/run_outputs/mapping_models/1B_to_3B_alignment_net_128k.pth"

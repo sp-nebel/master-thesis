@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 sys.path.append(os.getcwd()) 
 
-from scripts import mapping_nn
+from scripts import train_nn
 
 def compute_mapping_accuracy(x_pred_np, x_true_np, bsz=512):
     """
@@ -38,7 +38,7 @@ def compute_mapping_accuracy(x_pred_np, x_true_np, bsz=512):
 
 def main(args):
     print("Loading model...")
-    model = mapping_nn.HiddenStateAlignmentNet(2048, 3072, 1024, 512)
+    model = train_nn.HiddenStateAlignmentNet(2048, 3072, 1024, 512)
     cpu = torch.device('cpu')
     device = torch.device('cuda')
     model.load_state_dict(torch.load(args.model_path))

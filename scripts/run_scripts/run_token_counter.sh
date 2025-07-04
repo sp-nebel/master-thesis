@@ -11,12 +11,12 @@
 source $HOME/master-thesis/.env/bin/activate
 
 python $HOME/master-thesis/scripts/token_counter.py \
-  "$HOME/master-thesis/artifacts/xnli_en_test.json" \
+  "$HOME/master-thesis/artifacts/xnli_en_val.json" \
   "meta-llama/Llama-3.2-1B-Instruct" \
   "prefix" \
   --token_threshold 128000 \
   --output_file "$TMPDIR/output.json"
 
-cp $TMPDIR/output.json $HOME/master-thesis/artifacts/xnli_en_test_128k.json
+rsync -avhP $TMPDIR/output.json $HOME/master-thesis/artifacts/xnli_en_val_128k.json
 
 deactivate

@@ -6,36 +6,24 @@ import procrustes
 
 def main(args):
     try:
-        list1 = torch.load(args.file1_path)
-        list2 = torch.load(args.file2_path)
+        tensor1 = torch.load(args.file1_path).to(torch.float32)
+        tensor2 = torch.load(args.file2_path).to(torch.float32)
     except FileNotFoundError as e:
         print(f"Error loading file: {e}. Please ensure the paths are correct.")
         return
     except Exception as e:
         print(f"An error occurred loading tensors: {e}")
         return
-
-    # Cast lists of tensors to float32
-    list1 = [t.to(torch.float32) for t in list1]
-    list2 = [t.to(torch.float32) for t in list2]
-
     
-    try:
-        list1 = torch.cat(list1, dim=0)
-        list2 = torch.cat(list2, dim=0)
-    except Exception as e:
-        print(f"Error concatenating tensors from lists: {e}")
-        print("Please ensure the loaded files contain lists of tensors with consistent hidden dimensions.")
-        return
 
-    print(f"Shape of concatenated list1: {list1.shape}")
-    print(f"Shape of concatenated list2: {list2.shape}")
+    print(f"Shape of tensor1: {tensor1.shape}")
+    print(f"Shape of tensor2: {tensor2.shape}")
 
-    indexes = torch.randperm(list1.shape[0])
-    list1 = list1[indexes[:args.samples]]
-    list2 = list2[indexes[:args.samples]]
+    indexes = torch.randperm(tensor1.shape[0])
+    tensor1 = tensor1[indexes[:args.samples]]
+    tensor2 = tensor2[indexes[:args.samples]]
 
-    result = procrustes.orthogonal(list1.numpy(), list2.numpy())
+    result = procrustes.orthogonal(tensor1.numpy(), tensor2.numpy())
 
     matrix = result.get('t')
     print("Matrix shape: ",matrix.shape)

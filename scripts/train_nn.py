@@ -156,21 +156,6 @@ def main(args):
 
 
     for epoch in range(num_epochs):
-        model.train()
-        epoch_loss = 0.0
-        for batch_input, batch_target in train_dataloader:
-            batch_input = batch_input.to(device)
-            batch_target = batch_target.to(device)
-
-            optimizer.zero_grad()
-            outputs = model(batch_input)
-            loss = criterion(outputs, batch_target)
-            loss.backward()
-            optimizer.step()
-            epoch_loss += loss.item()
-
-        avg_epoch_loss = epoch_loss / len(train_dataloader)
-
         # Validation phase
         if val_dataloader:
             model.eval() 
@@ -196,6 +181,24 @@ def main(args):
         else:
             print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {avg_epoch_loss:.4f}")
             scheduler.step(avg_epoch_loss) # Fallback to train loss if no validation set
+
+        # Training phase
+        model.train()
+        epoch_loss = 0.0
+        for batch_input, batch_target in train_dataloader:
+            batch_input = batch_input.to(device)
+            batch_target = batch_target.to(device)
+
+            optimizer.zero_grad()
+            outputs = model(batch_input)
+            loss = criterion(outputs, batch_target)
+            loss.backward()
+            optimizer.step()
+            epoch_loss += loss.item()
+
+        avg_epoch_loss = epoch_loss / len(train_dataloader)
+
+        
 
     output_dir = os.path.dirname(model_output_path)
     if output_dir and not os.path.exists(output_dir):

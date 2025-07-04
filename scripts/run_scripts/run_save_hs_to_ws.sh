@@ -31,24 +31,24 @@ pip install seqeval levenshtein
 
 python $HOME/master-thesis/scripts/collect_last_hidden_states.py \
         --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
-        --test_file $HOME/master-thesis/artifacts/xnli_en_test_10.json \
+        --test_file $HOME/master-thesis/artifacts/xnli_en_val_128k.json \
         --output_file $TMPDIR/1B_hidden_states.pt \
         --trust_remote_code \
         --torch_dtype bfloat16 \
         --batch_size 16 \
         --max_input_length 512
 
-rsync -avhP $TMPDIR/1B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_test_10.pt
+rsync -avhP $TMPDIR/1B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_val_128k.pt
 
 python $HOME/master-thesis/scripts/collect_last_hidden_states.py \
         --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-        --test_file $HOME/master-thesis/artifacts/xnli_en_test_10.json \
+        --test_file $HOME/master-thesis/artifacts/xnli_en_val_128k.json \
         --output_file $TMPDIR/3B_hidden_states.pt \
         --trust_remote_code \
         --torch_dtype bfloat16 \
         --batch_size 16 \
         --max_input_length 512
 
-rsync -avhP $TMPDIR/3B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_test_10.pt
+rsync -avhP $TMPDIR/3B_hidden_states.pt $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_val_128k.pt
 
 deactivate
