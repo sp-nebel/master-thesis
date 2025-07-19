@@ -42,7 +42,7 @@ Thumbs.db
 run_outputs*
 test_run_outputs*
 artifacts
-logs
+logs*
 train_lora_1B/
 scratch*
 plots

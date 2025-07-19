@@ -38,7 +38,7 @@ def compute_mapping_accuracy(x_pred_np, x_true_np, bsz=512):
 
 def main(args):
     print("Loading model...")
-    model = train_nn.HiddenStateAlignmentNet(2048, 3072, 1024, 512)
+    model = train_nn.HiddenStateAlignmentNet(2048, 2048, 1024, 512)
     cpu = torch.device('cpu')
     device = torch.device('cuda')
     model.load_state_dict(torch.load(args.model_path))
@@ -50,6 +50,7 @@ def main(args):
     print("Loading target...")
     target_tensor = torch.load(args.target_path, map_location=cpu).to(torch.float32)
     print("Loaded source and target.")
+
 
     model.to(device)
 

@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=clean_mapping
-#SBATCH --output=logs/clean_mapping.out
+#SBATCH --job-name=trivial_mapping
+#SBATCH --output=logs/trivial_mapping.out
 
 
 module load compiler/gnu/14.2
@@ -35,8 +35,10 @@ rsync -avhP $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_128k.pt $TM
 
 python $HOME/master-thesis/scripts/train_nn.py \
         --input_data_path "$TMPDIR/1B_hidden_states.pt" \
-        --target_data_path "$TMPDIR/3B_hidden_states.pt" \
-        --output_path "$HOME/master-thesis/run_outputs/mapping_models/1B_to_3B_alignment_net_128k.pth"
+        --target_data_path "$TMPDIR/1B_hidden_states.pt" \
+        --output_path "$HOME/master-thesis/run_outputs/mapping_models/trivial_mapping_128k.pth" \
+        --output_dim 2048 \
+        --num_workers 4
 
 
 deactivate

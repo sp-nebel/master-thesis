@@ -4,7 +4,7 @@ import os
 
 import torch
 
-from nn_align_nn_acc import compute_mapping_accuracy
+from utils import top_knn_acc
 
 def main(args):
 
@@ -14,10 +14,14 @@ def main(args):
     proc_matrix = torch.load(args.proc_path).to(torch.float32)
     target_matrix = torch.load(args.target_path).to(torch.float32)
 
-    input_matrix = torch.nn.functional.pad(input_matrix, (0, target_matrix.shape[1] - input_matrix.shape[1]))
-
+    input_matrix = input_matrix[:args.samples]
+    target_matrix = target_matrix[:args.samples]   
 
     pred_matrix = torch.matmul(input_matrix, proc_matrix)
+
+    pred_matrix = pred_matrix[:, :2048]
+
+    print(pred_matrix)
 
     mse_loss = torch.nn.MSELoss()
 
@@ -25,7 +29,7 @@ def main(args):
 
     print("MSE Result: ", mse_result)
 
-    nn_result = compute_mapping_accuracy(pred_matrix.numpy(), target_matrix.numpy())
+    nn_result = top_knn_acc(args.k, pred_matrix.numpy(), target_matrix.numpy())
 
     print("NN Result: ", nn_result)
 
@@ -36,5 +40,7 @@ if __name__ == '__main__':
     parser.add_argument("input_path", type=str)
     parser.add_argument("target_path", type=str)
     parser.add_argument("proc_path", type=str)
+    parser.add_argument("--k", type=int, default=5)
+    parser.add_argument("--samples", type=int, default=1000)
     args = parser.parse_args()
     main(args)

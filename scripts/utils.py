@@ -3,6 +3,8 @@ import re
 import torch
 
 from transformers import AutoTokenizer
+from sklearn.neighbors import NearestNeighbors
+
 
 massive_lang_map = {"en": "en-US",
                     "af": "af-ZA",
@@ -176,3 +178,14 @@ def tie_lora_weights(model, lora_config):
                 submodule_obj.lora_B['default'].weight = ref_lora_B_weight
                 # logger.debug(f"    Tied LoRA weights for '{target_name_in_lora_config}' in layer {i} to layer 0's weights.")
                 break
+
+def top_knn_acc(k: int, base_set, query_set):
+    nbrs = NearestNeighbors(n_neighbors=k)
+    nbrs.fit(base_set)
+    indices_set = nbrs.kneighbors(query_set, return_distance=False)
+    hits = 0
+    for i, indices in enumerate(indices_set):
+        if i in indices:
+            hits += 1
+    return hits / len(query_set)
+

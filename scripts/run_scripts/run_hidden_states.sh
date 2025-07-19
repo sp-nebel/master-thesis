@@ -7,7 +7,7 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=hidden_job
-#SBATCH --output=$HOME/master-thesis/logs/hidden_states_job.out
+#SBATCH --output=logs/hidden_states_job.out
 
 
 module load compiler/gnu/14.2
@@ -29,10 +29,10 @@ pip install scikit-learn hf_mtask_trainer
 pip install seqeval levenshtein
 
 python $HOME/master-thesis/scripts/inference_hs_in.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-    --test_file $HOME/master-thesis/artifacts/xnli_en_test_10_ex.json \
-    --output_file $HOME/master-thesis/run_outputs/3B_base_hs_outputs \
-    --hidden_states_dir $HOME/master-thesis/run_outputs/hidden_states/3B_base_hs_out \
+    --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
+    --test_file $HOME/master-thesis/artifacts/xnli_en_test_10.json \
+    --output_file $HOME/master-thesis/run_outputs/1b_hs_to_comp \
+    --hidden_states_dir $HOME/master-thesis/run_outputs/hidden_states/1B_hs_to_comp_2 \
     --batch_size 16 \
     --max_new_tokens 6 \
     --do_sample

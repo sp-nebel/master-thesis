@@ -26,7 +26,7 @@ def main(args):
     result = procrustes.orthogonal(tensor1.numpy(), tensor2.numpy())
 
     matrix = result.get('t')
-    print("Matrix shape: ",matrix.shape)
+    print("Matrix shape: ", matrix.shape)
 
     print("Transformation Matrix:\n", matrix)
 
