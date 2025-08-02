@@ -18,12 +18,9 @@ def main(args):
     input_matrix = input_matrix[:args.samples]
     target_matrix = target_matrix[:args.samples]   
 
-    if input_matrix.shape[1] < 3072:
-        padding_size = 3072 - input_matrix.shape[1]
-        padding = (0, padding_size) 
-        input_matrix = torch.nn.functional.pad(input_matrix, padding, "constant", 0)
-
     pred_matrix = torch.matmul(input_matrix, proc_matrix)
+
+    pred_matrix = pred_matrix[:, :2048]  
 
     print(pred_matrix)
 

@@ -6,17 +6,14 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=counter_job
-#SBATCH --output=logs/counter_job.out
+#SBATCH --output=logs/token_count_val.out
 
 source $HOME/master-thesis/.env/bin/activate
 
 python $HOME/master-thesis/scripts/token_counter.py \
   "$HOME/master-thesis/artifacts/xnli_en_val.json" \
   "meta-llama/Llama-3.2-1B-Instruct" \
+  --token_threshold -1 \
   "prefix" \
-  --token_threshold 128000 \
-  --output_file "$TMPDIR/output.json"
-
-rsync -avhP $TMPDIR/output.json $HOME/master-thesis/artifacts/xnli_en_val_128k.json
 
 deactivate

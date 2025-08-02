@@ -6,7 +6,7 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=proc_stats_val
-#SBATCH --output=logs/proc_stats_val_10k_samples.out
+#SBATCH --output=logs/reverse_proc_stats_val_10k_samples.out
 
 
 module load compiler/gnu/14.2
@@ -19,9 +19,9 @@ rsync -avhP $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_val_128k.pt
 
 rsync -avhP $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_val_128k.pt $TMPDIR/3B_hidden_states.pt 
 
-rsync -avhP $HOME/master-thesis/run_outputs/proc_align/upward_procrustes_128k.pt $TMPDIR/procrustes_rotation_matrix.pt
+rsync -avhP $HOME/master-thesis/run_outputs/proc_align/reverse_procrustes_128k.pt $TMPDIR/procrustes_rotation_matrix.pt
 
-python -u $HOME/master-thesis/scripts/apply_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/procrustes_rotation_matrix.pt --samples=10000 --stats_path=$HOME/master-thesis/run_outputs/proc_align/apply_proc_stats_128k.npz
+python -u $HOME/master-thesis/scripts/apply_reverse_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/procrustes_rotation_matrix.pt --samples=10000 --stats_path=$HOME/master-thesis/run_outputs/proc_align/apply_reverse_proc_stats_128k.npz
 
 
 deactivate

@@ -1,3 +1,4 @@
+import utils
 import os
 import sys
 import numpy as np
@@ -10,35 +11,9 @@ sys.path.append(os.getcwd())
 
 from scripts import train_nn
 
-def compute_mapping_accuracy(x_pred_np, x_true_np, bsz=512):
-    """
-    Computes nearest neighbor accuracy for a 1-to-1 mapping in a memory-efficient way.
-    """
-    n_vectors = len(x_pred_np)
-    acc = 0.0
-
-    x_pred_np /= np.linalg.norm(x_pred_np, axis=1)[:, np.newaxis] + 1e-8
-    x_true_np /= np.linalg.norm(x_true_np, axis=1)[:, np.newaxis] + 1e-8
-
-    for i in range(0, n_vectors, bsz):
-        print(f"Processing batch {i} of {n_vectors}")
-        e = min(i + bsz, n_vectors)
-        
-        pred_batch = x_pred_np[i:e]
-
-        scores = np.dot(x_true_np, pred_batch.T)
-
-        pred_indices = scores.argmax(axis=0)
-
-        for j in range(i, e):
-            if pred_indices[j - i] == j:
-                acc += 1.0
-                
-    return acc / n_vectors
-
 def main(args):
     print("Loading model...")
-    model = train_nn.HiddenStateAlignmentNet(2048, 2048, 1024, 512)
+    model = train_nn.HiddenStateAlignmentNet(2048, 3072, 1024, 512)
     cpu = torch.device('cpu')
     device = torch.device('cuda')
     model.load_state_dict(torch.load(args.model_path))
@@ -50,6 +25,11 @@ def main(args):
     print("Loading target...")
     target_tensor = torch.load(args.target_path, map_location=cpu).to(torch.float32)
     print("Loaded source and target.")
+
+    if args.num_examples:
+        print(f"Using {args.num_examples} examples.")
+        source_tensor = source_tensor[:args.num_examples]
+        target_tensor = target_tensor[:args.num_examples]
 
 
     model.to(device)
@@ -78,9 +58,32 @@ def main(args):
     print(f"Sample target values: {target_np[:5, :5]}")
 
     print("Calculating nearest neighbor accuracy...")
-    accuracy = compute_mapping_accuracy(predicted_np, target_np)
+    topk_accuracy, distances = utils.top_knn_acc(5, target_np, predicted_np)
     
-    print(f"Accuracy: {accuracy:.4f}")
+    print(f"Accuracy: {topk_accuracy:.4f}")
+    mean_distances = np.mean(distances, axis=0)
+    std_distances = np.std(distances, axis=0)
+    min_distances = np.min(distances, axis=0)
+    max_distances = np.max(distances, axis=0)
+    median_distances = np.median(distances, axis=0)
+    
+    print("\nDistance Statistics:")
+    for k in range(5):
+        print(f"Top-{k+1} distances - Mean: {mean_distances[k]:.4f}, Std: {std_distances[k]:.4f}, "
+              f"Min: {min_distances[k]:.4f}, Max: {max_distances[k]:.4f}, Median: {median_distances[k]:.4f}")
+    
+    stats = {
+        'accuracy': topk_accuracy,
+        'mean_distances': mean_distances,
+        'std_distances': std_distances,
+        'min_distances': min_distances,
+        'max_distances': max_distances,
+        'median_distances': median_distances
+    }
+    
+
+    np.savez(args.stats_path, **stats)
+    print(f"Distance statistics saved to: {args.stats_path}")
 
 
 if __name__ == '__main__':
@@ -88,6 +91,8 @@ if __name__ == '__main__':
     parser.add_argument("--model_path")
     parser.add_argument("--source_path")
     parser.add_argument("--target_path")
+    parser.add_argument("--stats_path")
+    parser.add_argument("--num_examples", type=int, default=None, help="Number of examples to use.")
 
     args = parser.parse_args()
     main(args)

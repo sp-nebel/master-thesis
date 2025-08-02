@@ -20,8 +20,10 @@ def main(args):
     print(f"Shape of tensor2: {tensor2.shape}")
 
     indexes = torch.randperm(tensor1.shape[0])
-    tensor1 = tensor1[indexes[:args.samples]]
-    tensor2 = tensor2[indexes[:args.samples]]
+
+    if args.samples > 0 and args.samples < tensor1.shape[0]:
+        tensor1 = tensor1[indexes[:args.samples]]
+        tensor2 = tensor2[indexes[:args.samples]]
 
     result = procrustes.orthogonal(tensor1.numpy(), tensor2.numpy())
 
@@ -35,7 +37,7 @@ def main(args):
         os.makedirs(output_dir)
         print(f"Created output directory: {output_dir}")
 
-    output_filename = os.path.join(output_dir, "procrustes_rotation_matrix.pt")
+    output_filename = os.path.join(output_dir, args.output_filename)
     torch.save(torch.from_numpy(matrix), output_filename)
     print(f"Saved transformation matrix to {output_filename}")
 
@@ -45,6 +47,9 @@ if __name__ == "__main__":
     parser.add_argument("file1_path", type=str, help="Path to the first .pt file (list of tensors).")
     parser.add_argument("file2_path", type=str, help="Path to the second .pt file (list of tensors).")
     parser.add_argument("r_path", type=str, help="Path to save the matrix (.pt file).")
-    parser.add_argument("--samples", type=int, default=1000, help="Number of samples (tokens) to use for alignment.")
+    parser.add_argument("--output_filename", type=str, help="Filename for the output matrix file.")
+    parser.add_argument("--samples", type=int, default=-1, help="Number of samples (tokens) to use for alignment.")
+    
+    
     args = parser.parse_args()
     main(args)

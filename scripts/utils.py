@@ -1,6 +1,7 @@
 import json
 import re
 import torch
+import numpy as np
 
 from transformers import AutoTokenizer
 from sklearn.neighbors import NearestNeighbors
@@ -182,10 +183,10 @@ def tie_lora_weights(model, lora_config):
 def top_knn_acc(k: int, base_set, query_set):
     nbrs = NearestNeighbors(n_neighbors=k)
     nbrs.fit(base_set)
-    indices_set = nbrs.kneighbors(query_set, return_distance=False)
-    hits = 0
-    for i, indices in enumerate(indices_set):
-        if i in indices:
-            hits += 1
-    return hits / len(query_set)
+    distances, indices = nbrs.kneighbors(query_set, return_distance=True)
+    
+    query_indices = np.arange(len(query_set))[:, np.newaxis]
+    hits = np.any(indices == query_indices, axis=1).sum()
+    
+    return hits / len(query_set), distances
 
