@@ -5,10 +5,10 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=hook_1B
-#SBATCH --output=logs/hook_1B.out
-#SBATCH --time=00:20:00
-#SBATCH --mem=32gb
+#SBATCH --job-name=hook_3B
+#SBATCH --output=logs/hook_3B.out
+#SBATCH --time=00:30:00
+#SBATCH --mem=128gb
 
 # --- Job Configuration (Set from command-line argument) ---
 
@@ -57,14 +57,15 @@ OUTPUT_DIR_TMP="$TMPDIR/${MODEL_TAG}"
 OUTPUT_DIR_PERMANENT="$(ws_find ws_sascha)/hidden_states/${MODEL_TAG}_with_hook/input_layernorm/"
 mkdir -p $OUTPUT_DIR_TMP
 mkdir -p $OUTPUT_DIR_PERMANENT
-rsync -avhP $HOME/master-thesis/artifacts/xnli_en_test_10.json $TMPDIR/data.json
+rsync -avhP $HOME/master-thesis/artifacts/xnli_en_val_128k.json $TMPDIR/data.json
 
 # --- Run Analysis ---
 echo "Running analysis..."
 python $HOME/master-thesis/scripts/collect_hs_with_hook.py \
         --base_model_name_or_path ${MODEL_NAME} \
+        --peft_model_path $HOME/master-thesis/run_outputs/models/3B_tied_lora \
         --test_file $TMPDIR/data.json \
-        --output_file ${OUTPUT_DIR_TMP}/ \
+        --output_file ${OUTPUT_DIR_TMP} \
         --trust_remote_code \
         --torch_dtype bfloat16 \
         --batch_size 16 \

@@ -171,31 +171,39 @@ def main(args):
     hook_handles = []
     
     # Determine which layers to hook
+    
+    # Adjust layer access based on whether the model is a PeftModel
+    try:
+        layers = model.base_model.model.model.layers if isinstance(model, PeftModel) else model.model.layers
+    except AttributeError:
+        print("Error: Could not access model layers. Please check the model architecture and adjust the layer access path.")
+        return
+
     if args.layer_to_collect is None:
         # Hook all layers
-        layer_indices = list(range(len(model.model.layers)))
+        layer_indices = list(range(len(layers)))
         print(f"Collecting hidden states from all {len(layer_indices)} layers")
     else:
         # Hook single layer
-        target_layer_idx = args.layer_to_collect if args.layer_to_collect >= 0 else len(model.model.layers) + args.layer_to_collect
+        target_layer_idx = args.layer_to_collect if args.layer_to_collect >= 0 else len(layers) + args.layer_to_collect
         layer_indices = [target_layer_idx]
         print(f"Collecting hidden states from layer {target_layer_idx}")
     
     # Hook into specified module of specified layers
     for layer_idx in layer_indices:
-        target_layer = model.model.layers[layer_idx]
+        target_layer = layers[layer_idx]
         
         # Check if the specified module exists in the layer
         if hasattr(target_layer, args.hook_module):
             target_module = getattr(target_layer, args.hook_module)
 
             # Create and register pre-hook
-            pre_hook = HiddenStateSaverHook(f"{args.output_file}_layer_{layer_idx}_{args.hook_module}_pre.pt", device, dtype, f"pre_{args.hook_module}_layer_{layer_idx}")
+            pre_hook = HiddenStateSaverHook(f"{args.output_file}/{args.output_file}_layer_{layer_idx}_{args.hook_module}_pre.pt", device, dtype, f"pre_{args.hook_module}_layer_{layer_idx}")
             hooks[pre_hook.component_name] = pre_hook
             hook_handles.append(target_module.register_forward_pre_hook(pre_hook))
             
             # Create and register post-hook
-            post_hook = HiddenStateSaverHook(f"{args.output_file}_layer_{layer_idx}_{args.hook_module}_post.pt", device, dtype, f"post_{args.hook_module}_layer_{layer_idx}")
+            post_hook = HiddenStateSaverHook(f"{args.output_file}/{args.output_file}_layer_{layer_idx}_{args.hook_module}_post.pt", device, dtype, f"post_{args.hook_module}_layer_{layer_idx}")
             hooks[post_hook.component_name] = post_hook
             hook_handles.append(target_module.register_forward_hook(post_hook))
         else:
