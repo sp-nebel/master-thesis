@@ -56,7 +56,7 @@ def main(args):
         text_norm = str(text).strip().lower()
         pred_norm = str(pred).strip().lower()
 
-        if text_norm == pred_norm:
+        if text_norm in pred_norm:
             matches += 1
         else:
             mismatches += 1

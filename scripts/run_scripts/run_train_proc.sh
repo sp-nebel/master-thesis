@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --partition=cpu
+#SBATCH --partition=dev_cpu
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=01:15:00
+#SBATCH --time=00:15:00
 #SBATCH --mem=256gb
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
@@ -15,12 +15,25 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-rsync -avhP $(ws_find ws_sascha)/hidden_states/1B_penultimate_base_hidden_states_test_multi_shot.pt $TMPDIR/1B_hidden_states.pt
+if [ "$#" -ne 3 ]; then
+    echo "Usage: $0 <input_file_1> <input_file_2> <output_filename>"
+    exit 1
+fi
 
-rsync -avhP $(ws_find ws_sascha)/hidden_states/3B_penultimate_base_hidden_states_test_multi_shot.pt $TMPDIR/3B_hidden_states.pt 
+INPUT_FILE_1=$1
+INPUT_FILE_2=$2
+OUTPUT_FILENAME=$3
 
-python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=penult_proc_up_2M.pt
+rsync -avhP $INPUT_FILE_1 $TMPDIR/1B_hidden_states.pt
 
-rsync -avhP $TMPDIR/penult_proc_up_2M.pt $HOME/master-thesis/run_outputs/proc_align/penult_proc_down_2M.pt
+rsync -avhP $INPUT_FILE_2 $TMPDIR/3B_hidden_states.pt 
+
+python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_up
+
+python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_down
+
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_up $HOME/master-thesis/run_outputs/proc_align/pre_q/${OUTPUT_FILENAME}_up
+
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_down $HOME/master-thesis/run_outputs/proc_align/pre_q/${OUTPUT_FILENAME}_down
 
 deactivate

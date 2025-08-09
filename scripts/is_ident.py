@@ -31,9 +31,9 @@ def load_matrices(matrix1_path, matrix2_path=None, device='cpu'):
         print(f"Error loading matrices: {e}")
         return None, None
 
-def compute_mse_to_identity(matrix1, matrix2, device='cpu'):
+def compute_errors_to_identity(matrix1, matrix2, device='cpu'):
     """
-    Multiply two torch matrices and calculate MSE to identity matrix.
+    Multiply two torch matrices and calculate errors to identity matrix.
     
     Args:
         matrix1 (torch.Tensor): First matrix
@@ -41,7 +41,7 @@ def compute_mse_to_identity(matrix1, matrix2, device='cpu'):
         device (str): Device to perform computations on ('cpu' or 'cuda')
     
     Returns:
-        float: MSE between matrix product and identity matrix, or None if an error occurs.
+        dict: Dictionary with 'mse', 'mae', 'tae' between matrix product and identity matrix, or None if an error occurs.
     """
     try:
         # Check if matrices can be multiplied
@@ -60,25 +60,28 @@ def compute_mse_to_identity(matrix1, matrix2, device='cpu'):
         # Create identity matrix of same size
         identity = torch.eye(result.shape[0], device=device, dtype=result.dtype)
         
-        # Calculate MSE
-        mse = torch.mean((result - identity) ** 2)
+        # Calculate errors
+        diff = result - identity
+        mse = torch.mean(diff ** 2).item()
+        mae = torch.mean(torch.abs(diff)).item()
+        tae = torch.sum(torch.abs(diff)).item()
         
-        return mse.item()
+        return {'mse': mse, 'mae': mae, 'tae': tae}
         
     except Exception as e:
         print(f"Error during computation: {e}")
         return None
 
-def compute_mse_to_permuted(matrix, device='cpu'):
+def compute_errors_to_permuted(matrix, device='cpu'):
     """
-    Calculate MSE between a matrix and a randomly permuted version of itself.
+    Calculate errors between a matrix and a randomly permuted version of itself.
     
     Args:
         matrix (torch.Tensor): The input matrix.
         device (str): Device to perform computations on ('cpu' or 'cuda').
     
     Returns:
-        float: MSE between the matrix and its permuted version, or None if an error occurs.
+        dict: Dictionary with 'mse', 'mae', 'tae' between the matrix and its permuted version, or None if an error occurs.
     """
     try:
         # Flatten the matrix to a 1D tensor to permute all elements
@@ -93,13 +96,44 @@ def compute_mse_to_permuted(matrix, device='cpu'):
         # Reshape it back to the original matrix shape
         permuted_matrix = permuted_flat_matrix.view(matrix.shape)
         
-        # Calculate MSE
-        mse = torch.mean((matrix - permuted_matrix) ** 2)
+        # Calculate errors
+        diff = matrix - permuted_matrix
+        mse = torch.mean(diff ** 2).item()
+        mae = torch.mean(torch.abs(diff)).item()
+        tae = torch.sum(torch.abs(diff)).item()
         
-        return mse.item()
+        return {'mse': mse, 'mae': mae, 'tae': tae}
         
     except Exception as e:
         print(f"Error during permuted MSE computation: {e}")
+        return None
+
+def compute_errors_between(matrix1, matrix2):
+    """
+    Calculate errors between two torch matrices.
+    
+    Args:
+        matrix1 (torch.Tensor): First matrix
+        matrix2 (torch.Tensor): Second matrix
+    
+    Returns:
+        dict: Dictionary with 'mse', 'mae', 'tae' between the two matrices, or None if an error occurs.
+    """
+    try:
+        # Check if matrices have the same shape
+        if matrix1.shape != matrix2.shape:
+            raise ValueError(f"Matrices must have the same shape, but got {matrix1.shape} and {matrix2.shape}")
+        
+        # Calculate errors
+        diff = matrix1 - matrix2
+        mse = torch.mean(diff ** 2).item()
+        mae = torch.mean(torch.abs(diff)).item()
+        tae = torch.sum(torch.abs(diff)).item()
+        
+        return {'mse': mse, 'mae': mae, 'tae': tae}
+        
+    except Exception as e:
+        print(f"Error during MSE computation: {e}")
         return None
 
 def main():
@@ -107,16 +141,15 @@ def main():
     parser.add_argument('--device', default='cpu', choices=['cpu', 'cuda'], 
                        help='Device to use for computation (default: cpu)')
     
-    subparsers = parser.add_subparsers(dest='mode', required=True, help='computation mode')
+    parser.add_argument('--matrix1', help='Path to first matrix file (.pt)')
+    parser.add_argument('--matrix2', help='Path to second matrix file (.pt)')
 
-    # Subparser for identity MSE
-    parser_identity = subparsers.add_parser('identity', help='Multiply two matrices and compute MSE to identity')
-    parser_identity.add_argument('matrix1', help='Path to first matrix file (.pt)')
-    parser_identity.add_argument('matrix2', help='Path to second matrix file (.pt)')
+    parser.add_argument('--identity', action='store_true', help='Multiply matrix1 and matrix2 and compute MSE to identity. Requires --matrix1 and --matrix2.')
+    parser.add_argument('--permuted', action='store_true', help='Compute MSE between matrix1 and its permuted version. Requires --matrix1.')
+    parser.add_argument('--compare', action='store_true', help='Compute MSE between matrix1 and matrix2. Requires --matrix1 and --matrix2.')
 
-    # Subparser for permuted MSE
-    parser_permuted = subparsers.add_parser('permuted', help='Compute MSE between a matrix and its permuted version')
-    parser_permuted.add_argument('matrix', help='Path to matrix file (.pt)')
+    parser.add_argument('--mae', action='store_true', help='Calculate Mean Absolute Error.')
+    parser.add_argument('--tae', action='store_true', help='Calculate Total Absolute Error.')
 
     args = parser.parse_args()
     
@@ -126,32 +159,68 @@ def main():
         args.device = 'cpu'
     
     print(f"Using device: {args.device}")
+
+    matrix1, matrix2 = None, None
+
+    if args.matrix1:
+        matrix1, _ = load_matrices(args.matrix1, device=args.device)
+        if matrix1 is None:
+            sys.exit(1)
     
-    if args.mode == 'identity':
-        matrix1, matrix2 = load_matrices(args.matrix1, args.matrix2, args.device)
-        
+    if args.matrix2:
+        matrix2, _ = load_matrices(args.matrix2, device=args.device)
+        if matrix2 is None:
+            sys.exit(1)
+
+    if not (args.identity or args.permuted or args.compare):
+        print("No computation mode selected. Use --identity, --permuted, or --compare.")
+        parser.print_help()
+        sys.exit(1)
+    
+    if args.identity:
         if matrix1 is None or matrix2 is None:
+            print("Error: --identity requires --matrix1 and --matrix2.")
             sys.exit(1)
-
-        mse = compute_mse_to_identity(matrix1, matrix2, args.device)
         
-        if mse is not None:
-            print(f"\nMSE to identity matrix: {mse:.6f}")
-        else:
+        errors = compute_errors_to_identity(matrix1, matrix2, args.device)
+        
+        if errors is not None:
+            print(f"\n--- To Identity ---")
+            print(f"MSE: {errors['mse']:.6f}")
+            if args.mae:
+                print(f"MAE: {errors['mae']:.6f}")
+            if args.tae:
+                print(f"TAE: {errors['tae']:.6f}")
+
+    if args.permuted:
+        if matrix1 is None:
+            print("Error: --permuted requires --matrix1.")
             sys.exit(1)
+        
+        errors = compute_errors_to_permuted(matrix1, args.device)
+
+        if errors is not None:
+            print(f"\n--- To Permuted ---")
+            print(f"MSE: {errors['mse']:.6f}")
+            if args.mae:
+                print(f"MAE: {errors['mae']:.6f}")
+            if args.tae:
+                print(f"TAE: {errors['tae']:.6f}")
     
-    elif args.mode == 'permuted':
-        matrix, _ = load_matrices(args.matrix, device=args.device)
-
-        if matrix is None:
+    if args.compare:
+        if matrix1 is None or matrix2 is None:
+            print("Error: --compare requires --matrix1 and --matrix2.")
             sys.exit(1)
         
-        mse = compute_mse_to_permuted(matrix, args.device)
+        errors = compute_errors_between(matrix1, matrix2)
 
-        if mse is not None:
-            print(f"\nMSE to permuted matrix: {mse:.6f}")
-        else:
-            sys.exit(1)
+        if errors is not None:
+            print(f"\n--- Between Matrices ---")
+            print(f"MSE: {errors['mse']:.6f}")
+            if args.mae:
+                print(f"MAE: {errors['mae']:.6f}")
+            if args.tae:
+                print(f"TAE: {errors['tae']:.6f}")
 
 if __name__ == "__main__":
     main()

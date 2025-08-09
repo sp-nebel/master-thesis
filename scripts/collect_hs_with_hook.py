@@ -16,6 +16,8 @@ class HiddenStateSaverHook:
         self.device = device
         self.dtype = dtype
         self.component_name = component_name  # For identification (e.g., "pre_rmsnorm", "post_rmsnorm")
+        self.batch_counter = 0
+        self.accumulated_states_for_saving = []
 
     def __call__(self, module, input, output=None):
         """
@@ -33,29 +35,62 @@ class HiddenStateSaverHook:
         """Call this before each forward pass to store the current attention mask"""
         self.attention_masks.append(attention_mask.cpu())
 
-    def save(self):
-        if not self.hidden_states_list:
-            print(f"No hidden states collected for {self.component_name}. Please check your model and data.")
+    def process_batch(self):
+        """Processes the last collected batch of hidden states and adds them to an accumulation list for saving."""
+        if not self.hidden_states_list or not self.attention_masks:
             return
 
-        print(f"Processing {len(self.hidden_states_list)} batches of hidden states from {self.component_name}...")
+        hidden_states_batch = self.hidden_states_list.pop(0)
+        attention_mask = self.attention_masks.pop(0)
+
         all_relevant_states = []
+        for j in range(hidden_states_batch.shape[0]):
+            sample_hidden_states = hidden_states_batch[j]
+            sample_attention_mask = attention_mask[j]
+            
+            actual_length = int(sample_attention_mask.sum().item())
+            relevant_hs = sample_hidden_states[-actual_length:, :]
+            all_relevant_states.append(relevant_hs)
         
-        # Ensure we have matching attention masks
-        if len(self.attention_masks) != len(self.hidden_states_list):
-            print(f"Warning: Mismatch between hidden states batches ({len(self.hidden_states_list)}) and attention masks ({len(self.attention_masks)})")
+        if all_relevant_states:
+            self.accumulated_states_for_saving.append(torch.cat(all_relevant_states, dim=0))
+
+    def save_accumulated_states(self, force_save=False):
+        """Saves the accumulated hidden states to disk."""
+        if not self.accumulated_states_for_saving:
             return
+
+        final_tensor = torch.cat(self.accumulated_states_for_saving, dim=0)
         
-        for hidden_states_batch, attention_mask in zip(self.hidden_states_list, self.attention_masks):
-            # Process each item in the batch
-            for j in range(hidden_states_batch.shape[0]):
-                sample_hidden_states = hidden_states_batch[j]
-                sample_attention_mask = attention_mask[j]
-                
-                actual_length = int(sample_attention_mask.sum().item())
-                # Handle left padding - actual tokens are at the end
-                relevant_hs = sample_hidden_states[-actual_length:, :]
-                all_relevant_states.append(relevant_hs)
+        output_dir = os.path.dirname(self.path_to_save)
+        if output_dir and not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        # Append to file if it exists, otherwise create it
+        if os.path.exists(self.path_to_save):
+            existing_tensor = torch.load(self.path_to_save)
+            final_tensor = torch.cat([existing_tensor, final_tensor], dim=0)
+        
+        torch.save(final_tensor, self.path_to_save)
+        self.accumulated_states_for_saving.clear() # Clear after saving
+
+    def save_and_clear_batch(self):
+        """Saves the last collected batch of hidden states and clears the lists."""
+        if not self.hidden_states_list or not self.attention_masks:
+            # This can happen if a batch is processed but no states were collected for this specific hook
+            return
+
+        hidden_states_batch = self.hidden_states_list.pop(0)
+        attention_mask = self.attention_masks.pop(0)
+
+        all_relevant_states = []
+        for j in range(hidden_states_batch.shape[0]):
+            sample_hidden_states = hidden_states_batch[j]
+            sample_attention_mask = attention_mask[j]
+            
+            actual_length = int(sample_attention_mask.sum().item())
+            relevant_hs = sample_hidden_states[-actual_length:, :]
+            all_relevant_states.append(relevant_hs)
 
         if all_relevant_states:
             final_tensor = torch.cat(all_relevant_states, dim=0)
@@ -63,9 +98,21 @@ class HiddenStateSaverHook:
             output_dir = os.path.dirname(self.path_to_save)
             if output_dir and not os.path.exists(output_dir):
                 os.makedirs(output_dir)
-                
-            print(f"Saving {self.component_name} hidden states to {self.path_to_save}")
+
+            # Append to file if it exists, otherwise create it
+            if os.path.exists(self.path_to_save):
+                existing_tensor = torch.load(self.path_to_save)
+                final_tensor = torch.cat([existing_tensor, final_tensor], dim=0)
+            
             torch.save(final_tensor, self.path_to_save)
+
+    def save(self):
+        if self.accumulated_states_for_saving:
+            self.save_accumulated_states(force_save=True)
+
+        if os.path.exists(self.path_to_save):
+            final_tensor = torch.load(self.path_to_save)
+            print(f"Saving {self.component_name} hidden states to {self.path_to_save}")
             print(f"{self.component_name} hidden states saved successfully. Shape: {final_tensor.shape}")
         else:
             print(f"No relevant hidden states found for {self.component_name}")
@@ -74,6 +121,7 @@ class HiddenStateSaverHook:
         """Clear stored states to free memory"""
         self.hidden_states_list.clear()
         self.attention_masks.clear()
+        self.accumulated_states_for_saving.clear()
 
 def main(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -193,27 +241,35 @@ def main(args):
     for layer_idx in layer_indices:
         target_layer = layers[layer_idx]
         
-        # Check if the specified module exists in the layer
-        if hasattr(target_layer, args.hook_module):
-            target_module = getattr(target_layer, args.hook_module)
+        # Check if the specified module exists in the layer by traversing dot-separated path
+        target_module = target_layer
+        module_found = True
+        try:
+            for part in args.hook_module.split('.'):
+                target_module = getattr(target_module, part)
+        except AttributeError:
+            module_found = False
 
-            # Create and register pre-hook
-            pre_hook = HiddenStateSaverHook(f"{args.output_file}/{args.output_file}_layer_{layer_idx}_{args.hook_module}_pre.pt", device, dtype, f"pre_{args.hook_module}_layer_{layer_idx}")
-            hooks[pre_hook.component_name] = pre_hook
-            hook_handles.append(target_module.register_forward_pre_hook(pre_hook))
+        if module_found:
+            if args.hook_type in ['pre', 'both']:
+                # Create and register pre-hook
+                pre_hook = HiddenStateSaverHook(f"{args.output_file}/{args.output_file}_layer_{layer_idx}_{args.hook_module.replace('.', '_')}_pre.pt", device, dtype, f"pre_{args.hook_module}_layer_{layer_idx}")
+                hooks[pre_hook.component_name] = pre_hook
+                hook_handles.append(target_module.register_forward_pre_hook(pre_hook))
             
-            # Create and register post-hook
-            post_hook = HiddenStateSaverHook(f"{args.output_file}/{args.output_file}_layer_{layer_idx}_{args.hook_module}_post.pt", device, dtype, f"post_{args.hook_module}_layer_{layer_idx}")
-            hooks[post_hook.component_name] = post_hook
-            hook_handles.append(target_module.register_forward_hook(post_hook))
+            if args.hook_type in ['post', 'both']:
+                # Create and register post-hook
+                post_hook = HiddenStateSaverHook(f"{args.output_file}/{args.output_file}_layer_{layer_idx}_{args.hook_module.replace('.', '_')}_post.pt", device, dtype, f"post_{args.hook_module}_layer_{layer_idx}")
+                hooks[post_hook.component_name] = post_hook
+                hook_handles.append(target_module.register_forward_hook(post_hook))
         else:
             print(f"Warning: Module '{args.hook_module}' not found in layer {layer_idx}. Skipping this layer.")
             available_modules = [name for name, _ in target_layer.named_children()]
-            print(f"Available modules in layer {layer_idx}: {available_modules}")
+            print(f"Available top-level modules in layer {layer_idx}: {available_modules}")
 
     print("Starting inference and hidden state collection with hooks...")
     with torch.no_grad():
-        for batch in tqdm(dataloader, desc="Processing Batches"):
+        for i, batch in enumerate(tqdm(dataloader, desc="Processing Batches")):
             input_ids = batch['input_ids'].to(device)
             attention_mask = batch['attention_mask'].to(device)
 
@@ -222,9 +278,18 @@ def main(args):
 
             model(input_ids, attention_mask=attention_mask)
 
+            # Process the collected states for this batch
+            for hook in hooks.values():
+                hook.process_batch()
+
+            # Save accumulated states at specified interval
+            if (i + 1) % args.save_batch_interval == 0:
+                for hook in hooks.values():
+                    hook.save_accumulated_states()
+
     print("\nFinished inference.")
 
-    # Save all collected hidden states
+    # Save any remaining collected hidden states
     for hook_name, hook in hooks.items():
         hook.save()
         hook.clear()  # Free memory
@@ -281,6 +346,13 @@ if __name__ == "__main__":
         help="Name of the module within each layer to hook into (e.g., 'input_layernorm', 'post_attention_layernorm', 'mlp', 'self_attn')."
     )
     parser.add_argument(
+        "--hook_type",
+        type=str,
+        default="both",
+        choices=['pre', 'post', 'both'],
+        help="Type of hook to register: 'pre' for pre-forward, 'post' for post-forward, or 'both'."
+    )
+    parser.add_argument(
         "--output_file",
         type=str,
         required=True,
@@ -291,6 +363,12 @@ if __name__ == "__main__":
         type=int,
         default=16,
         help="Batch size for inference.",
+    )
+    parser.add_argument(
+        "--save_batch_interval",
+        type=int,
+        default=10,
+        help="How many batches to process before saving hidden states to disk."
     )
     parser.add_argument(
         "--max_input_length",

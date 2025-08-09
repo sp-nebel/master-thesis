@@ -6,32 +6,12 @@ from torch.utils.data import DataLoader, TensorDataset, random_split
 
 
 class HiddenStateAlignmentNet(nn.Module):
-    def __init__(self, input_dim, output_dim, hidden_dim_1, hidden_dim_2):
+    def __init__(self, input_dim, output_dim):
         super(HiddenStateAlignmentNet, self).__init__()
-        self.fc1 = nn.Linear(input_dim, hidden_dim_1)
-        self.relu1 = nn.ReLU()
-        self.dropout1 = nn.Dropout(0.2)
-        self.bn1 = nn.BatchNorm1d(hidden_dim_1)
-
-        self.fc2 = nn.Linear(hidden_dim_1, hidden_dim_2)
-        self.relu2 = nn.ReLU()
-        self.dropout2 = nn.Dropout(0.2)
-        self.bn2 = nn.BatchNorm1d(hidden_dim_2)
-
-        self.fc3 = nn.Linear(hidden_dim_2, output_dim)
+        self.fc1 = nn.Linear(input_dim, output_dim)
 
     def forward(self, x):
         x = self.fc1(x)
-        x = self.bn1(x)
-        x = self.relu1(x)
-        x = self.dropout1(x)
-
-        x = self.fc2(x)
-        x = self.bn2(x)
-        x = self.relu2(x)
-        x = self.dropout2(x)
-
-        x = self.fc3(x)
         return x
 
 
@@ -39,8 +19,6 @@ def main(args):
     # Define your dimensions
     input_dim = args.input_dim
     output_dim = args.output_dim
-    hidden_dim_1 = args.hidden_dim_1
-    hidden_dim_2 = args.hidden_dim_2
     num_epochs = args.num_epochs
     learning_rate = args.learning_rate
     model_output_path = args.output_path
@@ -48,7 +26,7 @@ def main(args):
     validation_split_ratio = args.validation_split
 
     # Initialize the model
-    model = HiddenStateAlignmentNet(input_dim, output_dim, hidden_dim_1, hidden_dim_2)
+    model = HiddenStateAlignmentNet(input_dim, output_dim)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
     print(f"Using device: {device}")
@@ -225,8 +203,6 @@ if __name__ == "__main__":
     # --- Arguments are unchanged ---
     parser.add_argument("--input_dim",type=int,default=2048)
     parser.add_argument("--output_dim",type=int,default=3072)
-    parser.add_argument("--hidden_dim_1",type=int,default=1024)
-    parser.add_argument("--hidden_dim_2",type=int,default=512)
     parser.add_argument("--num_epochs", type=int, default=500)
     parser.add_argument("--learning_rate",type=float,default=0.001)
     parser.add_argument("--output_path",type=str,default="hidden_state_alignment_model.pth")

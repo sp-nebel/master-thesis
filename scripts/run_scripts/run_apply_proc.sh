@@ -15,11 +15,11 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-rsync -avhP $(ws_find ws_sascha)/hidden_states/1B_base_hidden_states_val_128k.pt $TMPDIR/1B_hidden_states.pt
+rsync -avhP $(ws_find ws_sascha)/hidden_states/1B_with_hook/input_layernorm/scratch/slurm_tmpdir/job_1066702/1B_layer_15_self_attn_q_proj_post.pt $TMPDIR/1B_hidden_states.pt
 
-rsync -avhP $(ws_find ws_sascha)/hidden_states/3B_base_hidden_states_val_128k.pt $TMPDIR/3B_hidden_states.pt 
+rsync -avhP $(ws_find ws_sascha)/hidden_states/3B_with_hook/input_layernorm/scratch/slurm_tmpdir/job_1065634/3B_layer_27_self_attn_q_proj_post.pt $TMPDIR/3B_hidden_states.pt 
 
-rsync -avhP $HOME/master-thesis/run_outputs/proc_align/upward_procrustes_128k.pt $TMPDIR/procrustes_rotation_matrix.pt
+rsync -avhP $HOME/master-thesis/run_outputs/proc_align/post_q_proj_last_layer_up_proc.pt $TMPDIR/procrustes_rotation_matrix.pt
 
 python -u $HOME/master-thesis/scripts/apply_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/procrustes_rotation_matrix.pt --samples=10000 --stats_path=$HOME/master-thesis/run_outputs/proc_align/apply_proc_stats_128k.npz
 

@@ -11,9 +11,9 @@
 source $HOME/master-thesis/.env/bin/activate
 
 python $HOME/master-thesis/scripts/token_counter.py \
-  "$HOME/master-thesis/artifacts/xnli_en_val.json" \
+  "$HOME/master-thesis/artifacts/xnli_en_test.json" \
   "meta-llama/Llama-3.2-1B-Instruct" \
-  --token_threshold -1 \
+  --token_threshold 500000 \
   "prefix" \
 
 deactivate

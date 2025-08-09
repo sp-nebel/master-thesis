@@ -109,9 +109,18 @@ def main(args):
 
     v_hook = LoraHook(lora_A=lora_state_dict['base_model.model.model.layers.0.self_attn.v_proj.lora_A.weight'], lora_B=lora_state_dict['base_model.model.model.layers.0.self_attn.v_proj.lora_B.weight'], scaling=2, proc_down=down_mapping, proc_up=up_mapping)
 
-    model.model.layers[-1].self_attn.q_proj.register_forward_hook(q_hook)
+    q_proj_components = model.model.layers[-1].self_attn.q_proj
 
-    model.model.layers[-1].self_attn.v_proj.register_forward_hook(v_hook)
+    # Remove existing lora attributes if they exist from a previous merge
+    for name in list(q_proj_components.named_parameters()):
+        if "lora" in name[0]:
+            delattr(q_proj_components, name[0].split('.')[0])
+
+    for name in list(q_proj_components.named_buffers()):
+        if "lora" in name[0]:
+            delattr(q_proj_components, name[0].split('.')[0])
+
+    model.model.layers[-1].self_attn.q_proj.register_forward_hook(q_hook)
 
     model.eval() # Set model to evaluation mode
 
