@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --partition=dev_cpu
+#SBATCH --partition=cpu
 #SBATCH --ntasks-per-node=40
-#SBATCH --time=00:15:00
-#SBATCH --mem=256gb
+#SBATCH --time=00:30:00
+#SBATCH --mem=64gb
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=train_proc
@@ -28,12 +28,12 @@ rsync -avhP $INPUT_FILE_1 $TMPDIR/1B_hidden_states.pt
 
 rsync -avhP $INPUT_FILE_2 $TMPDIR/3B_hidden_states.pt 
 
-python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_up
+python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_up.pt
 
-python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_down
+python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_down.pt
 
-rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_up $HOME/master-thesis/run_outputs/proc_align/pre_q/${OUTPUT_FILENAME}_up
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_up.pt $HOME/master-thesis/run_outputs/proc_align/pre_q/${OUTPUT_FILENAME}_up.pt
 
-rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_down $HOME/master-thesis/run_outputs/proc_align/pre_q/${OUTPUT_FILENAME}_down
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_down.pt $HOME/master-thesis/run_outputs/proc_align/pre_q/${OUTPUT_FILENAME}_down.pt
 
 deactivate
