@@ -1,5 +1,6 @@
 import argparse
 from typing import Optional, Tuple
+import concurrent.futures
 from safetensors import safe_open
 import torch
 from torch import device
@@ -49,6 +50,22 @@ class LoraHook:
         
         return output + lora_update
 
+def load_mapping_pair(layer_idx, directory, device, dtype):
+    """
+    Loads and processes a single pair of down/up mapping tensors for a given layer.
+    This function will be executed by each worker thread.
+    """
+    down_path = os.path.join(directory, f"3B_layer_{layer_idx}__down.pt")
+    up_path = os.path.join(directory, f"3B_layer_{layer_idx}__up.pt")
+
+    down_mapping = torch.load(down_path, map_location=device)
+    up_mapping = torch.load(up_path, map_location=device)
+
+    down_mapping = down_mapping.to(dtype)
+    up_mapping = up_mapping.to(dtype)
+    
+    # Return the key and the value to reconstruct the dictionary
+    return layer_idx, (down_mapping, up_mapping)
 
 def main(args):
     print(f"Loading base model: {args.base_model_name_or_path}")
@@ -86,41 +103,57 @@ def main(args):
         trust_remote_code=True
     )
 
+    if args.peft_model_path:
+        print(f"Loading PEFT model from {args.peft_model_path}")
+        model = PeftModel.from_pretrained(model, args.peft_model_path)
+        if args.merge_before_inference:
+            print("Merging PEFT adapter into base model...")
+            model = model.merge_and_unload()
+            print("Merge complete.")
+
 
     lora_state_dict = {}
-    # --- Load PEFT Adapter ---
-    if args.peft_model_path:
+    # --- Load graft lora ---
+    if args.graft_lora_path:
 
-        print(f"Loading Peft adapter {args.peft_model_path}")
-        with safe_open(os.path.join(args.peft_model_path, "adapter_model.safetensors"), framework="pt", device=args.device) as f:
+        print(f"Loading Graft LoRA from {args.graft_lora_path}")
+        with safe_open(os.path.join(args.graft_lora_path, "adapter_model.safetensors"), framework="pt", device=args.device) as f:
             for key in f.keys():
                 lora_state_dict[key] = f.get_tensor(key)
         print("LoRA weights loaded successfully!")
+
+    layers_to_graft = args.graft_layers if args.graft_layers else list(range(28))
+
+    mappings = {}
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        # Submit all the loading tasks to the executor
+        future_to_layer = {
+            executor.submit(load_mapping_pair, i, args.mapping_directory, args.device, dtype): i
+            for i in layers_to_graft
+        }
         
-    
+        # As each future completes, retrieve its result and populate the dictionary
+        for future in concurrent.futures.as_completed(future_to_layer):
+            layer_idx, data = future.result()
+            mappings[layer_idx] = data
 
-    down_mapping = torch.load(args.down_mapping, map_location=args.device)
-    up_mapping = torch.load(args.up_mapping, map_location=args.device)
+    for i in layers_to_graft:
+        print(f"Applying graft hook to layer {i}...")
 
-    down_mapping = down_mapping.to(dtype)
-    up_mapping = up_mapping.to(dtype)
+        hook = LoraHook(
+            lora_A=lora_state_dict['base_model.model.model.layers.0.self_attn.q_proj.lora_A.weight'],
+            lora_B=lora_state_dict['base_model.model.model.layers.0.self_attn.q_proj.lora_B.weight'],
+            scaling=2,
+            proc_down=mappings[i][0],
+            proc_up=mappings[i][1]
+        )
 
-    q_hook = LoraHook(lora_A=lora_state_dict['base_model.model.model.layers.0.self_attn.q_proj.lora_A.weight'], lora_B=lora_state_dict['base_model.model.model.layers.0.self_attn.q_proj.lora_B.weight'], scaling=2, proc_down=down_mapping, proc_up=up_mapping)
-
-    v_hook = LoraHook(lora_A=lora_state_dict['base_model.model.model.layers.0.self_attn.v_proj.lora_A.weight'], lora_B=lora_state_dict['base_model.model.model.layers.0.self_attn.v_proj.lora_B.weight'], scaling=2, proc_down=down_mapping, proc_up=up_mapping)
-
-    q_proj_components = model.model.layers[-1].self_attn.q_proj
-
-    # Remove existing lora attributes if they exist from a previous merge
-    for name in list(q_proj_components.named_parameters()):
-        if "lora" in name[0]:
-            delattr(q_proj_components, name[0].split('.')[0])
-
-    for name in list(q_proj_components.named_buffers()):
-        if "lora" in name[0]:
-            delattr(q_proj_components, name[0].split('.')[0])
-
-    model.model.layers[-1].self_attn.q_proj.register_forward_hook(q_hook)
+        # Get the target layer using the index i and register the hook
+        target_layer = model.model.layers[i]
+        target_layer.self_attn.q_proj.register_forward_hook(hook)
+        
+        print(f"Successfully registered hook for layer {i} on q_proj")
 
     model.eval() # Set model to evaluation mode
 
@@ -227,7 +260,9 @@ if __name__ == "__main__":
     parser.add_argument("--base_model_name_or_path", type=str, required=True, help="Path or HuggingFace name of the base model.")
     parser.add_argument("--peft_model_path", type=str, default=None, help="Path to the directory containing the PEFT adapter weights (adapter_model.bin/safetensors and adapter_config.json). If None, runs base model.")
     parser.add_argument("--merge_before_inference", action='store_true', help="Merge PEFT adapter into the base model before running inference.")
-
+    parser.add_argument("--graft_lora_path", type=str, default=None, help="Path to the directory containing the Graft LoRA weights.")
+    parser.add_argument("--mapping_directory", type=str, help="Path to the directory containing mapping tensors.")
+    parser.add_argument("--graft_layers", nargs='+', type=int, default=None, help="List of layer indices to apply Graft LoRA to. If None, applies to all layers.")
     # Data Arguments
     parser.add_argument("--test_file", type=str, required=True, help="Path to the test dataset (JSONL file, expects a 'prefix' key).")
     parser.add_argument("--output_file", type=str, default="predictions.jsonl", help="Path to save the generated predictions.")
@@ -251,8 +286,6 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.7, help="Temperature for sampling (only used if --do_sample is True).")
     parser.add_argument("--top_k", type=int, default=50, help="Top-k for sampling (only used if --do_sample is True).")
     parser.add_argument("--top_p", type=float, default=1.0, help="Top-p (nucleus) sampling (only used if --do_sample is True).")
-    parser.add_argument("--down_mapping", type=str, default=None, help="Path to a tensor for down mapping.")
-    parser.add_argument("--up_mapping", type=str, default=None, help="Path to a tensor for up mapping.")
 
 
     args = parser.parse_args()

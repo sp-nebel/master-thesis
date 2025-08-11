@@ -25,7 +25,7 @@ def main(args):
         tensor1 = tensor1[indexes[:args.samples]]
         tensor2 = tensor2[indexes[:args.samples]]
 
-    result = procrustes.generic(tensor1.numpy(), tensor2.numpy())
+    result = procrustes.orthogonal(tensor1.numpy(), tensor2.numpy())
 
     matrix = result.get('t')
     print("Matrix shape: ", matrix.shape)
