@@ -55,8 +55,8 @@ def load_mapping_pair(layer_idx, directory, device, dtype):
     Loads and processes a single pair of down/up mapping tensors for a given layer.
     This function will be executed by each worker thread.
     """
-    down_path = os.path.join(directory, f"3B_layer_{layer_idx}__down.pt")
-    up_path = os.path.join(directory, f"3B_layer_{layer_idx}__up.pt")
+    down_path = os.path.join(directory, f"3B_layer_{layer_idx}_down.pt")
+    up_path = os.path.join(directory, f"3B_layer_{layer_idx}_up.pt")
 
     down_mapping = torch.load(down_path, map_location=device)
     up_mapping = torch.load(up_path, map_location=device)
@@ -106,6 +106,24 @@ def main(args):
     if args.peft_model_path:
         print(f"Loading PEFT model from {args.peft_model_path}")
         model = PeftModel.from_pretrained(model, args.peft_model_path)
+        # --- Remove existing LoRA from graft layers if specified ---
+        layers_to_remove_lora = args.graft_layers if args.graft_layers else list(range(28))
+        
+        print(f"Disabling original LoRA for q_proj in layers: {layers_to_remove_lora}")
+        for layer_idx in layers_to_remove_lora:
+            try:
+                target_module = model.model.model.layers[layer_idx].self_attn
+                q_proj_layer = target_module.q_proj
+                
+                if hasattr(q_proj_layer, 'base_layer'):
+                    target_module.q_proj = q_proj_layer.base_layer
+                    print(f"  - Reverted q_proj in layer {layer_idx} to original.")
+                    print(f"  - Current structure of self_attn in layer {layer_idx}:\n{target_module}")
+                else:
+                    print(f"  - q_proj in layer {layer_idx} is not a PEFT layer, skipping.")
+            except (AttributeError, IndexError) as e:
+                print(f"Warning: Could not access or modify q_proj for layer {layer_idx}. Error: {e}")
+
         if args.merge_before_inference:
             print("Merging PEFT adapter into base model...")
             model = model.merge_and_unload()
@@ -150,7 +168,7 @@ def main(args):
         )
 
         # Get the target layer using the index i and register the hook
-        target_layer = model.model.layers[i]
+        target_layer = model.model.model.layers[i]
         target_layer.self_attn.q_proj.register_forward_hook(hook)
         
         print(f"Successfully registered hook for layer {i} on q_proj")

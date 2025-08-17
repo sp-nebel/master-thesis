@@ -50,8 +50,6 @@ def main(args):
         model = PeftModel.from_pretrained(
             model,
             args.peft_model_path,
-            # torch_dtype=dtype, # PeftModel usually inherits dtype or handles it
-            is_trainable=False # Ensure model is in eval mode
         )
         model = model.merge_and_unload() if args.merge_before_inference else model
         if args.merge_before_inference:

@@ -7,7 +7,7 @@
 # This script searches for pairs of files in two separate directories based on a
 # predefined key-value mapping of strings. For each pair found, it executes
 # a user-defined command. This version assumes only one file will match each
-# key and value.
+# key and value. Jobs are queued in batches of 5 with 30-minute delays.
 #
 # Usage:
 # ./your_script_name.sh /path/to/key/directory /path/to/value/directory
@@ -75,8 +75,10 @@ echo "Key Directory:   $KEY_DIR"
 echo "Value Directory: $VALUE_DIR"
 echo "----------------------------------------"
 
-
 # --- 3. Main Processing Loop ---
+# Initialize job counter for batching
+job_counter=0
+
 # Iterate over each key defined in the ID_MAP associative array.
 for key in "${!ID_MAP[@]}"; do
     value=${ID_MAP[$key]}
@@ -97,16 +99,24 @@ for key in "${!ID_MAP[@]}"; do
         echo "     Key File:   $key_file"
         echo "     Value File: $value_file"
 
+        # Calculate delay in minutes (30 minutes per batch of 5 jobs)
+        batch_number=$((job_counter / 5))
+        delay_minutes=$((batch_number * 30))
+        
+        # Format delay for sbatch --begin option
+        if [ $delay_minutes -eq 0 ]; then
+            begin_option=""
+            echo "     Scheduling: Immediate"
+        else
+            begin_option="--begin=now+${delay_minutes}minutes"
+            echo "     Scheduling: ${delay_minutes} minutes from now (batch $((batch_number + 1)))"
+        fi
+
         # --- 4. YOUR CUSTOM COMMAND GOES HERE ---
-        # This is the section to insert your specific command.
-        # The full paths to the paired files are available in the variables:
-        # "$key_file" and "$value_file"
-        #
-        # Example of a copy command:
-        # cp "$key_file" "$value_file" /some/other/destination/
-        #
-        # For this demonstration, we'll just print the command that would be run.
-        sbatch ~/master-thesis/scripts/run_scripts/run_train_proc.sh "$value_file" "$key_file" "3B_layer${key}"
+        sbatch $begin_option ~/master-thesis/scripts/run_scripts/run_train_proc.sh "$value_file" "$key_file" "3B_layer${key}"
+        
+        # Increment job counter only for successful matches
+        ((job_counter++))
         echo
 
     else
