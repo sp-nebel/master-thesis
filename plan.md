@@ -14,11 +14,10 @@ Potential issues:
   - would mean the linear mapping approach will not work
 - also maybe retry with ortho proc
 
-value dir: /pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/1B_with_hook/self_attn.v_proj/both/scratch/slurm_tmpdir/job_1132677/1B_self_attn.v_proj_both_layer_0_self_attn_v_proj_pre.pt
+value dir: /pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/1B_with_hook/self_attn.q_proj/post/scratch/slurm_tmpdir/job_1143288
 
-key dir: /pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/3B_with_hook/self_attn.v_proj/both/scratch/slurm_tmpdir/job_1132888/3B_self_attn.v_proj_both_layer_0_self_attn_v_proj_pre.pt
+key dir: /pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/3B_with_hook/self_attn.q_proj/post/scratch/slurm_tmpdir/job_1143289
 
-# 15.08.2025
+# Hemmingway bridge
 
-- the experiment runs are all with non ortho procs for now
-- it makes no sense to have the up and down mappings be trained with pre values only. I need the up mapping to be trained with hs just after the layer
+Fix mapping loading to handle different mappings per module

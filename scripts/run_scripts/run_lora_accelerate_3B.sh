@@ -3,12 +3,12 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
 #SBATCH --time=02:00:00
-#SBATCH --mem=32gb
+#SBATCH --mem=128gb
 #SBATCH --gres=gpu:2
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=1B_tied
-#SBATCH --output=logs/1B_tied.out
+#SBATCH --job-name=3B_tied
+#SBATCH --output=logs/3B_tied.out
 
 
 module load compiler/gnu/14.2
@@ -23,6 +23,6 @@ rsync -avhP $HOME/master-thesis/artifacts/xnli_en_val.json $TMPDIR/xnli_en_val.j
 
 source $HOME/master-thesis/scripts/train_baseline_accelerate.sh
 
-rsync -avhP $TMPDIR/lora_model $HOME/master-thesis/run_outputs/models/1B_tied_q_only
+rsync -avhP $TMPDIR/lora_model $HOME/master-thesis/run_outputs/models/3B_tied_q_only
 
 deactivate

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=dev_cpu
+#SBATCH --partition=cpu
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
 #SBATCH --time=00:30:00
@@ -29,12 +29,12 @@ rsync -avhP $INPUT_FILE_1 $TMPDIR/1B_hidden_states.pt
 
 rsync -avhP $INPUT_FILE_2 $TMPDIR/3B_hidden_states.pt 
 
-python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_up.pt
+python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}up.pt
 
-python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}_down.pt
+python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}down.pt
 
-rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_up.pt $HOME/master-thesis/run_outputs/proc_align/pre_q_orth/${OUTPUT_FILENAME}up.pt
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}up.pt $HOME/master-thesis/run_outputs/proc_align/post_q_orth/${OUTPUT_FILENAME}up.pt
 
-rsync -avhP $TMPDIR/${OUTPUT_FILENAME}_down.pt $HOME/master-thesis/run_outputs/proc_align/pre_q_orth/${OUTPUT_FILENAME}down.pt
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}down.pt $HOME/master-thesis/run_outputs/proc_align/post_q_orth/${OUTPUT_FILENAME}down.pt
 
 deactivate

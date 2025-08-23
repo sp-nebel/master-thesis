@@ -108,21 +108,28 @@ def main(args):
         model = PeftModel.from_pretrained(model, args.peft_model_path)
         # --- Remove existing LoRA from graft layers if specified ---
         layers_to_remove_lora = args.graft_layers if args.graft_layers else list(range(28))
-        
-        print(f"Disabling original LoRA for q_proj in layers: {layers_to_remove_lora}")
-        for layer_idx in layers_to_remove_lora:
-            try:
-                target_module = model.model.model.layers[layer_idx].self_attn
-                q_proj_layer = target_module.q_proj
-                
-                if hasattr(q_proj_layer, 'base_layer'):
-                    target_module.q_proj = q_proj_layer.base_layer
-                    print(f"  - Reverted q_proj in layer {layer_idx} to original.")
-                    print(f"  - Current structure of self_attn in layer {layer_idx}:\n{target_module}")
-                else:
-                    print(f"  - q_proj in layer {layer_idx} is not a PEFT layer, skipping.")
-            except (AttributeError, IndexError) as e:
-                print(f"Warning: Could not access or modify q_proj for layer {layer_idx}. Error: {e}")
+        target_modules_to_modify = list(args.module_map_dict.keys()) if args.module_map_dict else []
+
+
+        for module in target_modules_to_modify:
+            print(f"Disabling original LoRA for {module} in layers: {layers_to_remove_lora}")
+            for layer_idx in layers_to_remove_lora:
+                try:
+                    # Navigate to the parent of the target module
+                    parent_module = model.model.model.layers[layer_idx]
+                    module_path = module.split('.')
+                    module_name = module_path[-1]
+                    for part in module_path[:-1]:
+                        parent_module = getattr(parent_module, part)
+
+                    target_module = getattr(parent_module, module_name)
+                    if hasattr(target_module, 'base_layer'):
+                        setattr(parent_module, module_name, target_module.base_layer)
+                        print(f"Set {module_name} of {parent_module} in layer {layer_idx} to {target_module.base_layer}.")
+                    else:
+                        print(f"  - {module_name} in layer {layer_idx} is not a PEFT layer, skipping.")
+                except (AttributeError, IndexError) as e:
+                    print(f"Warning: Could not access or modify {module} for layer {layer_idx}. Error: {e}")
 
         if args.merge_before_inference:
             print("Merging PEFT adapter into base model...")
@@ -137,41 +144,50 @@ def main(args):
         print(f"Loading Graft LoRA from {args.graft_lora_path}")
         with safe_open(os.path.join(args.graft_lora_path, "adapter_model.safetensors"), framework="pt", device=args.device) as f:
             for key in f.keys():
-                lora_state_dict[key] = f.get_tensor(key)
+                lora_state_dict[key] = f.get_tensor(key) 
+                print(f"Loaded {key} with shape {lora_state_dict[key].shape} and dtype {lora_state_dict[key].dtype}")
         print("LoRA weights loaded successfully!")
 
     layers_to_graft = args.graft_layers if args.graft_layers else list(range(28))
 
-    mappings = {}
+    mappings = {i: {} for i in layers_to_graft}
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
-        # Submit all the loading tasks to the executor
-        future_to_layer = {
-            executor.submit(load_mapping_pair, i, args.mapping_directory, args.device, dtype): i
-            for i in layers_to_graft
-        }
-        
-        # As each future completes, retrieve its result and populate the dictionary
-        for future in concurrent.futures.as_completed(future_to_layer):
-            layer_idx, data = future.result()
-            mappings[layer_idx] = data
+    # Load mappings for each module using its specific directory
+    for module, mapping_dir in args.module_map_dict.items():
+        print(f"Loading mappings for module '{module}' from '{mapping_dir}'...")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+            future_to_layer = {
+                executor.submit(load_mapping_pair, i, mapping_dir, args.device, dtype): i
+                for i in layers_to_graft
+            }
+            
+            for future in concurrent.futures.as_completed(future_to_layer):
+                layer_idx, data = future.result()
+                mappings[layer_idx][module] = data
 
     for i in layers_to_graft:
-        print(f"Applying graft hook to layer {i}...")
+        for module in args.module_map_dict.keys():
+            print(f"Applying graft hook to layer {i} on module {module}...")
 
-        hook = LoraHook(
-            lora_A=lora_state_dict['base_model.model.model.layers.0.self_attn.q_proj.lora_A.weight'],
-            lora_B=lora_state_dict['base_model.model.model.layers.0.self_attn.q_proj.lora_B.weight'],
-            scaling=2,
-            proc_down=mappings[i][0],
-            proc_up=mappings[i][1]
-        )
+            hook = LoraHook(
+                # since all lora adapters have tied weights, the hardcoded 0 is sufficient
+                lora_A=lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_A.weight'],
+                lora_B=lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_B.weight'],
+                scaling=2,
+                proc_down=mappings[i][module][0],
+                proc_up=mappings[i][module][1]
+            )
 
-        # Get the target layer using the index i and register the hook
-        target_layer = model.model.model.layers[i]
-        target_layer.self_attn.q_proj.register_forward_hook(hook)
-        
-        print(f"Successfully registered hook for layer {i} on q_proj")
+            # Get the target layer using the index i
+            target_layer = model.model.model.layers[i]
+            
+            # Navigate to the target module and register the hook
+            module_to_hook = target_layer
+            for part in module.split('.'):
+                module_to_hook = getattr(module_to_hook, part)
+            module_to_hook.register_forward_hook(hook)
+            
+            print(f"Successfully registered hook for layer {target_layer} on {module_to_hook}")
 
     model.eval() # Set model to evaluation mode
 
@@ -279,8 +295,9 @@ if __name__ == "__main__":
     parser.add_argument("--peft_model_path", type=str, default=None, help="Path to the directory containing the PEFT adapter weights (adapter_model.bin/safetensors and adapter_config.json). If None, runs base model.")
     parser.add_argument("--merge_before_inference", action='store_true', help="Merge PEFT adapter into the base model before running inference.")
     parser.add_argument("--graft_lora_path", type=str, default=None, help="Path to the directory containing the Graft LoRA weights.")
-    parser.add_argument("--mapping_directory", type=str, help="Path to the directory containing mapping tensors.")
+    parser.add_argument("--module_mappings", nargs='+', type=str, help="Mapping of target module to its mapping directory, separated by a colon. Example: 'self_attn.q_proj:/path/to/q_maps' 'self_attn.v_proj:/path/to/v_maps'")
     parser.add_argument("--graft_layers", nargs='+', type=int, default=None, help="List of layer indices to apply Graft LoRA to. If None, applies to all layers.")
+    
     # Data Arguments
     parser.add_argument("--test_file", type=str, required=True, help="Path to the test dataset (JSONL file, expects a 'prefix' key).")
     parser.add_argument("--output_file", type=str, default="predictions.jsonl", help="Path to save the generated predictions.")
@@ -308,9 +325,18 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # --- Argument Validation ---
+    # --- Argument Validation and Processing ---
+    if args.module_mappings:
+        try:
+            args.module_map_dict = {item.split(':', 1)[0]: item.split(':', 1)[1] for item in args.module_mappings}
+        except IndexError:
+            raise ValueError("Invalid format for --module_mappings. Expected 'module_name:/path/to/directory'.")
+    else:
+        args.module_map_dict = {}
+
     if args.load_in_8bit and args.load_in_4bit:
         raise ValueError("Cannot load in both 8-bit and 4-bit. Choose one.")
+
     if not args.do_sample and args.num_beams <= 1:
         print("Warning: Beam search selected (--do_sample=False) but num_beams <= 1. This is equivalent to greedy decoding.")
     if args.do_sample and args.num_beams > 1:
