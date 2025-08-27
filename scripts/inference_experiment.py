@@ -12,6 +12,8 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import jsonlines
 import os
+import matplotlib.pyplot as plt
+import numpy as np
 
 from transformers.cache_utils import Cache
 
@@ -67,6 +69,60 @@ def load_mapping_pair(layer_idx, directory, device, dtype):
     # Return the key and the value to reconstruct the dictionary
     return layer_idx, (down_mapping, up_mapping)
 
+def visualize_attention(attention_matrix, input_tokens, output_tokens, layer_idx, head_idx, output_dir=None, prompt_idx=0):
+    """
+    Generates and displays or saves a heatmap of the attention weights, showing only the 1 input token with the highest total attention.
+    """
+    k = 5
+    if attention_matrix.shape[1] > k:
+        # Sum attention for each input token across all generated tokens
+        total_attention_per_input_token = np.sum(attention_matrix, axis=0)
+        
+        # Get the indices of the top k input tokens
+        top_k_indices = np.argsort(total_attention_per_input_token)[-k:]
+        
+        # Filter the attention matrix and input tokens to only include the top k
+        filtered_attention_matrix = attention_matrix[:, top_k_indices]
+        filtered_input_tokens = [input_tokens[i] for i in top_k_indices]
+    else:
+        # If there are fewer input tokens than k, show all of them
+        filtered_attention_matrix = attention_matrix
+        filtered_input_tokens = input_tokens
+
+    fig, ax = plt.subplots(figsize=(max(6, len(filtered_input_tokens) * 0.5), max(6, len(output_tokens) * 0.5)))
+    im = ax.imshow(filtered_attention_matrix, cmap='hot', interpolation='nearest')
+
+    # Add colorbar
+    fig.colorbar(im, ax=ax)
+
+    # Set ticks and labels
+    ax.set_xticks(np.arange(len(filtered_input_tokens)))
+    ax.set_yticks(np.arange(len(output_tokens)))
+    ax.set_xticklabels(filtered_input_tokens)
+    ax.set_yticklabels(output_tokens)
+
+    # Use top x-axis
+    ax.tick_params(top=True, bottom=False, labeltop=True, labelbottom=False)
+
+    # Rotate the tick labels and set their alignment.
+    plt.setp(ax.get_xticklabels(), rotation=-45, ha="left", rotation_mode="anchor")
+
+    ax.set_title(f"Top-{k} Attention Heatmap (Layer {layer_idx}, Head {head_idx})")
+    ax.set_xlabel("Key (Input) Tokens")
+    ax.set_ylabel("Query (Output) Tokens")
+    
+    fig.tight_layout()
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+        filename = f"prompt{prompt_idx}_layer{layer_idx}_head{head_idx}.png"
+        filepath = os.path.join(output_dir, filename)
+        plt.savefig(filepath)
+        print(f"Saved attention visualization to {filepath}")
+        plt.close(fig) # Close the figure to free memory
+    else:
+        plt.show()
+
+
 def main(args):
     print(f"Loading base model: {args.base_model_name_or_path}")
     print(f"Loading adapter from: {args.peft_model_path}")
@@ -100,20 +156,28 @@ def main(args):
         args.base_model_name_or_path,
         device_map=args.device if args.device else "auto",
         torch_dtype=args.torch_dtype if args.torch_dtype else None,
+        output_attentions=True,
         trust_remote_code=True
     )
+
+    layers_to_graft = []
+
+    if args.graft_layers is None:
+            layers_to_graft = []
+    elif args.graft_layers == [-1]:
+        layers_to_graft = list(range(28))
+    else:
+        layers_to_graft = args.graft_layers
 
     if args.peft_model_path:
         print(f"Loading PEFT model from {args.peft_model_path}")
         model = PeftModel.from_pretrained(model, args.peft_model_path)
-        # --- Remove existing LoRA from graft layers if specified ---
-        layers_to_remove_lora = args.graft_layers if args.graft_layers else list(range(28))
         target_modules_to_modify = list(args.module_map_dict.keys()) if args.module_map_dict else []
 
 
         for module in target_modules_to_modify:
-            print(f"Disabling original LoRA for {module} in layers: {layers_to_remove_lora}")
-            for layer_idx in layers_to_remove_lora:
+            print(f"Disabling original LoRA for {module} in layers: {layers_to_graft}")
+            for layer_idx in layers_to_graft:
                 try:
                     # Navigate to the parent of the target module
                     parent_module = model.model.model.layers[layer_idx]
@@ -148,8 +212,6 @@ def main(args):
                 print(f"Loaded {key} with shape {lora_state_dict[key].shape} and dtype {lora_state_dict[key].dtype}")
         print("LoRA weights loaded successfully!")
 
-    layers_to_graft = args.graft_layers if args.graft_layers else list(range(28))
-
     mappings = {i: {} for i in layers_to_graft}
 
     # Load mappings for each module using its specific directory
@@ -179,7 +241,7 @@ def main(args):
             )
 
             # Get the target layer using the index i
-            target_layer = model.model.model.layers[i]
+            target_layer = model.model.model.layers[i] if model.__class__.__name__ == "PeftModel" else model.model.layers[i]
             
             # Navigate to the target module and register the hook
             module_to_hook = target_layer
@@ -220,6 +282,85 @@ def main(args):
     print("\n--- Example Prompt ---")
     print(prompts[0])
     print("----------------------\n")
+
+    # --- Visualization Mode ---
+    if args.visualize_attention_layers:
+        print("\n--- ATTENTION VISUALIZATION MODE ---")
+        for prompt_idx in args.visualize_prompt_indices:
+            if prompt_idx >= len(prompts):
+                print(f"Warning: Skipping prompt index {prompt_idx} as it is out of bounds for dataset with {len(prompts)} examples.")
+                continue
+            
+            prompt = prompts[prompt_idx]
+            print(f"Visualizing attention for prompt {prompt_idx}:\n{prompt}")
+
+            tokenized_inputs = tokenizer(prompt, return_tensors='pt').to(model.device)
+            input_ids = tokenized_inputs.input_ids
+            
+            # Generate with attention output
+            with torch.no_grad():
+                outputs = model.generate(
+                    input_ids=input_ids,
+                    max_new_tokens=args.max_new_tokens,
+                    output_attentions=True,
+                    return_dict_in_generate=True
+                )
+
+            # Extract attentions
+            # Shape: (num_generated_tokens, num_layers, batch_size, num_heads, query_len, key_len)
+            # We only have batch_size=1 and query_len=1 for each step.
+            attentions = outputs.attentions
+            print(f"attentions length: {len(attentions)}")
+
+            # Get tokens for labels - they are the same for all layers and heads
+            input_tokens = tokenizer.convert_ids_to_tokens(input_ids[0])
+            output_sequence = outputs.sequences[0]
+            output_tokens = tokenizer.convert_ids_to_tokens(output_sequence[input_ids.shape[1]:])
+
+            num_layers = len(attentions[0])
+            for layer_idx in args.visualize_attention_layers:
+                if layer_idx >= num_layers:
+                    print(f"Warning: Skipping layer index {layer_idx} as it is out of bounds. Model has {num_layers} layers.")
+                    continue
+
+                # For each generation step, get the attention for the specified layer.
+                # attentions[step][layer_idx] has shape [batch_size, num_heads, query_len, key_len]
+                # We have batch_size=1. For generation steps, query_len=1.
+                layer_attentions = [step_att[layer_idx].squeeze(0) for step_att in attentions]
+
+                num_heads = layer_attentions[0].shape[0]
+                heads_to_visualize = range(num_heads) if args.visualize_attention_head == -1 else [args.visualize_attention_head]
+                
+                if args.visualize_attention_head != -1 and args.visualize_attention_head >= num_heads:
+                    raise ValueError(f"visualize_attention_head index {args.visualize_attention_head} is out of bounds. Model has {num_heads} heads.")
+
+                for head_idx in heads_to_visualize:
+                    # For each step, get the attention for the current head.
+                    # This will be shape [query_len, key_len].
+                    head_attentions_per_step = [step_head_att[head_idx] for step_head_att in layer_attentions]
+                    print("Head attentions per step dims: ", [att.shape for att in head_attentions_per_step])
+                    # We only want attention from the single generated token (query_len=1) to the original input tokens.
+                    # The key dimension (last) grows with each step.
+                    # For each step, we take the last row (the new token's attention) and truncate to the length of the input.
+                    attention_to_input_list = [att_step[-1, :input_ids.shape[1]] for att_step in head_attentions_per_step]
+                    
+                    # Now all tensors in the list should have shape [input_len]. We can stack them.
+                    # Cast to float32 for visualization, as bfloat16 is not supported by numpy/matplotlib
+                    attention_to_input_list = [t.float() for t in attention_to_input_list]
+                    attention_to_input = torch.stack(attention_to_input_list, dim=0).cpu().numpy()
+
+                    visualize_attention(
+                        attention_matrix=attention_to_input,
+                        input_tokens=input_tokens,
+                        output_tokens=output_tokens,
+                        layer_idx=layer_idx,
+                        head_idx=head_idx,
+                        output_dir=args.visualization_output_dir,
+                        prompt_idx=prompt_idx
+                    )
+        
+        print("Visualization complete. Exiting.")
+        return # Exit after visualization
 
     # --- Create DataLoader ---
     dataloader = DataLoader(prompts, batch_size=args.batch_size)
@@ -296,7 +437,7 @@ if __name__ == "__main__":
     parser.add_argument("--merge_before_inference", action='store_true', help="Merge PEFT adapter into the base model before running inference.")
     parser.add_argument("--graft_lora_path", type=str, default=None, help="Path to the directory containing the Graft LoRA weights.")
     parser.add_argument("--module_mappings", nargs='+', type=str, help="Mapping of target module to its mapping directory, separated by a colon. Example: 'self_attn.q_proj:/path/to/q_maps' 'self_attn.v_proj:/path/to/v_maps'")
-    parser.add_argument("--graft_layers", nargs='+', type=int, default=None, help="List of layer indices to apply Graft LoRA to. If None, applies to all layers.")
+    parser.add_argument("--graft_layers", nargs='+', type=int, default=None, help="List of layer indices to apply Graft LoRA to. If None, applies to None, if == -1 applies to all.")
     
     # Data Arguments
     parser.add_argument("--test_file", type=str, required=True, help="Path to the test dataset (JSONL file, expects a 'prefix' key).")
@@ -312,6 +453,12 @@ if __name__ == "__main__":
     # Quantization Arguments (Optional)
     parser.add_argument("--load_in_8bit", action='store_true', help="Load model in 8-bit quantization.")
     parser.add_argument("--load_in_4bit", action='store_true', help="Load model in 4-bit quantization.")
+
+    # Visualization Arguments
+    parser.add_argument("--visualize_attention_layers", nargs='+', type=int, default=None, help="If set, visualizes attention for the specified layer indices and exits. Requires output_attentions=True for the model.")
+    parser.add_argument("--visualize_attention_head", type=int, default=-1, help="Head index to visualize for attention map. Default: -1 (all heads).")
+    parser.add_argument("--visualize_prompt_indices", nargs='+', type=int, default=[0], help="The indices of the prompts in the test file to use for visualization.")
+    parser.add_argument("--visualization_output_dir", type=str, default=None, help="Directory to save attention visualization plots. If None, plots are shown interactively.")
 
     # Generation Strategy Arguments
     parser.add_argument("--do_sample", action='store_true', help="Use sampling instead of beam search.")
@@ -334,6 +481,16 @@ if __name__ == "__main__":
     else:
         args.module_map_dict = {}
 
+    if args.load_in_8bit and args.load_in_4bit:
+        raise ValueError("Cannot load in both 8-bit and 4-bit. Choose one.")
+
+    if not args.do_sample and args.num_beams <= 1:
+        print("Warning: Beam search selected (--do_sample=False) but num_beams <= 1. This is equivalent to greedy decoding.")
+    if args.do_sample and args.num_beams > 1:
+        print("Warning: Sampling selected (--do_sample=True) but num_beams > 1. num_beams will be ignored.")
+
+
+    main(args)
     if args.load_in_8bit and args.load_in_4bit:
         raise ValueError("Cannot load in both 8-bit and 4-bit. Choose one.")
 

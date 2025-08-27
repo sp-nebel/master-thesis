@@ -2,13 +2,13 @@
 
 
 # --- Script Variables (Keep your existing variables) ---
-model_path="meta-llama/Llama-3.2-1B-Instruct"
+model_path="meta-llama/Llama-3.2-3B-Instruct"
 train_files="$TMPDIR/xnli_en_train.json" # replace by actual training data
 valid_files="$TMPDIR/xnli_en_val.json" # replace by actual validation data
 train_bsz=32 # Note: This is PER DEVICE batch size with accelerate/deepspeed
 eval_bsz=16  # Note: This is PER DEVICE batch size
 gradient_accumulation_steps=1
-lora_config="$HOME/master-thesis/config/lora_config.json"
+lora_config="$HOME/master-thesis/config/lora_config_q_only.json"
 LR="5e-4"
 OUTDIR="$TMPDIR/lora_model" # Changed output dir name example
 mkdir -p $OUTDIR # Create output dir
