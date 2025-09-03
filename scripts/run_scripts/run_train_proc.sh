@@ -33,8 +33,8 @@ python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/1B_hidden_states.pt $TM
 
 python $HOME/master-thesis/scripts/train_proc.py $TMPDIR/3B_hidden_states.pt $TMPDIR/1B_hidden_states.pt $TMPDIR/ --output_filename=${OUTPUT_FILENAME}down.pt
 
-rsync -avhP $TMPDIR/${OUTPUT_FILENAME}up.pt $HOME/master-thesis/run_outputs/proc_align/post_q_orth/${OUTPUT_FILENAME}up.pt
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}up.pt $HOME/master-thesis/run_outputs/proc_align/post_v_gen/${OUTPUT_FILENAME}up.pt
 
-rsync -avhP $TMPDIR/${OUTPUT_FILENAME}down.pt $HOME/master-thesis/run_outputs/proc_align/post_q_orth/${OUTPUT_FILENAME}down.pt
+rsync -avhP $TMPDIR/${OUTPUT_FILENAME}down.pt $HOME/master-thesis/run_outputs/proc_align/post_v_gen/${OUTPUT_FILENAME}down.pt
 
 deactivate

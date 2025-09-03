@@ -130,6 +130,7 @@ def main(args):
             outputs = model.generate(
                 input_ids=tokenized_inputs.input_ids,
                 attention_mask=tokenized_inputs.attention_mask,
+                seed=[42, 62],
                 tokenizer=tokenizer,
                 generation_config=generation_config
             )

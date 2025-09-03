@@ -1,6 +1,8 @@
 import argparse
+from traceback import print_tb
 from typing import Optional, Tuple
 import concurrent.futures
+from regex import F
 from safetensors import safe_open
 import torch
 from torch import device
@@ -28,29 +30,41 @@ class LoraHook:
 
     def __call__(self, module, inputs, output):
         hidden_states = inputs[0]  # Shape: (batch, seq_len, 3072)
-        
-        if self.proc_down is not None:
-            hidden_states = hidden_states @ self.proc_down.to(hidden_states.device, hidden_states.dtype)
-            hidden_states = hidden_states[..., :2048]
-        
+        #print(f"Inside LoraHook for {module}, hidden_states shape: {hidden_states.shape}")
+
+        #print("Proc down: \n", self.proc_down)
+
+        hidden_states = hidden_states @ self.proc_down.to(hidden_states.device, hidden_states.dtype)
+        #print("Hidden states after proc down: \n", hidden_states)
+        hidden_states = hidden_states[..., :2048]
+        #print("Hidden states after truncation to 2048: \n", hidden_states)
+
+
+       # print(f"Hidden states shape before LoRA: {hidden_states.shape}")
         batch_size, seq_len, hidden_dim = hidden_states.shape
         hidden_states_flat = hidden_states.view(-1, hidden_dim)
-        
+        #print(f"Hidden states flat shape: {hidden_states_flat.shape}")
+
         lora_A = self.lora_A.to(hidden_states.device, hidden_states.dtype) 
         lora_B = self.lora_B.to(hidden_states.device, hidden_states.dtype)
         
-        step1 = hidden_states_flat @ lora_A.T 
-        step2 = step1 @ lora_B.T  
-        lora_update_flat = step2 * self.scaling
-        
-        lora_update = lora_update_flat.view(batch_size, seq_len, -1)  # (16, 633, 2048)
+        lora_update_flat = (hidden_states_flat @ lora_A.T @ lora_B.T) * self.scaling
+        lora_update = lora_update_flat.view(batch_size, seq_len, -1)
         
         if self.proc_up is not None:
-            if lora_update.shape[-1] != self.proc_up.shape[0]:
+            if lora_update.shape[-1] < self.proc_up.shape[0]:
+                #print(f"Padding lora_update from {lora_update.shape[-1]} to {self.proc_up.shape[0]}")
                 lora_update = nn.functional.pad(lora_update, (0, self.proc_up.shape[0] - lora_update.shape[-1]))
             lora_update = lora_update @ self.proc_up.to(lora_update.device, lora_update.dtype)
-        
         return output + lora_update
+    
+class LogitLensHook:
+    def __init__(self, activations_list, layer_idx) -> None:
+        self.activations_list = activations_list
+        self.layer_idx = layer_idx
+
+    def __call__(self, module, inputs, output):
+        self.activations_list[self.layer_idx] = output[0].detach()
 
 def load_mapping_pair(layer_idx, directory, device, dtype):
     """
@@ -69,49 +83,41 @@ def load_mapping_pair(layer_idx, directory, device, dtype):
     # Return the key and the value to reconstruct the dictionary
     return layer_idx, (down_mapping, up_mapping)
 
+def print_output_attn_tokens(attention_matrix, input_tokens, output_tokens, layer_idx, head_idx, output_dir=None, prompt_idx=0):
+
+    print(f"Printing attention for layer {layer_idx}, head {head_idx} --------------------------------------")
+    print(f"attention_matrix shape: {attention_matrix.shape}")
+    argmax_attention_per_output = np.argmax(attention_matrix, axis=1)
+    filtered_input_tokens = [input_tokens[i] for i in argmax_attention_per_output]
+    
+    print(f"Argmax input tokens for head {head_idx}: {filtered_input_tokens}")
+
+
 def visualize_attention(attention_matrix, input_tokens, output_tokens, layer_idx, head_idx, output_dir=None, prompt_idx=0):
-    """
-    Generates and displays or saves a heatmap of the attention weights, showing only the 1 input token with the highest total attention.
-    """
-    k = 5
-    if attention_matrix.shape[1] > k:
-        # Sum attention for each input token across all generated tokens
-        total_attention_per_input_token = np.sum(attention_matrix, axis=0)
-        
-        # Get the indices of the top k input tokens
-        top_k_indices = np.argsort(total_attention_per_input_token)[-k:]
-        
-        # Filter the attention matrix and input tokens to only include the top k
-        filtered_attention_matrix = attention_matrix[:, top_k_indices]
-        filtered_input_tokens = [input_tokens[i] for i in top_k_indices]
-    else:
-        # If there are fewer input tokens than k, show all of them
-        filtered_attention_matrix = attention_matrix
-        filtered_input_tokens = input_tokens
 
-    fig, ax = plt.subplots(figsize=(max(6, len(filtered_input_tokens) * 0.5), max(6, len(output_tokens) * 0.5)))
-    im = ax.imshow(filtered_attention_matrix, cmap='hot', interpolation='nearest')
-
+    ax_img = plt.imshow(attention_matrix, cmap='hot', interpolation='nearest')
     # Add colorbar
-    fig.colorbar(im, ax=ax)
+    plt.colorbar(ax_img)
 
     # Set ticks and labels
-    ax.set_xticks(np.arange(len(filtered_input_tokens)))
-    ax.set_yticks(np.arange(len(output_tokens)))
-    ax.set_xticklabels(filtered_input_tokens)
-    ax.set_yticklabels(output_tokens)
+    ax_img.axes.set_xticks(np.arange(len(input_tokens)))
+    ax_img.axes.set_yticks(np.arange(len(output_tokens)))
+    ax_img.axes.set_xticklabels(input_tokens)
+    ax_img.axes.set_yticklabels(output_tokens)
 
     # Use top x-axis
-    ax.tick_params(top=True, bottom=False, labeltop=True, labelbottom=False)
+    ax_img.axes.tick_params(top=True, bottom=False, labeltop=True, labelbottom=False)
 
     # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=-45, ha="left", rotation_mode="anchor")
+    plt.setp(ax_img.axes.get_xticklabels(), rotation=-45, ha="left", rotation_mode="anchor")
 
-    ax.set_title(f"Top-{k} Attention Heatmap (Layer {layer_idx}, Head {head_idx})")
-    ax.set_xlabel("Key (Input) Tokens")
-    ax.set_ylabel("Query (Output) Tokens")
+    ax_img.axes.set_title(f"Attention Heatmap (Layer {layer_idx}, Head {head_idx})")
+    ax_img.axes.set_xlabel("Key (Input) Tokens")
+    ax_img.axes.set_ylabel("Query (Output) Tokens")
     
+    fig = ax_img.get_figure()
     fig.tight_layout()
+
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
         filename = f"prompt{prompt_idx}_layer{layer_idx}_head{head_idx}.png"
@@ -157,6 +163,7 @@ def main(args):
         device_map=args.device if args.device else "auto",
         torch_dtype=args.torch_dtype if args.torch_dtype else None,
         output_attentions=True,
+        attn_implementation="eager",
         trust_remote_code=True
     )
 
@@ -225,14 +232,30 @@ def main(args):
             
             for future in concurrent.futures.as_completed(future_to_layer):
                 layer_idx, data = future.result()
+                print(f"Loaded mappings for layer {layer_idx} of module '{module}'")
                 mappings[layer_idx][module] = data
+
+    # --- Print Model Architecture ---
+    print("\n--- Model Architecture ---")
+    print(model)
+    print("--------------------------\n")
+
 
     for i in layers_to_graft:
         for module in args.module_map_dict.keys():
             print(f"Applying graft hook to layer {i} on module {module}...")
 
+            lora_A_ref = lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_A.weight']
+            lora_B_ref = lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_B.weight']
+            
+            for j in range(15):
+                a_equal = torch.equal(lora_A_ref, lora_state_dict[f'base_model.model.model.layers.{j}.{module}.lora_A.weight'])
+                b_equal = torch.equal(lora_B_ref, lora_state_dict[f'base_model.model.model.layers.{j}.{module}.lora_B.weight'])
+
+                if not a_equal or not b_equal:
+                    print(f"Warning: LoRA weights for layer {j}, module {module} do not match the reference layer 0 weights.")
+
             hook = LoraHook(
-                # since all lora adapters have tied weights, the hardcoded 0 is sufficient
                 lora_A=lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_A.weight'],
                 lora_B=lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_B.weight'],
                 scaling=2,
@@ -241,7 +264,10 @@ def main(args):
             )
 
             # Get the target layer using the index i
-            target_layer = model.model.model.layers[i] if model.__class__.__name__ == "PeftModel" else model.model.layers[i]
+            if isinstance(model, PeftModel):
+                target_layer = model.model.model.layers[i]
+            else:
+                target_layer = model.model.layers[i]
             
             # Navigate to the target module and register the hook
             module_to_hook = target_layer
@@ -256,7 +282,6 @@ def main(args):
     # --- Load Dataset ---
     print(f"Loading dataset from: {args.test_file}")
     # Load the dataset. It will likely return a DatasetDict.
-    # Remove the try-except block as it might obscure the structure.
     # Handle potential loading errors more directly if needed.
     dataset_dict = load_dataset("json", data_files=args.test_file)
 
@@ -302,6 +327,7 @@ def main(args):
                 outputs = model.generate(
                     input_ids=input_ids,
                     max_new_tokens=args.max_new_tokens,
+                    seed=[42, 62],
                     output_attentions=True,
                     return_dict_in_generate=True
                 )
@@ -338,29 +364,69 @@ def main(args):
                     # For each step, get the attention for the current head.
                     # This will be shape [query_len, key_len].
                     head_attentions_per_step = [step_head_att[head_idx] for step_head_att in layer_attentions]
-                    print("Head attentions per step dims: ", [att.shape for att in head_attentions_per_step])
-                    # We only want attention from the single generated token (query_len=1) to the original input tokens.
-                    # The key dimension (last) grows with each step.
-                    # For each step, we take the last row (the new token's attention) and truncate to the length of the input.
-                    attention_to_input_list = [att_step[-1, :input_ids.shape[1]] for att_step in head_attentions_per_step]
-                    
-                    # Now all tensors in the list should have shape [input_len]. We can stack them.
-                    # Cast to float32 for visualization, as bfloat16 is not supported by numpy/matplotlib
-                    attention_to_input_list = [t.float() for t in attention_to_input_list]
-                    attention_to_input = torch.stack(attention_to_input_list, dim=0).cpu().numpy()
 
-                    visualize_attention(
-                        attention_matrix=attention_to_input,
-                        input_tokens=input_tokens,
-                        output_tokens=output_tokens,
-                        layer_idx=layer_idx,
-                        head_idx=head_idx,
-                        output_dir=args.visualization_output_dir,
-                        prompt_idx=prompt_idx
-                    )
-        
+                    if args.visualization_print_argmax_only:
+                        head_attentions_per_step.pop()
+                        attention_to_input_list = [att_step[-1, :input_ids.shape[1]] for att_step in head_attentions_per_step]
+                        attention_to_input_list = [t.float() for t in attention_to_input_list]
+                        attention_to_input = torch.stack(attention_to_input_list, dim=0).cpu().numpy()
+
+                        print_output_attn_tokens(
+                            attention_matrix=attention_to_input,
+                            input_tokens=input_tokens,
+                            output_tokens=output_tokens,
+                            layer_idx=layer_idx,
+                            head_idx=head_idx,
+                            output_dir=args.visualization_output_dir,
+                            prompt_idx=prompt_idx
+                        )
+                        continue 
+                    
+                    else:
+                        
+                        input_to_input_attentions = head_attentions_per_step[0]
+
+                        visualize_attention(
+                            attention_matrix=input_to_input_attentions.cpu().numpy(),
+                            input_tokens=input_tokens,
+                            output_tokens=output_tokens,
+                            layer_idx=layer_idx,
+                            head_idx=head_idx,
+                            output_dir=args.visualization_output_dir,
+                            prompt_idx=prompt_idx
+                        )
+
         print("Visualization complete. Exiting.")
         return # Exit after visualization
+
+    # --- Logit lens mode ---
+    if args.logit_lens:
+        activations = {}
+
+        enum = enumerate(model.model.model.layers) if isinstance(model, PeftModel) else enumerate(model.model.layers)
+        
+        for i, layer in enum:
+            layer.register_forward_hook(LogitLensHook(activations, i))
+
+        prompts = prompts[:5] # Limit to first 5 prompts for testing
+
+        tokenized_inputs = tokenizer(
+            prompts,
+            return_tensors='pt',
+            padding=True,
+            truncation=True,
+            max_length=args.max_input_length # Limit input length if needed
+        ).to(model.device)
+
+        fwd_pass = model(tokenized_inputs.input_ids, do_sample=True)
+
+        for layer_idx in range(len(activations)):
+            probabilities = torch.nn.functional.softmax(model.lm_head(model.model.norm(activations[layer_idx][0,-1,:])),dim=0)
+            max_index = torch.argmax(probabilities)
+            top_token = tokenizer.decode(max_index)
+            print(f"Layer {layer_idx} prediction: {top_token}")
+        
+        return # Exit after logit lens
 
     # --- Create DataLoader ---
     dataloader = DataLoader(prompts, batch_size=args.batch_size)
@@ -396,13 +462,12 @@ def main(args):
             max_length=args.max_input_length # Limit input length if needed
         ).to(model.device)
 
-        prompt_lengths = tokenized_inputs.attention_mask.sum(dim=1)
-
         # Generate
         with torch.no_grad():
             outputs = model.generate(
                 input_ids=tokenized_inputs.input_ids,
                 attention_mask=tokenized_inputs.attention_mask,
+                seed=[42, 62],
                 tokenizer=tokenizer,
                 generation_config=generation_config
             )
@@ -459,6 +524,9 @@ if __name__ == "__main__":
     parser.add_argument("--visualize_attention_head", type=int, default=-1, help="Head index to visualize for attention map. Default: -1 (all heads).")
     parser.add_argument("--visualize_prompt_indices", nargs='+', type=int, default=[0], help="The indices of the prompts in the test file to use for visualization.")
     parser.add_argument("--visualization_output_dir", type=str, default=None, help="Directory to save attention visualization plots. If None, plots are shown interactively.")
+    parser.add_argument("--visualization_print_argmax_only", action='store_true', help="If set, only prints the argmax attention weights.")
+
+    parser.add_argument("--logit_lens", action='store_true', help="If set, performs logit lens analysis and exits.")
 
     # Generation Strategy Arguments
     parser.add_argument("--do_sample", action='store_true', help="Use sampling instead of beam search.")
@@ -488,16 +556,5 @@ if __name__ == "__main__":
         print("Warning: Beam search selected (--do_sample=False) but num_beams <= 1. This is equivalent to greedy decoding.")
     if args.do_sample and args.num_beams > 1:
         print("Warning: Sampling selected (--do_sample=True) but num_beams > 1. num_beams will be ignored.")
-
-
-    main(args)
-    if args.load_in_8bit and args.load_in_4bit:
-        raise ValueError("Cannot load in both 8-bit and 4-bit. Choose one.")
-
-    if not args.do_sample and args.num_beams <= 1:
-        print("Warning: Beam search selected (--do_sample=False) but num_beams <= 1. This is equivalent to greedy decoding.")
-    if args.do_sample and args.num_beams > 1:
-        print("Warning: Sampling selected (--do_sample=True) but num_beams > 1. num_beams will be ignored.")
-
 
     main(args)
