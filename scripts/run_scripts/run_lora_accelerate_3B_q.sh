@@ -17,7 +17,7 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-rsync -avhP $HOME/master-thesis/artifacts/xnli_en_train.json $TMPDIR/xnli_en_train.json
+rsync -avhP $HOME/master-thesis/artifacts/xnli_en_train_no_s.json $TMPDIR/xnli_en_train.json
 
 rsync -avhP $HOME/master-thesis/artifacts/xnli_en_val.json $TMPDIR/xnli_en_val.json
 

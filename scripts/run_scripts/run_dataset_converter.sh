@@ -6,7 +6,7 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=xnli_converter
-#SBATCH --output=$HOME/master-thesis/logs/xnli_converter.out
+#SBATCH --output=logs/xnli_converter.out
 
 module load devel/python/3.12.3-gnu-14.2
 

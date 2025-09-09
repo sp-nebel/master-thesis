@@ -8,7 +8,7 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=infer_job
-#SBATCH --output=logs/3B_ootb_on_multi_shot.out
+#SBATCH --output=logs/1B_tied_vq_no_s.out
 
 
 module load compiler/gnu/14.2
@@ -17,12 +17,14 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-# rsync -avhP $HOME/master-thesis/run_outputs/models/1B_untied_v_q $TMPDIR/
+rsync -avhP $HOME/master-thesis/run_outputs/models/1B_tied_vq_no_s $TMPDIR/
 
-rsync -avhP $HOME/master-thesis/artifacts/xnli_en_test_multi_shot.json $TMPDIR/xnli_test.json
+rsync -avhP $HOME/master-thesis/artifacts/xnli_en_test_no_s.json $TMPDIR/xnli_test.json
 
 python $HOME/master-thesis/scripts/lora_inference.py \
-    --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
+    --base_model_name_or_path meta-llama/Llama-3.2-1B-Instruct \
+    --peft_model_path $TMPDIR/1B_tied_vq_no_s \
+    --merge_before_inference \
     --test_file $TMPDIR/xnli_test.json \
     --output_file $TMPDIR/predictions.jsonl \
     --batch_size 16 \

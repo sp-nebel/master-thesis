@@ -17,89 +17,102 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-from transformers.cache_utils import Cache
 
-scaling_config = {
-    "q_proj": 2,  
-    "v_proj": 3    
-}
 
-class LoraProcHook:
-    def __init__(self, lora_A, lora_B, scaling, proc_down, proc_up, module_name=""):
+import torch
+import torch.nn as nn
+
+import torch
+
+class LoraSVDHook:
+    def __init__(self, lora_A, lora_B, scaling, svd_pre, svd_post, module_name=""):
+        """
+        Initializes the hook with LoRA weights, SVD matrices, and a name for logging.
+        """
         self.lora_A = lora_A
         self.lora_B = lora_B
         self.scaling = scaling
-        self.proc_down = proc_down
-        self.proc_up = proc_up
+        self.P_down = svd_pre['P_down']
+        self.P_up = svd_post['P_up']
         self.module_name = module_name # For clearer print statements
+        
+        # Statistics tracking
+        self.call_count = 0
+        self.norm_ratios = []
+        self.running_sum_ratio = 0.0
+        self.min_ratio = float('inf')
+        self.max_ratio = float('-inf')
 
     def __call__(self, module, inputs, output):
-        # --- DIAGNOSTIC 1: Check if the hook is running ---
-        #print(f"\n--- Hook triggered for module: '{self.module_name}' ---")
-        
-        hidden_states = inputs[0]  # Shape: (batch, seq_len, 3072)
+        hidden_states = inputs[0]
         original_dtype = hidden_states.dtype
         device = hidden_states.device
         
-        # --- DIAGNOSTIC 2: Check the input and original output norms ---
-        # Using torch.no_grad() to avoid impacting gradients during debugging
-        #with torch.no_grad():
-        #    norm_input = torch.linalg.norm(hidden_states.float()).item()
-        #    norm_output = torch.linalg.norm(output.float()).item()
-        #print(f"Input shape: {hidden_states.shape}, Norm: {norm_input:.4f}")
-        #print(f"Original output norm: {norm_output:.4f}")
+        # Calculate original output norm for ratio computation
+        with torch.no_grad():
+            norm_output = torch.linalg.norm(output.float()).item()
 
-        #print("Proc down: \n", self.proc_down)
-
-        hidden_states = hidden_states @ self.proc_down.to(hidden_states.device, hidden_states.dtype)
-        #print("Hidden states after proc down: \n", hidden_states)
-        hidden_states = hidden_states[..., :2048]
-        #print("Hidden states after truncation to 2048: \n", hidden_states)
-
-        #with torch.no_grad():
-        #    norm_small = torch.linalg.norm(hidden_states.float()).item()
-        #print(f"Down-projected shape: {hidden_states.shape}, Norm: {norm_small:.4f}")
-
-       # print(f"Hidden states shape before LoRA: {hidden_states.shape}")
-        batch_size, seq_len, hidden_dim = hidden_states.shape
-        hidden_states_flat = hidden_states.view(-1, hidden_dim)
-        #print(f"Hidden states flat shape: {hidden_states_flat.shape}")
-
-        lora_A = self.lora_A.to(hidden_states.device, hidden_states.dtype) 
-        lora_B = self.lora_B.to(hidden_states.device, hidden_states.dtype)
+        # --- 1. Down Mapping (Big -> Small) ---
+        P_down = self.P_down.to(device, dtype=original_dtype)
+        hidden_states_small = hidden_states @ P_down.T
         
-        # --- DIAGNOSTIC 3: Check the LoRA update's magnitude ---
-        #print(f"LoRA scaling factor: {self.scaling}")
+        # --- 2. Apply LoRA Update in the Small Dimension ---
+        batch_size, seq_len, _ = hidden_states.shape
+        hidden_dim_small = hidden_states_small.shape[-1]
+        hidden_states_flat = hidden_states_small.view(-1, hidden_dim_small)
+        
+        lora_A = self.lora_A.to(device, original_dtype)
+        lora_B = self.lora_B.to(device, original_dtype)
+        
         lora_update_unscaled = hidden_states_flat @ lora_A.T @ lora_B.T
         lora_update_flat = lora_update_unscaled * self.scaling
         
-        #with torch.no_grad():
-        #    norm_update_unscaled = torch.linalg.norm(lora_update_unscaled.float()).item()
-        #    norm_update_scaled = torch.linalg.norm(lora_update_flat.float()).item()
-        #print(f"LoRA update norm (unscaled): {norm_update_unscaled:.4f}")
-        #print(f"LoRA update norm (scaled):   {norm_update_scaled:.4f}")
+        # --- 3. Up Mapping (Small -> Big) ---
+        P_up = self.P_up.to(device, dtype=original_dtype)
+        lora_update_big_flat = lora_update_flat @ P_up.T
+        lora_update = lora_update_big_flat.view(batch_size, seq_len, -1)
         
-        lora_update = lora_update_flat.view(batch_size, seq_len, -1)
-        
-        if lora_update.shape[-1] < self.proc_up.shape[0]:
-            #print(f"Padding lora_update from {lora_update.shape[-1]} to {self.proc_up.shape[0]}")
-            lora_update = nn.functional.pad(lora_update, (0, self.proc_up.shape[0] - lora_update.shape[-1]))
-
-        lora_update = lora_update @ self.proc_up.to(lora_update.device, lora_update.dtype)
-        
-        # --- DIAGNOSTIC 4: Compare final update magnitude to original output ---
-        #with torch.no_grad():
-        #    norm_final_update = torch.linalg.norm(lora_update.float()).item()
-        #    # Handle potential division by zero
-        #    ratio = (norm_final_update / norm_output) if norm_output > 0 else 0
-        #print(f"Final LoRA update norm (in big dim): {norm_final_update:.4f}")
-        #print(f"==========================================================")
-        #print(f"===> Ratio of Update Norm vs. Output Norm: {ratio:.6f} <===")
-        #print(f"==========================================================")
-        #print(f"--- Hook finished for '{self.module_name}' ---\n")
+        # Update statistics
+        with torch.no_grad():
+            norm_final_update = torch.linalg.norm(lora_update.float()).item()
+            ratio = (norm_final_update / norm_output) if norm_output > 0 else 0
+            
+            self.call_count += 1
+            self.running_sum_ratio += ratio
+            self.min_ratio = min(self.min_ratio, ratio)
+            self.max_ratio = max(self.max_ratio, ratio)
         
         return output + lora_update
     
+    def get_statistics(self):
+        """Return statistics for this module."""
+        if self.call_count == 0:
+            return {
+                'module_name': self.module_name,
+                'call_count': 0,
+                'avg_ratio': 0.0,
+                'min_ratio': 0.0,
+                'max_ratio': 0.0
+            }
+        
+        return {
+            'module_name': self.module_name,
+            'call_count': self.call_count,
+            'avg_ratio': self.running_sum_ratio / self.call_count,
+            'min_ratio': self.min_ratio,
+            'max_ratio': self.max_ratio
+        }
+    
+    def print_statistics(self):
+        """Print statistics for this module."""
+        stats = self.get_statistics()
+        print(f"\n--- Statistics for module: '{stats['module_name']}' ---")
+        print(f"Total calls: {stats['call_count']}")
+        print(f"Average norm ratio: {stats['avg_ratio']:.6f}")
+        print(f"Min norm ratio: {stats['min_ratio']:.6f}")
+        print(f"Max norm ratio: {stats['max_ratio']:.6f}")
+        print(f"--- End statistics for '{stats['module_name']}' ---\n")
+
 class LogitLensHook:
     def __init__(self, activations_list, layer_idx) -> None:
         self.activations_list = activations_list
@@ -108,52 +121,19 @@ class LogitLensHook:
     def __call__(self, module, inputs, output):
         self.activations_list[self.layer_idx] = output[0].detach()
 
-class StandardLoraMonitorHook:
-    def __init__(self, module_name=""):
-        self.module_name = module_name
-        self.ratios = []
-
-    def __call__(self, module, inputs, output):
-        # The 'output' from a PEFT LoraLayer is already the final, modified output.
-        # We need to re-calculate the original output to find the lora_update.
-        hidden_states = inputs[0]
-        
-        # Get the original, unmodified output of the linear layer
-        unmodified_output = nn.functional.linear(hidden_states, module.weight, module.bias)
-        
-        # The LoRA update is the difference
-        lora_update = output - unmodified_output
-        
-        with torch.no_grad():
-            norm_unmodified_output = torch.linalg.norm(unmodified_output.float())
-            norm_lora_update = torch.linalg.norm(lora_update.float())
-            
-            ratio = (norm_lora_update / norm_unmodified_output).item() if norm_unmodified_output > 0 else 0.0
-        
-        print(f"Module: '{self.module_name}', Original Norm: {norm_unmodified_output:.4f}, Update Norm: {norm_lora_update:.4f}, Ratio: {ratio:.6f}")
-        self.ratios.append(ratio)
-
-    def get_average_ratio(self):
-        if not self.ratios:
-            return 0.0
-        return sum(self.ratios) / len(self.ratios)
-
-def load_mapping_pair(layer_idx, directory, device, dtype):
+def load_svd_pair(layer_idx, directory, device, dtype):
     """
     Loads and processes a single pair of down/up mapping tensors for a given layer.
     This function will be executed by each worker thread.
     """
-    down_path = os.path.join(directory, f"3B_layer_{layer_idx}_down.pt")
-    up_path = os.path.join(directory, f"3B_layer_{layer_idx}_up.pt")
+    svd_path_pre = os.path.join(directory, f"svd_layer_{layer_idx}_pre.pt")
+    svd_path_post = os.path.join(directory, f"svd_layer_{layer_idx}_post.pt")
 
-    down_mapping = torch.load(down_path, map_location=device)
-    up_mapping = torch.load(up_path, map_location=device)
+    svd_pre = torch.load(svd_path_pre, map_location=device)
+    svd_post = torch.load(svd_path_post, map_location=device)
 
-    down_mapping = down_mapping.to(dtype)
-    up_mapping = up_mapping.to(dtype)
-    
     # Return the key and the value to reconstruct the dictionary
-    return layer_idx, (down_mapping, up_mapping)
+    return layer_idx, (svd_pre, svd_post)
 
 def print_output_attn_tokens(attention_matrix, input_tokens, output_tokens, layer_idx, head_idx, output_dir=None, prompt_idx=0):
 
@@ -207,6 +187,11 @@ def main(args):
     print(f"Using device: {args.device}")
     print(f"Using dtype: {args.torch_dtype}")
 
+    # Create scaling config from arguments
+    scaling_config = {
+        "q_proj": args.q_proj_scaling,
+        "v_proj": args.v_proj_scaling
+    }
 
     # --- Determine torch dtype ---
     dtype = getattr(torch, args.torch_dtype) if args.torch_dtype else None
@@ -298,13 +283,12 @@ def main(args):
         print(f"Loading mappings for module '{module}' from '{mapping_dir}'...")
         with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
             future_to_layer = {
-                executor.submit(load_mapping_pair, i, mapping_dir, args.device, dtype): i
+                executor.submit(load_svd_pair, i, mapping_dir, args.device, dtype): i
                 for i in layers_to_graft
             }
             
             for future in concurrent.futures.as_completed(future_to_layer):
                 layer_idx, data = future.result()
-                print(f"Loaded mappings for layer {layer_idx} of module '{module}'")
                 mappings[layer_idx][module] = data
 
     # --- Print Model Architecture ---
@@ -312,6 +296,9 @@ def main(args):
     print(model)
     print("--------------------------\n")
 
+
+    # Store hooks for statistics reporting
+    all_hooks = []
 
     for i in layers_to_graft:
         for module in args.module_map_dict.keys():
@@ -331,17 +318,16 @@ def main(args):
                 selected_scaling = scaling_config["q_proj"]
             elif "v_proj" in module:
                 selected_scaling = scaling_config["v_proj"]
-            else:
-                selected_scaling = 32  # Default scaling factor
 
-            hook = LoraProcHook(
+            hook = LoraSVDHook(
                 lora_A=lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_A.weight'],
                 lora_B=lora_state_dict[f'base_model.model.model.layers.0.{module}.lora_B.weight'],
                 scaling=selected_scaling,
-                proc_down=mappings[i][module][0],
-                proc_up=mappings[i][module][1],
-                module_name=module
+                svd_pre=mappings[i][module][0],
+                svd_post=mappings[i][module][1],
+                module_name=f"layer_{i}_{module}"
             )
+            all_hooks.append(hook)
 
             # Get the target layer using the index i
             if isinstance(model, PeftModel):
@@ -355,7 +341,6 @@ def main(args):
                 module_to_hook = getattr(module_to_hook, part)
             module_to_hook.register_forward_hook(hook)
             
-            print(f"Successfully registered hook for layer {target_layer} on {module_to_hook}")
 
     model.eval() # Set model to evaluation mode
 
@@ -508,59 +493,6 @@ def main(args):
         
         return # Exit after logit lens
 
-    # --- Standard LoRA Monitoring Mode ---
-    if args.monitor_standard_lora:
-        print("\n--- STANDARD LORA MONITORING MODE ---")
-        monitor_hooks = {}
-        
-        # Register monitoring hooks to all LoRA layers
-        for layer_idx, layer in enumerate(model.model.model.layers):
-            # Check for LoRA modules in self_attn
-            if hasattr(layer.self_attn, 'q_proj') and hasattr(layer.self_attn.q_proj, 'lora_A'):
-                hook_name = f"layer_{layer_idx}.self_attn.q_proj"
-                monitor_hooks[hook_name] = StandardLoraMonitorHook(hook_name)
-                layer.self_attn.q_proj.register_forward_hook(monitor_hooks[hook_name])
-                print(f"Registered monitor hook for {hook_name}")
-            
-            if hasattr(layer.self_attn, 'v_proj') and hasattr(layer.self_attn.v_proj, 'lora_A'):
-                hook_name = f"layer_{layer_idx}.self_attn.v_proj"
-                monitor_hooks[hook_name] = StandardLoraMonitorHook(hook_name)
-                layer.self_attn.v_proj.register_forward_hook(monitor_hooks[hook_name])
-                print(f"Registered monitor hook for {hook_name}")
-
-        
-        print(f"Registered {len(monitor_hooks)} monitoring hooks in total.")
-        
-        # Run inference on a small subset for monitoring
-        print("Running monitoring inference on first 5 prompts...")
-        monitor_prompts = prompts[:10]
-        
-        for i, prompt in enumerate(monitor_prompts):
-            print(f"\n--- Processing prompt {i+1}/10 ---")
-            tokenized_inputs = tokenizer(
-                prompt,
-                return_tensors='pt',
-                truncation=True,
-                max_length=args.max_input_length
-            ).to(model.device)
-
-            with torch.no_grad():
-                outputs = model.generate(
-                    input_ids=tokenized_inputs.input_ids,
-                    attention_mask=tokenized_inputs.attention_mask,
-                    max_new_tokens=min(args.max_new_tokens, 10),  # Limit tokens for monitoring
-                    do_sample=False  # Use greedy for consistent monitoring
-                )
-        
-        # Report monitoring results
-        print("\n--- MONITORING RESULTS ---")
-        for hook_name, hook in monitor_hooks.items():
-            avg_ratio = hook.get_average_ratio()
-            print(f"{hook_name}: Average ratio = {avg_ratio:.6f} (from {len(hook.ratios)} calls)")
-        
-        print("Monitoring complete. Exiting.")
-        return
-
     # --- Create DataLoader ---
     dataloader = DataLoader(prompts, batch_size=args.batch_size)
 
@@ -623,6 +555,14 @@ def main(args):
         for pred in all_predictions:
             writer.write({"prediction": pred})
 
+    # Print hook statistics
+    print("\n" + "="*60)
+    print("LORA SVD HOOK STATISTICS SUMMARY")
+    print("="*60)
+    for hook in all_hooks:
+        hook.print_statistics()
+    print("="*60)
+
     print("Inference complete.")
 
 
@@ -636,6 +576,10 @@ if __name__ == "__main__":
     parser.add_argument("--graft_lora_path", type=str, default=None, help="Path to the directory containing the Graft LoRA weights.")
     parser.add_argument("--module_mappings", nargs='+', type=str, help="Mapping of target module to its mapping directory, separated by a colon. Example: 'self_attn.q_proj:/path/to/q_maps' 'self_attn.v_proj:/path/to/v_maps'")
     parser.add_argument("--graft_layers", nargs='+', type=int, default=None, help="List of layer indices to apply Graft LoRA to. If None, applies to None, if == -1 applies to all.")
+    
+    # Scaling Configuration Arguments
+    parser.add_argument("--q_proj_scaling", type=float, default=8.0, help="Scaling factor for q_proj LoRA updates. Default: 8.0")
+    parser.add_argument("--v_proj_scaling", type=float, default=4.0, help="Scaling factor for v_proj LoRA updates. Default: 4.0")
     
     # Data Arguments
     parser.add_argument("--test_file", type=str, required=True, help="Path to the test dataset (JSONL file, expects a 'prefix' key).")
@@ -660,7 +604,6 @@ if __name__ == "__main__":
     parser.add_argument("--visualization_print_argmax_only", action='store_true', help="If set, only prints the argmax attention weights.")
 
     parser.add_argument("--logit_lens", action='store_true', help="If set, performs logit lens analysis and exits.")
-    parser.add_argument("--monitor_standard_lora", action='store_true', help="If set, monitors standard LoRA layer update ratios and exits.")
 
     # Generation Strategy Arguments
     parser.add_argument("--do_sample", action='store_true', help="Use sampling instead of beam search.")

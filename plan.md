@@ -20,9 +20,9 @@
     - [ ] Tied Q
 
 Value dir Q pre
-/pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/1B_with_hook/self_attn.q_proj
+/pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/1B_with_hook/self_attn.q_proj/1B_self_attn.q_proj_pre_layer_0_self_attn_q_proj_pre.pt
 Key dir Q pre
-/pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/3B_with_hook/self_attn.q_proj/pre/scratch/slurm_tmpdir/job_1103951
+/pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/3B_with_hook/self_attn.q_proj/pre/scratch/slurm_tmpdir/job_1103951/3B_self_attn.q_proj_pre_layer_0_self_attn_q_proj_pre.pt
 
 Value dir Q Post
 /pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/1B_with_hook/self_attn.q_proj/post/scratch/slurm_tmpdir/job_1143288

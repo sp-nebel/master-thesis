@@ -8,7 +8,7 @@
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=experiment_job
-#SBATCH --output=logs/experiment_print_test.out
+#SBATCH --output=logs/experiment_dev_2_2.out
 
 
 module load compiler/gnu/14.2
@@ -17,22 +17,24 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-rsync -avhP $HOME/master-thesis/artifacts/xnli_en_test_10.json $TMPDIR/xnli_test.json
+rsync -avhP $HOME/master-thesis/artifacts/xnli_en_test_no_s.json $TMPDIR/xnli_test.json
 
 #rsync -avhP $HOME/master-thesis/run_outputs/models/3B_tied_lora $TMPDIR/
 
-rsync -avhP $HOME/master-thesis/run_outputs/models/1B_tied_v_q $TMPDIR/
+rsync -avhP $HOME/master-thesis/run_outputs/models/1B_tied_vq_no_s $TMPDIR/
 
-rsync -avhP $HOME/master-thesis/run_outputs/proc_align/q_gen_mappings $TMPDIR/
+rsync -avhP $HOME/master-thesis/run_outputs/svds/q_mappings $TMPDIR/
 
-rsync -avhP $HOME/master-thesis/run_outputs/proc_align/v_gen_mappings $TMPDIR/
+rsync -avhP $HOME/master-thesis/run_outputs/svds/v_mappings $TMPDIR/
 
 
-python $HOME/master-thesis/scripts/inference_experiment.py \
+python $HOME/master-thesis/scripts/inference_experiment_svd.py \
     --base_model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
-    --graft_lora_path $TMPDIR/1B_tied_v_q \
-    --module_mappings self_attn.q_proj:$TMPDIR/q_gen_mappings self_attn.v_proj:$TMPDIR/v_gen_mappings \
+    --graft_lora_path $TMPDIR/1B_tied_vq_no_s \
+    --module_mappings self_attn.q_proj:$TMPDIR/q_mappings self_attn.v_proj:$TMPDIR/v_mappings \
     --graft_layers -1 \
+    --q_proj_scaling 2 \
+    --v_proj_scaling 2 \
     --test_file $TMPDIR/xnli_test.json \
     --output_file $TMPDIR/experiment_output.jsonl \
     --batch_size 5 \
@@ -42,6 +44,6 @@ python $HOME/master-thesis/scripts/inference_experiment.py \
 
 python $HOME/master-thesis/scripts/compare_preds.py $TMPDIR/xnli_test.json $TMPDIR/experiment_output.jsonl --key1 "text" --key2 "prediction" --show-mismatches
 
-rsync -avhP $TMPDIR/visualizations $HOME/master-thesis/run_outputs/attn_vis_outputs
+#rsync -avhP $TMPDIR/visualizations $HOME/master-thesis/run_outputs/attn_vis_outputs
 
 deactivate

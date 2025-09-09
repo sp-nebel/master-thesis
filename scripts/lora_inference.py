@@ -107,7 +107,7 @@ def main(args):
         generation_kwargs["top_k"] = args.top_k
         generation_kwargs["top_p"] = args.top_p
 
-    generation_config = GenerationConfig(stop_strings="</s>", **generation_kwargs)
+    generation_config = GenerationConfig(**generation_kwargs)
     print(f"Generation arguments: {generation_kwargs}")
 
     # --- Inference Loop ---

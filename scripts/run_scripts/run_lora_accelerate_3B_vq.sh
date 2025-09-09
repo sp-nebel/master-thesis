@@ -7,8 +7,8 @@
 #SBATCH --gres=gpu:2
 #SBATCH --mail-user=usxcp@student.kit.edu
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=3B_untied_vq
-#SBATCH --output=logs/3B_untied_vq.out
+#SBATCH --job-name=3B_tied_vq
+#SBATCH --output=logs/3B_tied_vq.out
 
 
 module load compiler/gnu/14.2
@@ -17,12 +17,12 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-rsync -avhP $HOME/master-thesis/artifacts/xnli_en_train.json $TMPDIR/xnli_en_train.json
+rsync -avhP $HOME/master-thesis/artifacts/xnli_en_train_no_s.json $TMPDIR/xnli_en_train.json
 
 rsync -avhP $HOME/master-thesis/artifacts/xnli_en_val.json $TMPDIR/xnli_en_val.json
 
 source $HOME/master-thesis/scripts/train_baseline_accelerate_3B_vq.sh
 
-rsync -avhP $TMPDIR/lora_model $HOME/master-thesis/run_outputs/models/3B_untied_v_q
+rsync -avhP $TMPDIR/lora_model $HOME/master-thesis/run_outputs/models/3B_tied_v_q_no_s
 
 deactivate
