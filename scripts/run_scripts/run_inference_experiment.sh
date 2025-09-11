@@ -17,7 +17,7 @@ module load devel/python/3.12.3-gnu-14.2
 
 source $HOME/master-thesis/.env/bin/activate
 
-rsync -avhP $HOME/master-thesis/artifacts/datasets_with_s/xnli_en_test_multi_shot.json $TMPDIR/xnli_test.json
+rsync -avhP $HOME/master-thesis/artifacts/xnli_en_test_no_s.json $TMPDIR/xnli_test.json
 
 #rsync -avhP $HOME/master-thesis/run_outputs/models/3B_tied_v_q $TMPDIR/
 
@@ -40,6 +40,6 @@ python $HOME/master-thesis/scripts/inference_experiment.py \
     --torch_dtype float32 \
     --do_sample \
 
-python $HOME/master-thesis/scripts/compare_preds.py $TMPDIR/xnli_test.json $TMPDIR/experiment_output.jsonl --key1 "text" --key2 "prediction" --show-mismatches
+rsync -avhP $TMPDIR/experiment_output.jsonl $HOME/master-thesis/run_outputs/predictions/experiment_test_multi_shot_with_s_1_output.jsonl
 
 deactivate

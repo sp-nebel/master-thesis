@@ -3,6 +3,43 @@ from matplotlib import pyplot as plt
 import torch
 import os
 
+def find_optimal_rank(S, energy_threshold=0.99):
+    """
+    Finds the optimal rank k that captures a certain percentage of the total energy.
+    Energy is defined as the sum of squared singular values.
+
+    Args:
+        S (torch.Tensor): A 1D tensor of singular values, sorted in descending order.
+        energy_threshold (float): The desired percentage of energy to capture (e.g., 0.99 for 99%).
+
+    Returns:
+        int: The smallest rank k that captures at least the specified energy threshold.
+    """
+    squared_singular_values = S.pow(2)
+    total_energy = torch.sum(squared_singular_values)
+    cumulative_energy = torch.cumsum(squared_singular_values, dim=0)
+    energy_fraction = cumulative_energy / total_energy
+    
+    # Find the first rank where the captured energy exceeds the threshold
+    # torch.where returns a tuple of tensors; we need the first element.
+    # Add 1 because tensor indices are 0-based.
+    optimal_k = torch.where(energy_fraction >= energy_threshold)[0][0].item() + 1
+    
+    return optimal_k
+
+def print_statistics(tensor, name):
+    """Calculates and prints summary statistics for a tensor."""
+    mean_val = tensor.mean().item()
+    std_val = tensor.std().item()
+    min_val = tensor.min().item()
+    max_val = tensor.max().item()
+    
+    print(f"--- Statistics for {name} ---")
+    print(f"Mean:         {mean_val:.4f}")
+    print(f"Std Dev:      {std_val:.4f}")
+    print(f"Min:          {min_val:.4f}")
+    print(f"Max:          {max_val:.4f}\n")
+
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if device.type == 'cuda':
@@ -14,6 +51,8 @@ def main():
 
     print(f"Small matrix shape: {small.shape}")
     print(f"Big matrix shape: {big.shape}")
+    print_statistics(small, "Small Hidden States")
+    print_statistics(big, "Big Hidden States")
 
     # Apply sampling if specified
     if args.samples > 0 and args.samples < small.shape[0]:
@@ -50,11 +89,22 @@ def main():
         plt.close()
         print("Singular value plot saved. Exiting.")
         return
+    
+    # --- CHANGE: Dynamically determine rank if args.rank is 0 ---
+    if args.rank == 0:
+        rank = find_optimal_rank(S, energy_threshold=0.99)
+        print(f"Dynamically determined rank to be {rank} to capture 99% of the energy.")
+    else:
+        rank = args.rank
+        ideal_rank = find_optimal_rank(S, energy_threshold=0.99)
+        print(f"Ideal rank to capture 99% energy: {ideal_rank}")
+        print(f"Using fixed rank: {rank}")
+
 
     # Truncate the singular vectors U and V to the desired rank
-    U_truncated = U[:, :args.rank]
+    U_truncated = U[:, :rank]
     # Vh is V.T, so we get V by transposing Vh
-    V_truncated = Vh.T[:, :args.rank]
+    V_truncated = Vh.T[:, :rank]
     print(f"Truncated U to shape: {U_truncated.shape}")
     print(f"Truncated V to shape: {V_truncated.shape}")
 
@@ -93,7 +143,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compute SVD-based mappings between hidden states.")
     parser.add_argument("small_hidden_states", help="Path to .pt file for small model's hidden states")
     parser.add_argument("big_hidden_states", help="Path to .pt file for big model's hidden states")
-    parser.add_argument("--rank", "-r", type=int, default=1300, help="Rank for SVD truncation (default: 1300)")
+    parser.add_argument("--rank", "-r", type=int, default=1300, help="Rank for SVD truncation. Set to 0 to dynamically find rank for 99%% energy. (default: 1300)")
     parser.add_argument("--samples", "-s", type=int, default=10000, help="Number of samples to use (default: 10000, 0 for all)")
     parser.add_argument("--output_dir", "-o", type=str, required=True, help="Output directory to save mapping files")
     parser.add_argument("--layer", "-l", type=int, required=True, help="Layer number (for file naming)")

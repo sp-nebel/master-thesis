@@ -39,6 +39,12 @@ Value dir V Post
 Key dir V Post
 /pfs/work9/workspace/scratch/ka_usxcp-ws_sascha/hidden_states/3B_with_hook/self_attn.v_proj/post
 
+## Energy ranks
+Q Pre: 53~70
+Q post: 6~25~40
+V pre: 47~60~67
+V Post: 45~65
+
 # Hemmingway bridge
 
 https://ai.plainenglish.io/decoding-an-llms-thoughts-logit-lens-in-just-25-lines-of-code-100c1dbf2ac0

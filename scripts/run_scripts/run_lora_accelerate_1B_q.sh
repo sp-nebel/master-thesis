@@ -23,6 +23,6 @@ rsync -avhP $HOME/master-thesis/artifacts/xnli_en_val.json $TMPDIR/xnli_en_val.j
 
 source $HOME/master-thesis/scripts/train_baseline_accelerate_1B_q.sh
 
-rsync -avhP $TMPDIR/lora_model $HOME/master-thesis/run_outputs/models/1B_tied_q_only
+rsync -avhP $TMPDIR/lora_model/ $HOME/master-thesis/run_outputs/models/1B_tied_q_only
 
 deactivate

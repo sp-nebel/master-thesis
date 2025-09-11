@@ -30,7 +30,7 @@ rsync -avhP $INPUT_FILE_1 $TMPDIR/1B_hidden_states.pt
 
 rsync -avhP $INPUT_FILE_2 $TMPDIR/3B_hidden_states.pt 
 
-python $HOME/master-thesis/scripts/train_svds.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt --layer $LAYER --output_dir $TMPDIR/mappings/
+python $HOME/master-thesis/scripts/train_svds.py $TMPDIR/1B_hidden_states.pt $TMPDIR/3B_hidden_states.pt --layer $LAYER --output_dir $TMPDIR/mappings/ --rank 0
 
 rsync -avhP $TMPDIR/mappings/ $OUTPUT_DIR/
 
